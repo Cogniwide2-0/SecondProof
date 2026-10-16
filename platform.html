@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SecondProof architecture</title>
+<meta name="description" content="Seven layers, one rule set. The LLM thinks, SecondProof engines do the work, and every decision is recorded and signed.">
+<link rel="canonical" href="https://secondproof.ai/platform.html">
+<meta name="theme-color" content="#060A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondProof">
+<meta property="og:title" content="SecondProof architecture · Governed AI testing">
+<meta property="og:description" content="Seven layers, one rule set. The LLM thinks, SecondProof engines do the work, and every decision is recorded and signed.">
+<meta property="og:url" content="https://secondproof.ai/platform.html">
+<meta property="og:image" content="https://secondproof.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondProof architecture · Governed AI testing">
+<meta name="twitter:description" content="Seven layers, one rule set. The LLM thinks, SecondProof engines do the work, and every decision is recorded and signed.">
+<meta name="twitter:image" content="https://secondproof.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>(function(){var t;try{t=localStorage.getItem("sp-theme")}catch(e){}if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+/* Platform · seven layers, the cost model, the trace chain, trust, deployment, open by design */
+.phero{padding-block:96px 72px}
+.phero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.jump{display:flex;gap:8px;flex-wrap:wrap}
+.jump a{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(var(--wsh),.02)}
+.jump a:hover{color:var(--ink);border-color:var(--blue2)}
+.more{display:inline-flex;gap:8px;align-items:center;color:var(--blue2);text-decoration:none;font-weight:600;font-size:15px}
+.dn-t{color:var(--tx-blue)}.up-t{color:var(--tx-amber)}
+/* hero loop strip */
+.loop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:4px}
+.loop span{font:500 12px var(--mono);letter-spacing:.06em;color:var(--ink2);padding:8px 12px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
+.loop i{font-style:normal;color:var(--ink3);font-size:13px}
+.loop span:last-child{border-color:rgba(95,211,154,.45);color:var(--tx-green)}
+@media (prefers-reduced-motion:no-preference){
+  .loop span{animation:lp 6s ease-in-out infinite}
+  .loop span:nth-of-type(2){animation-delay:1.5s}.loop span:nth-of-type(3){animation-delay:3s}.loop span:nth-of-type(4){animation-delay:4.5s}
+  @keyframes lp{0%,22%{border-color:var(--line2);background:rgba(var(--wsh),.03)}6%,16%{border-color:var(--blue2);background:rgba(76,141,255,.16);color:var(--ink)}}
+}
+
+/* ===== layers ===== */
+.lx{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center}
+.lx-st{position:relative;padding-left:44px}
+.lx-end{display:flex;align-items:center;gap:10px;font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:10px 0}
+.lx-end b{font:700 13px var(--body);letter-spacing:0;text-transform:none;color:var(--ink)}
+.lx-end.top b{color:var(--tx-amber)}.lx-end.bot b{color:var(--tx-green)}
+.lx-end::before{content:"";position:absolute;left:12px;width:14px;height:14px;border-radius:50%;border:2px solid var(--amber);background:var(--bg)}
+.lx-end.bot::before{border-color:var(--green)}
+.lx-rail{position:absolute;left:18px;top:22px;bottom:22px;width:2px;background:var(--line)}
+.lx-rail::before,.lx-rail::after{content:"";position:absolute;top:0;bottom:0;width:2px;opacity:.6}
+.lx-rail::before{left:-5px;background:repeating-linear-gradient(180deg,rgba(var(--b2r),.8) 0 5px,transparent 5px 13px)}
+.lx-rail::after{left:5px;background:repeating-linear-gradient(180deg,rgba(245,166,91,.85) 0 5px,transparent 5px 13px)}
+@media (prefers-reduced-motion:no-preference){.lx-rail::before{animation:rdn 1.1s linear infinite}.lx-rail::after{animation:rup 1.1s linear infinite}@keyframes rdn{from{background-position:0 0}to{background-position:0 13px}}@keyframes rup{from{background-position:0 13px}to{background-position:0 0}}}
+.lx-tok{position:absolute;left:19px;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(76,141,255,.35),0 0 26px #4C8DFF;transition:top .8s cubic-bezier(.65,0,.25,1),box-shadow .4s;z-index:2}
+.lx-tok.up{box-shadow:0 0 0 5px rgba(245,166,91,.4),0 0 26px #F5A65B}
+.lx-tok::after{content:attr(data-d);position:absolute;left:24px;top:50%;transform:translateY(-50%);font:700 12px var(--body);color:var(--tx-blue);white-space:nowrap;display:none}
+.lx-l{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 14px 14px 12px;border-top:1px solid var(--line);position:relative;transition:padding .35s,background .35s;border-radius:0}
+.lx-l:last-of-type{border-bottom:1px solid var(--line)}
+.lx-l::before{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(90deg,rgba(76,141,255,.16),transparent 80%);opacity:0;transition:opacity .35s}
+.lx-l.up::before{background:linear-gradient(90deg,rgba(245,166,91,.16),transparent 80%)}
+.lx-l.on::before{opacity:1}
+.lx-l.on{padding-left:22px}
+.lx-l:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.lx-l .n{font:500 12px var(--mono);color:var(--ink3);position:relative}
+.lx-l.on .n{color:var(--blue2)}.lx-l.on.up .n{color:var(--tx-amber)}
+.lx-l b{display:block;font:700 19px/1.2 var(--display);letter-spacing:-.02em;color:var(--ink2);position:relative;transition:color .3s}
+.lx-l.on b{color:var(--ink)}
+.lx-l small{display:block;font-size:13.5px;color:var(--ink3);position:relative}
+.lx-d{position:relative;display:flex;gap:4px;align-items:center}
+.lx-d .a{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font:700 9px var(--display);color:#fff}
+.lx-d .eq{display:inline-flex;gap:3px;align-items:flex-end;height:18px}
+.lx-d .eq i{width:3px;height:40%;border-radius:2px;background:var(--blue2)}
+@media (prefers-reduced-motion:no-preference){.lx-d .eq i{animation:eqz 1s ease-in-out infinite}.lx-d .eq i:nth-child(2){animation-delay:.15s}.lx-d .eq i:nth-child(3){animation-delay:.3s}.lx-d .eq i:nth-child(4){animation-delay:.45s}@keyframes eqz{50%{height:100%}}}
+.lx-d .h{font:500 10.5px var(--mono);color:var(--tx-green)}
+.lx-d .k{font:600 11px var(--body);padding:3px 8px;border-radius:999px;background:rgba(245,166,91,.15);color:var(--tx-amber)}
+.lx-d .z{font:600 11px var(--body);padding:3px 8px;border-radius:999px;background:rgba(76,141,255,.15);color:var(--tx-blue)}
+/* layer panel */
+.lp{position:relative;min-height:470px}
+.lp-top{display:flex;align-items:center;gap:10px;font:500 11.5px var(--mono);letter-spacing:.06em;color:var(--ink3);padding-bottom:14px;border-bottom:1px solid var(--line);min-height:44px}
+.lp-dir{flex:none;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font:700 11px var(--body);letter-spacing:.02em;background:#2E6BEA;color:#fff;transition:background .4s}
+.lp-dir.up{background:#C46A12}
+.lp-log{transition:opacity .25s;color:var(--ink2)}
+.lp-ps{position:relative;min-height:400px}
+.lp-p{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:0;transform:translateX(24px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.lp-p.on{opacity:1;transform:none;pointer-events:auto}
+.lp-p .ey{font:500 12px var(--mono);letter-spacing:.12em;color:var(--blue2)}
+.lp-p h3{font:800 clamp(30px,3.3vw,44px)/1.04 var(--display);letter-spacing:-.03em}
+.lp-p p{font-size:clamp(16px,1.4vw,18px);color:var(--ink2);max-width:460px}
+.lp-who{font-size:14px;font-weight:600;color:var(--ink3)}
+.lp-who.ck{color:var(--tx-amber)}
+.lp-bar{position:absolute;left:0;bottom:-8px;width:220px;height:3px;border-radius:2px;background:rgba(var(--wsh),.08);overflow:hidden}
+.lp-bar i,.tr-bar i,.dp-bar i,.cs-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+/* mini visuals: shared pop-in */
+.mv{margin:4px 0 2px}
+.mv .pp{opacity:0;transform:translateY(6px);transition:opacity .4s,transform .45s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
+.lp-p.on .mv .pp,.tr-p.on .mv .pp{opacity:1;transform:none}
+.mv-chips{display:flex;flex-wrap:wrap;gap:6px;max-width:460px}
+.mv-chips span{font-size:13px;font-weight:600;padding:6px 11px;border-radius:999px;background:rgba(var(--b2r),.1);color:var(--tx-blue)}
+.mv-chips span.v{background:rgba(169,139,255,.14);color:var(--tx-violet)}
+.mv-chips span.a{background:rgba(245,166,91,.15);color:var(--tx-amber)}
+.mv-chips span.g{background:rgba(95,211,154,.14);color:var(--tx-green)}
+.mv small,.mv-note{display:block;font:500 12px var(--mono);color:var(--ink3);margin-top:10px}
+.mv-team{display:flex;gap:6px;flex-wrap:wrap}
+.mv-team span{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;font:700 13px var(--display)}
+.mv-stamp{display:flex;align-items:center;gap:16px}
+.mv-stamp .st{display:inline-grid;place-items:center;padding:6px 12px;border:2.5px solid var(--amber);border-radius:8px;color:var(--tx-amber);font:800 17px var(--display);letter-spacing:.08em;transform:rotate(-7deg) scale(1.6);opacity:0;transition:transform .45s cubic-bezier(.2,1.6,.4,1) .3s,opacity .3s .3s}
+.lp-p.on .mv-stamp .st{transform:rotate(-7deg) scale(1);opacity:1}
+.mv-stamp .au{display:grid;gap:3px;font:500 11.5px var(--mono);color:var(--ink3)}
+.mv-stamp .au b{font:600 13px var(--body);color:var(--ink)}
+.mv-rt{display:grid;grid-template-columns:auto 1fr;gap:6px 0;align-items:center;max-width:420px}
+.mv-rt .in{grid-row:span 4;font:500 11px var(--mono);color:var(--ink2);border:1px dashed var(--line2);border-radius:10px;padding:10px;margin-right:4px}
+.mv-rt span{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink3)}
+.mv-rt span::before{content:"";width:34px;height:2px;border-radius:1px;background:var(--line2)}
+@media (prefers-reduced-motion:no-preference){.mv-rt span{animation:rt 6s infinite}.mv-rt span:nth-of-type(2){animation-delay:1.5s}.mv-rt span:nth-of-type(3){animation-delay:3s}.mv-rt span:nth-of-type(4){animation-delay:4.5s}
+@keyframes rt{0%,24%{color:var(--ink)}25%,100%{color:var(--ink3)}}}
+.mv-rt span.c{color:var(--tx-green)}
+.mv-am{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:14px;font:500 10.5px var(--mono);color:var(--ink3);letter-spacing:.06em}
+.mv-am b{font-weight:500;padding:4px 8px;border:1px solid var(--line2);border-radius:7px;color:var(--ink2)}
+.mv-eng{display:grid;gap:8px;max-width:470px}
+.mv-eng div{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center;font-size:13px;color:var(--ink3)}
+.mv-eng b{font:700 14px var(--display);color:var(--ink)}
+.mv-eng em{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mv-eng i{display:block;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--green));width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 120ms);grid-column:1/-1}
+.lp-p.on .mv-eng i{width:var(--w)}
+.mv-con{display:flex;align-items:center;gap:0;flex-wrap:nowrap;max-width:460px}
+.mv-con .bx{padding:10px 12px;border-radius:12px;border:1px solid var(--line2);font-size:13px;font-weight:600;white-space:nowrap}
+.mv-con .bx small{margin:2px 0 0;font-size:10.5px}
+.mv-con .bx.g{border-color:rgba(95,211,154,.5);background:rgba(95,211,154,.08)}
+.mv-con .ln{flex:1;min-width:40px;height:2px;position:relative;background:repeating-linear-gradient(90deg,var(--green) 0 6px,transparent 6px 12px)}
+.mv-con .ln::after{content:"outbound only";position:absolute;left:50%;top:-20px;transform:translateX(-50%);font:500 10.5px var(--mono);color:var(--tx-green);white-space:nowrap}
+@media (prefers-reduced-motion:no-preference){.mv-con .ln{animation:fl 1s linear infinite}@keyframes fl{from{background-position:0 0}to{background-position:12px 0}}}
+.mv-ev{display:flex;align-items:center;flex-wrap:wrap;gap:0;row-gap:8px}
+.mv-ev .blk{display:grid;gap:1px;padding:8px 11px;border:1px solid rgba(95,211,154,.4);border-radius:10px;background:rgba(95,211,154,.06);font:500 10.5px var(--mono);color:var(--ink3)}
+.mv-ev .blk b{font:600 12.5px var(--body);color:var(--ink)}
+.mv-ev .blk.f{border-color:var(--green);background:rgba(95,211,154,.14)}
+.mv-ev .lk{width:16px;height:2px;background:rgba(95,211,154,.5)}
+@media (max-width:960px){.lx{grid-template-columns:1fr;gap:36px}.lp{min-height:0}.lp-ps{min-height:420px}}
+@media (max-width:560px){.lx-d{display:none}.lx-l{grid-template-columns:28px minmax(0,1fr)}.lp-ps{min-height:460px}.mv-eng div{grid-template-columns:96px 1fr}}
+
+/* ===== cost ===== */
+.cs{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:start}
+.sw{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
+.sw button{position:relative;z-index:1;border:0;background:none;font:600 14.5px var(--body);color:var(--ink2);padding:10px 20px;border-radius:999px;cursor:pointer;transition:color .3s;white-space:nowrap}
+.sw button[aria-pressed="true"]{color:#fff}
+.sw button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.sw>i{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:linear-gradient(90deg,#C2323B,#E0702C);transition:transform .5s cubic-bezier(.65,0,.25,1),background .5s}
+.cs.b .sw>i{transform:translateX(100%);background:linear-gradient(90deg,#2E6BEA,#7C5CF0)}
+.cs-ch{margin-top:30px;position:relative}
+.cs-bars{display:flex;align-items:flex-end;gap:3px;height:var(--H);border-bottom:1px solid var(--line2);position:relative}
+.cs-bars i{flex:1;min-width:0;height:var(--h,2%);border-radius:3px 3px 0 0;background:var(--red);opacity:.85;transform-origin:50% 100%;transform:scaleY(0);transition:transform .35s cubic-bezier(.2,.7,.2,1),background .3s,height .4s;transition-delay:calc(var(--d,0) * 24ms)}
+.cs-bars.go i{transform:scaleY(1)}
+.cs-bars i.t{background:var(--violet);opacity:1}
+.cs-bars i.z{background:var(--green);opacity:.9}
+.cs-ax{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--ink3);margin-top:8px}
+.cs-ch{--H:290px}
+.cs-pin{position:absolute;top:calc(var(--H) * (1 - var(--p)) - 26px);left:var(--x);transform:translateX(-12px);font:600 12px var(--body);color:var(--tx-violet);white-space:nowrap;opacity:0;transition:opacity .4s .9s;display:flex;align-items:center;gap:6px}
+.cs-pin::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--violet);flex:none}
+.cs.b .cs-bars.go~.cs-pin{opacity:1}
+.cs-pin.r{transform:translateX(calc(-100% + 12px));flex-direction:row-reverse}
+.cs-r{display:flex;flex-direction:column;gap:20px}
+.cs-k{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.cs-big{font:800 clamp(56px,6.4vw,88px)/.95 var(--display);letter-spacing:-.045em;color:var(--tx-red);transition:color .4s;font-variant-numeric:tabular-nums}
+.cs.b .cs-big{color:var(--tx-green)}
+.cs-big small{font:600 16px var(--body);letter-spacing:0;color:var(--ink3);margin-left:6px}
+.cs-m{height:8px;border-radius:4px;background:rgba(var(--wsh),.07);overflow:hidden}
+.cs-m i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#E0702C,var(--red));width:0;transition:width 1.3s cubic-bezier(.2,.7,.2,1),background .4s}
+.cs.b .cs-m i{background:linear-gradient(90deg,var(--blue),var(--green))}
+.cs-rr{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.cs-rr div{padding:14px 0 0;display:flex;flex-direction:column;gap:2px}
+.cs-rr div+div{border-left:1px solid var(--line);padding-left:20px}
+.cs-rr b{font:800 26px var(--display);letter-spacing:-.02em}
+.cs-rr small{font-size:13.5px;color:var(--ink3)}
+.cs-u{display:grid;gap:12px}
+.cs-u p{font:600 13px var(--body);color:var(--ink2);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.cs-u .mv-chips{transition:opacity .4s}
+.cs:not(.b) .cs-u .eng{opacity:.45}
+.cs-bar{height:2px;background:rgba(var(--wsh),.06);margin-top:18px;max-width:220px;border-radius:2px;overflow:hidden}
+.pr5{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.pr5 b{font-size:19px!important}.pr5 small{font-size:14.5px!important}
+@media (max-width:1020px){.pr5{grid-template-columns:repeat(3,minmax(0,1fr))!important;row-gap:28px}.pr5>div:nth-child(4){border-left:0;padding-left:0}}
+@media (max-width:560px){.pr5{grid-template-columns:1fr 1fr!important;column-gap:20px}.pr5>div{border-left:0!important;padding:0!important}}
+.ldg{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center;margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
+.ldg h3{font:800 clamp(24px,2.6vw,32px)/1.1 var(--display);letter-spacing:-.025em}
+.ldg .m-nums{grid-template-columns:1fr 1fr;margin-top:22px}
+.ldg-r{display:grid;gap:14px}
+.ldg-r>span{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ldg-r div{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:14.5px;color:var(--ink2)}
+.ldg-r b{font-variant-numeric:tabular-nums;color:var(--ink)}
+.ldg-r .tr{grid-column:1/-1;height:6px;border-radius:3px;background:rgba(var(--wsh),.06);overflow:hidden}
+.ldg-r .tr i{display:block;height:100%;border-radius:3px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.ldg-r.in .tr i{width:var(--w)}
+@media (max-width:960px){.cs,.ldg{grid-template-columns:1fr;gap:36px}}
+@media (max-width:560px){.cs-ax span:nth-child(2){display:none}.cs-ch{--H:160px}.cs-bars{gap:2px}.sw button{padding:10px 14px;font-size:13.5px}.cs-pin{font-size:11px}}
+
+/* ===== trace ===== */
+.tr-c{position:relative;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));margin-top:8px}
+.tr-c::before{content:"";position:absolute;left:calc(100%/14);right:calc(100%/14);top:28px;height:2px;background:var(--line2)}
+.tr-fill{position:absolute;left:calc(100%/14);top:28px;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--green));transition:width .8s cubic-bezier(.65,0,.25,1)}
+.tr-dot{position:absolute;top:29px;left:calc(100%/14);width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(76,141,255,.35),0 0 24px #4C8DFF;transition:left .8s cubic-bezier(.65,0,.25,1);z-index:0}
+.tr-c.back .tr-dot{box-shadow:0 0 0 5px rgba(245,166,91,.4),0 0 24px #F5A65B}
+.tr-n{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;position:relative;z-index:1;min-width:0}
+.tr-n:focus-visible{outline:2px solid var(--blue2);outline-offset:4px;border-radius:12px}
+.tr-n .o{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:600 10.5px var(--mono);letter-spacing:.04em;color:var(--ink2);background:var(--bg);border:1.5px solid var(--line2);transition:all .4s}
+.tr-n.done .o{border-color:rgba(var(--b2r),.55);color:var(--tx-blue)}
+.tr-n.on .o{background:#2E6BEA;border-color:transparent;color:#fff;transform:scale(1.12);box-shadow:0 10px 30px rgba(46,107,234,.45)}
+.tr-n:last-child.on .o{background:#16824F;box-shadow:0 10px 30px rgba(22,130,79,.45)}
+.tr-n b{font:700 15px/1.2 var(--display);color:var(--ink3);transition:color .3s}
+.tr-n.on b,.tr-n.done b{color:var(--ink)}
+.tr-h{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:44px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.tr-h .cs-k{display:flex;align-items:center;gap:10px}
+.tr-back{border:1px solid var(--line2);background:rgba(var(--wsh),.03);color:var(--ink);font:600 13.5px var(--body);padding:9px 14px;border-radius:999px;cursor:pointer}
+.tr-back[aria-pressed="true"]{border-color:rgba(245,166,91,.6);background:rgba(245,166,91,.12);color:var(--tx-amber)}
+.tr-back:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.tr-ps{position:relative;min-height:220px;margin-top:26px}
+.tr-p{position:absolute;inset:0;display:grid;align-content:start;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start;opacity:0;transform:translateY(14px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.tr-p.on{opacity:1;transform:none;pointer-events:auto}
+.tr-id{font:800 clamp(40px,5vw,68px)/.95 var(--display);letter-spacing:-.04em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
+.tr-p h3{font:700 22px/1.2 var(--display);margin-top:8px}
+.tr-p p{color:var(--ink2);font-size:16.5px;margin-top:6px;max-width:460px}
+.tr-up{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:16px;font:500 11.5px var(--mono);color:var(--ink3)}
+.tr-up span{padding:4px 8px;border-radius:7px;border:1px solid var(--line2);color:var(--ink2)}
+.tr-doc{max-width:360px;padding:16px 18px;border-radius:14px;background:rgba(var(--wsh),.04);border:1px solid var(--line)}
+.tr-doc b{font-size:13px;display:block;margin-bottom:8px}
+.tr-doc i{display:block;height:5px;border-radius:3px;background:rgba(var(--b2r),.25);margin-top:7px}
+.tr-doc i.s{width:60%}
+.tr-doc em{display:block;font-style:normal;font-size:13.5px;color:var(--ink);margin-top:8px;padding:6px 8px;border-radius:6px;background:rgba(245,166,91,.16);box-shadow:inset 3px 0 0 var(--amber)}
+.tr-steps{display:grid;gap:8px;max-width:380px}
+.tr-steps span{font-size:14px;color:var(--ink2);display:flex;gap:10px;align-items:baseline}
+.tr-steps span::before{content:"✓";color:var(--green);font-weight:700}
+.tr-log{display:grid;gap:3px;padding:12px 14px;border-radius:12px;background:#0B1226;max-width:420px}
+.tr-log code{font:12.5px var(--mono);color:#C9D6F5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tr-log code.x{color:#FF9DA1}
+.tr-log small{color:#7C89A8;margin-top:6px}
+.tr-def{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:12px;border-left:4px solid var(--red);background:rgba(255,122,127,.08);max-width:380px}
+.tr-def b{font-size:14px;color:var(--tx-red)}.tr-def span{font-size:14px;color:var(--ink2)}
+.tr-run span{display:block;max-width:360px;height:10px;border-radius:6px;background:rgba(var(--wsh),.07);overflow:hidden}
+.tr-run i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width 1.8s linear}
+.tr-p.on .tr-run i{width:100%}
+.tr-run .bd{display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;font:600 12px var(--body);background:rgba(245,166,91,.15);color:var(--tx-amber);transition:background .4s 1.7s,color .4s 1.7s}
+.tr-p.on .tr-run .bd{background:rgba(95,211,154,.15);color:var(--tx-green)}
+.tr-gate{display:flex;flex-wrap:wrap;gap:8px;max-width:380px}
+.tr-gate span{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:15px;background:rgba(95,211,154,.14);color:var(--tx-green)}
+.tr-gate span.w{background:rgba(245,166,91,.16);color:var(--tx-amber)}
+.tr-go{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.tr-go .stamp{display:inline-grid;place-items:center;width:84px;height:52px;border:3px solid var(--green);border-radius:10px;color:var(--green);font:800 24px var(--display);letter-spacing:.06em;transform:rotate(-8deg) scale(1.6);opacity:0;transition:transform .45s cubic-bezier(.2,1.6,.4,1) .25s,opacity .3s .25s}
+.tr-p.on .tr-go .stamp{transform:rotate(-8deg) scale(1);opacity:1}
+.tr-go .sg{display:grid;gap:4px;font-size:14px;color:var(--ink2)}
+.tr-go .sg span::before{content:"✓ ";color:var(--green);font-weight:700}
+.tr-bar{height:2px;background:rgba(var(--wsh),.06);width:160px;border-radius:2px;overflow:hidden}
+@media (max-width:860px){.tr-n b{font-size:12px}.tr-p{grid-template-columns:1fr;gap:22px}.tr-ps{min-height:440px}}
+@media (max-width:560px){.tr-n .o{width:38px;height:38px;font-size:8.5px;letter-spacing:0}.tr-c::before,.tr-fill{top:19px}.tr-dot{top:20px}.tr-n b{display:none}.tr-ps{min-height:400px}}
+
+/* ===== trust ===== */
+.ts-lead{display:flex;align-items:center;gap:22px;padding:26px 0;border-block:1px solid var(--line);margin-bottom:8px}
+.ts-lead svg{width:44px;height:44px;flex:none;color:var(--green)}
+.ts-lead b{display:block;font:800 clamp(24px,3vw,36px)/1.1 var(--display);letter-spacing:-.03em}
+.ts-lead small{display:block;font-size:16px;color:var(--ink2);margin-top:4px}
+.ts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.ts>div{display:grid;grid-template-columns:28px minmax(0,1fr);gap:4px 14px;padding:26px 28px 26px 0;border-bottom:1px solid var(--line)}
+.ts>div:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.ts svg{width:22px;height:22px;margin-top:3px;grid-row:span 2}
+.ts b{font:700 18px/1.25 var(--display);letter-spacing:-.015em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ts small{font-size:14.5px;color:var(--ink2);line-height:1.5}
+.ts .i-b{color:var(--blue2)}.ts .i-a{color:var(--amber)}.ts .i-g{color:var(--green)}.ts .i-v{color:var(--violet)}
+@media (max-width:900px){.ts{grid-template-columns:1fr 1fr}.ts>div{padding-left:0!important;border-left:0!important;padding-right:20px}.ts>div:nth-child(2n){padding-left:20px!important;border-left:1px solid var(--line)!important}}
+@media (max-width:560px){.ts{grid-template-columns:1fr}.ts>div:nth-child(2n){padding-left:0!important;border-left:0!important}}
+
+/* ===== deploy ===== */
+.dp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.dp-sw{display:inline-flex;flex-wrap:wrap;gap:4px;padding:5px;border-radius:16px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
+.dp-sw button{border:0;background:none;font:600 14px var(--body);color:var(--ink2);padding:9px 14px;border-radius:11px;cursor:pointer;transition:background .3s,color .3s;white-space:nowrap}
+.dp-sw button[aria-pressed="true"]{background:#2E6BEA;color:#fff;box-shadow:0 8px 22px rgba(46,107,234,.35)}
+.dp-sw button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.dp-ps{display:grid;margin-top:26px}
+.dp-p{grid-area:1/1;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.dp-p.on{opacity:1;transform:none;pointer-events:auto}
+.dp-p .k{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tx-amber)}
+.dp-p h3{font:800 clamp(28px,3vw,40px)/1.05 var(--display);letter-spacing:-.03em}
+.dp-p p{color:var(--ink2);font-size:17px;max-width:440px}
+.dp-p .tk{display:flex;gap:8px;flex-wrap:wrap}
+.dp-p .tk span{font-size:13.5px;font-weight:600;padding:7px 12px;border-radius:999px;background:rgba(95,211,154,.13);color:var(--tx-green)}
+.dp-p .tk span::before{content:"✓ "}
+.dp-bar{height:2px;background:rgba(var(--wsh),.06);width:200px;margin-top:22px;border-radius:2px;overflow:hidden}
+.dpv svg{width:100%;height:auto;display:block}
+.dpv .zone{fill:rgba(var(--wsh),.02);stroke:var(--line2);stroke-dasharray:5 5}
+.dpv .zr{fill:rgba(76,141,255,.06);stroke:rgba(76,141,255,.45);transition:fill .5s,stroke .5s}
+.dpv .bnd{fill:none;stroke:var(--green);stroke-width:1.5;stroke-dasharray:8 6;opacity:0;transition:opacity .6s}
+.dpv .bndt{opacity:0;transition:opacity .6s;fill:var(--tx-green)}
+.dpv[data-m="2"] .bnd,.dpv[data-m="3"] .bnd,.dpv[data-m="2"] .bndt,.dpv[data-m="3"] .bndt{opacity:1}
+.dpv[data-m="2"] .zr,.dpv[data-m="3"] .zr{fill:rgba(95,211,154,.06);stroke:rgba(95,211,154,.5)}
+.dpv .nd{fill:var(--surface);stroke:var(--line2)}
+.dpv .rn{fill:rgba(95,211,154,.12);stroke:var(--green);stroke-width:1.5}
+.dpv .fw{fill:rgba(255,122,127,.12);stroke:rgba(255,122,127,.6)}
+.dpv text{font-family:var(--body);font-size:13px;fill:var(--ink)}
+.dpv .s{font-family:var(--mono);font-size:10px;fill:var(--ink3);letter-spacing:.08em}
+.dpv .sl{fill:var(--tx-blue)}
+.dpv .lo{stroke:rgba(var(--b2r),.55);stroke-width:1.5;stroke-dasharray:4 6;fill:none}
+.dpv .out{stroke:var(--green);stroke-width:2.5;stroke-dasharray:6 8;fill:none}
+.dpv .inb{stroke:rgba(255,122,127,.6);stroke-width:1.5;stroke-dasharray:3 5;fill:none}
+.dpv .tl{transition:opacity .5s}
+.dpv .tl rect{fill:rgba(var(--wsh),.03);stroke:var(--line2);transition:fill .5s,stroke .5s}
+.dpv .tl.me rect{fill:rgba(76,141,255,.16);stroke:rgba(76,141,255,.6)}
+.dpv .tl.k rect{fill:rgba(245,166,91,.12);stroke:rgba(245,166,91,.6)}
+.dpv .tl.hide{opacity:0}
+.dpv .tl.dim{opacity:.5}
+.dpv .md rect{transition:fill .5s,stroke .5s}
+.dpv[data-m="3"] .md rect{fill:rgba(95,211,154,.16);stroke:var(--green)}
+.dpv .pkt{fill:var(--green)}
+@media (prefers-reduced-motion:no-preference){.dpv .out{animation:dfl 1s linear infinite}.dpv .lo{animation:dfl 1.6s linear infinite reverse}@keyframes dfl{to{stroke-dashoffset:-28}}.dpv .pkt{animation:pkt 2.2s linear infinite}@keyframes pkt{from{transform:translateX(0);opacity:1}90%{opacity:1}to{transform:translateX(44px);opacity:0}}}
+.rn5{margin-top:56px!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.rn5 b{font-size:18px!important}.rn5 small{font-size:14.5px!important}
+.rn5-h{margin-top:56px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.rn5-h h3{font:800 clamp(24px,2.6vw,32px)/1.1 var(--display);letter-spacing:-.025em}
+.rn5-h+.rn5{margin-top:24px!important}
+@media (max-width:1020px){.rn5{grid-template-columns:repeat(3,minmax(0,1fr))!important;row-gap:28px}.rn5>div:nth-child(4){border-left:0;padding-left:0}}
+@media (max-width:560px){.rn5{grid-template-columns:1fr!important}.rn5>div{border-left:0!important;padding-left:0!important}}
+@media (max-width:960px){.dp{grid-template-columns:1fr;gap:32px}.dpv{order:2}}
+@media (max-width:560px){.dpv{overflow-x:auto;margin-inline:-16px;padding-inline:16px}.dpv svg{min-width:560px}}
+
+/* ===== open ===== */
+.op{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.op .m-row{cursor:default;grid-template-columns:44px minmax(0,1fr)}.op .m-row:hover{padding-left:0}
+.op .m-row:last-child{border-bottom:1px solid var(--line)}
+.op .m-row b{font-size:21px}
+.win{background:linear-gradient(180deg,rgba(var(--s2),.92),rgba(var(--s1),.95));border:1px solid var(--line2);border-radius:20px;box-shadow:0 30px 80px var(--shadow);overflow:hidden;min-width:0}
+.win-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.win-h b{font-size:15px;font-family:var(--display);font-weight:700}
+.win-h small{display:block;color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--ink2);overflow-x:auto;white-space:pre}
+.code .k{color:var(--tx-blue)}.code .s{color:var(--tx-green)}.code .n{color:var(--tx-amber)}.code .c{color:var(--ink3)}
+.copyb{height:32px;padding:0 12px;border-radius:9px;border:1px solid var(--line2);background:rgba(var(--wsh),.04);color:var(--ink);font-family:var(--body);font-size:13px;cursor:pointer}
+.mono{font-family:var(--mono);font-size:11.5px;color:var(--ink3)}
+@media (max-width:960px){.op{grid-template-columns:1fr;gap:36px}}
+
+@media (prefers-reduced-motion:reduce){.pf *,.pf *::before,.pf *::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body data-page="platform">
+<header id="vf-header"></header>
+
+<section class="phero">
+  <canvas data-constellation aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="crumbs"><a href="./">Home</a> / Platform</span>
+    <span class="eyebrow">Architecture</span>
+    <h1>Seven layers.<br><span class="grad">One signed answer.</span></h1>
+    <p class="lede">AI agents draft. SecondProof engines test your live app. People sign. We never need your code.</p>
+    <div class="loop" aria-label="The SecondProof loop"><span>Requirements</span><i>→</i><span>Gap analysis</span><i>→</i><span>Build verification</span><i>→</i><span>Go / No-go</span></div>
+    <div class="acts"><a class="btn primary" href="value.html#contact">Book an architecture session <span class="arr">→</span></a><a class="btn ghost" href="#trust">Security and trust</a></div>
+    <nav class="jump" aria-label="On this page"><a href="#layers">Layers</a><a href="#cost">Cost model</a><a href="#trace">Trace chain</a><a href="#trust">Trust</a><a href="#deploy">Deployment</a><a href="#open">Open by design</a></nav>
+  </div>
+</section>
+
+<div class="pf">
+<section class="m-sec" id="layers">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Layered architecture</p><h2>Decisions flow <span class="dn-t">down</span>.<br>Evidence flows <span class="up-t">up</span>.</h2><p>Nothing reaches an engine without governance. Nothing reaches a person without evidence.</p></div>
+    <div class="lx rv" id="lx">
+      <div class="lx-st" role="tablist" aria-label="Architecture layers">
+        <div class="lx-rail" aria-hidden="true"></div><i class="lx-tok" aria-hidden="true"></i>
+        <div class="lx-end top">People <b>approve and sign</b></div>
+        <button type="button" class="lx-l" role="tab" data-l="0"><span class="n">01</span><span><b>Workspaces</b><small>A home for every role</small></span><span class="lx-d"><span class="k">Inbox</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="1"><span class="n">02</span><span><b>AI QA team</b><small>8 agents plus specialists</small></span><span class="lx-d"><span class="a" style="background:#2E6BEA">BA</span><span class="a" style="background:#7C5CF0">TD</span><span class="a" style="background:#16824F">TE</span><span class="a" style="background:#C46A12">VR</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="2"><span class="n">03</span><span><b>Orchestration and governance</b><small>Approvals, policies, audit</small></span><span class="lx-d"><span class="k">◆ Approval</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="3"><span class="n">04</span><span><b>Intelligence</b><small>Model router and application model</small></span><span class="lx-d"><span class="h" style="color:var(--tx-violet)">in-region</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="4"><span class="n">05</span><span><b>SecondProof engines</b><small>Every test, on the live app</small></span><span class="lx-d"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="z">0 credits</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="5"><span class="n">06</span><span><b>Connect</b><small>Your tools and private systems</small></span><span class="lx-d"><span class="h">outbound only</span></span></button>
+        <button type="button" class="lx-l" role="tab" data-l="6"><span class="n">07</span><span><b>Evidence store</b><small>Versioned, traced, signed</small></span><span class="lx-d"><span class="h">sha · c47d…0a</span></span></button>
+        <div class="lx-end bot">Your systems <b>live app only, no code</b></div>
+      </div>
+      <div class="lp" aria-live="polite">
+        <div class="lp-top"><span class="lp-dir">↓ Decision</span><span class="lp-log">Release 2.4 · 01/10 · QA lead asks for a regression run</span></div>
+        <div class="lp-ps">
+          <div class="lp-p" data-l="0"><span class="ey">LAYER 01</span><h3>Workspaces</h3><p>Role-based homes. Menus, buttons and data follow your role.</p>
+            <div class="mv"><div class="mv-chips"><span class="pp" style="--d:0">QA lead</span><span class="pp" style="--d:1">Analyst</span><span class="pp" style="--d:2">Engineers</span><span class="pp" style="--d:3">Executive</span><span class="pp" style="--d:4">UAT tester</span><span class="pp" style="--d:5">Auditor</span><span class="pp v" style="--d:6">Ask SecondProof</span><span class="pp a" style="--d:7">Inbox · 3 to approve</span></div></div>
+            <span class="lp-who ck">◆ Decisions start and end here</span></div>
+          <div class="lp-p" data-l="1"><span class="ey">LAYER 02</span><h3>AI QA team</h3><p>Eight agents plus specialists. They draft, and run approved plans.</p>
+            <div class="mv"><div class="mv-team"><span class="pp" style="--d:0;background:#2E6BEA" title="Business Analyst">BA</span><span class="pp" style="--d:1;background:#7C5CF0" title="Test Designer">TD</span><span class="pp" style="--d:2;background:#16824F" title="Tester">TE</span><span class="pp" style="--d:3;background:#C46A12" title="Verifier">VR</span><span class="pp" style="--d:4;background:#C2323B" title="Defect Manager">DM</span><span class="pp" style="--d:5;background:#4C8DFF" title="Automation Engineer">AE</span><span class="pp" style="--d:6;background:#C46A12" title="Performance Engineer">PE</span><span class="pp" style="--d:7;background:#16824F" title="Release Manager">RM</span></div>
+              <div class="mv-chips" style="margin-top:12px"><span class="pp v" style="--d:8">+ Apps, Workstation, AI and Data specialists</span><span class="pp v" style="--d:9">+ 6 pack specialists</span></div></div>
+            <span class="lp-who ck">◆ Drafts only. AI never signs.</span></div>
+          <div class="lp-p" data-l="2"><span class="ey">LAYER 03</span><h3>Orchestration and governance</h3><p>Every agent action passes here first, and is written down.</p>
+            <div class="mv"><div class="mv-stamp"><span class="st">APPROVED</span><span class="au"><b>Test plan · 212 cases</b>QA lead · 10:42 · audit #8841</span></div>
+              <div class="mv-chips" style="margin-top:14px"><span class="pp a" style="--d:2">Approvals</span><span class="pp a" style="--d:3">Policies</span><span class="pp a" style="--d:4">Autonomy limits</span><span class="pp a" style="--d:5">Credits and budgets</span><span class="pp a" style="--d:6">Audit chain</span></div></div>
+            <span class="lp-who ck">◆ Your approvers hold the keys</span></div>
+          <div class="lp-p" data-l="3"><span class="ey">LAYER 04</span><h3>Intelligence</h3><p>The right model for each job, and a living model of your app.</p>
+            <div class="mv"><div class="mv-rt"><span class="in">AI task</span><span>In-region models</span><span>Your own models</span><span class="c">Cache · 0 credits</span><span>Small models for classification</span></div>
+              <div class="mv-am" aria-label="Application model"><b>REQUIREMENT</b>—<b>SCREEN</b>—<b>TEST</b>—<b>RESULT</b>—<b>DEFECT</b></div></div>
+            <span class="lp-who">Model region follows hosting</span></div>
+          <div class="lp-p" data-l="4"><span class="ey">LAYER 05</span><h3>SecondProof engines</h3><p>Proprietary engines run every test on the live app. 0 AI credits.</p>
+            <div class="mv"><div class="mv-eng"><div><b>Apps</b><em>web, mobile, API</em><i style="--w:96%;--d:0"></i></div><div><b>Workstation</b><em>Windows, Citrix, VDI, terminal</em><i style="--w:70%;--d:1"></i></div><div><b>AI</b><em>chatbots, RAG, agents, red team</em><i style="--w:82%;--d:2"></i></div><div><b>Data</b><em>reconciliation, quality, masking</em><i style="--w:64%;--d:3"></i></div><div><b>Enterprise</b><em>SAP, Oracle, Salesforce, ServiceNow, Dynamics 365, Workday</em><i style="--w:88%;--d:4"></i></div></div>
+              <div class="mv-chips" style="margin-top:12px"><span class="pp" style="--d:5">Load</span><span class="pp" style="--d:6">Security scan</span><span class="pp" style="--d:7">Accessibility</span></div></div>
+            <span class="lp-who">One engine family per product line</span></div>
+          <div class="lp-p" data-l="5"><span class="ey">LAYER 06</span><h3>Connect</h3><p>Your tools, private systems and devices, reached safely.</p>
+            <div class="mv"><div class="mv-con"><span class="bx g">SecondProof Runner<small>inside your network</small></span><span class="ln" aria-hidden="true"></span><span class="bx">SecondProof<small>your region</small></span></div>
+              <div class="mv-chips" style="margin-top:14px"><span class="pp" style="--d:0">Jira</span><span class="pp" style="--d:1">Azure DevOps</span><span class="pp" style="--d:2">GitHub</span><span class="pp" style="--d:3">Jenkins</span><span class="pp" style="--d:4">ServiceNow</span><span class="pp" style="--d:5">Device farms</span><span class="pp a" style="--d:6">Vault</span></div></div>
+            <span class="lp-who">No inbound firewall rules</span></div>
+          <div class="lp-p" data-l="6"><span class="ey">LAYER 07</span><h3>Evidence store</h3><p>Versioned, traced and signed. Records cannot be changed once written.</p>
+            <div class="mv"><div class="mv-ev" aria-label="Chain of signed Evidence Packs"><span class="blk pp" style="--d:0"><b>Gap analysis v3</b>sha · 9f3a…c1</span><span class="lk pp" style="--d:1"></span><span class="blk pp" style="--d:2"><b>Build 2.4.9 verified</b>sha · 2be0…7d</span><span class="lk pp" style="--d:3"></span><span class="blk pp" style="--d:4"><b>Quality gates</b>sha · c47d…0a</span><span class="lk pp" style="--d:5"></span><span class="blk f pp" style="--d:6"><b>Release 2.4 · Go</b>Evidence Pack</span></div></div>
+            <span class="lp-who">Auditors can verify every pack</span></div>
+        </div>
+        <div class="lp-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="cost">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">The LLM thinks, engines do the work</p><h2>Pay to think once.<br>Not for every click.</h2><p>Other tools ask a model to reason through every step of every run. We don’t.</p></div>
+    <div class="cs rv" id="cs">
+      <div>
+        <div class="sw" role="group" aria-label="Compare cost models"><button type="button" data-v="a" aria-pressed="true">AI on every click</button><button type="button" data-v="b" aria-pressed="false">SecondProof</button><i aria-hidden="true"></i></div>
+        <div class="cs-ch">
+          <div class="cs-bars" aria-hidden="true"></div>
+          <span class="cs-pin" style="--x:1%;--p:.92">AI thinks once</span>
+          <span class="cs-pin r" style="--x:36%;--p:.13">new failure triaged</span>
+          <div class="cs-ax"><span>Run 1</span><span>Same suite · 50 regression runs · illustrative</span><span>Run 50</span></div>
+        </div>
+      </div>
+      <div class="cs-r">
+        <div><span class="cs-k">AI credits used, 50 runs</span><div class="cs-big"><span id="csN">0</span><small>credits</small></div></div>
+        <div class="cs-m"><i></i></div>
+        <div class="cs-rr"><div><b id="csRe">~100</b><small>credits per re-run</small></div><div><b id="csZ">0 %</b><small>of steps at 0 credits</small></div></div>
+        <div class="cs-u">
+          <div><p><span class="tag t-violet">AI</span>Thinks</p><div class="mv-chips"><span class="v">Understands documents and apps</span><span class="v">Generates tests once</span><span class="v">Triages new failures</span><span class="v">Change impact</span></div></div>
+          <div class="eng"><p><span class="tag t-blue">0 credits</span>Engines do</p><div class="mv-chips"><span>Every run and retry</span><span>Rule-based repair</span><span>Metrics, diffs, gates</span><span>Cached answers</span></div></div>
+        </div>
+        <div class="cs-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+    <div class="m-cols pr5 stg">
+      <div><span class="m-n">01</span><b>Write once, run free</b><small>AI writes it once. Engines replay it.</small></div>
+      <div><span class="m-n">02</span><b>Rules before reasoning</b><small>AI only when rules can’t decide.</small></div>
+      <div><span class="m-n">03</span><b>Cache</b><small>Same question, same evidence: 0 credits.</small></div>
+      <div><span class="m-n">04</span><b>Small models, small jobs</b><small>Fast models classify and check.</small></div>
+      <div><span class="m-n">05</span><b>A budget per action</b><small>Estimated first. Budgets warn or block.</small></div>
+    </div>
+    <div class="ldg rv">
+      <div><h3>The intelligence ledger shows the split.</h3><p class="muted" style="margin-top:10px">Every run: engine work, AI decisions, cache, cost. Everyone sees credits. Only admins see money.</p>
+        <div class="m-nums"><div><b class="grad"><span data-count="98" data-suffix=" %">98 %</span></b><small>of steps at 0 credits</small></div><div><b class="grad"><span data-count="0">0</span></b><small>credits per re-run</small></div></div></div>
+      <div class="ldg-r" id="ldg"><span>Intelligence ledger · Release 2.4 · demo workspace</span>
+        <div>Steps run by engines<b>18,420 · 0 cr</b><span class="tr"><i style="--w:100%;background:var(--blue)"></i></span></div>
+        <div>Answers reused from cache<b>1,240 · 0 cr</b><span class="tr"><i style="--w:22%;background:var(--green)"></i></span></div>
+        <div>AI decisions<b>312</b><span class="tr"><i style="--w:7%;background:var(--violet)"></i></span></div>
+        <div>Escalated to AI after rules<b>41</b><span class="tr"><i style="--w:2%;background:var(--amber)"></i></span></div>
+      </div>
+    </div>
+    <p class="fine">Example figures from the demo workspace, not customer results.</p>
+  </div>
+</section>
+
+<section class="m-sec" id="trace">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Trace chain</p><h2>Requirement to go/no-go.<br>Every link kept.</h2><p>An auditor can start at a signature and walk back to the sentence in the BRD.</p></div>
+    <div class="rv" id="tr">
+      <div class="tr-c" role="tablist" aria-label="Trace chain">
+        <span class="tr-fill" aria-hidden="true"></span><span class="tr-dot" aria-hidden="true"></span>
+        <button type="button" class="tr-n" role="tab"><span class="o">REQ</span><b>Requirement</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">TC</span><b>Test case</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">RUN</span><b>Test run</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">DEF</span><b>Defect</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">BUILD</span><b>Build verification</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">GATE</span><b>Gate</b></button>
+        <button type="button" class="tr-n" role="tab"><span class="o">GO</span><b>Go / No-go</b></button>
+      </div>
+      <div class="tr-h"><span class="cs-k">Record <span class="tr-bar" aria-hidden="true"><i></i></span></span><button type="button" class="tr-back" aria-pressed="false">← Walk back from the signature</button></div>
+      <div class="tr-ps" aria-live="polite">
+        <div class="tr-p"><div><div class="tr-id">REQ-041</div><h3>Requirement</h3><p>Sourced to the line it came from.</p><div class="tr-up">Source <span>BRD v1.1 · page 14</span></div></div>
+          <div class="mv"><div class="tr-doc pp"><b>BRD v1.1 · page 14</b><i></i><i class="s"></i><em>Transfers above the daily limit need a second approver.</em><i></i><i class="s"></i></div></div></div>
+        <div class="tr-p"><div><div class="tr-id">TC-128</div><h3>Test case</h3><p>In the approved test pack.</p><div class="tr-up">Links <span>REQ-041</span></div></div>
+          <div class="mv"><div class="tr-steps"><span class="pp" style="--d:0">Sign in as maker</span><span class="pp" style="--d:1">Transfer AED 60,000, above the limit</span><span class="pp" style="--d:2">Expect: second approver requested</span><small class="pp" style="--d:3">Approved by the QA lead</small></div></div></div>
+        <div class="tr-p"><div><div class="tr-id">RUN-212</div><h3>Test run</h3><p>Every step with its screenshot and log.</p><div class="tr-up">Links <span>REQ-041</span><span>TC-128</span></div></div>
+          <div class="mv"><div class="tr-log"><code>step 3 ▸ click “Confirm transfer”</code><code>step 3 ▸ screenshot saved</code><code class="x">step 3 ▸ expected approval, got “Posted” ✕</code><small>Build 2.4.8 · SecondProof engines · 0 AI credits</small></div></div></div>
+        <div class="tr-p"><div><div class="tr-id">DEF-031</div><h3>Defect</h3><p>Verified, approved, synced to Jira.</p><div class="tr-up">Links <span>REQ-041</span><span>TC-128</span><span>RUN-212</span></div></div>
+          <div class="mv"><div class="tr-def pp"><b>DEF-031 · High</b><span>Limit bypassed on retry</span><small>Re-checked by the Verifier · evidence attached</small></div></div></div>
+        <div class="tr-p"><div><div class="tr-id">2.4.9</div><h3>Build verification</h3><p>Test cases re-run on the new build.</p><div class="tr-up">Links <span>TC-128</span><span>DEF-031</span></div></div>
+          <div class="mv"><div class="tr-run"><span><i></i></span><small>12 of 12 re-run · 0 AI credits</small><b class="bd">DEF-031 fixed · Passed</b></div></div></div>
+        <div class="tr-p"><div><div class="tr-id">GATE</div><h3>Quality gate</h3><p>Every check measured, or waived with a reason.</p><div class="tr-up">Links <span>2.4.9</span><span>212 runs</span><span>DEF-031</span></div></div>
+          <div class="mv"><div class="tr-gate"><span class="pp" style="--d:0">✓</span><span class="pp" style="--d:1">✓</span><span class="pp" style="--d:2">✓</span><span class="pp" style="--d:3">✓</span><span class="pp" style="--d:4">✓</span><span class="pp w" style="--d:5">!</span></div><small>5 met · 1 waived, reason recorded</small></div></div>
+        <div class="tr-p"><div><div class="tr-id">GO</div><h3>Go / No-go</h3><p>Named approvers sign, with the Evidence Pack.</p><div class="tr-up">Links <span>GATE</span><span>EP-2.4</span><span>… back to REQ-041</span></div></div>
+          <div class="mv"><div class="tr-go"><span class="stamp">GO</span><div class="sg"><span>Business</span><span>QA</span><span>Security</span></div></div><small>Signed by 3 · Evidence Pack EP-2.4</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="trust">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Trust and security</p><h2>Built for banks, governments and regulated releases.</h2><p>Designed in from day one. Certifications are targets, and we say so.</p></div>
+    <div class="ts-lead rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/><path d="M4 20L20 4"/></svg><div><b>Live app only. No code access.</b><small>We test the running app and its integrations. Your code stays with your team.</small></div></div>
+    <div class="ts stg">
+      <div><svg class="i-b" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 7h5M16 11h5"/></svg><b>SSO and SCIM</b><small>Entra ID, Okta, Google · SAML or OIDC · passkeys. Email sign-in for small teams.</small></div>
+      <div><svg class="i-b" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h6M7 17h4"/></svg><b>Roles and permissions</b><small>Every menu, button and record follows your role. Admins set each role.</small></div>
+      <div><svg class="i-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v2"/></svg><b>Credentials in the vault</b><small>Entered once, used by reference. Agents never see them.</small></div>
+      <div><svg class="i-a" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M10 7h4M12 17h0"/></svg><b>Human-only sign-in steps</b><small>National ID, OTP and card steps go to a person. The run waits, then resumes.</small></div>
+      <div><svg class="i-g" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2.5" y="8" width="6" height="8" rx="1.5"/><rect x="9" y="8" width="6" height="8" rx="1.5"/><rect x="15.5" y="8" width="6" height="8" rx="1.5"/></svg><b>Tamper-evident audit</b><small>Create, approve, waive, sign, export: who, role, before, after, source. Never editable.</small></div>
+      <div><svg class="i-g" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><b>Data residency</b><small>Region per workspace, including UAE and KSA. The AI model region follows.</small></div>
+      <div><svg class="i-v" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><b>PDPL and GDPR</b><small>Designed to align with UAE and KSA data protection law and GDPR.</small></div>
+      <div><svg class="i-v" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="10" r="6"/><path d="M8.5 15l-1.5 6 5-2.5 5 2.5-1.5-6"/></svg><b>SOC 2 and ISO 27001 <span class="tag t-gray">Targets</span></b><small>On our roadmap. Status shared openly in your security review.</small></div>
+      <div><svg class="i-b" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><path d="M4 20L20 4"/></svg><b>Test-data masking</b><small>All test data labelled. Personal data masked or synthetic outside production.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="deploy">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Deployment</p><h2>Run it where your data<br>is allowed to live.</h2><p>Same product everywhere. Live app only, no code access.</p></div>
+    <div class="dp rv" id="dp">
+      <div class="dpv" data-m="0">
+        <svg viewBox="0 0 640 320" role="img" aria-label="Deployment diagram: the SecondProof Runner in your network connects outbound through the firewall to SecondProof. No inbound connection is needed.">
+          <rect class="bnd" x="4" y="4" width="632" height="312" rx="20"/><text class="s bndt" x="22" y="22">YOUR BOUNDARY · YOUR KEYS</text>
+          <rect class="zone" x="14" y="32" width="296" height="274" rx="16"/>
+          <text class="s" x="30" y="56">YOUR NETWORK</text>
+          <rect class="nd" x="30" y="84" width="130" height="34" rx="9"/><text x="44" y="106">Apps in UAT</text>
+          <rect class="nd" x="30" y="128" width="130" height="34" rx="9"/><text x="44" y="150">Databases · read</text>
+          <rect class="nd" x="30" y="172" width="130" height="34" rx="9"/><text x="44" y="194">SAP and Oracle</text>
+          <rect class="nd" x="30" y="216" width="130" height="34" rx="9"/><text x="44" y="238">Citrix desktops</text>
+          <path class="lo" d="M160 101 C182 101 168 164 186 164"/><path class="lo" d="M160 145 C178 145 172 164 186 164"/><path class="lo" d="M160 189 C178 189 172 164 186 164"/><path class="lo" d="M160 233 C182 233 168 164 186 164"/>
+          <rect class="rn" x="186" y="136" width="112" height="56" rx="12"/><text x="200" y="160">SecondProof</text><text x="200" y="178">Runner</text>
+          <rect class="fw" x="318" y="38" width="14" height="262" rx="4"/>
+          <text class="s" x="0" y="0" transform="translate(328 290) rotate(-90)">FIREWALL</text>
+          <rect class="zr" x="342" y="32" width="284" height="274" rx="16"/>
+          <text class="s" x="358" y="56" id="dpL">SECONDPROOF CLOUD</text>
+          <text class="s sl" x="358" y="72" id="dpS">REGION PER WORKSPACE</text>
+          <rect class="nd" x="358" y="84" width="128" height="34" rx="9"/><text x="372" y="106">Orchestration</text>
+          <rect class="nd" x="358" y="128" width="128" height="34" rx="9"/><text x="372" y="150">Engines</text>
+          <rect class="nd" x="358" y="172" width="128" height="34" rx="9"/><text x="372" y="194">Evidence store</text>
+          <g class="md"><rect class="nd" x="358" y="216" width="128" height="34" rx="9"/><text x="372" y="238" id="dpM">Region models</text></g>
+          <g class="tl me" id="dpT1"><rect x="496" y="84" width="118" height="34" rx="9"/><text x="508" y="106" style="font-size:12px">Your workspace</text></g>
+          <g class="tl dim" id="dpT2"><rect x="496" y="128" width="118" height="34" rx="9"/><text x="508" y="150" style="font-size:12px">Workspace B</text></g>
+          <g class="tl dim" id="dpT3"><rect x="496" y="172" width="118" height="34" rx="9"/><text x="508" y="194" style="font-size:12px">Workspace C</text></g>
+          <g class="tl k hide" id="dpT4"><rect x="496" y="216" width="118" height="34" rx="9"/><text x="508" y="238" style="font-size:12px">Your keys</text></g>
+          <path class="out" d="M298 164 L342 164"/><circle class="pkt" cx="300" cy="164" r="4"/>
+          <path class="inb" d="M420 282 L346 282"/><path d="M335 276l10 12M345 276l-10 12" stroke="#FF7A7F" stroke-width="2"/>
+          <text class="s" x="430" y="286" style="fill:var(--tx-red)">NO INBOUND RULES</text>
+        </svg>
+      </div>
+      <div>
+        <div class="dp-sw" role="group" aria-label="Deployment options"><button type="button" aria-pressed="true">SaaS</button><button type="button" aria-pressed="false">Dedicated</button><button type="button" aria-pressed="false">Your cloud</button><button type="button" aria-pressed="false">Sovereign</button></div>
+        <div class="dp-ps" aria-live="polite">
+          <div class="dp-p on"><span class="k">Team and Growth</span><h3>SaaS, multi-region</h3><p>Self-serve on our cloud. Data isolated per workspace.</p><div class="tk"><span>Region per workspace</span><span>Live in under an hour</span></div></div>
+          <div class="dp-p"><span class="k">Enterprise</span><h3>Dedicated, in-region</h3><p>Single-tenant in the UAE, KSA or another region, with in-region AI models.</p><div class="tk"><span>Isolated compute and storage</span><span>Model region follows hosting</span></div></div>
+          <div class="dp-p"><span class="k">Enterprise</span><h3>Your cloud</h3><p>Deployed into your own cloud account, under your keys and network policies.</p><div class="tk"><span>Your encryption keys</span><span>Your monitoring</span></div></div>
+          <div class="dp-p"><span class="k">Sovereign</span><h3>Sovereign or on-premises models</h3><p>AI routed to approved in-country models or your own. Nothing leaves your boundary.</p><div class="tk"><span>Bring your own models</span><span>Router respects policy</span></div></div>
+        </div>
+        <div class="dp-bar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+    <div class="rn5-h rv"><h3>A small runner inside your network.<br>Nothing comes in.</h3></div>
+    <div class="m-cols rn5 stg">
+      <div><span class="m-n">01</span><b>No code access</b><small>Reaches running apps, never source or builds.</small></div>
+      <div><span class="m-n">02</span><b>Outbound only</b><small>Pulls approved work, sends results back.</small></div>
+      <div><span class="m-n">03</span><b>Read-only by default</b><small>More only for a named test.</small></div>
+      <div><span class="m-n">04</span><b>Secrets stay with you</b><small>Resolved from the vault at run time.</small></div>
+      <div><span class="m-n">05</span><b>Never silent</b><small>Offline? Results marked stale. Runs resume or fail cleanly.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="open">
+  <div class="wrap op">
+    <div>
+      <div class="m-head rv"><p class="eyebrow">Open by design</p><h2>Your tests and evidence stay yours.</h2><p>Read it, push it, export it. Your application code is never needed.</p></div>
+      <div class="stg">
+        <div class="m-row"><span class="m-k">01</span><b>Open API</b><span class="m-d">Projects, gap analysis, runs, defects, gates, ledger. Same role checks as the UI.</span></div>
+        <div class="m-row"><span class="m-k">02</span><b>Webhooks</b><span class="m-d">Go/no-go signed, build verified, defect approved. Trigger your pipeline or chat.</span></div>
+        <div class="m-row"><span class="m-k">03</span><b>Export everything</b><span class="m-d">Tests, results and audit log as CSV. Evidence Packs as signed archives.</span></div>
+        <div class="m-row"><span class="m-k">04</span><b>Your scripts, your repo</b><span class="m-d">GitHub, GitLab, Bitbucket or Azure Repos. Changes arrive as pull requests.</span></div>
+      </div>
+    </div>
+    <div class="win rv tilt">
+      <div class="win-h"><div><b>Webhook · gate.signed</b><small>EXAMPLE PAYLOAD</small></div><button class="copyb" type="button" data-copy="hook" data-msg="hookMsg">Copy</button></div>
+<pre class="code" id="hook"><span class="c">// POST to your endpoint, signed with your webhook secret</span>
+{
+  <span class="k">"event"</span>: <span class="s">"gate.signed"</span>,
+  <span class="k">"project"</span>: <span class="s">"retail-onboarding"</span>,
+  <span class="k">"gate"</span>: <span class="s">"release-2.4"</span>,
+  <span class="k">"decision"</span>: <span class="s">"go"</span>,
+  <span class="k">"checks"</span>: { <span class="k">"met"</span>: <span class="n">5</span>, <span class="k">"waived"</span>: <span class="n">1</span> },
+  <span class="k">"approvers"</span>: [<span class="s">"business"</span>, <span class="s">"qa"</span>, <span class="s">"security"</span>],
+  <span class="k">"evidencePack"</span>: {
+    <span class="k">"id"</span>: <span class="s">"EP-2.4"</span>,
+    <span class="k">"sha256"</span>: <span class="s">"c47d…0a"</span>,
+    <span class="k">"verify"</span>: <span class="s">"/v1/evidence/EP-2.4/verify"</span>
+  },
+  <span class="k">"trace"</span>: [<span class="s">"REQ-041"</span>, <span class="s">"TC-128"</span>, <span class="s">"RUN-212"</span>, <span class="s">"DEF-031"</span>]
+}</pre>
+      <p class="mono" id="hookMsg" aria-live="polite" style="padding:0 20px 16px"></p>
+    </div>
+  </div>
+</section>
+</div>
+
+<section class="m-cta">
+  <div class="wrap rv"><h2>Walk your security team<br><span class="grad">through it.</span></h2><p>One session to map network, identity and residency. Then a ten-day pilot.</p><div class="acts"><a class="btn primary" href="value.html#contact">Book a session <span class="arr">→</span></a><a class="btn ghost" href="agents.html">Meet the AI team</a></div></div>
+</section>
+
+<footer id="vf-footer"></footer>
+<script>
+(function(){
+var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* shared auto-cycler: progress bar, pause on hover and off-screen, static under reduced motion */
+function cyc(root,dur,bar,tick){var t0=Date.now(),hold=false,on=true;
+  root.addEventListener('mouseenter',function(){hold=true;});root.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;}).observe(root);
+  var api={reset:function(){t0=Date.now();if(bar)bar.style.width='0';},stop:false};
+  if(!red)setInterval(function(){if(hold||!on||document.hidden||api.stop)return;var p=(Date.now()-t0)/dur;if(bar)bar.style.width=Math.min(100,p*100)+'%';if(p>=1){t0=Date.now();tick();}},60);
+  return api;}
+
+/* layers: one release travelling down, evidence travelling up */
+var lx=document.getElementById('lx');if(lx){
+  var rows=[].slice.call(lx.querySelectorAll('.lx-l')),ps=[].slice.call(lx.querySelectorAll('.lp-p')),tok=lx.querySelector('.lx-tok'),dir=lx.querySelector('.lp-dir'),log=lx.querySelector('.lp-log'),st=lx.querySelector('.lx-st');
+  var S=[[0,0,'QA lead asks for a regression run'],[1,0,'Test Designer drafts 212 impacted cases'],[2,0,'Held for approval · QA lead approves the plan'],[3,0,'Router picks an in-region model · 61 % from cache'],[4,0,'Engines run 1,840 steps · 0 AI credits'],[5,0,'Runner reaches UAT from inside, outbound only'],[6,1,'Results, screenshots and logs sealed'],[2,1,'Gate measured · 5 of 6 met · 1 waiver, audited'],[1,1,'Release Manager prepares the go/no-go'],[0,1,'Business, QA and Security sign in their inbox']];
+  var si=0;
+  function show(l,up,txt,n){rows.forEach(function(r,k){r.classList.toggle('on',k===l);r.classList.toggle('up',k===l&&!!up);r.setAttribute('aria-selected',k===l?'true':'false');});
+    ps.forEach(function(p,k){p.classList.toggle('on',k===l);});
+    var r=rows[l];tok.style.top=(r.offsetTop+r.offsetHeight/2)+'px';tok.classList.toggle('up',!!up);
+    dir.classList.toggle('up',!!up);dir.textContent=up?'↑ Evidence':'↓ Decision';
+    log.style.opacity=0;setTimeout(function(){log.textContent=txt;log.style.opacity=1;},200);}
+  function step(n){si=n;var s=S[n];show(s[0],s[1],'Release 2.4 · '+('0'+(n+1)).slice(-2)+'/10 · '+s[2]);}
+  var c1=cyc(lx,3400,lx.querySelector('.lp-bar i'),function(){step((si+1)%S.length);});
+  rows.forEach(function(r,k){function j(){var n=-1;for(var q=0;q<S.length;q++)if(S[q][0]===k){n=q;break;}step(n);c1.reset();}
+    r.addEventListener('mouseenter',j);r.addEventListener('click',j);r.addEventListener('focus',j);
+    r.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();rows[(k+(e.key==='ArrowDown'?1:-1)+rows.length)%rows.length].focus();}});});
+  step(0);window.addEventListener('resize',function(){step(si);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){step(si);});
+}
+
+/* cost: AI on every click vs SecondProof */
+var cs=document.getElementById('cs');if(cs){
+  var bw=cs.querySelector('.cs-bars'),N=document.getElementById('csN'),RE=document.getElementById('csRe'),Z=document.getElementById('csZ'),M=cs.querySelector('.cs-m i'),bs=[].slice.call(cs.querySelectorAll('.sw button'));
+  var A=[],B=[],h='';for(var k=0;k<50;k++){A.push(88+Math.round(10*Math.sin(k*1.7)+4*Math.cos(k*.6)));B.push(k===0?100:k===17?14:k===33?10:0);h+='<i style="--d:'+k+'"></i>';}
+  bw.innerHTML=h;var bars=[].slice.call(bw.children),sum=function(a){return a.reduce(function(x,y){return x+y;},0);},SA=sum(A),SB=sum(B),mode='',raf=0,touched=false;
+  cs.querySelectorAll('.cs-pin')[1].style.setProperty('--x',(33.5/50*100)+'%');
+  function count(to){cancelAnimationFrame(raf);var s=performance.now();if(red){N.textContent=to.toLocaleString('en');return;}(function f(t){var p=Math.min(1,(t-s)/1300),e=1-Math.pow(1-p,3);N.textContent=Math.round(to*e).toLocaleString('en');if(p<1)raf=requestAnimationFrame(f);})(s);}
+  function set(v){if(v===mode)return;mode=v;var D=v==='a'?A:B;cs.classList.toggle('b',v==='b');bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});
+    bw.classList.remove('go');void bw.offsetWidth;
+    bars.forEach(function(b,k){var x=D[k];b.style.setProperty('--h',(x?Math.max(4,x*.92):2.5)+'%');b.className=v==='a'?'':x?'t':'z';});
+    requestAnimationFrame(function(){bw.classList.add('go');});
+    var tot=v==='a'?SA:SB;count(tot);M.style.width=(tot/SA*100)+'%';RE.textContent=v==='a'?'~100':'0';Z.textContent=v==='a'?'0 %':'98 %';}
+  bs.forEach(function(b){b.addEventListener('click',function(){touched=true;c2.stop=true;set(b.getAttribute('data-v'));});});
+  var c2=cyc(cs,5200,cs.querySelector('.cs-bar i'),function(){if(!touched)set(mode==='a'?'b':'a');});
+  set('a');
+}
+/* ledger bars */
+var lg=document.getElementById('ldg');if(lg){if(red||!('IntersectionObserver' in window))lg.classList.add('in');else{var lo=new IntersectionObserver(function(e){if(e[0].isIntersecting){lg.classList.add('in');lo.disconnect();}},{threshold:.3});lo.observe(lg);}}
+
+/* trace chain */
+var tr=document.getElementById('tr');if(tr){
+  var ns=[].slice.call(tr.querySelectorAll('.tr-n')),tp=[].slice.call(tr.querySelectorAll('.tr-p')),ch=tr.querySelector('.tr-c'),dot=tr.querySelector('.tr-dot'),fill=tr.querySelector('.tr-fill'),bk=tr.querySelector('.tr-back'),ti=0,back=false;
+  function go(n){ti=n;ns.forEach(function(x,k){x.classList.toggle('on',k===n);x.classList.toggle('done',back?k>n:k<n);x.setAttribute('aria-selected',k===n?'true':'false');});tp.forEach(function(p,k){p.classList.toggle('on',k===n);});
+    var c=ns[n].querySelector('.o'),cr=ch.getBoundingClientRect(),r=c.getBoundingClientRect(),x=r.left-cr.left+r.width/2;dot.style.left=x+'px';
+    var x0=ns[0].querySelector('.o').getBoundingClientRect(),x6=ns[6].querySelector('.o').getBoundingClientRect(),a=x0.left-cr.left+x0.width/2,z=x6.left-cr.left+x6.width/2;
+    if(back){fill.style.left=x+'px';fill.style.width=(z-x)+'px';}else{fill.style.left=a+'px';fill.style.width=(x-a)+'px';}}
+  var c3=cyc(tr,3600,tr.querySelector('.tr-bar i'),function(){go(back?(ti+6)%7:(ti+1)%7);});
+  ns.forEach(function(x,k){x.addEventListener('mouseenter',function(){go(k);c3.reset();});x.addEventListener('click',function(){go(k);c3.reset();});x.addEventListener('focus',function(){go(k);});});
+  bk.addEventListener('click',function(){back=!back;bk.setAttribute('aria-pressed',back?'true':'false');ch.classList.toggle('back',back);bk.textContent=back?'→ Follow the release forward':'← Walk back from the signature';go(back?6:0);c3.reset();});
+  go(0);window.addEventListener('resize',function(){go(ti);});
+}
+
+/* deployment */
+var dp=document.getElementById('dp');if(dp){
+  var v=dp.querySelector('.dpv'),db=[].slice.call(dp.querySelectorAll('.dp-sw button')),dps=[].slice.call(dp.querySelectorAll('.dp-p')),L=document.getElementById('dpL'),Sx=document.getElementById('dpS'),Mm=document.getElementById('dpM'),T=[1,2,3,4].map(function(n){return document.getElementById('dpT'+n);}),di=0;
+  var CF=[['SECONDPROOF CLOUD','REGION PER WORKSPACE','Region models',[['Your workspace','me'],['Workspace B','dim'],['Workspace C','dim'],['','hide']]],
+          ['DEDICATED · SINGLE-TENANT','UAE · KSA · OTHER REGIONS','In-region models',[['Yours only','me'],['','hide'],['','hide'],['','hide']]],
+          ['YOUR CLOUD ACCOUNT','YOUR NETWORK POLICIES','In-region models',[['Yours only','me'],['Your monitoring','me'],['','hide'],['Your keys','k']]],
+          ['YOUR CLOUD OR ON-PREMISES','NOTHING LEAVES YOUR BOUNDARY','Your own models',[['Yours only','me'],['Your monitoring','me'],['In-country AI','me'],['Your keys','k']]]];
+  function sh(n){di=n;var c=CF[n];v.setAttribute('data-m',n);L.textContent=c[0];Sx.textContent=c[1];Mm.textContent=c[2];
+    T.forEach(function(g,k){var t=c[3][k];if(t[0])g.querySelector('text').textContent=t[0];g.setAttribute('class','tl '+t[1]+(k===3&&t[1]!=='hide'?' k':''));});
+    db.forEach(function(b,k){b.setAttribute('aria-pressed',k===n?'true':'false');});dps.forEach(function(p,k){p.classList.toggle('on',k===n);});}
+  var c4=cyc(dp,4400,dp.querySelector('.dp-bar i'),function(){sh((di+1)%4);});
+  db.forEach(function(b,k){b.addEventListener('click',function(){sh(k);c4.reset();});});
+  sh(0);
+}
+})();
+</script>
+<script src="config.js"></script>
+<script src="logos.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

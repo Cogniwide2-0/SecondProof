@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SecondProof AI agents</title>
+<meta name="description" content="Eight specialist AI agents work like a real QA team. They draft and run approved plans, and people approve every decision.">
+<link rel="canonical" href="https://secondproof.ai/agents.html">
+<meta name="theme-color" content="#060A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondProof">
+<meta property="og:title" content="SecondProof AI agents · Your AI QA team">
+<meta property="og:description" content="Eight specialist AI agents work like a real QA team. They draft and run approved plans, and people approve every decision.">
+<meta property="og:url" content="https://secondproof.ai/agents.html">
+<meta property="og:image" content="https://secondproof.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondProof AI agents · Your AI QA team">
+<meta name="twitter:description" content="Eight specialist AI agents work like a real QA team. They draft and run approved plans, and people approve every decision.">
+<meta name="twitter:image" content="https://secondproof.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>(function(){var t;try{t=localStorage.getItem("sp-theme")}catch(e){}if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+/* Agents page v3 · ring hero, open roster, a day on a scrubber, verify funnel, autonomy ladder, specialists, quality, ask */
+[id^="ag-"],#roster,#day,#verify,#loop,#specialists,#quality,#ask{scroll-margin-top:84px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.mono{font:500 11.5px var(--mono);color:var(--ink3);letter-spacing:.04em}
+.av{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font:700 15px var(--display);flex:none;color:#fff}
+.c-blue{background:#2E6BEA}.c-violet{background:#7C5CF0}.c-green{background:#16824F}.c-amber{background:#C46A12}.c-red{background:#C2323B}.c-blue2{background:#4C8DFF}
+.more{display:inline-flex;gap:8px;align-items:center;color:var(--blue2);text-decoration:none;font-weight:600;font-size:15px}
+.pbar{height:3px;border-radius:2px;background:rgba(var(--wsh),.08);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+
+/* hero */
+.phero.ah{padding-block:52px 64px}
+.ah-top{display:flex;flex-direction:column;gap:16px;max-width:1100px}
+.ah-top .lede{max-width:640px}
+.ah-top h1{font-size:clamp(38px,4.9vw,66px);line-height:1.02}
+.phero .ah-top h1{max-width:none}
+@media (min-width:761px){.ah-top h1 .grad{white-space:nowrap}}
+.ah-row{display:flex;gap:12px 22px;flex-wrap:wrap;align-items:center}
+.hchips{display:flex;gap:8px;flex-wrap:wrap}
+.hchips span{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--ink2)}
+.hchips span b{color:var(--tx-green);font-weight:700}
+
+/* agent ring (from home #rg, renamed) */
+.ar{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center;margin-top:36px}
+.ar-c{position:relative;width:100%;max-width:470px;aspect-ratio:1;margin-inline:auto}
+.ar-ring{position:absolute;inset:8%;border-radius:50%;border:2px dashed rgba(var(--b2r),.3)}
+@media (prefers-reduced-motion:no-preference){.ar-ring{animation:arspin 60s linear infinite}@keyframes arspin{to{transform:rotate(360deg)}}}
+.ar-arm{position:absolute;inset:8%;border-radius:50%;transition:transform 1s cubic-bezier(.65,0,.25,1);pointer-events:none}
+.ar-arm i{position:absolute;left:50%;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;border:3px solid #4C8DFF;box-shadow:0 0 0 5px rgba(76,141,255,.35),0 0 26px #4C8DFF}
+.ar-hub{position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;background:radial-gradient(circle,rgba(245,166,91,.16),rgba(var(--s2),.6));border:1.5px solid rgba(245,166,91,.45);transition:box-shadow .5s,transform .5s}
+.ar-hub b{font:800 clamp(15px,1.6vw,20px) var(--display);color:var(--ink)}
+.ar-hub small{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tx-amber)}
+.ar-hub small:last-child{color:var(--ink3)}
+.ar.ck .ar-hub{box-shadow:0 0 0 14px rgba(245,166,91,.16),0 0 60px rgba(245,166,91,.35);transform:translate(-50%,-50%) scale(1.05)}
+.ar-n{position:absolute;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:20px;border:1.5px solid var(--line2);background:var(--surface);color:var(--ink2);font:700 16px var(--display);cursor:pointer;display:grid;place-items:center;transition:all .4s;box-shadow:0 8px 20px var(--shadow)}
+.ar-n:hover{color:var(--ink);border-color:var(--blue2)}
+.ar-n.on{color:#fff;border-color:transparent;transform:scale(1.14)}
+.ar-n[data-c="blue"].on{background:#2E6BEA;box-shadow:0 12px 34px rgba(46,107,234,.5)}.ar-n[data-c="blue2"].on{background:#4C8DFF;box-shadow:0 12px 34px rgba(76,141,255,.5)}.ar-n[data-c="violet"].on{background:#7C5CF0;box-shadow:0 12px 34px rgba(124,92,240,.5)}.ar-n[data-c="green"].on{background:#16824F;box-shadow:0 12px 34px rgba(22,130,79,.5)}.ar-n[data-c="amber"].on{background:#C46A12;box-shadow:0 12px 34px rgba(196,106,18,.5)}.ar-n[data-c="red"].on{background:#C2323B;box-shadow:0 12px 34px rgba(194,50,59,.5)}
+.ar-panel{position:relative;min-height:420px}
+.ar-p{position:absolute;inset:0 0 14px;display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:0;transform:translateX(24px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.ar-p.on{opacity:1;transform:none;pointer-events:auto}
+.ar-hd{display:flex;align-items:center;gap:14px}
+.ar-p h3{font:800 clamp(28px,3.2vw,42px)/1.05 var(--display);letter-spacing:-.03em}
+.ar-p .tg{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ar-p p{font-size:clamp(16.5px,1.5vw,18.5px);color:var(--ink2);max-width:460px}
+.io{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);gap:10px;align-items:center;max-width:480px}
+.io>div{display:flex;flex-wrap:wrap;gap:6px}
+.io .io-l{width:100%;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.io .io-l{padding:0;border:0;background:none;border-radius:0}
+.io span:not(.io-l){font-size:13px;font-weight:600;padding:5px 10px;border-radius:9px;border:1px solid var(--line2);color:var(--ink2);background:rgba(var(--wsh),.03)}
+.io .o span:not(.io-l){border-color:rgba(var(--b2r),.4);color:var(--tx-blue);background:rgba(var(--b2r),.1)}
+.io-ar{height:2px;background:repeating-linear-gradient(90deg,var(--blue2) 0 6px,transparent 6px 11px);position:relative}
+.io-ar::after{content:"";position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left-color:var(--blue2)}
+@media (prefers-reduced-motion:no-preference){
+ .ar-p.on .io .io-l{padding:0;border:0;background:none;border-radius:0}
+.io span:not(.io-l){animation:pop .45s cubic-bezier(.2,1.4,.4,1) both;animation-delay:var(--d,0s)}
+ .ar-p.on .io-ar{animation:dash .7s linear infinite}
+ @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.9)}}
+ @keyframes dash{to{background-position:11px 0}}
+}
+.ar-meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:14px;color:var(--ink3)}
+.ar-who{font-weight:600;color:var(--ink2)}
+.ar-who.ck{color:var(--tx-amber)}
+.cr{display:inline-flex;gap:6px;flex-wrap:wrap}
+.cr em{font-style:normal;font:500 11.5px var(--mono);padding:4px 8px;border-radius:7px;background:rgba(var(--wsh),.05);color:var(--ink2)}
+.cr em.z{background:rgba(95,211,154,.12);color:var(--tx-green)}
+.ar-go{font-size:14px;font-weight:600;color:var(--blue2);text-decoration:none}
+.ar-bar{position:absolute;left:0;bottom:0;width:220px}
+@media (max-width:900px){.ar{grid-template-columns:1fr;gap:24px}.ar-c{max-width:340px}.ar-n{width:48px;height:48px;margin:-24px 0 0 -24px;font-size:14px;border-radius:15px}.ar-panel{min-height:430px}}
+
+/* roster rows */
+.ro-h,.ro{display:grid;grid-template-columns:minmax(210px,.95fr) minmax(0,1.25fr) minmax(0,1.15fr) minmax(0,.95fr);gap:28px;align-items:start}
+.ro-h{padding-bottom:12px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.ro{padding:22px 10px 22px 0;border-top:1px solid var(--line);transition:background .3s,padding .3s;border-radius:2px}
+.ro:last-child{border-bottom:1px solid var(--line)}
+.ro:hover{background:linear-gradient(90deg,rgba(var(--b2r),.06),transparent 70%);padding-left:10px}
+.ro.hit{background:linear-gradient(90deg,rgba(245,166,91,.14),transparent 70%);padding-left:10px}
+.ro-id{display:flex;gap:14px;align-items:center}
+.ro-id b{display:block;font:700 20px/1.15 var(--display);letter-spacing:-.02em}
+.ro-id small{display:block;font-size:13.5px;color:var(--ink3)}
+.ro-j{font-size:15px;color:var(--ink2)}
+.ro-j .nv{display:block;margin-top:8px;font-size:13.5px;color:var(--ink3)}
+.ro-j .nv::before{content:"✕ Never · ";color:var(--tx-red);font-weight:700}
+.ro-io{display:grid;gap:6px;font-size:14px;color:var(--ink2)}
+.ro-io span::before{display:inline-block;width:62px;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ro-io .i::before{content:"Reads"}.ro-io .o::before{content:"Makes"}
+.ro-io .o{color:var(--ink)}
+.ro-ap{display:grid;gap:6px;font-size:14px;color:var(--ink2)}
+.ro-ap .who{font-weight:600;color:var(--ink)}
+.ro-ap .who.ck{color:var(--tx-amber)}
+.ro-ap .hd{color:var(--ink3);font-size:13.5px}
+@media (max-width:1020px){.ro-h{display:none}.ro{grid-template-columns:1fr 1fr;gap:14px 28px}.ro-id{grid-column:1/-1}}
+@media (max-width:620px){.ro{grid-template-columns:1fr}}
+
+/* day scrubber */
+.dy{position:relative}
+.dy-tr{position:relative;height:118px;margin:0 22px}
+.dy-ln{position:absolute;left:0;right:0;top:56px;height:2px;background:var(--line2);border-radius:2px}
+.dy-ln i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber));transition:width .8s cubic-bezier(.65,0,.25,1)}
+.dy-mk{position:absolute;top:22px;width:2px;height:70px;margin-left:-1px;background:linear-gradient(transparent,var(--blue2),transparent);transition:left .8s cubic-bezier(.65,0,.25,1);pointer-events:none}
+.dy-mk::after{content:"";position:absolute;left:50%;top:28px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(76,141,255,.35),0 0 22px #4C8DFF}
+.dy-s{all:unset;cursor:pointer;position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.dy-s .av{width:38px;height:38px;font-size:13px;border-radius:12px;background:var(--surface);border:1.5px solid var(--line2);color:var(--ink2);transition:all .35s}
+.dy-s.on .av{color:#fff;border-color:transparent;transform:translateY(-4px) scale(1.08)}
+.dy-s:nth-child(even){top:0}
+.dy-s time{font:500 11px var(--mono);color:var(--ink3);margin-top:22px;transition:color .3s}
+.dy-s.on time{color:var(--ink)}
+.dy-s .ck{position:absolute;top:50px;width:10px;height:10px;transform:rotate(45deg);background:var(--amber);opacity:.85}
+.dy-s .en{position:absolute;top:51px;width:9px;height:9px;border-radius:50%;background:var(--green)}
+.dy-s:focus-visible{outline:2px solid var(--blue2);outline-offset:3px;border-radius:12px}
+.dy-hr{position:absolute;left:0;right:0;top:100px;display:flex;justify-content:space-between;font:500 10.5px var(--mono);color:var(--ink3);opacity:.6}
+.dy-bd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;margin-top:34px;min-height:250px;align-items:center}
+.dy-tx{display:flex;flex-direction:column;gap:10px}
+.dy-clk{font:800 clamp(56px,7vw,96px)/.9 var(--display);letter-spacing:-.05em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.dy-tx h3{font-size:clamp(24px,2.6vw,32px)}
+.dy-tx p{color:var(--ink2);font-size:17px;max-width:460px}
+.dy-tx .pbar{width:220px;margin-top:6px}
+.tg-ck,.tg-en{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;width:max-content;max-width:100%;padding:6px 12px;border-radius:999px}
+.tg-ck{background:rgba(245,166,91,.14);color:var(--tx-amber)}.tg-ck::before{content:"◆"}
+.tg-en{background:rgba(95,211,154,.13);color:var(--tx-green)}.tg-en::before{content:"●"}
+.dy-vz{position:relative;min-height:240px}
+.dv>*{transform:scale(1.18);transform-origin:0 50%}
+.dv{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.dv.on{opacity:1;transform:none}
+.dv small{display:block;font:500 12px var(--mono);color:var(--ink3);margin-top:12px}
+.dy-leg{display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:13px;color:var(--ink3)}
+.dy-leg span{display:inline-flex;align-items:center;gap:8px}
+.dy-leg i{width:9px;height:9px;background:var(--amber);transform:rotate(45deg)}.dy-leg i.g{background:var(--green);border-radius:50%;transform:none}
+/* day mini visuals */
+.v-doc{width:260px;max-width:100%;padding:16px 18px;border-radius:14px;background:rgba(var(--wsh),.04);border:1px solid var(--line)}
+.v-doc b{font-size:13.5px;display:block;margin-bottom:8px}
+.v-doc i{display:flex;align-items:center;gap:8px;height:6px;border-radius:3px;background:rgba(var(--b2r),.3);margin-top:8px;transform-origin:0 50%;transform:scaleX(0);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.on .v-doc i{transform:none}.on .v-doc i:nth-of-type(2){transition-delay:.15s}.on .v-doc i:nth-of-type(3){transition-delay:.3s;width:70%}.on .v-doc i:nth-of-type(4){transition-delay:.45s;width:85%}
+.v-tc{display:flex;flex-direction:column;gap:7px}
+.v-tc span{font-size:13.5px;padding:8px 12px;border-radius:10px;background:rgba(var(--wsh),.04);border:1px solid var(--line);width:max-content;max-width:100%;opacity:0;transform:translateX(-10px);transition:all .4s}
+.v-tc span::before{content:"✓ ";color:var(--green);font-weight:700}
+.on .v-tc span{opacity:1;transform:none}.on .v-tc span:nth-child(2){transition-delay:.2s}.on .v-tc span:nth-child(3){transition-delay:.4s}
+.v-run{width:300px;max-width:100%}
+.v-run .t{display:block;height:10px;border-radius:6px;background:rgba(var(--wsh),.07);overflow:hidden}
+.v-run .t i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green))}
+.v-run .h{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:rgba(245,166,91,.15);color:var(--tx-amber);opacity:0}
+@media (prefers-reduced-motion:no-preference){.on .v-run .t i{animation:run 3s linear forwards}.on .v-run .h{animation:hand 3s linear forwards}
+ @keyframes run{0%{width:0}35%,62%{width:42%}100%{width:100%}}@keyframes hand{0%,33%{opacity:0}36%,66%{opacity:1}100%{opacity:.35}}}
+@media (prefers-reduced-motion:reduce){.v-run .t i{width:100%}.v-run .h{opacity:1}}
+.v-vr{display:flex;flex-wrap:wrap;gap:8px;width:300px;max-width:100%}
+.v-vr i{width:30px;height:30px;border-radius:9px;background:rgba(var(--wsh),.12);transition:background .4s,opacity .4s}
+.on .v-vr i.r{background:var(--red)}.on .v-vr i.f{opacity:.35}
+.on .v-vr i:nth-child(2){transition-delay:.15s}.on .v-vr i:nth-child(3){transition-delay:.3s}.on .v-vr i:nth-child(4){transition-delay:.45s}.on .v-vr i:nth-child(5),.on .v-vr i:nth-child(6){transition-delay:.6s}
+.v-vr small{width:100%}
+.v-def{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:14px;border-left:4px solid var(--red);background:rgba(255,122,127,.08);width:320px;max-width:100%}
+.v-def b{font-size:14px;color:var(--tx-red)}.v-def span{font-size:13.5px;color:var(--ink2)}
+.v-def .lk{margin-top:6px;font-size:12.5px;color:var(--tx-violet);opacity:0;transition:opacity .4s .5s}.on .v-def .lk{opacity:1}
+.v-code{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;background:#0B1226;width:340px;max-width:100%}
+.v-code code{font:12.5px var(--mono);color:#C9D6F5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v-code small{color:#7C89A8!important}
+.v-pe{width:300px;max-width:100%;color:var(--amber)}
+.v-pe svg{width:100%;height:80px;overflow:visible}
+.v-pe polyline{stroke-dasharray:320;stroke-dashoffset:320;transition:stroke-dashoffset 1.6s ease}
+.on .v-pe polyline{stroke-dashoffset:0}
+.v-pe line{stroke:var(--red);stroke-dasharray:4 4}
+.v-pe text{font:500 9px var(--mono);fill:var(--tx-red)}
+.v-gate{display:grid;grid-template-columns:repeat(3,auto);gap:8px;width:max-content;max-width:100%}
+.v-gate span{font-size:12.5px;font-weight:600;padding:6px 10px;border-radius:9px;background:rgba(var(--wsh),.05);color:var(--ink3);transition:all .35s}
+.on .v-gate span{background:rgba(95,211,154,.13);color:var(--tx-green)}.on .v-gate span.w{background:rgba(245,166,91,.14);color:var(--tx-amber)}
+.on .v-gate span:nth-child(2){transition-delay:.12s}.on .v-gate span:nth-child(3){transition-delay:.24s}.on .v-gate span:nth-child(4){transition-delay:.36s}.on .v-gate span:nth-child(5){transition-delay:.48s}.on .v-gate span:nth-child(6){transition-delay:.6s}
+.v-gate em{grid-column:1/-1;font-style:normal;margin-top:6px;font-size:13px;font-weight:600;color:var(--tx-amber)}
+@media (max-width:860px){.dy-tr{margin:0 16px}.dy-s .av{width:26px;height:26px;font-size:10px;border-radius:8px}.dy-s time{display:none}.dy-s .ck{top:38px}.dy-s .en{top:39px}.dy-ln{top:43px}.dy-mk{top:14px;height:58px}.dy-mk::after{top:23px}.dy-tr{height:84px}.dy-hr{top:66px}.dy-bd{grid-template-columns:1fr;gap:26px;margin-top:22px}.dy-vz{min-height:190px}.dv>*{transform:none}.dy-s:nth-child(4) .av{position:relative;left:-10px}.dy-s:nth-child(5) .av{position:relative;left:10px}}
+
+/* verify funnel */
+.vf{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.vf-st{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.vf-st button{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:36px 1fr;gap:4px 12px;padding:15px 0;border-top:1px solid var(--line);transition:padding .3s}
+.vf-st li:last-child button{border-bottom:1px solid var(--line)}
+.vf-st .m-n{grid-row:1/3;padding-top:4px}
+.vf-st b{font:700 20px/1.2 var(--display);letter-spacing:-.02em;color:var(--ink3);transition:color .3s}
+.vf-st small{font-size:14.5px;color:var(--ink3)}
+.vf-st button[aria-selected="true"]{padding-left:10px}
+.vf-st button[aria-selected="true"] b{color:var(--ink)}.vf-st button[aria-selected="true"] small{color:var(--ink2)}
+.vf-st button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.vf-c{position:relative;height:400px;border-radius:24px;background:radial-gradient(70% 60% at 50% 0%,rgba(245,166,91,.1),transparent 70%),radial-gradient(60% 50% at 50% 100%,rgba(76,141,255,.12),transparent 70%)}
+.vf-c svg.fn{position:absolute;inset:0;width:100%;height:100%}
+.vf-c svg.fn path{fill:rgba(var(--b2r),.07);stroke:rgba(var(--b2r),.3);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.vf-c svg.fn line{stroke:rgba(var(--b2r),.35);stroke-dasharray:4 5;vector-effect:non-scaling-stroke}
+.vf-l{position:absolute;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);transition:color .3s}
+.vf-l.on{color:var(--ink)}
+.vf-d{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:10px;display:grid;place-items:center;font:700 13px var(--display);color:#fff;background:#C46A12;box-shadow:0 6px 18px rgba(196,106,18,.4);transition:left .9s cubic-bezier(.65,0,.25,1),top .9s cubic-bezier(.65,0,.25,1),background .4s,opacity .4s,box-shadow .4s;transition-delay:var(--dl,0s)}
+.vf-c[data-s="1"] .vf-d{background:#2E6BEA;box-shadow:0 6px 18px rgba(46,107,234,.45)}
+@media (prefers-reduced-motion:no-preference){.vf-c[data-s="1"] .vf-d span{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}}
+.vf-c[data-s="2"] .vf-d.r,.vf-c[data-s="3"] .vf-d.r{background:#C2323B;box-shadow:0 6px 18px rgba(194,50,59,.45)}
+.vf-c[data-s="2"] .vf-d.f,.vf-c[data-s="3"] .vf-d.f{background:rgba(var(--wsh),.3);box-shadow:none;opacity:.55}
+.vf-in{position:absolute;left:4%;top:4%;width:min(300px,72%);padding:12px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line2);box-shadow:0 18px 40px var(--shadow);display:grid;gap:6px;opacity:0;transform:translateY(12px);transition:opacity .45s,transform .5s cubic-bezier(.2,.7,.2,1);z-index:2}
+.vf-c[data-s="3"] .vf-in{opacity:1;transform:none}
+.vf-c[data-s="3"] .vf-d.r{box-shadow:0 0 0 5px rgba(194,50,59,.25),0 6px 18px rgba(194,50,59,.45)}
+.vf-in b{font-size:13.5px}
+.vf-in .r{display:grid;grid-template-columns:96px 1fr 34px;gap:8px;align-items:center;font-size:12px;color:var(--ink2)}
+.vf-in .r .t{height:6px;border-radius:3px;background:rgba(var(--wsh),.07);overflow:hidden}
+.vf-in .r .t i{display:block;height:100%;width:0;border-radius:3px;background:var(--red);transition:width 1s cubic-bezier(.2,.7,.2,1) .3s}
+.vf-in .r:not(:first-of-type) .t i{background:var(--ink3)}
+.vf-c[data-s="3"] .vf-in .r .t i{width:var(--w)}
+.vf-in small{font-size:12px;color:var(--tx-amber);font-weight:600}
+.vf-cap{margin-top:14px;display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink2);min-height:24px}
+.vf-cap .pbar{width:120px;flex:none}
+@media (max-width:900px){.vf{grid-template-columns:1fr;gap:28px}.vf-c{height:360px}.vf-d{width:24px;height:24px;margin:-12px 0 0 -12px;font-size:11px;border-radius:8px}}
+
+/* autonomy ladder */
+.ld{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:56px;align-items:center}
+.ld-l{position:relative;display:flex;flex-direction:column;gap:12px;padding:0 26px}
+.ld-l::before,.ld-l::after{content:"";position:absolute;top:-14px;bottom:-14px;width:4px;border-radius:2px;background:linear-gradient(180deg,transparent,var(--line2) 8%,var(--line2) 92%,transparent)}
+.ld-l::before{left:6px}.ld-l::after{right:6px}
+.ld-r{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);transition:all .35s}
+.ld-r:hover{border-color:var(--line2)}
+.ld-r:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.ld-r .lv{font:500 11px var(--mono);letter-spacing:.08em;color:var(--ink3)}
+.ld-r b{display:block;font:700 18px var(--display);letter-spacing:-.02em}
+.ld-r small{display:block;font-size:13.5px;color:var(--ink3)}
+.ld-r .ps{font:500 11px var(--mono);color:var(--ink3);text-align:right}
+.ld-r[aria-selected="true"]{border-color:rgba(var(--b2r),.55);background:linear-gradient(90deg,rgba(76,141,255,.18),rgba(76,141,255,.03));transform:scale(1.03);box-shadow:0 14px 40px var(--shadow)}
+.ld-r[aria-selected="true"] .lv{color:var(--blue2)}
+.ld-r.x{border-style:dashed;background:repeating-linear-gradient(135deg,rgba(255,122,127,.05) 0 10px,transparent 10px 20px)}
+.ld-r.x b{text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:2px}
+.ld-r.x[aria-selected="true"]{border-color:rgba(255,122,127,.6);background:repeating-linear-gradient(135deg,rgba(255,122,127,.1) 0 10px,transparent 10px 20px)}
+.ld-r.x .lv{color:var(--tx-red)}
+.ld-p{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ld-p h3{font:800 clamp(28px,3vw,40px)/1.05 var(--display);letter-spacing:-.03em}
+.ld-p p{font-size:17.5px;color:var(--ink2);max-width:480px;min-height:3.2em}
+.lr{position:relative;display:flex;align-items:center;justify-content:space-between;gap:4px;padding:34px 4px 30px;max-width:520px}
+.lr::before{content:"";position:absolute;left:12px;right:12px;top:50%;height:2px;background:var(--line2)}
+.lr i{position:relative;z-index:1;width:22px;height:22px;border-radius:50%;border:2px solid var(--line2);background:var(--bg);transition:all .3s;flex:none}
+.lr i.d{border-radius:5px;transform:rotate(45deg);border-color:var(--amber)}
+.lr i.sg{width:30px;height:30px;border-radius:9px;transform:none;border-color:var(--amber)}
+.lr i.sg::after{content:"✍";position:absolute;inset:0;display:grid;place-items:center;font-size:14px;font-style:normal;color:var(--tx-amber)}
+.lr.dr i:not(.d):not(.sg){border-style:dashed}
+.lr i.ok{background:var(--blue);border-color:var(--blue)}
+.lr i.d.ok,.lr i.sg.ok{background:var(--amber);border-color:var(--amber)}
+.lr i.sg.ok::after{color:#fff}
+.lr i.now{box-shadow:0 0 0 6px rgba(76,141,255,.25),0 0 18px #4C8DFF}
+.lr i.w{box-shadow:0 0 0 7px rgba(245,166,91,.25)}
+.lr .bub{position:absolute;top:0;transform:translateX(-50%);font:600 11.5px var(--body);white-space:nowrap;padding:3px 8px;border-radius:7px;background:var(--amber);color:#1A1205;opacity:0;transition:opacity .2s,left .3s}
+.lr .bub.on{opacity:1}
+.lr.lock i.sg{border-color:var(--red)}
+.ld-k{display:flex;gap:8px;flex-wrap:wrap}
+.nv6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:56px}
+.nv6>div{display:flex;flex-direction:column;gap:4px;padding:18px 26px;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.nv6>div:nth-child(3n+1){border-left:0;padding-left:0}
+.nv6 b{font:700 18px var(--display);letter-spacing:-.02em}
+.nv6 b::before{content:"✕";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:10px;border-radius:6px;font-size:11px;background:rgba(255,122,127,.14);color:var(--tx-red);vertical-align:2px}
+.nv6 small{font-size:14.5px;color:var(--ink2)}
+.nv-h{margin-top:56px;font:500 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.nv-h+.nv6{margin-top:14px}
+@media (max-width:900px){.ld{grid-template-columns:1fr;gap:30px}.nv6{grid-template-columns:1fr 1fr}.nv6>div:nth-child(3n+1){border-left:1px solid var(--line);padding-left:26px}.nv6>div:nth-child(odd){border-left:0;padding-left:0}}
+@media (max-width:560px){.nv6{grid-template-columns:1fr}.nv6>div{border-left:0!important;padding-left:0!important}.ld-l{padding:0 18px}.ld-r{grid-template-columns:42px 1fr;padding:14px}.ld-r .ps{display:none}}
+
+/* specialists */
+.sp-ch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.sp-ch button{all:unset;box-sizing:border-box;cursor:pointer;font:600 14.5px var(--body);padding:10px 16px;border-radius:999px;border:1px solid var(--line2);color:var(--ink2);transition:all .3s;position:relative;overflow:hidden}
+.sp-ch button:hover{color:var(--ink)}
+.sp-ch button[aria-selected="true"]{color:#fff;border-color:transparent;background:linear-gradient(90deg,#2E6BEA,#7C5CF0)}
+.sp-ch button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.sp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;min-height:390px}
+.bench{display:flex;flex-direction:column;gap:18px}
+.bench-c{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;max-width:440px}
+.bench-c span{aspect-ratio:1;border-radius:12px;display:grid;place-items:center;font:700 13px var(--display);border:1px solid var(--line2);color:var(--ink3);background:rgba(var(--wsh),.03)}
+.bench-j{position:relative;display:flex;flex-wrap:wrap;gap:10px;min-height:72px;align-items:center;padding-top:22px;border-top:1px dashed var(--line2);max-width:440px}
+.bench-j::before{content:"+ joins the team";position:absolute;top:-10px;left:0;padding-right:10px;background:var(--bg);font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.m-alt .bench-j::before{background:transparent}
+.sj{display:inline-flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:16px;background:var(--surface);border:1px solid var(--line2);box-shadow:0 10px 26px var(--shadow);font-weight:600;font-size:14px}
+.sj .av{width:38px;height:38px;font-size:11.5px;border-radius:11px}
+.sj .lg{width:38px;height:38px;border-radius:11px}
+@media (prefers-reduced-motion:no-preference){.sj{animation:join .55s cubic-bezier(.2,1.3,.4,1) both;animation-delay:var(--d,0s)}@keyframes join{from{opacity:0;transform:translateY(-26px) scale(.8)}}}
+.sp-tx{display:flex;flex-direction:column;gap:0}
+.sp-r{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.sp-r:last-child{border-bottom:1px solid var(--line)}
+.sp-r b{font:700 18px var(--display);letter-spacing:-.02em}
+.sp-r small{grid-column:1;font-size:14.5px;color:var(--ink2)}
+.sp-r em{grid-column:2;grid-row:1/3;align-self:center;font-style:normal;font:500 12.5px var(--mono);color:var(--tx-blue);white-space:nowrap}
+.sp-r.pk{padding:9px 0}.sp-r.pk b{font-size:16px}.sp-r.pk small{font-size:13.5px}
+@media (max-width:900px){.sp{grid-template-columns:1fr;gap:30px}}
+
+/* quality */
+.qn{margin-bottom:56px}
+.q2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.q-h{font:500 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;display:flex;justify-content:space-between;gap:12px}
+.qa{display:grid;grid-template-columns:34px minmax(0,140px) minmax(0,1fr) 48px;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:14px}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa .av{width:34px;height:34px;font-size:12px;border-radius:10px}
+.qa b{font-weight:600}.qa b small{display:block;font-weight:500;font-size:12px;color:var(--ink3)}
+.qa .t{height:8px;border-radius:4px;background:rgba(var(--wsh),.07);overflow:hidden}
+.qa .t i{display:block;height:100%;border-radius:4px;width:var(--w);background:linear-gradient(90deg,var(--blue),var(--green));transform-origin:0 50%;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.qa.wt .t i{background:linear-gradient(90deg,var(--amber),#E0702C)}
+.in .qa .t i,.qa-in .qa .t i{transform:none}
+.qa .n{font:700 15px var(--display);text-align:right}
+.qa.wt b small{color:var(--tx-amber)}
+.feed{list-style:none;margin:0;padding:0;height:330px;overflow:hidden;mask-image:linear-gradient(#000 80%,transparent);-webkit-mask-image:linear-gradient(#000 80%,transparent)}
+.feed li{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
+.feed li .av{width:30px;height:30px;font-size:11px;border-radius:9px}
+.feed li b{color:var(--ink);font-weight:600}
+.feed li time{font:500 11px var(--mono);color:var(--ink3)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:var(--green);box-shadow:0 0 10px var(--green)}
+@media (prefers-reduced-motion:no-preference){.dot{animation:blink 1.6s ease-in-out infinite}@keyframes blink{50%{opacity:.35}}}
+@media (max-width:900px){.q2{grid-template-columns:1fr;gap:40px}}
+@media (max-width:480px){.qa{grid-template-columns:30px minmax(0,1fr) 44px}.qa .t{grid-column:2/4;grid-row:2}.qa .av{grid-row:1/3;width:30px;height:30px}}
+
+/* ask */
+.ak{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.ak .m-head{margin-bottom:24px}
+.pts{display:grid;gap:12px}
+.pts div{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:15.5px;color:var(--ink2)}
+.pts div::before{content:"";width:10px;height:10px;margin-top:8px;border-radius:3px;background:var(--violet);box-shadow:0 0 12px rgba(169,139,255,.6)}
+.pts b{color:var(--ink)}
+.cw{border:1px solid var(--line2);border-radius:22px;background:linear-gradient(180deg,rgba(var(--s2),.92),rgba(var(--s1),.95));box-shadow:0 30px 70px var(--shadow);overflow:hidden}
+.cw-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.cw-h b{font:700 15px var(--display)}.cw-h small{display:block}
+.cw-b{padding:18px;display:flex;flex-direction:column;gap:14px;height:440px;overflow:hidden}
+.cq{align-self:flex-end;max-width:86%;background:rgba(76,141,255,.16);border:1px solid rgba(76,141,255,.35);border-radius:16px 16px 4px 16px;padding:11px 15px;font-size:15px;min-height:46px}
+.cq .cur{display:inline-block;width:2px;height:1.05em;background:var(--blue2);vertical-align:-2px;margin-left:2px}
+@media (prefers-reduced-motion:no-preference){.cq .cur{animation:blink 1s steps(2) infinite}}
+.ca{max-width:96%;border:1px solid var(--line2);border-radius:16px 16px 16px 4px;padding:14px 16px;background:rgba(var(--wsh),.02);display:grid;gap:10px;transition:opacity .4s}
+.ca .hd{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink3)}
+.ca p{font-size:15px;color:var(--ink)}
+.ca ol{padding:0;list-style:none;display:grid;gap:7px;font-size:14.5px;color:var(--ink2)}
+.ca ol li{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.ca sup,.src b{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:rgba(169,139,255,.2);color:var(--tx-violet);font:500 11px var(--mono)}
+.srcs{display:flex;gap:8px;flex-wrap:wrap}
+.src{display:inline-flex;align-items:center;gap:8px;padding:5px 10px 5px 5px;border:1px solid var(--line2);border-radius:10px;font-size:12.5px;color:var(--ink2)}
+.ca .ft{font:500 11.5px var(--mono);color:var(--ink3)}.ca .ft b{color:var(--tx-green);font-weight:500}
+.ca .rv2{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .4s}
+.ca .rv2.in{opacity:1;transform:none}
+.typing{display:inline-flex;gap:4px;padding:12px 14px;border:1px solid var(--line2);border-radius:14px;width:max-content}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--violet)}
+@media (prefers-reduced-motion:no-preference){.typing i{animation:bob 1.2s ease-in-out infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes bob{50%{transform:translateY(-4px);opacity:.5}}}
+.hide{display:none!important}
+@media (max-width:900px){.ak{grid-template-columns:1fr;gap:30px}.cw-b{height:500px}}
+
+/* roster relay */
+.rl-it.hit .rl-av{box-shadow:0 0 0 8px var(--bg),0 0 0 14px rgba(76,141,255,.35),0 0 40px rgba(76,141,255,.5)}
+.rl{position:relative;display:flex;flex-direction:column;gap:18px;margin-top:8px}
+.rl-spine{position:absolute;left:50%;top:30px;bottom:30px;width:2px;margin-left:-1px;background:rgba(var(--b2r),.18);border-radius:2px}
+.rl-spine i{position:absolute;left:0;top:0;width:100%;height:var(--p,0%);background:linear-gradient(180deg,var(--blue),var(--violet),var(--amber),var(--green));border-radius:2px;box-shadow:0 0 14px rgba(76,141,255,.5)}
+.rl-it{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr);align-items:center;min-height:200px;scroll-margin-top:110px}
+.rl-av{grid-column:2;grid-row:1;justify-self:center;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font:700 17px var(--display);z-index:1;transition:transform .5s cubic-bezier(.2,1.4,.4,1),box-shadow .5s;box-shadow:0 0 0 8px var(--bg)}
+.rl-it.on .rl-av{transform:scale(1.12);box-shadow:0 0 0 8px var(--bg),0 14px 34px var(--shadow)}
+.rl-main{grid-row:1;max-width:500px;transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rl-side{grid-row:1;display:flex;flex-direction:column;gap:8px;max-width:360px;transition:opacity .6s .1s,transform .7s .1s cubic-bezier(.2,.7,.2,1)}
+.rl-l .rl-main{grid-column:1;justify-self:end;text-align:left;padding-right:12px}.rl-l .rl-side{grid-column:3;padding-left:12px}
+.rl-r .rl-main{grid-column:3;padding-left:12px}.rl-r .rl-side{grid-column:1;justify-self:end;align-items:flex-end;text-align:right;padding-right:12px}
+.js .rl-it:not(.seen) .rl-main{opacity:0;transform:translateY(24px)}.js .rl-it:not(.seen) .rl-side{opacity:0;transform:translateY(24px)}
+.rl-n{font:500 12px var(--mono);color:var(--ink3);letter-spacing:.12em}
+.rl-main h3{font:800 clamp(26px,2.6vw,34px)/1.05 var(--display);letter-spacing:-.03em;margin-top:4px}
+.rl-tag{display:block;color:var(--tx-blue);font-size:14px;font-weight:600;margin-top:4px}
+.rl-main>p:not(.rl-nv){color:var(--ink2);font-size:16px;margin-top:10px}
+.rl-io{display:flex;align-items:stretch;gap:10px;margin-top:14px;flex-wrap:wrap}
+.rl-io span{flex:1 1 150px;font-size:13.5px;line-height:1.4;padding:9px 12px;border-radius:12px;background:rgba(var(--wsh),.045)}
+.rl-io span:last-child{background:rgba(var(--b2r),.1)}
+.rl-io em{display:block;font:500 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--ink3);margin-bottom:2px}
+.rl-io i{align-self:center;width:22px;height:2px;background:currentColor;color:var(--blue2);position:relative;flex:none}
+.rl-io i::after{content:"";position:absolute;right:-1px;top:-4px;border:5px solid transparent;border-left:7px solid currentColor;border-right:0}
+.rl-nv{font-size:13.5px;color:var(--ink3);margin-top:12px}.rl-nv b{color:var(--tx-red);font-weight:700;margin-right:4px}.rl-nv b::before{content:"✕ "}
+.rl-who{font:800 clamp(19px,1.8vw,24px)/1.15 var(--display);letter-spacing:-.02em;color:var(--ink2)}
+.rl-who.ck{color:var(--tx-amber)}.rl-who.ck::before{content:"◆ ";font-size:.8em}
+.rl-who.ck::after{content:"approves";display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:4px}
+.rl-hd{font-size:14px;color:var(--ink3)}
+.rl-cr{display:flex;gap:6px;flex-wrap:wrap}.rl-r .rl-cr{justify-content:flex-end}
+.rl-cr em{font:500 11.5px var(--mono);font-style:normal;padding:4px 9px;border-radius:7px;background:rgba(var(--wsh),.06);color:var(--ink2)}
+.rl-cr em.z{background:rgba(95,211,154,.14);color:var(--tx-green)}
+@media (max-width:900px){.rl-spine{left:31px}.rl-it{grid-template-columns:64px minmax(0,1fr);column-gap:16px;align-items:start;min-height:0}
+.rl-av{grid-column:1;width:52px;height:52px;border-radius:16px;font-size:15px}
+.rl-l .rl-main,.rl-r .rl-main{grid-column:2;grid-row:1;justify-self:stretch;padding:0;max-width:none}
+.rl-l .rl-side,.rl-r .rl-side{grid-column:2;grid-row:2;justify-self:stretch;align-items:flex-start;text-align:left;padding:14px 0 0;max-width:none}.rl-r .rl-cr{justify-content:flex-start}
+.rl-io{flex-direction:column;gap:8px}.rl-io span{flex:none}.rl-io i{width:2px;height:14px;margin-left:18px}.rl-io i::after{right:auto;top:auto;bottom:-6px;left:-4px;border:5px solid transparent;border-top:7px solid currentColor;border-bottom:0}}
+</style>
+</head>
+<body data-page="agents">
+<header id="vf-header"></header>
+
+<section class="phero ah">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="ah-top">
+      <span class="crumbs"><a href="./">Home</a> / AI agents</span>
+      <span class="eyebrow">Meet your AI QA team</span>
+      <h1>Eight specialists. <span class="grad">None wrote your code.</span></h1>
+      <p class="lede">The AI that wrote the code shouldn’t grade it. These agents test your live app like a real QA team. People sign.</p>
+      <div class="ah-row"><div class="acts"><a class="btn primary" href="value.html#contact">Put the team on your app <span class="arr">→</span></a><a class="btn ghost" href="#roster">Meet each agent</a></div>
+      <div class="hchips"><span>Never wrote the code they test</span><span>Every output labelled AI</span><span>People approve</span><span>Engine work · <b>0 credits</b></span></div></div>
+    </div>
+    <div class="ar" id="ar">
+      <div class="ar-c">
+        <div class="ar-ring" aria-hidden="true"></div>
+        <div class="ar-arm" aria-hidden="true"><i></i></div>
+        <div class="ar-hub"><small>Checkpoint</small><b>You approve</b><small>AI never signs</small></div>
+        <button type="button" class="ar-n" data-i="0" data-c="blue" style="left:50%;top:8%" aria-label="Business Analyst">BA</button><button type="button" class="ar-n" data-i="1" data-c="violet" style="left:79.7%;top:20.3%" aria-label="Test Designer">TD</button><button type="button" class="ar-n" data-i="2" data-c="green" style="left:92%;top:50%" aria-label="Tester">TE</button><button type="button" class="ar-n" data-i="3" data-c="amber" style="left:79.7%;top:79.7%" aria-label="Verifier">VR</button><button type="button" class="ar-n" data-i="4" data-c="red" style="left:50%;top:92%" aria-label="Defect Manager">DM</button><button type="button" class="ar-n" data-i="5" data-c="blue2" style="left:20.3%;top:79.7%" aria-label="Automation Engineer">AE</button><button type="button" class="ar-n" data-i="6" data-c="amber" style="left:8%;top:50%" aria-label="Performance Engineer">PE</button><button type="button" class="ar-n" data-i="7" data-c="green" style="left:20.3%;top:20.3%" aria-label="Release Manager">RM</button>
+      </div>
+      <div class="ar-panel" aria-live="polite"><div class="ar-bar pbar" aria-hidden="true"><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="roster">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">The roster</p><h2>One job each.<br>A person approves.</h2><p>Independent of whoever built the app. Live app and integrations, never your code.</p></div>
+    <div class="rl" id="rl"><div class="rl-spine" aria-hidden="true"><i></i></div>
+<div class="rl-it rl-l" id="ag-ba"><span class="rl-av av c-blue">BA</span><div class="rl-main"><span class="rl-n">01</span><h3>Business Analyst</h3><small class="rl-tag">Understands the system</small><p>Drafts a BRD in your template, then runs the gap analysis against the live app. Every requirement links to its source.</p><div class="rl-io"><span><em>Reads</em>Word, PDF, Confluence, a brief or the app URL</span><i aria-hidden="true"></i><span><em>Makes</em>BRD draft, gap analysis, open questions</span></div><p class="rl-nv"><b>Never</b> invents a requirement without a source, or approves its own work.</p></div><div class="rl-side"><span class="rl-who ck">Your business analyst</span><span class="rl-hd">Hands to Test Designer →</span><span class="rl-cr"><em>AI · draft once</em><em class="z">Screen crawl · 0</em></span></div></div>
+<div class="rl-it rl-r" id="ag-td"><span class="rl-av av c-violet">TD</span><div class="rl-main"><span class="rl-n">02</span><h3>Test Designer</h3><small class="rl-tag">Designs the coverage</small><p>Happy paths, negatives, boundaries, risk-weighted depth. Reuses the cases you already have.</p><div class="rl-io"><span><em>Reads</em>Approved BRD, risk, coverage target, your cases</span><i aria-hidden="true"></i><span><em>Makes</em>Test pack draft, coverage map</span></div><p class="rl-nv"><b>Never</b> designs from an unapproved BRD, or deletes your cases.</p></div><div class="rl-side"><span class="rl-who ck">QA lead</span><span class="rl-hd">Hands to Tester →</span><span class="rl-cr"><em>AI · generate once</em><em class="z">Duplicates, coverage · 0</em></span></div></div>
+<div class="rl-it rl-l" id="ag-te"><span class="rl-av av c-green">TE</span><div class="rl-main"><span class="rl-n">03</span><h3>Tester</h3><small class="rl-tag">Runs the approved plan</small><p>Build verification on every new build, across apps, workstation, AI and data. Screenshots, logs and replays for every step.</p><div class="rl-io"><span><em>Reads</em>New build, approved plan, environment, labelled data</span><i aria-hidden="true"></i><span><em>Makes</em>Results with evidence per step</span></div><p class="rl-nv"><b>Never</b> types a password or one-time code, changes the plan or touches production.</p></div><div class="rl-side"><span class="rl-who">QA lead approves the plan</span><span class="rl-hd">Hands to Verifier →</span><span class="rl-cr"><em class="z">Runs, retries · 0</em><em>Sign-ins to a person</em></span></div></div>
+<div class="rl-it rl-r" id="ag-vr"><span class="rl-av av c-amber">VR</span><div class="rl-main"><span class="rl-n">04</span><h3>Verifier</h3><small class="rl-tag">Second-agent verification</small><p>Re-runs every failure on its own and sorts it: product bug, test issue, environment or data, with confidence.</p><div class="rl-io"><span><em>Reads</em>Failure, evidence, run history</span><i aria-hidden="true"></i><span><em>Makes</em>Reproduced or not, category, confidence</span></div><p class="rl-nv"><b>Never</b> hides a failure, or decides one for a person.</p></div><div class="rl-side"><span class="rl-who">Seen by a QA engineer in the inbox</span><span class="rl-hd">Hands to Defect Manager →</span><span class="rl-cr"><em class="z">Re-run · 0</em><em>AI · small-model review</em></span></div></div>
+<div class="rl-it rl-l" id="ag-dm"><span class="rl-av av c-red">DM</span><div class="rl-main"><span class="rl-n">05</span><h3>Defect Manager</h3><small class="rl-tag">Turns failures into defects</small><p>Drafts defects with steps, evidence and severity. Links duplicates and syncs approved ones to Jira or Azure DevOps.</p><div class="rl-io"><span><em>Reads</em>Verified failures, tracker history</span><i aria-hidden="true"></i><span><em>Makes</em>Defect drafts, duplicate links</span></div><p class="rl-nv"><b>Never</b> files to your tracker before approval, or closes a defect.</p></div><div class="rl-side"><span class="rl-who ck">QA lead or engineer</span><span class="rl-hd">Hands to your tracker, then a re-run →</span><span class="rl-cr"><em>AI · new failures only</em><em class="z">Duplicate rules · 0</em></span></div></div>
+<div class="rl-it rl-r" id="ag-ae"><span class="rl-av av c-blue2">AE</span><div class="rl-main"><span class="rl-n">06</span><h3>Automation Engineer</h3><small class="rl-tag">Write once, run free</small><p>Turns passed tests into scripts in your repository. Rules repair broken locators first, AI only when rules can’t decide.</p><div class="rl-io"><span><em>Reads</em>Passed tests, your test repository</span><i aria-hidden="true"></i><span><em>Makes</em>Scripts and repairs as pull requests</span></div><p class="rl-nv"><b>Never</b> merges its own pull request, or quarantines a test.</p></div><div class="rl-side"><span class="rl-who ck">Your code reviewers</span><span class="rl-hd">Hands to the regression suite →</span><span class="rl-cr"><em>AI · generate once</em><em class="z">Runs, rule repair · 0</em></span></div></div>
+<div class="rl-it rl-l" id="ag-pe"><span class="rl-av av c-amber">PE</span><div class="rl-main"><span class="rl-n">07</span><h3>Performance Engineer</h3><small class="rl-tag">Load with safety stops</small><p>Load scenarios from the BRD and your traffic profile, with a ramp, an abort threshold and a stop button.</p><div class="rl-io"><span><em>Reads</em>BRD, traffic profile, agreed limits</span><i aria-hidden="true"></i><span><em>Makes</em>Scenario, p95 results, bottleneck notes</span></div><p class="rl-nv"><b>Never</b> runs above the agreed limit without approval, or loads production.</p></div><div class="rl-side"><span class="rl-who ck">Performance lead</span><span class="rl-hd">Hands to Release Manager →</span><span class="rl-cr"><em>AI · design, explain</em><em class="z">Load runs · 0</em></span></div></div>
+<div class="rl-it rl-r" id="ag-rm"><span class="rl-av av c-green">RM</span><div class="rl-main"><span class="rl-n">08</span><h3>Release Manager</h3><small class="rl-tag">Prepares the decision</small><p>Checks results against every quality gate, assembles the Evidence Pack and prepares the go/no-go with a plain risk summary.</p><div class="rl-io"><span><em>Reads</em>Results, defects, waivers, gate rules</span><i aria-hidden="true"></i><span><em>Makes</em>Gate status, Evidence Pack, go/no-go request</span></div><p class="rl-nv"><b>Never</b> signs a go/no-go, or waives a check.</p></div><div class="rl-side"><span class="rl-who ck">Your named approvers sign</span><span class="rl-hd">Hands to Go / No-go →</span><span class="rl-cr"><em class="z">Gate metrics · 0</em><em>AI · risk summary</em></span></div></div>
+</div>
+    <p class="fine">◆ a named person approves. Runs, retries and measurements happen on SecondProof engines at 0 AI credits.</p>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="day">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">A day with the team</p><h2>BRD at 08:40.<br>Go/no-go by 17:30.</h2><p>Work moves agent to agent. At each diamond, a person approves.</p></div>
+    <div class="dy rv" id="dy">
+      <div class="dy-tr"><div class="dy-ln"><i></i></div><div class="dy-mk" aria-hidden="true"></div><div class="dy-st" role="tablist" aria-label="Times of day"></div><div class="dy-hr" aria-hidden="true"><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span></div></div>
+      <div class="dy-bd">
+        <div class="dy-tx" aria-live="polite"><span class="dy-clk">08:40</span><h3></h3><p></p><span class="tg-ck"></span><div class="pbar" aria-hidden="true"><i></i></div></div>
+        <div class="dy-vz" aria-hidden="true">
+          <div class="dv"><div class="v-doc"><b>BRD v1.1</b><i></i><i></i><i></i><i></i><small>64 requirements · each linked to its source page</small></div></div>
+          <div class="dv"><div class="v-tc"><span>REQ-041 · transfer above limit</span><span>REQ-041 · second approver</span><span>REQ-042 · Arabic name</span></div><small>128 cases · risk-weighted · coverage checked by a second agent</small></div>
+          <div class="dv"><div class="v-run"><span class="t"><i></i></span><span class="h">OTP sign-in → handed to a person</span><small>Build 412 · 340 steps in UAT · 0 credits</small></div></div>
+          <div class="dv"><div class="v-vr"><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="f"></i><i class="f"></i><small>6 re-run · 4 product bugs · 2 environment, not raised</small></div></div>
+          <div class="dv"><div class="v-def"><b>4 defect drafts · steps and evidence</b><span>DEF-031 · Checkout total mismatch</span><span class="lk">↔ 1 duplicate linked to DEF-027</span></div><small>Waiting for QA approval, then Jira</small></div>
+          <div class="dv"><div class="v-pe"><svg viewBox="0 0 300 80" aria-hidden="true"><line x1="0" y1="14" x2="300" y2="14"/><text x="300" y="9" text-anchor="end">abort at 5 % errors</text><polyline points="0,74 40,70 80,62 120,56 160,44 200,40 240,32 300,28" fill="none" stroke="currentColor" stroke-width="3"/></svg><small>2,000 users · p95 target 800 ms</small></div></div>
+          <div class="dv"><div class="v-code"><code>test('transfer limit', async () =&gt; {</code><code>&nbsp;&nbsp;await expect(approval).toBeVisible()</code><code>})</code><small>96 passed cases → 1 pull request</small></div></div>
+          <div class="dv"><div class="v-gate"><span>Pass rate ✓</span><span>Critical ✓</span><span>Load ✓</span><span>Security ✓</span><span>Coverage ✓</span><span class="w">1 waiver</span><em>Evidence Pack ready · waiting for approvers</em></div></div>
+        </div>
+      </div>
+      <div class="dy-leg"><span><i></i>Person approves · nothing proceeds without it</span><span><i class="g"></i>Engine work · 0 credits</span><span>Illustrative timings</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="verify">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Second-agent verification</p><h2>No failure reaches you<br>unchecked.</h2><p>Flaky environments and stale data are filtered out first.</p></div>
+    <div class="vf rv" id="vf">
+      <ol class="vf-st" role="tablist">
+        <li><button type="button" role="tab" aria-selected="true"><span class="m-n">01</span><b>A step fails</b><small>Screenshot, log and network trace saved.</small></button></li>
+        <li><button type="button" role="tab" aria-selected="false"><span class="m-n">02</span><b>Re-run on a clean engine</b><small>The Verifier runs it again. 0 credits.</small></button></li>
+        <li><button type="button" role="tab" aria-selected="false"><span class="m-n">03</span><b>Classified and scored</b><small>Product bug, test issue, environment or data.</small></button></li>
+        <li><button type="button" role="tab" aria-selected="false"><span class="m-n">04</span><b>Then a person decides</b><small>In the inbox with why, confidence and evidence.</small></button></li>
+      </ol>
+      <div>
+        <div class="vf-c" data-s="0" aria-hidden="true">
+          <svg class="fn" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M6,4 L94,4 L64,40 L64,58 L96,98 L4,98 L36,58 L36,40 Z"/><line x1="54" y1="62" x2="58" y2="98"/></svg>
+          <span class="vf-l" style="left:6%;top:-2px;transform:translateY(-100%)">6 failures</span>
+          <span class="vf-l" style="left:67%;top:46%">Re-run · 0 credits</span>
+          <span class="vf-l" style="left:14%;top:90%">Real · to your inbox</span>
+          <span class="vf-l" style="right:13%;top:90%;text-align:right">Flaky · not raised</span>
+          <i class="vf-d r"><span>✕</span></i><i class="vf-d r"><span>✕</span></i><i class="vf-d f"><span>✕</span></i><i class="vf-d r"><span>✕</span></i><i class="vf-d f"><span>✕</span></i><i class="vf-d r"><span>✕</span></i>
+          <div class="vf-in"><b>F-17 · Checkout total mismatch</b><div class="r"><span>Product bug</span><span class="t"><i style="--w:94%"></i></span><span>94 %</span></div><div class="r"><span>Test data</span><span class="t"><i style="--w:4%"></i></span><span>4 %</span></div><div class="r"><span>Environment</span><span class="t"><i style="--w:2%"></i></span><span>2 %</span></div><small>Reproduced 2 of 2 · waiting for a QA engineer</small></div>
+        </div>
+        <div class="vf-cap"><div class="pbar" aria-hidden="true"><i></i></div><span aria-live="polite">6 steps failed in run R-4.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="loop">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Human in the loop</p><h2>You set how far it goes.<br>The top rung still stops.</h2><p>Per agent, per action. Admins can lock risky actions. Every change is logged.</p></div>
+    <div class="ld rv" id="ld">
+      <div class="ld-l" role="tablist" aria-label="Autonomy levels">
+        <button type="button" class="ld-r x" role="tab" aria-selected="false" data-k="3"><span class="lv">NONE</span><span><b>Approve on its own</b><small>Does not exist</small></span><span class="ps">Not configurable</span></button>
+        <button type="button" class="ld-r" role="tab" aria-selected="false" data-k="2"><span class="lv">LVL 3</span><span><b>Run the approved plan</b><small>Highest level</small></span><span class="ps">Preset · Fast</span></button>
+        <button type="button" class="ld-r" role="tab" aria-selected="false" data-k="1"><span class="lv">LVL 2</span><span><b>Draft</b><small>Ask at checkpoints</small></span><span class="ps">Balanced · default</span></button>
+        <button type="button" class="ld-r" role="tab" aria-selected="true" data-k="0"><span class="lv">LVL 1</span><span><b>Suggest</b><small>Ask every step</small></span><span class="ps">Preset · Cautious</span></button>
+      </div>
+      <div class="ld-p" aria-live="polite">
+        <span class="eyebrow" id="ldE">Level 1 · Cautious</span>
+        <h3 id="ldT">Suggest</h3>
+        <p id="ldD"></p>
+        <div class="lr" id="ldR" aria-hidden="true"><span class="bub"></span><i></i><i></i><i class="d"></i><i></i><i></i><i></i><i class="d"></i><i class="sg"></i></div>
+        <div class="ld-k"><span class="tag t-blue">● step</span><span class="tag t-amber">◆ checkpoint</span><span class="tag t-amber">✍ sign-off · people only</span></div>
+        <div class="pbar" style="width:220px" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+    <p class="nv-h rv">What an agent never does</p>
+    <div class="nv6 stg">
+      <div><b>Approve or sign</b><small>BRDs, plans, gates, waivers, go/no-go: people only.</small></div>
+      <div><b>Handle credentials</b><small>Passwords sit in the vault. People enter them.</small></div>
+      <div><b>Complete identity steps</b><small>National ID, OTP and card steps go to a person.</small></div>
+      <div><b>Act in production</b><small>Needs a person. Load tests never target it.</small></div>
+      <div><b>Merge its own changes</b><small>Scripts arrive as pull requests your reviewers merge.</small></div>
+      <div><b>Spend without an estimate</b><small>Credits estimated first. Budgets can block or warn.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="specialists">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Product specialists</p><h2>Add a product line.<br>A specialist joins.</h2><p>Same rules: drafts, approved plans, human checkpoints.</p></div>
+    <div class="rv" id="sp">
+      <div class="sp-ch" role="tablist" aria-label="Product lines"><button type="button" role="tab" aria-selected="true">Apps</button><button type="button" role="tab" aria-selected="false">Workstation</button><button type="button" role="tab" aria-selected="false">AI</button><button type="button" role="tab" aria-selected="false">Data</button><button type="button" role="tab" aria-selected="false">Enterprise packs</button></div>
+      <div class="sp">
+        <div class="bench" aria-hidden="true"><div class="bench-c"><span>BA</span><span>TD</span><span>TE</span><span>VR</span><span>DM</span><span>AE</span><span>PE</span><span>RM</span></div><div class="bench-j" id="spJ"></div></div>
+        <div class="sp-tx" id="spT" aria-live="polite"></div>
+      </div>
+      <p class="fine">Pack figures: tests selected by change impact out of the pack library. Demo scenarios, not customer results.</p>
+    </div>
+    <template id="spTpl">
+      <div data-j='[["API","c-blue2","API specialist"],["MOB","c-violet","Mobile specialist"]]'><div class="sp-r"><b>API specialist</b><small>Reads OpenAPI and other contracts. Positive, negative and fuzz cases. Flags breaking changes.</small><em>SecondProof Apps</em></div><div class="sp-r"><b>Mobile specialist</b><small>Maps journeys on iOS and Android. Picks the devices that matter from your farm.</small><em>SecondProof Apps</em></div></div>
+      <div data-j='[["WS","c-blue","Workstation specialist"]]'><div class="sp-r"><b>Workstation specialist</b><small>Windows thick clients, Citrix or VDI sessions and terminal screens become scripts, with image steps where controls can’t be read.</small><em>SecondProof Workstation</em></div></div>
+      <div data-j='[["AI","c-violet","AI evaluator"],["RT","c-red","Red team"]]'><div class="sp-r"><b>AI evaluator and red team</b><small>Scores answers against a golden set, attacks prompts, checks tool calls, step order and policy stops.</small><em>SecondProof AI</em></div></div>
+      <div data-j='[["DATA","c-green","Data specialist"]]'><div class="sp-r"><b>Data specialist</b><small>Source-to-target reconciliation and quality rules. Connects read-only. Finds personal data to mask.</small><em>SecondProof Data</em></div></div>
+      <div data-j='[["sap","","SAP"],["oracle","","Oracle"],["salesforce","","Salesforce"],["servicenow","","ServiceNow"],["dynamics365","","Dynamics 365"],["workday","","Workday"]]'><div class="sp-r pk"><b>SAP specialist</b><small>Support packages to order-to-cash and more</small><em>212 of 1,180</em></div><div class="sp-r pk"><b>Oracle specialist</b><small>Quarterly Fusion updates to your flows</small><em>186 of 1,240</em></div><div class="sp-r pk"><b>Salesforce specialist</b><small>Seasonal releases against your org</small><em>146 of 980</em></div><div class="sp-r pk"><b>ServiceNow specialist</b><small>Family upgrades and your ATF suite</small><em>60 + 321 ATF</em></div><div class="sp-r pk"><b>Dynamics 365 specialist</b><small>Wave updates to finance and sales</small><em>138 of 960</em></div><div class="sp-r pk"><b>Workday specialist</b><small>Twice-yearly HR and payroll updates</small><em>128 of 720</em></div></div>
+    </template>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="quality">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Quality and transparency</p><h2>Every agent measured.<br>Every action visible.</h2><p>Accuracy drops? The agent is put under watch.</p></div>
+    <div class="m-nums qn stg">
+      <div><b class="grad"><span data-count="96" data-suffix=" %">96 %</span></b><small>Verifier accuracy · 8 weeks</small></div>
+      <div><b class="grad"><span data-count="18420">18,420</span></b><small>steps run by engines · 0 credits</small></div>
+      <div><b class="grad"><span data-count="1240">1,240</span></b><small>answers reused from cache · 0 credits</small></div>
+      <div><b class="grad"><span data-count="41">41</span></b><small>of 312 AI decisions escalated after rules</small></div>
+    </div>
+    <div class="q2">
+      <div class="rv" id="qa">
+        <div class="q-h"><span>Accuracy · 8 weeks</span><span>overturned by people</span></div>
+        <div class="qa"><span class="av c-blue">BA</span><b>Business Analyst<small>overturned 4 %</small></b><span class="t"><i style="--w:93%"></i></span><span class="n">93 %</span></div>
+        <div class="qa"><span class="av c-violet">TD</span><b>Test Designer<small>overturned 6 %</small></b><span class="t"><i style="--w:91%"></i></span><span class="n">91 %</span></div>
+        <div class="qa"><span class="av c-amber">VR</span><b>Verifier<small>false positives 3 % · overturned 2 %</small></b><span class="t"><i style="--w:96%"></i></span><span class="n">96 %</span></div>
+        <div class="qa"><span class="av c-red">DM</span><b>Defect Manager<small>false positives 5 % · overturned 5 %</small></b><span class="t"><i style="--w:92%"></i></span><span class="n">92 %</span></div>
+        <div class="qa wt"><span class="av c-blue2">AE</span><b>Automation Engineer<small>Watching · overturned 11 %</small></b><span class="t"><i style="--w:86%"></i></span><span class="n">86 %</span></div>
+      </div>
+      <div class="rv">
+        <div class="q-h"><span><i class="dot"></i>Live activity · Retail Onboarding</span><span>every action logged</span></div>
+        <ul class="feed" data-feed aria-label="Example agent activity">
+          <li><span class="av c-green">TE</span><span><b>Tester</b> finished step 212 of 340 in run R-4</span><time>09:42</time></li>
+          <li><span class="av c-amber">VR</span><span><b>Verifier</b> reproduced F-17 twice · product bug · 94 %</span><time>09:41</time></li>
+          <li><span class="av c-red">DM</span><span><b>Defect Manager</b> drafted DEF-031 · waiting for QA</span><time>09:40</time></li>
+          <li><span class="av c-blue">BA</span><span><b>Business Analyst</b> linked REQ-212 to page 14 of BRD v1.1</span><time>09:38</time></li>
+          <li><span class="av c-blue2">AE</span><span><b>Automation Engineer</b> repaired 3 locators by rule · 0 credits</span><time>09:36</time></li>
+          <li><span class="av c-green">TE</span><span><b>Tester</b> handed the OTP sign-in to Sara · waiting</span><time>09:33</time></li>
+          <li><span class="av c-violet">TD</span><span><b>Test Designer</b> estimated 42 credits for 24 new cases</span><time>09:31</time></li>
+          <li><span class="av c-amber">PE</span><span><b>Performance Engineer</b> proposed a 2,000-user ramp · needs approval</span><time>09:28</time></li>
+          <li><span class="av c-green">RM</span><span><b>Release Manager</b> checked build 412 against 5 of 6 gates</span><time>09:25</time></li>
+          <li><span class="av c-amber">VR</span><span><b>Verifier</b> marked F-15 as environment · not sent to you</span><time>09:22</time></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Example figures from the demo workspace, this release and the last 8 weeks.</p>
+  </div>
+</section>
+
+<section class="m-sec" id="ask">
+  <div class="wrap ak">
+    <div>
+      <div class="m-head rv"><p class="eyebrow">Ask SecondProof</p><h2>Ask about a release.<br>Get sources.</h2><p>Read-only. Follows your role. Plain words.</p></div>
+      <div class="pts stg">
+        <div><span><b>Sourced, never guessed.</b> Every point links to a requirement, run, defect or audit event.</span></div>
+        <div><span><b>Confidence shown.</b> High, medium or low. Flag any answer for a QA lead.</span></div>
+        <div><span><b>Cheap to repeat.</b> Same question, same evidence: from cache at 0 credits.</span></div>
+      </div>
+    </div>
+    <div class="cw rv" id="cw">
+      <div class="cw-h"><div><b>Ask SecondProof · Retail Onboarding</b><small class="mono">READ-ONLY · FOLLOWS YOUR ROLE</small></div><span class="tag t-violet">AI</span></div>
+      <div class="cw-b"><div class="cq"><span class="qt">Is Release 2.4 a go for Thursday?</span><span class="cur"></span></div><div class="typing hide"><i></i><i></i><i></i></div><div class="ca"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-cta">
+  <div class="wrap rv"><h2>Put the team<br><span class="grad">on your app.</span></h2><p>Ten-day pilot. Your people approve every step and sign.</p><div class="acts"><a class="btn primary" href="value.html#contact">Book a pilot <span class="arr">→</span></a><a class="btn ghost" href="platform.html">See the architecture</a></div></div>
+</section>
+
+<footer id="vf-footer"></footer>
+<script>
+(function(){var rl=document.getElementById('rl');if(!rl)return;var its=[].slice.call(rl.querySelectorAll('.rl-it')),sp=rl.querySelector('.rl-spine');
+function f(){var r=rl.getBoundingClientRect(),mid=innerHeight*.55,p=Math.max(0,Math.min(1,(mid-r.top)/r.height));sp.style.setProperty('--p',(p*100)+'%');
+its.forEach(function(it){var t=it.getBoundingClientRect();if(t.top<innerHeight*.88)it.classList.add('seen');it.classList.toggle('on',t.top<mid&&t.bottom>mid);});}
+addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f();
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)its.forEach(function(i){i.classList.add('seen');});})();
+</script>
+<script src="config.js"></script>
+<script src="logos.js"></script>
+<script src="site.js"></script>
+<script>
+(function(){
+var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,r){return (r||document).querySelector(s);}function $$(s,r){return [].slice.call((r||document).querySelectorAll(s));}
+/* shared auto-cycler: hover pauses, off-screen pauses, progress bar, reduced motion = static */
+function cycle(root,n,show,D,bars){var i=0,hold=false,on=true,t0=Date.now();
+  function go(k){i=((k%n)+n)%n;show(i);t0=Date.now();bars.forEach(function(b){b.style.width='0%';});}
+  root.addEventListener('mouseenter',function(){hold=true;});root.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});
+  root.addEventListener('focusin',function(){hold=true;});root.addEventListener('focusout',function(){hold=false;t0=Date.now();});
+  go(0);
+  if(!red){if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;if(on)t0=Date.now();}).observe(root);
+    setInterval(function(){if(hold||!on||document.hidden)return;var p=(Date.now()-t0)/D;bars.forEach(function(b){b.style.width=Math.min(100,p*100)+'%';});if(p>=1)go(i+1);},60);}
+  return {go:go,get i(){return i;}};}
+
+/* ===== hero ring ===== */
+var AG=[
+ ['BA','Business Analyst','Understands the system','#2E6BEA','Drafts the BRD from your documents, a brief or the live app, then runs the gap analysis.',['Word','PDF','Confluence','Brief','App URL'],['BRD draft','Gap analysis','Open questions'],'◆ Your business analyst approves',1,'Test Designer',['AI · draft once','Screen crawl · 0']],
+ ['TD','Test Designer','Designs the coverage','#7C5CF0','Writes risk-weighted test packs from approved requirements. Reuses your cases.',['Approved BRD','Risk','Coverage target','Your cases'],['Test pack','Coverage map'],'◆ The QA lead approves',1,'Tester',['AI · generate once','Coverage · 0']],
+ ['TE','Tester','Runs the approved plan','#16824F','Runs build verification on every new build and saves evidence for every step.',['New build','Approved plan','Environment','Test data'],['Results','Screenshots','Logs','Replays'],'Runs approved plans only',0,'Verifier',['Runs, retries · 0','Sign-ins to a person']],
+ ['VR','Verifier','Second-agent verification','#C46A12','Re-runs every failure before a person ever sees it, and sorts it with a confidence score.',['Failure','Evidence','Run history'],['Reproduced?','Category','Confidence'],'Seen by a QA engineer in the inbox',0,'Defect Manager',['Re-run · 0','AI · small-model review']],
+ ['DM','Defect Manager','Turns failures into defects','#C2323B','Drafts defects with steps, evidence and severity, and links duplicates.',['Verified failures','Tracker history'],['Defect drafts','Duplicate links'],'◆ A QA lead or engineer approves',1,'Your tracker',['AI · new failures only','Duplicate rules · 0']],
+ ['AE','Automation Engineer','Write once, run free','#4C8DFF','Turns passed tests into scripts. Every re-run costs 0 AI credits.',['Passed tests','Your test repo'],['Scripts','Repairs as PRs'],'◆ Your code reviewers merge',1,'Regression suite',['AI · generate once','Script runs · 0']],
+ ['PE','Performance Engineer','Load with safety stops','#C46A12','Builds load scenarios with a ramp, an abort threshold and a stop button.',['BRD','Traffic profile','Agreed limits'],['Scenario','p95 results','Bottlenecks'],'◆ The performance lead approves',1,'Release Manager',['AI · design, explain','Load runs · 0']],
+ ['RM','Release Manager','Prepares the decision','#16824F','Measures every quality gate, assembles the Evidence Pack and prepares the go/no-go.',['Results','Defects','Waivers','Gate rules'],['Gate status','Evidence Pack','Go/no-go request'],'◆ Your named approvers sign',1,'Go / No-go',['Gate metrics · 0','AI · risk summary']]];
+var ar=$('#ar');
+if(ar){var pan=$('.ar-panel',ar),ns=$$('.ar-n',ar),arm=$('.ar-arm',ar),deg=0,cur=0;
+  AG.forEach(function(a,k){var d=document.createElement('div');d.className='ar-p';
+    var ins=a[5].map(function(x,j){return '<span style="--d:'+(j*.07)+'s">'+x+'</span>';}).join(''),outs=a[6].map(function(x,j){return '<span style="--d:'+(.45+j*.09)+'s">'+x+'</span>';}).join('');
+    d.innerHTML='<div class="ar-hd"><span class="av" style="background:'+a[3]+'">'+a[0]+'</span><span class="tg">'+a[2]+'</span></div><h3>'+a[1]+'</h3><p>'+a[4]+'</p>'+
+      '<div class="io"><div class="i"><span class="io-l">Reads</span>'+ins+'</div><i class="io-ar" aria-hidden="true"></i><div class="o"><span class="io-l">Makes</span>'+outs+'</div></div>'+
+      '<div class="ar-meta"><span class="ar-who'+(a[8]?' ck':'')+'">'+a[7]+'</span><span>Hands to '+a[9]+' →</span></div>'+
+      '<div class="ar-meta"><span class="cr">'+a[10].map(function(x){return '<em'+(/· 0$/.test(x)?' class="z"':'')+'>'+x+(/· 0$/.test(x)?' credits':'')+'</em>';}).join('')+'</span><a class="ar-go" href="#ag-'+a[0].toLowerCase()+'">Full profile ↓</a></div>';
+    pan.insertBefore(d,pan.lastElementChild);});
+  var ps=$$('.ar-p',ar);
+  function showA(n){var step=((n-cur)%8+8)%8;deg+=step*45;cur=n;arm.style.transform='rotate('+deg+'deg)';
+    ns.forEach(function(x,k){x.classList.toggle('on',k===n);x.setAttribute('aria-pressed',k===n?'true':'false');});ps.forEach(function(p,k){p.classList.toggle('on',k===n);});ar.classList.toggle('ck',!!AG[n][8]);}
+  var ac=cycle(ar,8,showA,3600,[$('.ar-bar i',ar)]);
+  ns.forEach(function(x,k){x.addEventListener('click',function(){ac.go(k);});x.addEventListener('mouseenter',function(){ac.go(k);});});
+  function fromHash(){var m=/^#ag-(\w\w)$/.exec(location.hash);if(!m)return;var k=AG.findIndex(function(a){return a[0].toLowerCase()===m[1];});if(k<0)return;ac.go(k);
+    var row=document.getElementById('ag-'+m[1]);if(row){$$('.rl-it.hit').forEach(function(r){r.classList.remove('hit');});row.classList.add('hit','seen');setTimeout(function(){row.classList.remove('hit');},2600);}}
+  fromHash();window.addEventListener('hashchange',fromHash);}
+
+/* ===== day scrubber ===== */
+var DY=[['08:40','BA','#2E6BEA','BRD v1.1 arrives','64 requirements drafted, each linked to its source. Gap analysis runs on the live app.',1,'Business analyst approves'],
+ ['10:05','TD','#7C5CF0','Test pack drafted','128 risk-weighted cases. A second agent checks for coverage gaps.',1,'QA lead approves'],
+ ['11:00','TE','#16824F','Build verification','Build 412 checked in 340 steps. The OTP sign-in goes to a person, then the run resumes.',0,'Engine work · 0 credits'],
+ ['13:20','VR','#C46A12','Failures re-checked','6 failures re-run. 4 are product bugs, 2 were the environment.',0,'Re-run · 0 credits'],
+ ['13:45','DM','#C2323B','Defects drafted','4 drafts with steps and evidence. One duplicate linked to DEF-027.',1,'QA approves, then Jira'],
+ ['15:00','PE','#C46A12','Load scenario ready','2,000 users, p95 target 800 ms, abort at 5 % errors.',1,'Performance lead approves'],
+ ['16:10','AE','#4C8DFF','Scripts proposed','96 passed cases become scripts, opened as one pull request.',1,'Your reviewer merges'],
+ ['17:30','RM','#16824F','Go/no-go prepared','Gate checks met or waived with reasons. Evidence Pack assembled.',1,'Approvers sign go/no-go']];
+var dy=$('#dy');
+if(dy){var st=$('.dy-st',dy),mk=$('.dy-mk',dy),fill=$('.dy-ln i',dy),clk=$('.dy-clk',dy),h3=$('.dy-tx h3',dy),pp=$('.dy-tx p',dy),tg=$('.dy-tx>span:not(.dy-clk)',dy),dvs=$$('.dv',dy);
+  function pct(t){var p=t.split(':');return ((+p[0]*60+ +p[1])-480)/600*100;}
+  DY.forEach(function(d,k){var b=document.createElement('button');b.type='button';b.className='dy-s';b.setAttribute('role','tab');b.style.left=pct(d[0])+'%';b.setAttribute('aria-label',d[0]+' '+d[3]);
+    b.innerHTML='<span class="av" data-bg="'+d[2]+'">'+d[1]+'</span><i class="'+(d[5]?'ck':'en')+'"></i><time>'+d[0]+'</time>';st.appendChild(b);});
+  var sb=$$('.dy-s',dy);
+  function showD(n){var d=DY[n];sb.forEach(function(b,k){b.classList.toggle('on',k===n);b.setAttribute('aria-selected',k===n?'true':'false');var a=b.firstChild;a.style.background=k===n?a.getAttribute('data-bg'):'';});
+    mk.style.left=pct(d[0])+'%';fill.style.width=pct(d[0])+'%';clk.textContent=d[0];h3.textContent=d[3];pp.textContent=d[4];tg.className=d[5]?'tg-ck':'tg-en';tg.textContent=d[6];
+    dvs.forEach(function(v,k){v.classList.toggle('on',k===n);});}
+  var dc=cycle(dy,DY.length,showD,3600,[$('.dy-tx .pbar i',dy)]);
+  sb.forEach(function(b,k){b.addEventListener('click',function(){dc.go(k);});b.addEventListener('mouseenter',function(){dc.go(k);});});}
+
+/* ===== verify funnel ===== */
+var vf=$('#vf');
+if(vf){var vc=$('.vf-c',vf),dots=$$('.vf-d',vf),tabs=$$('.vf-st button',vf),cap=$('.vf-cap span',vf),labs=$$('.vf-l',vf);
+  var CAP=['6 steps failed in run R-4.','Each one re-run on a clean engine. 0 credits.','4 product bugs. 2 flaky, never raised.','F-17 lands in the inbox, with evidence.'];
+  /* positions per stage: [x%,y%] for each dot; order r r f r f r */
+  var P=[[[16,13],[30,13],[44,13],[58,13],[72,13],[86,13]],
+         [[42,42],[50,42],[58,42],[42,55],[50,55],[58,55]],
+         [[12,80],[22,80],[74,82],[32,80],[86,82],[42,80]],
+         [[12,80],[22,80],[74,82],[32,80],[86,82],[42,80]]];
+  var LB=[[0],[1],[2,3],[2]];
+  function showV(n){vc.setAttribute('data-s',n);tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===n?'true':'false');});cap.textContent=CAP[n];
+    dots.forEach(function(d,k){d.style.setProperty('--dl',(k*.06)+'s');d.style.left=P[n][k][0]+'%';d.style.top=P[n][k][1]+'%';});
+    labs.forEach(function(l,k){l.classList.toggle('on',LB[n].indexOf(k)>=0);});}
+  var vcy=cycle(vf,4,showV,3500,[$('.vf-cap .pbar i',vf)]);
+  tabs.forEach(function(t,k){t.addEventListener('click',function(){vcy.go(k);});t.addEventListener('mouseenter',function(){vcy.go(k);});});
+  if(red)showV(3);}
+
+/* ===== autonomy ladder ===== */
+var LV=[['Level 1 · Cautious','Suggest','Proposes each step and waits for you. For a new project or a sensitive system.'],
+ ['Level 2 · Balanced · default','Draft','Drafts complete work and stops for review at every approval point.'],
+ ['Level 3 · Fast','Run the approved plan','Runs a plan a person approved, end to end. Still stops at every checkpoint.'],
+ ['Not configurable','Approve on its own','Does not exist. No setting, preset or admin switch lets an agent approve, sign or waive.']];
+var ld=$('#ld');
+if(ld){var rungs=$$('.ld-r',ld),lr=$('#ldR'),dotsL=$$('i',lr),bub=$('.bub',lr),tm=null,lvl=0;
+  function wait(k){var i=dotsL[k];if(lvl===3)return i.classList.contains('sg');if(lvl===0)return true;return i.classList.contains('d')||i.classList.contains('sg');}
+  function place(k,txt){bub.textContent=txt;bub.style.left=(dotsL[k].offsetLeft+dotsL[k].offsetWidth/2)+'px';bub.classList.add('on');}
+  function runL(){clearTimeout(tm);bub.classList.remove('on');dotsL.forEach(function(d){d.className=d.className.replace(/\s?(ok|now|w)\b/g,'');});
+    lr.classList.toggle('dr',lvl===1);lr.classList.toggle('lock',lvl===3);
+    if(red){dotsL.forEach(function(d,k){if(wait(k))d.classList.add('w');else d.classList.add('ok');});return;}
+    var k=0;(function step(){if(k>=dotsL.length){tm=setTimeout(runL,1400);return;}var d=dotsL[k];d.classList.add('now');
+      if(lvl===3&&d.classList.contains('sg')){place(k,'Only a person can sign');d.classList.add('w');return;}
+      if(wait(k)){d.classList.add('w');place(k,d.classList.contains('sg')?'People sign':'Waits for you');tm=setTimeout(function(){bub.classList.remove('on');d.classList.remove('now','w');d.classList.add('ok');k++;step();},lvl===0?650:1000);}
+      else tm=setTimeout(function(){d.classList.remove('now');d.classList.add('ok');k++;step();},lvl===0?250:220);})();}
+  function showL(n){lvl=n;rungs.forEach(function(r){var on=+r.getAttribute('data-k')===n;r.setAttribute('aria-selected',on?'true':'false');r.tabIndex=on?0:-1;});
+    $('#ldE').textContent=LV[n][0];$('#ldT').textContent=LV[n][1];$('#ldD').textContent=LV[n][2];runL();}
+  var lc=cycle(ld,4,showL,5200,[$('.ld-p .pbar i',ld)]);
+  rungs.forEach(function(r){r.addEventListener('click',function(){lc.go(+r.getAttribute('data-k'));});});}
+
+/* ===== specialists ===== */
+var sp=$('#sp');
+if(sp){var chs=$$('.sp-ch button',sp),J=$('#spJ'),T=$('#spT'),tpl=$$('#spTpl')[0],SD=[].slice.call(tpl.content.children);
+  function showS(n){chs.forEach(function(c,k){c.setAttribute('aria-selected',k===n?'true':'false');});var src=SD[n],js=JSON.parse(src.getAttribute('data-j'));
+    J.innerHTML=js.map(function(x,k){var ic=x[1]?'<span class="av '+x[1]+'">'+x[0]+'</span>':'<span class="lg" data-logo="'+x[0]+'" data-size="22"></span>';return '<span class="sj" style="--d:'+(k*.09)+'s">'+ic+x[2]+'</span>';}).join('');
+    if(window.VF_LOGO)$$('[data-logo]',J).forEach(function(e){var h=VF_LOGO(e.getAttribute('data-logo'),22);if(h)e.innerHTML=h;});
+    T.innerHTML=src.innerHTML;}
+  var scy=cycle(sp,chs.length,showS,4200,[]);
+  chs.forEach(function(c,k){c.addEventListener('click',function(){scy.go(k);});});
+}
+
+/* ===== quality bars ===== */
+var qa=$('#qa');if(qa){if(red||!('IntersectionObserver' in window))qa.classList.add('qa-in');else{var qo=new IntersectionObserver(function(e){if(e[0].isIntersecting){qa.classList.add('qa-in');qo.disconnect();}},{threshold:.3});qo.observe(qa);}}
+
+/* ===== ask: typed chat loop ===== */
+var QS=[{q:'Is Release 2.4 a go for Thursday?',conf:'High confidence',lead:'Likely go, if DEF-031 is fixed or waived. Five of six gate checks are met.',pts:['P1 pass rate is 97.6 % against a 95 % target.','One critical defect is open: checkout total mismatch, fix due Wednesday.','Performance met at 2,000 users, p95 640 ms.'],src:['Gate · Release 2.4','DEF-031','Run P-9'],ft:'3 credits · next time from cache · <b>0 credits</b>'},
+ {q:'Why was F-15 not sent to me?',conf:'High confidence',lead:'The Verifier re-ran it on a clean engine and it passed, so it was marked environment.',pts:['F-15 failed once in run R-4 on a slow test environment.','The independent re-run passed. 0 credits.','It stays visible in the run log if you want to check it.'],src:['F-15','Run R-4','Audit event'],ft:'Answered from cache · <b>0 credits</b>'}];
+var cw=$('#cw');
+if(cw){var qt=$('.qt',cw),cu=$('.cur',cw),ty=$('.typing',cw),ca=$('.ca',cw),qi=0,vis=true,tt=null;
+  function ans(d){return '<div class="hd rv2"><span>Answer by SecondProof · AI</span><span class="tag t-green">'+d.conf+'</span></div><p class="rv2">'+d.lead+'</p><ol>'+d.pts.map(function(p,k){return '<li class="rv2"><sup>'+(k+1)+'</sup><span>'+p+'</span></li>';}).join('')+'</ol><div class="srcs">'+d.src.map(function(s,k){return '<span class="src rv2"><b>'+(k+1)+'</b>'+s+'</span>';}).join('')+'</div><div class="ft rv2">'+d.ft+'</div>';}
+  function staticA(){var d=QS[0];qt.textContent=d.q;cu.style.display='none';ca.innerHTML=ans(d);$$('.rv2',ca).forEach(function(e){e.classList.add('in');});}
+  if(red){staticA();}
+  else{if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;}).observe(cw);
+    function later(f,ms){tt=setTimeout(function w(){if(!vis||document.hidden){tt=setTimeout(w,400);return;}f();},ms);}
+    function play(){var d=QS[qi];qt.textContent='';ca.innerHTML='';ca.style.opacity=1;cu.style.display='';ty.classList.add('hide');var c=0;
+      (function typeC(){if(c<=d.q.length){qt.textContent=d.q.slice(0,c++);later(typeC,38);return;}cu.style.display='none';ty.classList.remove('hide');
+        later(function(){ty.classList.add('hide');ca.innerHTML=ans(d);var it=$$('.rv2',ca),j=0;(function rev(){if(j<it.length){it[j++].classList.add('in');later(rev,260);}else later(function(){ca.style.opacity=0;later(function(){qi=(qi+1)%QS.length;play();},450);},4200);})();},1100);})();}
+    staticA();later(play,1800);}}
+})();
+</script>
+</body>
+</html>

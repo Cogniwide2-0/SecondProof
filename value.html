@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SecondProof value and pilot</title>
+<meta name="description" content="Pilot targets, a value calculator, plans from team to enterprise, and a 10-day pilot on one of your applications.">
+<link rel="canonical" href="https://secondproof.ai/value.html">
+<meta name="theme-color" content="#060A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondProof">
+<meta property="og:title" content="SecondProof value, plans and pilot">
+<meta property="og:description" content="Pilot targets, a value calculator, plans from team to enterprise, and a 10-day pilot on one of your applications.">
+<meta property="og:url" content="https://secondproof.ai/value.html">
+<meta property="og:image" content="https://secondproof.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondProof value, plans and pilot">
+<meta name="twitter:description" content="Pilot targets, a value calculator, plans from team to enterprise, and a 10-day pilot on one of your applications.">
+<meta name="twitter:image" content="https://secondproof.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>(function(){var t;try{t=localStorage.getItem("sp-theme")}catch(e){}if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+/* Value v3 · open layout: targets, calculator, seats switcher, cost meter, plans, offer switch, 10-day pilot */
+.m-head{max-width:760px}
+/* hero */
+.vhero{padding-block:76px 64px}
+.vhero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center}
+.vhero .copy{display:flex;flex-direction:column;gap:20px;min-width:0}
+.vhero h1{font-size:clamp(44px,6.6vw,92px);letter-spacing:-.04em}
+.vhero .lede b{color:var(--ink)}
+.vhero .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+@media (max-width:960px){.vhero .wrap{grid-template-columns:1fr;gap:40px}}
+.rings{display:grid;grid-template-columns:minmax(0,250px) minmax(0,1fr);gap:30px;align-items:center;min-width:0}
+.rings svg{width:100%;height:auto;display:block}
+.rings .arc{fill:none;stroke-width:14;stroke-linecap:round;transform:rotate(-90deg);transform-origin:150px 150px}
+.rings .trk{fill:none;stroke:rgba(var(--wsh),.07);stroke-width:14}
+.rings .core{fill:rgba(var(--b2r),.12);stroke:rgba(var(--b2r),.4)}
+.rings .t1{fill:var(--ink);font:800 22px var(--display)}
+.rings .t2{fill:var(--ink3);font:500 10px var(--mono);letter-spacing:1.6px}
+.rings ul{list-style:none;padding:0;margin:0;display:grid;gap:16px}
+.rings li{display:grid;grid-template-columns:4px 1fr;gap:14px}
+.rings li i{border-radius:2px}
+.rings li b{font:800 24px/1.1 var(--display);letter-spacing:-.025em;display:block}
+.rings li small{color:var(--ink2);font-size:14px}
+.rings .cap{grid-column:1/-1;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-top:14px;border-top:1px solid var(--line)}
+@media (max-width:560px){.rings{grid-template-columns:1fr}.rings svg{max-width:220px}}
+@media (prefers-reduced-motion:no-preference){
+  .rings .arc{animation:draw 2.2s cubic-bezier(.2,.7,.2,1) both}.rings .arc.b{animation-delay:.25s}.rings .arc.c{animation-delay:.5s}
+  @keyframes draw{from{stroke-dashoffset:var(--len)}}
+  .rings .core{animation:pulse 3s ease-in-out infinite;transform-origin:150px 150px}@keyframes pulse{50%{transform:scale(1.06);opacity:.8}}
+}
+
+/* targets */
+.tg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tg>div{display:flex;flex-direction:column;gap:8px;padding:28px 32px;border-left:1px solid var(--line);border-top:1px solid var(--line);min-width:0}
+.tg>div:nth-child(3n+1){border-left:0;padding-left:0}
+.tg>div:nth-child(-n+3){border-top:0;padding-top:4px}
+.tg-n{font:800 clamp(40px,4.6vw,62px)/1.02 var(--display);letter-spacing:-.04em;display:flex;align-items:baseline;gap:.18em;flex-wrap:wrap}
+.tg-n s{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:rgba(var(--wsh),.3);color:var(--ink3);font-size:.6em}
+.tg-n .to{font-size:.5em;color:var(--tx-amber)}
+.tg-n em{font-style:normal;font-size:.55em}
+.tg-n em.t{font-size:.34em;letter-spacing:0;margin:0 .25em}
+.grad{padding-right:.08em}
+.tg-l{font:700 19px var(--display);letter-spacing:-.015em}
+.tg small{color:var(--ink2);font-size:14.5px}
+.tg-b{display:grid;gap:6px;margin-top:8px}
+.tg-b span{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.tg-b u{display:block;height:6px;border-radius:3px;background:rgba(var(--wsh),.06);overflow:hidden;text-decoration:none}
+.tg-b u i{display:block;height:100%;border-radius:3px;width:100%;transition:width 1.6s cubic-bezier(.2,.7,.2,1) .6s}
+.tg-b .bf i{background:rgba(var(--i2r),.4)}
+.tg-b .af i{background:linear-gradient(90deg,var(--blue),var(--violet))}
+.tg.in .tg-b .af i{width:var(--w)}
+@media (max-width:900px){.tg{grid-template-columns:1fr 1fr}.tg>div{padding:24px 22px}.tg>div:nth-child(3n+1){border-left:1px solid var(--line);padding-left:22px}.tg>div:nth-child(-n+3){border-top:1px solid var(--line);padding-top:24px}.tg>div:nth-child(2n+1){border-left:0;padding-left:0}.tg>div:nth-child(-n+2){border-top:0;padding-top:4px}}
+@media (max-width:560px){.tg{grid-template-columns:1fr}.tg>div{border-left:0!important;padding-left:0!important}.tg>div:nth-child(2){border-top:1px solid var(--line);padding-top:24px}}
+
+/* calculator */
+.cc{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:72px;align-items:start}
+.cc-in{display:grid;gap:24px}
+.sl{display:grid;gap:4px}
+.sl .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.sl label{font-weight:600;font-size:15px}
+.sl output{font:500 15px var(--mono);color:var(--tx-blue);white-space:nowrap}
+.sl small{color:var(--ink3);font-size:12.5px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--blue) 0,var(--violet) var(--p,50%),rgba(var(--wsh),.1) var(--p,50%))}
+input[type=range]::-moz-range-track{height:4px;border-radius:2px;background:rgba(var(--wsh),.1)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--violet))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid #4C8DFF;margin-top:-8px;box-shadow:0 0 0 5px rgba(76,141,255,.18);transition:transform .2s}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:4px solid #4C8DFF}
+input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4px}
+.cc-out{display:flex;flex-direction:column;gap:28px;min-width:0}
+.cc-big b{display:block;font:800 clamp(64px,8vw,112px)/.95 var(--display);letter-spacing:-.05em;font-variant-numeric:tabular-nums;padding-bottom:.04em}
+.cc-big span{color:var(--ink2);font-size:16px}
+.cc-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cc-nums>div{display:flex;flex-direction:column;gap:4px;padding:2px 22px;border-left:1px solid var(--line);min-width:0}
+.cc-nums>div:first-child{border-left:0;padding-left:0}
+.cc-nums b{font:800 clamp(28px,3vw,40px)/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cc-nums span{color:var(--ink2);font-size:13.5px}
+.cc-bars{display:grid;gap:14px}
+.cc-bars .r{display:grid;gap:6px;font-size:14px;color:var(--ink2)}
+.cc-bars .r>div{display:flex;justify-content:space-between;gap:10px}
+.cc-bars .r b{font:500 13px var(--mono);color:var(--ink)}
+.cc-bars u{position:relative;display:block;height:14px;border-radius:7px;background:rgba(var(--wsh),.06);overflow:hidden;text-decoration:none}
+.cc-bars u i{display:block;height:100%;border-radius:7px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.cc-bars .now i{width:100%;background:rgba(var(--i2r),.4)}
+.cc-bars .new i{background:linear-gradient(90deg,var(--blue),var(--violet))}
+.cc-bars .new u::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(var(--wsh),.07) 0 6px,transparent 6px 12px)}
+.cc-pct{justify-self:start;font:600 13px var(--body);padding:5px 12px;border-radius:999px;background:rgba(95,211,154,.14);color:var(--tx-green)}
+.assume{font-size:12.5px;color:var(--ink3);line-height:1.55}
+@media (max-width:960px){.cc{grid-template-columns:1fr;gap:44px}}
+@media (max-width:480px){.cc-nums{grid-template-columns:1fr;gap:14px}.cc-nums>div{border-left:0;padding-left:0;flex-direction:row;align-items:baseline;gap:12px}}
+
+/* shared live panel bits */
+.lbar{position:absolute;left:0;bottom:0;width:220px;height:3px;border-radius:2px;background:rgba(var(--wsh),.08);overflow:hidden}
+.lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+.mv{min-height:120px}
+.mv small{display:block;font:500 12px var(--mono);color:var(--ink3);margin-top:10px}
+.mv-bars{display:grid;gap:9px;max-width:400px}
+.mv-bars>div{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;font-size:13px;color:var(--ink2)}
+.mv-bars u{display:block;height:8px;border-radius:4px;background:rgba(var(--wsh),.07);overflow:hidden;text-decoration:none}
+.mv-bars u i{display:block;height:100%;width:0;border-radius:4px;background:var(--bc,linear-gradient(90deg,var(--blue),var(--violet)));transition:width 1.1s cubic-bezier(.2,.7,.2,1) .25s}
+.on .mv-bars u i{width:var(--w)}
+.mv-bars b{font:500 12px var(--mono);color:var(--ink);text-align:right}
+.mv-ag{display:flex;gap:8px;flex-wrap:wrap;align-items:center;max-width:420px}
+.mv-ag span{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:700 13px var(--display);background:rgba(var(--wsh),.06);color:var(--ink3);transition:background .35s,color .35s}
+.on .mv-ag span{background:#7C5CF0;color:#fff}
+.mv-ag em{font-style:normal;margin-left:6px;font:600 13px var(--body);padding:7px 12px;border-radius:999px;border:1.5px solid var(--amber);color:var(--tx-amber);opacity:0;transform:scale(1.4);transition:opacity .3s 1.3s,transform .45s cubic-bezier(.2,1.6,.4,1) 1.3s}
+.on .mv-ag em{opacity:1;transform:none}
+.mv-col{display:flex;align-items:flex-end;gap:14px;height:110px;max-width:360px;border-bottom:1px solid var(--line2)}
+.mv-col div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-end;height:100%}
+.mv-col i{display:block;width:100%;max-width:38px;height:0;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,var(--amber),rgba(245,166,91,.35));transition:height .9s cubic-bezier(.2,.7,.2,1)}
+.on .mv-col i{height:var(--h)}
+.mv-col div:nth-child(2) i{transition-delay:.12s}.mv-col div:nth-child(3) i{transition-delay:.24s}.mv-col div:nth-child(4) i{transition-delay:.36s}.mv-col div:nth-child(5) i{transition-delay:.48s}
+.mv-cl{display:flex;gap:14px;max-width:360px}.mv-cl span{flex:1;text-align:center;font:500 11px var(--mono);color:var(--ink3)}
+.mv-sig{display:grid;gap:4px;max-width:340px;position:relative}
+.mv-sig>div{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink2)}
+.mv-sig>div b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#16824F;color:#fff;font-size:13px;transform:scale(0);transition:transform .4s cubic-bezier(.2,1.6,.4,1)}
+.mv-sig>div b.w{background:#C46A12}
+.on .mv-sig>div b{transform:scale(1)}
+.mv-sig>div:nth-child(2) b{transition-delay:.35s}.mv-sig>div:nth-child(3) b{transition-delay:.7s}.mv-sig>div:nth-child(4) b{transition-delay:1.05s}
+.mv-gap{display:flex;max-width:380px;height:12px;border-radius:6px;overflow:hidden;background:rgba(var(--wsh),.06)}
+.mv-gap i{display:block;height:100%;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.mv-gap .g1{background:var(--green)}.mv-gap .g2{background:var(--amber);transition-delay:.3s}.mv-gap .g3{background:var(--red);transition-delay:.6s}
+.on .mv-gap .g1{width:64.6%}.on .mv-gap .g2{width:18.7%}.on .mv-gap .g3{width:16.7%}
+.mv-lg{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--ink2)}
+.mv-lg i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+.mv-dots{display:grid;grid-template-columns:repeat(20,10px);gap:6px}
+.mv-dots i{width:10px;height:10px;border-radius:3px;background:rgba(var(--wsh),.1);transition:background .3s,box-shadow .3s}
+.on .mv-dots i.h{background:#4C8DFF;box-shadow:0 0 10px rgba(76,141,255,.6)}
+.mv-doc{width:240px;padding:14px 16px;border-radius:14px;background:rgba(var(--wsh),.04);border:1px solid var(--line);position:relative}
+.mv-doc b{font-size:13px;display:block;margin-bottom:8px}.mv-doc>i{display:block;height:5px;border-radius:3px;background:rgba(var(--b2r),.3);margin-top:6px;width:0;transition:width .6s ease}
+.on .mv-doc>i{width:100%}.on .mv-doc>i:nth-of-type(2){transition-delay:.2s}.on .mv-doc>i.s{width:60%;transition-delay:.4s}
+.stamp{display:inline-grid;place-items:center;padding:0 12px;height:44px;border:3px solid var(--green);border-radius:9px;color:var(--green);font:800 20px var(--display);letter-spacing:.06em;transform:rotate(-8deg) scale(1.6);opacity:0;transition:transform .45s cubic-bezier(.2,1.6,.4,1) .9s,opacity .3s .9s}
+.on .stamp{transform:rotate(-8deg) scale(1);opacity:1}
+.mv-doc .stamp{position:absolute;right:-18px;bottom:-14px;height:34px;font-size:13px;background:var(--surface)}
+.mv-run u{display:block;width:280px;max-width:100%;height:10px;border-radius:5px;background:rgba(var(--wsh),.07);overflow:hidden;text-decoration:none}
+.mv-run u i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green))}
+.on .mv-run u i{width:100%;transition:width 2.2s linear}
+.mv-run .bd{display:inline-flex;margin-top:12px;font:600 12.5px var(--body);padding:4px 10px;border-radius:999px;background:rgba(245,166,91,.15);color:var(--tx-amber);transition:background .4s 2.2s,color .4s 2.2s}
+.on .mv-run .bd{background:rgba(95,211,154,.15);color:var(--tx-green)}
+.mv-def{display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:12px;border-left:4px solid var(--red);background:rgba(255,122,127,.08);width:320px;max-width:100%;transform:translateY(10px);opacity:0;transition:transform .5s .2s,opacity .5s .2s}
+.on .mv-def{transform:none;opacity:1}
+.mv-def b{font-size:14px;color:var(--tx-red)}.mv-def span{font-size:13.5px;color:var(--ink2)}
+.mv-gt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:380px}
+.mv-gt span{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink2);padding:7px 0;border-bottom:1px solid var(--line)}
+.mv-gt span::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;flex:none;font-size:11px;color:#fff;background:#16824F;transform:scale(0);transition:transform .35s cubic-bezier(.2,1.6,.4,1)}
+.mv-gt span.w::before{content:"!";background:#C46A12}
+.on .mv-gt span::before{transform:scale(1)}
+.mv-gt span:nth-child(2)::before{transition-delay:.2s}.mv-gt span:nth-child(3)::before{transition-delay:.4s}.mv-gt span:nth-child(4)::before{transition-delay:.6s}.mv-gt span:nth-child(5)::before{transition-delay:.8s}.mv-gt span:nth-child(6)::before{transition-delay:1s}
+
+/* seats */
+.st{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:stretch}
+.st-l{list-style:none;margin:0;padding:0}
+.st-l button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:16px;align-items:center;padding:12px 0;border-top:1px solid var(--line);color:var(--ink3);font:800 clamp(21px,2.3vw,28px)/1.1 var(--display);letter-spacing:-.025em;transition:color .3s,padding .3s}
+.st-l li:last-child button{border-bottom:1px solid var(--line)}
+.st-l button:hover{color:var(--ink2)}
+.st-l button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.st-l button[aria-selected="true"]{color:var(--ink);padding-left:10px}
+.st-l .av{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font:700 14px var(--display);letter-spacing:0;background:rgba(var(--wsh),.06);color:var(--ink3);transition:background .35s,color .35s,transform .35s}
+.st-l button[aria-selected="true"] .av{color:#fff;background:var(--c);transform:rotate(-4deg)}
+.st-l .go{font-size:18px;color:var(--blue2);opacity:0;transform:translateX(-6px);transition:opacity .3s,transform .3s}
+.st-l button[aria-selected="true"] .go{opacity:1;transform:none}
+.st-r{position:relative;min-height:470px}
+.st-p{position:absolute;inset:0 0 18px;display:flex;flex-direction:column;justify-content:center;gap:18px;opacity:0;transform:translateX(24px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.st-p.on{opacity:1;transform:none;pointer-events:auto}
+.st-k{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.st-p .q{font:800 clamp(28px,3.1vw,42px)/1.08 var(--display);letter-spacing:-.03em;max-width:520px}
+.st-t{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;max-width:540px}
+.st-t li{font-size:14px;font-weight:600;padding:7px 12px;border-radius:999px;background:rgba(var(--b2r),.1);color:var(--tx-blue);opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.st-p.on .st-t li{opacity:1;transform:none}
+.st-p.on .st-t li:nth-child(2){transition-delay:.15s}.st-p.on .st-t li:nth-child(3){transition-delay:.3s}
+@media (max-width:900px){.st{grid-template-columns:1fr;gap:28px}.st-r{min-height:520px}}
+
+/* cost */
+.co{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center}
+.co .m-head{margin-bottom:0}
+.co-pts{display:grid;margin-top:12px}
+.co-pts>div{display:grid;grid-template-columns:40px 1fr;gap:4px 12px;padding:14px 0;border-top:1px solid var(--line)}
+.co-pts span{grid-row:1/3;font:500 12px var(--mono);color:var(--blue2);padding-top:5px}
+.co-pts b{font:700 18px var(--display);letter-spacing:-.015em}
+.co-pts small{color:var(--ink2);font-size:14.5px}
+.co-v{border-left:1px solid var(--line);padding-left:52px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.co-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.co-h b{font:700 16px var(--display)}
+.co-h span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.co-tot{display:grid;grid-template-columns:1fr 1fr}
+.co-tot>div{display:flex;flex-direction:column;gap:2px;padding-right:20px}
+.co-tot>div+div{border-left:1px solid var(--line);padding-left:24px}
+.co-tot b{font:800 clamp(36px,4vw,54px)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.co-tot .e b{color:var(--tx-blue)}.co-tot .a b{color:var(--tx-violet)}
+.co-tot small{color:var(--ink2);font-size:13.5px}
+.co-g{position:relative;display:grid;grid-template-columns:70px repeat(10,minmax(0,1fr));gap:6px 6px;align-items:center}
+.co-g .lb{font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.co-g .c{height:34px;border-radius:7px;background:rgba(var(--wsh),.05);display:grid;place-items:center;font:500 10.5px var(--mono);color:var(--ink3);transition:background .4s,color .4s,transform .4s}
+.co-g .c.e.f{background:linear-gradient(180deg,#4C8DFF,#2E6BEA);color:#fff}
+.co-g .c.a.f{background:rgba(var(--b2r),.08);color:var(--tx-green)}
+.co-g .c.a.f.one{background:linear-gradient(180deg,#A98BFF,#7C5CF0);color:#fff}
+.co-g .c.now{box-shadow:0 0 0 2px var(--bg),0 0 0 4px rgba(var(--b2r),.6)}
+.co-g .rn{font:500 10px var(--mono);color:var(--ink3);text-align:center}
+.co-split{display:grid;gap:8px}
+.co-split .stk{display:flex;height:12px;border-radius:6px;overflow:hidden}
+.co-split .lg2{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}
+.co-split .lg2 b{color:var(--ink);font:500 13px var(--mono)}
+.co-led{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.co-led h4{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);padding-bottom:6px}
+.co-led div>span{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;color:var(--ink2)}
+.co-led em{font-style:normal;font:500 12.5px var(--mono);white-space:nowrap;color:var(--ink)}
+.co-est{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.co-est .pill{display:inline-flex;align-items:center;gap:10px;height:38px;padding:0 14px;border-radius:11px;background:linear-gradient(180deg,#5B97FF,#2E6BEA);color:#fff;font-weight:600;font-size:14px}
+.co-est .pill em{font-style:normal;font:500 12px var(--mono);opacity:.9;padding-left:10px;border-left:1px solid rgba(255,255,255,.35)}
+.co-est small{font:500 11.5px var(--mono);color:var(--ink3)}
+@media (max-width:960px){.co{grid-template-columns:1fr;gap:44px}.co-v{border-left:0;padding-left:0}}
+@media (max-width:560px){.co-g{grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}.co-g .lb{grid-column:1/-1;margin-top:6px}.co-g .sp{display:none}.co-g .c{height:28px;font-size:9px}.co-led{grid-template-columns:1fr;gap:18px}}
+
+/* plans */
+.pl-lines{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.pl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.pl>div{position:relative;display:flex;flex-direction:column;gap:12px;padding:30px 34px 4px;border-left:1px solid var(--line);min-width:0}
+.pl>div:first-child{border-left:0;padding-left:0}
+.pl .pop::before{content:"";position:absolute;left:34px;right:34px;top:0;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+.pl .who{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tx-amber);display:flex;gap:10px;align-items:center}
+.pl h3{font:800 clamp(34px,3.4vw,46px)/1 var(--display);letter-spacing:-.035em}
+.pl .pr{color:var(--ink2);font-size:15px}
+.pl .pr b{color:var(--ink)}
+.pl ul{list-style:none;padding:0;margin:6px 0 10px;display:grid;gap:9px}
+.pl li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:15px;color:var(--ink2)}
+.pl li::before{content:"";width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translate(1px,5px)}
+.pl .btn{align-self:flex-start;margin-top:auto}
+.pl-ev{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
+.pl-ev b{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-right:6px}
+@media (max-width:960px){.pl{grid-template-columns:1fr}.pl>div{border-left:0;padding:28px 0 8px;border-top:1px solid var(--line)}.pl>div:first-child{border-top:0;padding-top:4px}.pl .pop::before{left:0;right:auto;width:120px}}
+
+/* offers */
+.of-path.m-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.of-path li{padding-right:36px}
+.of-path .k{font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue2)}
+.of-path .dur{font:500 12.5px var(--mono);color:var(--ink);margin-top:4px}
+@media (max-width:860px){.of-path.m-steps{grid-template-columns:1fr}}
+.of-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:72px;padding-top:40px;border-top:1px solid var(--line)}
+.of-top h3{font:800 clamp(26px,2.8vw,36px)/1.05 var(--display);letter-spacing:-.03em}
+.of-sw{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
+.of-sw button{position:relative;z-index:1;border:0;background:none;font:600 14.5px var(--body);color:var(--ink2);padding:10px 18px;border-radius:999px;cursor:pointer;transition:color .3s;white-space:nowrap}
+.of-sw button small{font:500 11px var(--mono);opacity:.8;margin-left:6px}
+.of-sw button[aria-pressed="true"]{color:#fff}
+.of-sw i{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:linear-gradient(90deg,#C46A12,#E0702C);transition:transform .5s cubic-bezier(.65,0,.25,1),background .5s}
+.of.b .of-sw i{transform:translateX(100%);background:linear-gradient(90deg,#2E6BEA,#16824F)}
+.of-in{display:grid;margin-top:36px}
+.of-p{grid-area:1/1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start;transition:opacity .45s ease,transform .55s cubic-bezier(.2,.7,.2,1),filter .45s,visibility 0s .5s;scroll-margin-top:90px}
+.of-p.off{opacity:0;transform:translateY(14px);filter:blur(4px);visibility:hidden;pointer-events:none}
+.of-p:not(.off){transition-delay:0s}
+.of-l{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.of-l h3{font:800 clamp(34px,4vw,56px)/1 var(--display);letter-spacing:-.035em}
+.of-l p{color:var(--ink2);font-size:17px;max-width:460px}
+.of-l .proof{font-size:15px;border-left:2px solid var(--amber);padding-left:14px}
+.of-p.pa .proof{border-left-color:var(--green)}
+.of-l .proof b{color:var(--ink)}
+.of-l .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.t-prod{background:linear-gradient(90deg,rgba(76,141,255,.16),rgba(95,211,154,.16));color:var(--tx-blue2)}
+.of-d{list-style:none;margin:0;padding:0 0 0 36px;position:relative;display:grid}
+.of-d::before{content:"";position:absolute;left:8px;top:14px;bottom:14px;width:2px;background:linear-gradient(180deg,var(--blue),var(--violet),var(--amber));opacity:.5}
+.of-p.pa .of-d::before{background:linear-gradient(180deg,var(--blue),var(--green))}
+.of-d li{position:relative;display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line);transition:opacity .35s}
+.of-d li:last-child{border-bottom:0}
+.of-d li::before{content:"";position:absolute;left:-34px;top:19px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--line2);transition:all .35s}
+.of-d li.on::before{border-color:#4C8DFF;background:#4C8DFF;box-shadow:0 0 0 6px rgba(76,141,255,.2)}
+.of-d li:last-child.on::before{border-color:var(--green);background:var(--green);box-shadow:0 0 0 6px rgba(95,211,154,.2)}
+.of-d span{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue2);padding-top:5px}
+.of-d b{display:block;font:700 18px var(--display);letter-spacing:-.015em;color:var(--ink2);transition:color .35s}
+.of-d li.on b{color:var(--ink)}
+.of-d small{display:block;color:var(--ink2);font-size:14px;line-height:1.5;margin-top:2px}
+.of-d .ch{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.of-d .ch i{font-style:normal;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:rgba(var(--wsh),.06);color:var(--ink2)}
+.of-more{margin-top:72px}
+.of-more h4{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.of-more .m-row{text-decoration:none;padding:18px 0}
+.of-more .m-row b{font-size:20px}
+.of-more .m-go{font-size:12px!important}
+@media (max-width:960px){.of-p{grid-template-columns:1fr;gap:32px}}
+@media (max-width:560px){.of-sw{grid-template-columns:1fr 1fr;width:100%}.of-sw button{padding:10px 8px;font-size:13.5px}.of-sw button small{display:none}.of-d li{grid-template-columns:1fr;gap:2px}}
+
+/* pilot */
+.pi-br{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:center;margin-bottom:48px}
+.pi-br b{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+.pi-br .m-chips{margin:0}
+.pi-br .m-chips.y span{background:rgba(245,166,91,.13);color:var(--tx-amber)}
+.pi{position:relative}
+.pi-days{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));border-bottom:2px solid var(--line2);padding-bottom:10px;position:relative}
+.pi-days span{font:500 11px var(--mono);letter-spacing:.06em;color:var(--ink3);text-align:center;transition:color .35s}
+.pi-days span.on{color:var(--ink)}
+.pi-fill{position:absolute;left:0;bottom:-2px;height:2px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber));transition:width .8s cubic-bezier(.65,0,.25,1);width:10%}
+.pi-mk{position:absolute;bottom:-9px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#fff;border:3px solid #4C8DFF;box-shadow:0 0 0 5px rgba(76,141,255,.3),0 0 22px #4C8DFF;transition:left .8s cubic-bezier(.65,0,.25,1);left:5%}
+.pi-ph{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;margin-top:22px}
+.pi-ph button{all:unset;box-sizing:border-box;cursor:pointer;min-width:0;padding:10px 10px 0;border-top:3px solid rgba(var(--wsh),.1);font:600 14px/1.25 var(--body);color:var(--ink3);transition:color .3s,border-color .3s}
+.pi-ph button:hover{color:var(--ink2)}
+.pi-ph button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.pi-ph button[aria-selected="true"]{color:var(--ink);border-top-color:#4C8DFF}
+.pi-ph button.end[aria-selected="true"]{border-top-color:var(--green)}
+.pi-ph button.done{border-top-color:rgba(var(--b2r),.45)}
+.pi-ph small{display:block;font:500 10.5px var(--mono);letter-spacing:.06em;color:var(--ink3);margin-bottom:2px}
+.pi-pn{position:relative;display:grid;margin-top:44px;padding-bottom:22px}
+.pi-p{grid-area:1/1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;opacity:0;transform:translateY(14px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.pi-p.on{opacity:1;transform:none;pointer-events:auto}
+.pi-p .d{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--blue2)}
+.pi-p h3{font:800 clamp(30px,3.4vw,46px)/1.05 var(--display);letter-spacing:-.03em;margin:8px 0 10px}
+.pi-p p{font-size:clamp(16.5px,1.5vw,19px);color:var(--ink2);max-width:460px}
+.pi-p .who{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--ink3)}
+.pi-p .who.ck{color:var(--tx-amber)}
+.pi-g{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:0;margin-top:72px;padding-top:40px;border-top:1px solid var(--line);align-items:start}
+.pi-g>div{padding:0 32px;border-left:1px solid var(--line);min-width:0}
+.pi-g>div:first-child{border-left:0;padding-left:0}
+.pi-g h3{font:700 20px var(--display);letter-spacing:-.015em}
+.pi-g ul{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.pi-g li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:14.5px;color:var(--ink2)}
+.pi-g li::before{content:"";width:12px;height:7px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translate(1px,5px)}
+.pi-g ul.ms li::before{width:7px;height:7px;border:0;border-radius:2px;background:var(--blue2);transform:translateY(8px)}
+.pi-g>.contact{border:1px solid rgba(var(--b2r),.45);border-radius:22px;padding:28px;margin-left:8px;background:radial-gradient(400px 240px at 100% 0%,rgba(76,141,255,.2),transparent 60%),linear-gradient(180deg,var(--surface),var(--bg2))}
+.contact p{color:var(--ink2);font-size:15px;margin-top:8px}
+.addr{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.addr code{font-family:var(--mono);font-size:14.5px;padding:10px 14px;border-radius:10px;border:1px dashed var(--line2);background:rgba(var(--wsh),.03);color:var(--ink);word-break:break-all}
+.addr .btn{height:42px;font-size:14px}
+#copyMsg{font-size:13px;color:var(--tx-green);min-height:20px;margin-top:8px}
+@media (max-width:900px){.pi-ph button span{display:none}.pi-ph button{padding:8px 0 0;text-align:center}.pi-ph small{font-size:9.5px}.pi-p{grid-template-columns:1fr;gap:24px}.pi-g{grid-template-columns:1fr;gap:32px}.pi-g>div{border-left:0;padding:0}.pi-g>.contact{margin-left:0;padding:24px}}
+@media (max-width:560px){.pi-days span{font-size:9px;letter-spacing:0}.pi-ph{gap:3px}.pi-ph small{font-size:0}.pi-ph small::after{content:attr(data-s);font-size:9px}.pi-br{grid-template-columns:1fr;gap:8px}.pi-br .m-chips+b{margin-top:6px}}
+
+/* closing band */
+.cta-band{padding-block:96px;text-align:center;background:radial-gradient(60% 80% at 50% 120%,rgba(169,139,255,.22),transparent 70%),radial-gradient(50% 70% at 50% -20%,rgba(76,141,255,.18),transparent 70%)}
+.cta-band h2{font:800 clamp(40px,6vw,80px)/.98 var(--display);letter-spacing:-.04em}
+.cta-band p{color:var(--ink2);font-size:19px;margin-top:18px}
+.cta-band .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+@media (max-width:760px){.cta-band{padding-block:72px}}
+.pform{padding:clamp(22px,4vw,40px)}
+.pf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 22px}
+.pf-grid label{display:flex;flex-direction:column;gap:8px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.pf-grid .wide{grid-column:1/-1}
+.pf-grid input,.pf-grid select,.pf-grid textarea{font:inherit;font-weight:400;font-size:15.5px;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;min-width:0}
+.pf-grid textarea{resize:vertical}
+.pf-grid input:focus-visible,.pf-grid select:focus-visible,.pf-grid textarea:focus-visible{outline:2px solid var(--blue2);outline-offset:1px}
+.pf-grid .chk{flex-direction:row;align-items:flex-start;gap:12px;font-weight:400;color:var(--ink2)}
+.pf-grid .chk input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:#4C8DFF}
+.pf-grid .chk a{color:var(--blue2)}
+.pf-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+#pfStatus{font-size:14.5px;color:var(--ink2)}#pfStatus.pf-ok{color:var(--green)}#pfStatus.pf-err{color:var(--amber)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:680px){.pf-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="value">
+<header id="vf-header"></header>
+
+<main>
+<section class="phero vhero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="copy">
+      <span class="crumbs"><a href="./">Home</a> / Value and pilot</span>
+      <span class="eyebrow">AI builds it. SecondProof proves it.</span>
+      <h1>Speed needs <span class="grad">proof.</span></h1>
+      <p class="lede">An app built entirely with AI passed its own checks. Our testers then found <b>200+ issues</b> by hand, in its integrations and inside the app.</p>
+      <div class="acts"><a class="btn primary" href="#aiba">Start with AI Build Assurance <span class="arr">→</span></a><a class="btn ghost" href="#pilot">Plan a 10-day pilot</a></div>
+    </div>
+    <div class="rings" role="img" aria-label="Pilot targets: regression effort down 60 to 75 percent, tests per platform update down 70 to 85 percent, escaped defects down 30 percent or better.">
+      <svg viewBox="0 0 300 300" aria-hidden="true">
+        <defs><linearGradient id="rg1" x1="0" x2="1"><stop offset="0" stop-color="#4C8DFF"/><stop offset="1" stop-color="#8FB6FF"/></linearGradient><linearGradient id="rg2" x1="0" x2="1"><stop offset="0" stop-color="#7C5CF0"/><stop offset="1" stop-color="#A98BFF"/></linearGradient><linearGradient id="rg3" x1="0" x2="1"><stop offset="0" stop-color="#E0702C"/><stop offset="1" stop-color="#F5A65B"/></linearGradient></defs>
+        <circle class="trk" cx="150" cy="150" r="128"/><circle class="trk" cx="150" cy="150" r="104"/><circle class="trk" cx="150" cy="150" r="80"/>
+        <circle class="arc" cx="150" cy="150" r="128" stroke="url(#rg1)" style="--len:804;stroke-dasharray:804;stroke-dashoffset:241"/>
+        <circle class="arc b" cx="150" cy="150" r="104" stroke="url(#rg2)" style="--len:653;stroke-dasharray:653;stroke-dashoffset:144"/>
+        <circle class="arc c" cx="150" cy="150" r="80" stroke="url(#rg3)" style="--len:503;stroke-dasharray:503;stroke-dashoffset:352"/>
+        <circle class="core" cx="150" cy="150" r="46"/>
+        <text class="t1" x="150" y="148" text-anchor="middle">Pilot</text>
+        <text class="t2" x="150" y="167" text-anchor="middle">TARGETS</text>
+      </svg>
+      <ul>
+        <li><i style="background:var(--blue)"></i><div><b>−60 to −75%</b><small>Regression effort</small></div></li>
+        <li><i style="background:var(--violet)"></i><div><b>−70 to −85%</b><small>Tests per platform update</small></div></li>
+        <li><i style="background:var(--amber)"></i><div><b>−30% or better</b><small>Escaped defects</small></div></li>
+      </ul>
+      <span class="cap">Pilot targets · not measured customer results</span>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="targets">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Pilot targets</p><h2>What a pilot sets out to prove.</h2><p>Agreed with you before day one. Measured against your baseline.</p></div>
+    <div class="tg stg">
+      <div><b class="tg-n"><span class="grad">−<span data-count="60">60</span><em class="t">to</em>−<span data-count="75">75</span><em>%</em></span></b><span class="tg-l">Regression effort</span><small>Engines re-run it at 0 AI credits. People review what changed.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:32%"></i></u></span></div></div>
+      <div><b class="tg-n"><span class="grad">−<span data-count="70">70</span><em class="t">to</em>−<span data-count="85">85</span><em>%</em></span></b><span class="tg-l">Tests per platform update</span><small>Change impact picks the smallest safe set for SAP, Oracle or Salesforce.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:22%"></i></u></span></div></div>
+      <div><b class="tg-n"><span class="grad">−<span data-count="30">30</span><em>%</em><em class="t">or better</em></span></b><span class="tg-l">Escaped defects</span><small>Wider coverage, every failure re-checked, gates that block.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:70%"></i></u></span></div></div>
+      <div><b class="tg-n"><s>Days</s><span class="to">→</span><span class="grad">Minutes</span></b><span class="tg-l">Audit evidence prep</span><small>The Evidence Pack builds as you test. Signed and verifiable.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:4%"></i></u></span></div></div>
+      <div><b class="tg-n"><s>Weeks</s><span class="to">→</span><span class="grad">Days</span></b><span class="tg-l">Time to first test pack</span><small>Agents read your documents and explore the app. You approve.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:20%"></i></u></span></div></div>
+      <div><b class="tg-n"><s>Weeks</s><span class="to">→</span><span class="grad">Days</span></b><span class="tg-l">Test cycle time</span><small>Runs around the clock. Failures verified, defects drafted overnight.</small><div class="tg-b"><span class="bf">Today<u><i></i></u></span><span class="af">Target<u><i style="--w:25%"></i></u></span></div></div>
+    </div>
+    <p class="fine">Pilot targets, not results from other customers.</p>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="calculator">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Value calculator</p><h2>Estimate it with your numbers.</h2><p>A simple estimate, not a quote. The pilot measures the real one.</p></div>
+    <div class="cc rv">
+      <div class="cc-in">
+        <div class="sl"><div class="top"><label for="s-apps">Applications</label><output id="o-apps" for="s-apps">10</output></div><input type="range" id="s-apps" min="1" max="60" step="1" value="10"></div>
+        <div class="sl"><div class="top"><label for="s-rel">Releases per app a year</label><output id="o-rel" for="s-rel">12</output></div><input type="range" id="s-rel" min="1" max="52" step="1" value="12"></div>
+        <div class="sl"><div class="top"><label for="s-hrs">Manual regression hours per release</label><output id="o-hrs" for="s-hrs">160 h</output></div><input type="range" id="s-hrs" min="8" max="800" step="8" value="160"><small>Whole team, one release of one app</small></div>
+        <div class="sl"><div class="top"><label for="s-red">Assumed reduction</label><output id="o-red" for="s-red">65%</output></div><input type="range" id="s-red" min="30" max="85" step="1" value="65"><small>Pilot target range: 60 to 75%</small></div>
+        <div class="sl"><div class="top"><label for="s-aud">Audit evidence prep days per app a year</label><output id="o-aud" for="s-aud">8 days</output></div><input type="range" id="s-aud" min="0" max="60" step="1" value="8"></div>
+      </div>
+      <div class="cc-out" aria-live="polite">
+        <div class="cc-big"><b class="grad" id="r-hrs">12,480</b><span>regression hours saved a year</span></div>
+        <div class="cc-nums">
+          <div><b id="r-fte">6.9</b><span>FTE freed, at 1,800 h</span></div>
+          <div><b id="r-cyc">120</b><span>release cycles with signed evidence</span></div>
+          <div><b id="r-aud">72</b><span>audit prep days avoided</span></div>
+        </div>
+        <div class="cc-bars">
+          <div class="r now"><div>Manual regression today<b id="b-now">19,200 h</b></div><u><i></i></u></div>
+          <div class="r new"><div>With SecondProof, estimated<b id="b-new">6,720 h</b></div><u><i id="b-bar" style="width:35%"></i></u></div>
+          <span class="cc-pct"><span id="r-pct">65%</span> of hours back</span>
+        </div>
+        <p class="assume">Estimate only: apps × releases × hours × reduction. FTE at 1,800 h a year. Audit days assume the Evidence Pack replaces about 90% of manual prep. Credits and licences not included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="seats">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Value by stakeholder</p><h2>Each seat at the table gets an answer.</h2></div>
+    <div class="st rv" id="st">
+      <ol class="st-l" role="tablist" aria-label="Stakeholders">
+        <li><button type="button" role="tab" data-i="0" aria-selected="true" style="--c:#2E6BEA"><span class="av">CI</span>CIO<span class="go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" role="tab" data-i="1" aria-selected="false" style="--c:#7C5CF0"><span class="av">QA</span>Head of QA<span class="go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" role="tab" data-i="2" aria-selected="false" style="--c:#C46A12"><span class="av">CF</span>CFO<span class="go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" role="tab" data-i="3" aria-selected="false" style="--c:#C2323B"><span class="av">RA</span>Risk and audit<span class="go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" role="tab" data-i="4" aria-selected="false" style="--c:#16824F"><span class="av">BO</span>Business owners<span class="go" aria-hidden="true">→</span></button></li>
+        <li><button type="button" role="tab" data-i="5" aria-selected="false" style="--c:#4C8DFF"><span class="av">PO</span>Platform owners<span class="go" aria-hidden="true">→</span></button></li>
+      </ol>
+      <div class="st-r" aria-live="polite">
+        <div class="st-p on" data-i="0"><span class="st-k">The CIO asks</span><p class="q">“Can we release faster without more risk?”</p><ul class="st-t"><li>Portfolio readiness in one view</li><li>Faster cycles, same team</li><li>One platform: apps, workstation, AI, data, enterprise packs</li></ul><div class="mv"><div class="mv-bars"><div>Mobile banking<u><i style="--w:92%;--bc:var(--green)"></i></u><b>92%</b></div><div>Onboarding<u><i style="--w:78%"></i></u><b>78%</b></div><div>SAP S/4HANA<u><i style="--w:64%;--bc:var(--amber)"></i></u><b>64%</b></div><div>Service chatbot<u><i style="--w:85%"></i></u><b>85%</b></div></div><small>Portfolio readiness · example</small></div></div>
+        <div class="st-p" data-i="1"><span class="st-k">The head of QA asks</span><p class="q">“How do I cover more with the people I have?”</p><ul class="st-t"><li>An AI QA team drafts, runs and triages</li><li>Your people approve and judge</li><li>Agent quality and cost in view</li></ul><div class="mv"><div class="mv-ag"><span>BA</span><span>TD</span><span>TE</span><span>VR</span><span>DM</span><span>AE</span><span>PE</span><span>RM</span><em>◆ You approve</em></div><small>8 agents draft · people sign</small></div></div>
+        <div class="st-p" data-i="2"><span class="st-k">The CFO asks</span><p class="q">“What does a release cost, and is it falling?”</p><ul class="st-t"><li>Credits estimated before every AI action</li><li>Repeat work at 0 AI credits</li><li>Licence per product and application</li></ul><div class="mv"><div class="mv-col"><div><i style="--h:100%"></i></div><div><i style="--h:46%"></i></div><div><i style="--h:24%"></i></div><div><i style="--h:15%"></i></div><div><i style="--h:11%"></i></div></div><div class="mv-cl"><span>R1</span><span>R2</span><span>R3</span><span>R4</span><span>R5</span></div><small>AI credits per release · illustrative</small></div></div>
+        <div class="st-p" data-i="3"><span class="st-k">Risk and audit ask</span><p class="q">“Who approved this, and on what evidence?”</p><ul class="st-t"><li>Release sign-off with named approvers</li><li>Waivers with reasons, never silent</li><li>A signed Evidence Pack per release</li></ul><div class="mv"><div class="mv-sig"><div>Business owner<b>✓</b></div><div>QA lead<b>✓</b></div><div>CAB<b>✓</b></div><div>1 waiver · reason logged<b class="w">!</b></div></div><small>Release 2.4 sign-off · example</small></div></div>
+        <div class="st-p" data-i="4"><span class="st-k">Business owners ask</span><p class="q">“Will my process still work on Monday?”</p><ul class="st-t"><li>Requirements in plain language</li><li>Gap analysis against the real app</li><li>A signed go/no-go before go-live</li></ul><div class="mv"><div class="mv-gap"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div><div class="mv-lg"><span><i style="background:var(--green)"></i>31 meet</span><span><i style="background:var(--amber)"></i>9 deviate</span><span><i style="background:var(--red)"></i>8 missing</span></div><small>Gap analysis · 48 requirements · example</small></div></div>
+        <div class="st-p" data-i="5"><span class="st-k">Platform owners ask</span><p class="q">“What does this update actually touch?”</p><ul class="st-t"><li>Change impact for SAP, Oracle, Salesforce and more</li><li>Only impacted tests, on schedule</li><li>Update windows met without full regression</li></ul><div class="mv"><div class="mv-dots" id="stDots"></div><small>212 of 1,180 SAP tests to run · example</small></div></div>
+        <div class="lbar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="cost">
+  <div class="wrap co">
+    <div class="rv">
+      <div class="m-head"><p class="eyebrow">Cost model</p><h2>The LLM thinks.<br><span class="grad">Engines run.</span></h2><p>Most QA work is repetition. Engines do it at 0 AI credits.</p></div>
+      <div class="co-pts">
+        <div><span>01</span><b>0 credits for repeat work</b><small>Runs, retries, rule-based repair, metrics and diffs.</small></div>
+        <div><span>02</span><b>AI where it earns it</b><small>Understanding, generating once, new failures, impact, explanations.</small></div>
+        <div><span>03</span><b>Estimated up front</b><small>Every AI action shows its estimate first. Only admins see money.</small></div>
+      </div>
+    </div>
+    <div class="co-v rv" id="co">
+      <div class="co-h"><b>Release 2.4 · ten regression runs</b><span>Illustrative</span></div>
+      <div class="co-tot"><div class="e"><b id="coSteps">0</b><small>engine steps run</small></div><div class="a"><b id="coCr">0</b><small>AI credits used</small></div></div>
+      <div class="co-g" aria-hidden="true" id="coG"></div>
+      <div class="co-split"><div class="stk"><i style="width:94%;background:linear-gradient(90deg,#2E6BEA,#4C8DFF)"></i><i style="width:6%;background:#7C5CF0"></i></div><div class="lg2"><span>Engine actions <b>94%</b> · 0 credits</span><span>AI actions <b>6%</b> · all credits</span></div></div>
+      <div class="co-led">
+        <div><h4>Engines</h4><span>Test runs and retries<em>0 cr</em></span><span>Rule-based repair<em>0 cr</em></span><span>Metrics, gates, diffs<em>0 cr</em></span></div>
+        <div><h4>AI</h4><span>Understand, generate once<em>≈ 420 cr</em></span><span>Triage new failures<em>≈ 90 cr</em></span><span>Impact, explanations<em>≈ 110 cr</em></span></div>
+      </div>
+      <div class="co-est"><span class="pill" aria-hidden="true">Draft test plan <em>about 40 credits</em></span><small>Estimate shown before it runs</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="plans">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Plans</p><h2>Start with one line. Grow to the portfolio.</h2><p>Per application, or per product a year for Product. Plus a shared credit pool.</p></div>
+    <div class="m-chips pl-lines rv"><span>SecondProof Apps</span><span>Product</span><span>Workstation</span><span>AI</span><span>Data</span><span>Enterprise</span></div>
+    <div class="pl stg">
+      <div><span class="who">Team</span><h3>Team</h3><p class="pr"><b>Talk to us</b> · one team, one product</p><ul><li>Any one line: Apps, Product, Workstation, AI or Data</li><li>Per application, or per product a year for Product</li><li>Self-serve on SecondProof cloud</li><li>Gap analysis, build verification, go/no-go</li><li>All 8 AI agents, with approvals</li></ul><a class="btn ghost" href="#pilot">Talk to us</a></div>
+      <div class="pop"><span class="who">Growth</span><h3>Growth</h3><p class="pr"><b>Talk to us</b> · growing portfolios</p><ul><li>Everything in Team</li><li>Several product lines</li><li>One shared credit pool</li><li>Journeys across lines: web → workstation → data</li><li>Portfolio risk heat map, agent cost views</li></ul><a class="btn primary" href="#pilot">Talk to us <span class="arr">→</span></a></div>
+      <div><span class="who">Enterprise</span><h3>Enterprise</h3><p class="pr"><b>Talk to us</b> · regulated, multi-platform estates</p><ul><li>Everything in Growth</li><li>Enterprise packs: SAP, Oracle, Salesforce, ServiceNow, Dynamics 365, Workday · add-on per platform</li><li>Release management and CAB add-on</li><li>SSO, your vault, private runners</li><li>Data residency, in-region AI models</li></ul><a class="btn ghost" href="#pilot">Talk to us</a></div>
+    </div>
+    <div class="pl-ev rv"><b>In every line</b><span class="tag t-green">Gap analysis</span><span class="tag t-green">Defects</span><span class="tag t-green">Build verification</span><span class="tag t-green">Quality gates</span><span class="tag t-green">Go/no-go</span><span class="tag t-green">Evidence Pack</span><span class="tag t-blue">Governance</span><span class="tag t-violet">The 8 AI agents</span></div>
+    <p class="fine">Product covers web, mobile, API and workstation, plus feature catalogue, test readiness, documentation check, regression memory and verified release notes. Release management (calendar, environments, change, CAB) is an add-on per project. Real devices and Windows runners are billed by the minute by the provider.</p>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="offers">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Ways to start</p><h2>Start with an outcome. Keep the platform.</h2><p>Delivered by Cogniwide QA leads on SecondProof. Then keep it running.</p></div>
+    <ol class="m-steps of-path rv">
+      <li><i></i><span class="k">Step 1 · Service</span><b>SecondProof Assure</b><small>A fixed sprint on one app: requirements to a signed go/no-go.</small><span class="dur">5–10 days per app</span></li>
+      <li><i></i><span class="k">Step 2 · Subscription</span><b>Readiness subscription</b><small>Every build, release or platform update verified, with evidence.</small><span class="dur">Per release, ongoing</span></li>
+      <li class="end"><i></i><span class="k">Step 3 · Licence</span><b>Platform licence</b><small>Your team runs it day to day, with the agents, packs and add-ons you need.</small><span class="dur">Team, Growth or Enterprise</span></li>
+    </ol>
+    <div class="of rv" id="of">
+      <div class="of-top"><h3>Two outcome offers.</h3><div class="of-sw" role="group" aria-label="Choose an offer"><button type="button" data-v="a" aria-pressed="true">AI Build Assurance<small>5 days</small></button><button type="button" data-v="b" aria-pressed="false">Product Assurance<small>10 days</small></button><i aria-hidden="true"></i></div></div>
+      <div class="of-in">
+        <div class="of-p" id="aiba">
+          <div class="of-l"><span class="tag t-amber">New · featured entry offer</span><h3>AI Build Assurance</h3><p>Five days on any app built with AI. We test the running app and its integrations, never your code.</p><p class="proof">Why it exists: an AI-built app passed its own checks. Our testers found <b>200+ issues</b> by hand.</p><div class="acts"><a class="btn primary" href="#pilot">Book AI Build Assurance <span class="arr">→</span></a></div></div>
+          <ol class="of-d" aria-label="What you get in 5 days">
+            <li><span>Day 1</span><div><b>Requirements capture</b><small>What the business needed, approved by your owners.</small></div></li>
+            <li><span>Day 2</span><div><b>Gap analysis</b><small>Each requirement against the running app.</small><div class="ch"><i>Not implemented</i><i>Not in requirements</i><i>Deviates</i><i>Inconsistent</i><i>Meets</i></div></div></li>
+            <li><span>Day 3</span><div><b>Defect-pattern checks</b><small>Integration and in-app patterns where AI-built apps break.</small></div></li>
+            <li><span>Day 4</span><div><b>Defects</b><small>Each re-checked, with steps and evidence, sent to your tracker.</small></div></li>
+            <li><span>Day 5</span><div><b>Signed go/no-go</b><small>Your approvers decide, Evidence Pack in hand.</small></div></li>
+          </ol>
+        </div>
+        <div class="of-p pa off" id="product-assurance">
+          <div class="of-l"><span class="tag t-prod">New · for products that ship every sprint</span><h3>Product Assurance</h3><p>A 10-day product memory baseline for one product. Then SecondProof Product keeps it current, release after release.</p><p class="proof">For enterprise products, SaaS and internal platforms. You keep the catalogue, the docs report and the readiness view.</p><div class="acts"><a class="btn primary" href="#pilot">Book Product Assurance <span class="arr">→</span></a><a class="btn ghost" href="products.html#product">About SecondProof Product</a></div></div>
+          <ol class="of-d" aria-label="What you get in 10 days">
+            <li><span>Days 1–2</span><div><b>Connect and sync</b><small>Epics and stories from Jira or Azure DevOps, help centre, API docs, release notes.</small></div></li>
+            <li><span>Days 3–5</span><div><b>Feature catalogue</b><small>Requirements, tests, owner, docs and history per feature. Approved by your product owners.</small></div></li>
+            <li><span>Days 6–7</span><div><b>Documentation check</b><small>Each doc against the running product.</small><div class="ch"><i>Matches</i><i>Out of date</i><i>Undocumented</i><i>Missing from product</i></div></div></li>
+            <li><span>Days 8–9</span><div><b>Regression memory</b><small>Delivered features proven on the current build. Untested for 3+ releases: flagged.</small></div></li>
+            <li><span>Day 10</span><div><b>Readiness for the next release</b><small>Test readiness per planned feature and a go/no-go your people sign.</small></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="of-more rv">
+      <h4>More entry offers</h4>
+      <div class="m-list">
+        <div class="m-row"><span class="m-k">01</span><b>Release Assure</b><span class="m-d">One release to a signed go/no-go, with evidence.</span><span class="m-go tag t-blue">Web and mobile</span></div>
+        <div class="m-row"><span class="m-k">02</span><b>API Assure</b><span class="m-d">Endpoint catalogue, coverage gaps, a regression collection.</span><span class="m-go tag t-blue">API</span></div>
+        <div class="m-row"><span class="m-k">03</span><b>Migration Assure</b><span class="m-d">Source-to-target reconciliation and data quality for cut-over.</span><span class="m-go tag t-blue">Data</span></div>
+        <div class="m-row"><span class="m-k">04</span><b>AI Assure</b><span class="m-d">Evaluate answers, red-team prompts, test agent behaviour.</span><span class="m-go tag t-blue">AI</span></div>
+        <div class="m-row"><span class="m-k">05</span><b>QA health check</b><span class="m-d">Coverage gaps, dead weight, unreliable automation, risk hotspots.</span><span class="m-go tag t-amber">5 days</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="pilot">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">The pilot</p><h2>Ten days. One application. <span class="grad">Your numbers.</span></h2><p>On day ten you decide go or no-go, with the evidence in hand.</p></div>
+    <div class="pi-br rv"><b>We bring</b><div class="m-chips"><span>The platform</span><span>The AI QA team</span><span>A QA lead</span></div><b>You bring</b><div class="m-chips y"><span>One application</span><span>Two approvers</span><span>A release date</span></div></div>
+    <div class="pi rv" id="pi">
+      <div class="pi-days" aria-hidden="true"><span>D1</span><span>D2</span><span>D3</span><span>D4</span><span>D5</span><span>D6</span><span>D7</span><span>D8</span><span>D9</span><span>D10</span><i class="pi-fill"></i><i class="pi-mk"></i></div>
+      <div class="pi-ph" role="tablist" aria-label="Pilot phases">
+        <button type="button" role="tab" data-i="0" data-a="1" data-b="1" style="grid-column:1/2" aria-selected="true"><small data-s="1">Day 1</small><span>Baseline</span></button>
+        <button type="button" role="tab" data-i="1" data-a="2" data-b="3" style="grid-column:2/4" aria-selected="false"><small data-s="2–3">Days 2–3</small><span>Requirements</span></button>
+        <button type="button" role="tab" data-i="2" data-a="4" data-b="5" style="grid-column:4/6" aria-selected="false"><small data-s="4–5">Days 4–5</small><span>Gap analysis</span></button>
+        <button type="button" role="tab" data-i="3" data-a="6" data-b="7" style="grid-column:6/8" aria-selected="false"><small data-s="6–7">Days 6–7</small><span>Build verification</span></button>
+        <button type="button" role="tab" data-i="4" data-a="8" data-b="8" style="grid-column:8/9" aria-selected="false"><small data-s="8">Day 8</small><span>Defects</span></button>
+        <button type="button" role="tab" data-i="5" data-a="9" data-b="9" style="grid-column:9/10" aria-selected="false"><small data-s="9">Day 9</small><span>Quality gates</span></button>
+        <button type="button" role="tab" class="end" data-i="6" data-a="10" data-b="10" style="grid-column:10/11" aria-selected="false"><small data-s="10">Day 10</small><span>Go / No-go</span></button>
+      </div>
+      <div class="pi-pn" aria-live="polite">
+        <div class="pi-p on" data-i="0"><div><span class="d">Day 1</span><h3>Baseline</h3><p>We record today’s effort, cycle time and defects with your team.</p><span class="who">With your team</span></div><div class="mv"><div class="mv-bars"><div>Regression effort<u><i style="--w:88%;--bc:rgba(var(--i2r),.5)"></i></u><b>today</b></div><div>Cycle time<u><i style="--w:72%;--bc:rgba(var(--i2r),.5)"></i></u><b>today</b></div><div>Escaped defects<u><i style="--w:56%;--bc:rgba(var(--i2r),.5)"></i></u><b>today</b></div></div><small>Your baseline · measured, not assumed</small></div></div>
+        <div class="pi-p" data-i="1"><div><span class="d">Days 2–3</span><h3>Requirements</h3><p>Agents read your documents and explore the app.</p><span class="who ck">◆ You approve the BRD</span></div><div class="mv"><div class="mv-doc"><b>BRD v1.1</b><i></i><i></i><i class="s"></i><small>48 requirements · every line sourced</small><span class="stamp">APPROVED</span></div></div></div>
+        <div class="pi-p" data-i="2"><div><span class="d">Days 4–5</span><h3>Gap analysis</h3><p>Each requirement checked against the running app. Test cases traced.</p><span class="who ck">◆ You approve the test cases</span></div><div class="mv"><div class="mv-gap"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div><div class="mv-lg"><span><i style="background:var(--green)"></i>31 meet</span><span><i style="background:var(--amber)"></i>9 deviate</span><span><i style="background:var(--red)"></i>8 missing</span></div><small>Example · 128 test cases traced</small></div></div>
+        <div class="pi-p" data-i="3"><div><span class="d">Days 6–7</span><h3>Build verification</h3><p>Engines run the test cases on each new build.</p><span class="who">Sign-ins and OTPs stay human steps</span></div><div class="mv"><div class="mv-run"><u><i></i></u><span class="bd">Build 2.4.9 · verified</span><small>212 tests · 0 AI credits · evidence saved</small></div></div></div>
+        <div class="pi-p" data-i="4"><div><span class="d">Day 8</span><h3>Defects</h3><p>Failures re-checked. Defects drafted with steps and evidence.</p><span class="who ck">◆ Approved, then sent to your tracker</span></div><div class="mv"><div class="mv-def"><b>DEF-031 · High</b><span>Account opened while core banking failed</span><small>Evidence attached · to Jira</small></div></div></div>
+        <div class="pi-p" data-i="5"><div><span class="d">Day 9</span><h3>Quality gates</h3><p>Gates scored. The go/no-go drafted for approvers.</p><span class="who">Drafted for your approvers</span></div><div class="mv"><div class="mv-gt"><span>Coverage</span><span>Pass rate</span><span>Defects</span><span>Performance</span><span>Security</span><span class="w">Waiver</span></div><small>5 of 6 gates met · 1 waiver with reason</small></div></div>
+        <div class="pi-p" data-i="6"><div><span class="d">Day 10</span><h3>Go / No-go</h3><p>Your approvers decide and sign. Results against the baseline.</p><span class="who ck">◆ Your approvers sign</span></div><div class="mv"><span class="stamp">GO</span><small>Business ✓ · QA ✓ · pilot report vs baseline</small></div></div>
+        <div class="lbar" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+    <div class="pi-g">
+      <div class="rv"><h3>What you get</h3><ul><li>An approved BRD for the app</li><li>A gap analysis against the running app</li><li>Traced, approved test cases you keep</li><li>Build verification results, defects in your tracker</li><li>A signed go/no-go and Evidence Pack</li><li>A pilot report against your baseline</li></ul></div>
+      <div class="rv"><h3>How it’s measured</h3><ul class="ms"><li>Baseline with your team on day one</li><li>Regression hours, before and after</li><li>Cycle time, build to go/no-go</li><li>Coverage of approved requirements</li><li>Defects found before release, evidence prep time</li></ul><p class="fine">Reported against the pilot targets above.</p></div>
+      <div class="card contact rv"><h3>Book the pilot</h3><p>Tell us the app, the release date and who approves. We reply with a pilot plan and targets.</p>
+        <div class="addr"><code id="pilotAddr">product@cogniwide.com</code><button type="button" class="btn ghost" data-copy="pilotAddr" data-msg="copyMsg">Copy address</button></div>
+        <p id="copyMsg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="rule" id="contact">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">Book a pilot</span><h2>Tell us about your application.</h2><p>We reply within one working day with a pilot plan and the targets to agree.</p></div>
+    <form class="card pform rv" id="pilotForm" name="pilot" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="pilot">
+      <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <div class="pf-grid">
+        <label for="pf-name">Full name<input id="pf-name" name="name" autocomplete="name" required></label>
+        <label for="pf-email">Work email<input id="pf-email" name="email" type="email" autocomplete="email" required></label>
+        <label for="pf-company">Company<input id="pf-company" name="company" autocomplete="organization" required></label>
+        <label for="pf-role">Your role<input id="pf-role" name="role" autocomplete="organization-title"></label>
+        <label for="pf-app">Application to pilot<input id="pf-app" name="application" placeholder="For example: retail onboarding portal"></label>
+        <label for="pf-interest">Main interest<select id="pf-interest" name="interest"><option>Release confidence</option><option>Platform update (SAP, Oracle, Salesforce and others)</option><option>AI chatbot or agent launch</option><option>Data migration</option><option>Vendor delivery acceptance</option><option>Something else</option></select></label>
+        <label for="pf-msg" class="wide">Anything else we should know<textarea id="pf-msg" name="message" rows="4" placeholder="Release date, approvers, tools you use today"></textarea></label>
+        <label class="wide chk" for="pf-consent"><input id="pf-consent" name="consent" type="checkbox" required><span>I agree that Cogniwide may use these details to reply about a SecondProof pilot, as described in the <a href="privacy.html">privacy notice</a>.</span></label>
+      </div>
+      <div class="pf-foot"><button class="btn primary" type="submit">Send pilot request <span class="arr">→</span></button><p id="pfStatus" role="status" aria-live="polite"></p></div>
+    </form>
+  </div>
+</section>
+
+<section class="cta-band"><div class="wrap rv">
+  <h2>Prove it on one application <span class="grad">first.</span></h2><p>Ten days, your baseline, your approvers. Then decide how far to take it.</p>
+  <div class="acts"><a class="btn primary" href="#pilot">Plan the pilot <span class="arr">→</span></a><a class="btn ghost" href="integrations.html">See integrations</a></div>
+</div></section>
+
+<footer id="vf-footer"></footer>
+<script>
+(function(){
+  var RED=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(i){return document.getElementById(i);}
+  function fmt(n,d){return n.toLocaleString('en',{minimumFractionDigits:d||0,maximumFractionDigits:d||0});}
+  /* generic auto-cycler: progress bar, hover pause, off-screen pause, reduced motion = static */
+  function cycler(root,n,show,bar,D){
+    var i=0,t0=Date.now(),hold=false,vis=false;
+    function go(k){i=((k%n)+n)%n;show(i);t0=Date.now();if(bar)bar.style.width='0%';}
+    root.addEventListener('mouseenter',function(){hold=true;});
+    root.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});
+    root.addEventListener('focusin',function(){hold=true;});
+    root.addEventListener('focusout',function(){hold=false;t0=Date.now();});
+    go(0);
+    if(RED)return {go:go};
+    if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis)t0=Date.now();},{threshold:.25}).observe(root);else vis=true;
+    setInterval(function(){if(hold||!vis||document.hidden)return;var p=(Date.now()-t0)/D;if(bar)bar.style.width=Math.min(100,p*100)+'%';if(p>=1)go(i+1);},60);
+    return {go:go};
+  }
+
+  /* calculator */
+  var ids=['apps','rel','hrs','red','aud'],cur={};
+  function tween(el,to,d,suf){var from=cur[el.id]==null?to:cur[el.id];cur[el.id]=to;if(RED||from===to){el.textContent=fmt(to,d)+(suf||'');return;}var s=performance.now();(function st(t){var p=Math.min(1,(t-s)/600),e=1-Math.pow(1-p,3);el.textContent=fmt(from+(to-from)*e,d)+(suf||'');if(p<1)requestAnimationFrame(st);})(s);}
+  function calc(){
+    var v={};ids.forEach(function(k){var s=$('s-'+k);v[k]=+s.value;s.style.setProperty('--p',((s.value-s.min)/(s.max-s.min)*100)+'%');});
+    $('o-apps').textContent=v.apps;$('o-rel').textContent=v.rel;$('o-hrs').textContent=fmt(v.hrs)+' h';$('o-red').textContent=v.red+'%';$('o-aud').textContent=v.aud+(v.aud===1?' day':' days');
+    var base=v.apps*v.rel*v.hrs,saved=base*v.red/100;
+    tween($('r-hrs'),Math.round(saved));tween($('r-fte'),saved/1800,1);tween($('r-cyc'),v.apps*v.rel);tween($('r-aud'),Math.round(v.apps*v.aud*.9));
+    $('r-pct').textContent=v.red+'%';
+    $('b-now').textContent=fmt(base)+' h';$('b-new').textContent=fmt(Math.round(base-saved))+' h';$('b-bar').style.width=(100-v.red)+'%';
+  }
+  ids.forEach(function(k){$('s-'+k).addEventListener('input',calc);});
+  calc();
+
+  /* seats */
+  var dots=$('stDots');if(dots){var h='',hi={3:1,7:1,8:1,15:1,22:1,26:1,33:1,41:1,44:1,52:1,57:1};for(var d=0;d<60;d++)h+='<i'+(hi[d]?' class="h" style="transition-delay:'+(0.2+d*0.012).toFixed(2)+'s"':'')+'></i>';dots.innerHTML=h;}
+  var st=$('st');if(st){var sb=[].slice.call(st.querySelectorAll('.st-l button')),sp=[].slice.call(st.querySelectorAll('.st-p'));
+    var sc=cycler(st,sb.length,function(n){sb.forEach(function(b,j){b.setAttribute('aria-selected',j===n?'true':'false');b.tabIndex=j===n?0:-1;});sp.forEach(function(p,j){p.classList.toggle('on',j===n);});},st.querySelector('.lbar i'),3600);
+    sb.forEach(function(b,j){b.addEventListener('click',function(){sc.go(j);});b.addEventListener('mouseenter',function(){sc.go(j);});
+      b.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();var k=(j+(e.key==='ArrowDown'?1:-1)+sb.length)%sb.length;sb[k].focus();sc.go(k);}});});}
+
+  /* cost meter: steps climb, credits do not */
+  var g=$('coG');if(g){var N=10,STEP=1400,CR=620,html='<span class="sp"></span>';
+    for(var r=1;r<=N;r++)html+='<span class="rn">'+r+'</span>';
+    html+='<span class="lb">Engine steps</span>';for(r=0;r<N;r++)html+='<span class="c e"></span>';
+    html+='<span class="lb">AI credits</span>';for(r=0;r<N;r++)html+='<span class="c a'+(r===0?' one':'')+'"></span>';
+    g.innerHTML=html;var ce=[].slice.call(g.querySelectorAll('.c.e')),ca=[].slice.call(g.querySelectorAll('.c.a')),sE=$('coSteps'),sA=$('coCr'),co=$('co');
+    function paint(k){ce.forEach(function(c,j){c.classList.toggle('f',j<k);c.classList.toggle('now',j===k-1);c.textContent=j<k?'1.4k':'';});ca.forEach(function(c,j){c.classList.toggle('f',j<k);c.classList.toggle('now',j===k-1);c.textContent=j<k?(j===0?'620':'0'):'';});sE.textContent=fmt(k*STEP);sA.textContent=fmt(k?CR:0);}
+    if(RED){paint(N);}else{var k=0,cvis=false,wait=0;paint(0);
+      if('IntersectionObserver' in window)new IntersectionObserver(function(e){cvis=e[0].isIntersecting;},{threshold:.3}).observe(co);else cvis=true;
+      setInterval(function(){if(!cvis||document.hidden)return;if(k>=N){if(++wait>4){wait=0;k=0;paint(0);}return;}k++;paint(k);},750);}}
+
+  /* offers switch + day cycle */
+  var of=$('of');if(of){var ob=[].slice.call(of.querySelectorAll('.of-sw button')),pA=$('aiba'),pB=$('product-assurance');
+    function setO(v){of.classList.toggle('b',v==='b');pA.classList.toggle('off',v==='b');pB.classList.toggle('off',v!=='b');ob.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});}
+    ob.forEach(function(b){b.addEventListener('click',function(){setO(b.getAttribute('data-v'));});});
+    function fromHash(){if(location.hash==='#product-assurance')setO('b');else if(location.hash==='#aiba')setO('a');}
+    fromHash();window.addEventListener('hashchange',fromHash);
+    var lists=[].slice.call(of.querySelectorAll('.of-d'));
+    var oc=cycler(of,5,function(n){lists.forEach(function(l){[].slice.call(l.children).forEach(function(li,j){li.classList.toggle('on',j===n);});});},null,2600);
+    lists.forEach(function(l){[].slice.call(l.children).forEach(function(li,j){li.addEventListener('mouseenter',function(){oc.go(j);});});});}
+
+  /* pilot timeline */
+  var pi=$('pi');if(pi){var pb=[].slice.call(pi.querySelectorAll('.pi-ph button')),pp=[].slice.call(pi.querySelectorAll('.pi-p')),ds=[].slice.call(pi.querySelectorAll('.pi-days span')),mk=pi.querySelector('.pi-mk'),fl=pi.querySelector('.pi-fill');
+    var pc=cycler(pi,pb.length,function(n){var a=+pb[n].getAttribute('data-a'),b=+pb[n].getAttribute('data-b');
+      pb.forEach(function(x,j){x.setAttribute('aria-selected',j===n?'true':'false');x.tabIndex=j===n?0:-1;x.classList.toggle('done',j<n);});
+      pp.forEach(function(p,j){p.classList.toggle('on',j===n);});
+      ds.forEach(function(s,j){s.classList.toggle('on',j+1>=a&&j+1<=b);});
+      mk.style.left=((a-1+b)/2*10)+'%';fl.style.width=(b*10)+'%';},pi.querySelector('.lbar i'),3600);
+    pb.forEach(function(b,j){b.addEventListener('click',function(){pc.go(j);});b.addEventListener('mouseenter',function(){pc.go(j);});
+      b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var k=(j+(e.key==='ArrowRight'?1:-1)+pb.length)%pb.length;pb[k].focus();pc.go(k);}});});}
+})();
+</script>
+<script src="config.js"></script>
+<script src="logos.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

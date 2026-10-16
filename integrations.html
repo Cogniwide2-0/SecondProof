@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SecondProof integrations</title>
+<meta name="description" content="Works with Jira, Azure DevOps, GitHub, Jenkins, ServiceNow, SAP and 50 more tools your teams already use.">
+<link rel="canonical" href="https://secondproof.ai/integrations.html">
+<meta name="theme-color" content="#060A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondProof">
+<meta property="og:title" content="SecondProof integrations">
+<meta property="og:description" content="Works with Jira, Azure DevOps, GitHub, Jenkins, ServiceNow, SAP and 50 more tools your teams already use.">
+<meta property="og:url" content="https://secondproof.ai/integrations.html">
+<meta property="og:image" content="https://secondproof.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondProof integrations">
+<meta name="twitter:description" content="Works with Jira, Azure DevOps, GitHub, Jenkins, ServiceNow, SAP and 50 more tools your teams already use.">
+<meta name="twitter:image" content="https://secondproof.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>(function(){var t;try{t=localStorage.getItem("sp-theme")}catch(e){}if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+/* Integrations v3 · orbiting hub hero, light directory, flow switcher, runner network, open platform */
+.ihero{padding-block:72px 56px;border-bottom:1px solid var(--line)}
+.ihero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.ihero .copy{display:flex;flex-direction:column;gap:20px;min-width:0}
+.ihero h1{font-size:clamp(42px,5.6vw,78px)}
+.ihero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font:500 11.5px var(--mono);color:var(--ink3);letter-spacing:.08em;text-transform:uppercase}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:middle}
+@media (max-width:960px){.ihero .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* hub */
+.hubw{display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
+.hub{position:relative;width:100%;max-width:540px;aspect-ratio:1}
+.orb{position:absolute;inset:0}
+.orb svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orb .rc{fill:none;stroke:rgba(var(--lnr),.2);stroke-width:1;stroke-dasharray:2 6;vector-effect:non-scaling-stroke}
+.orb .sp line{stroke:rgba(var(--b2r),.12);stroke-width:1;vector-effect:non-scaling-stroke;transition:stroke .4s}
+.orb .sp line.hot{stroke:rgba(var(--b2r),.55)}
+.hn{position:absolute;width:var(--hs,44px);height:var(--hs,44px);margin:calc(var(--hs,44px)/-2) 0 0 calc(var(--hs,44px)/-2);display:grid;place-items:center}
+.o1 .hn{--hs:54px}
+.hn .lg{width:100%;height:100%;border-radius:30%;transition:transform .4s cubic-bezier(.2,1.4,.4,1),box-shadow .4s}
+.hn.hot .lg{transform:scale(1.22);box-shadow:0 0 0 5px rgba(var(--b2r),.25),0 10px 30px rgba(76,141,255,.45)}
+.hn.hot[data-d="o"] .lg{box-shadow:0 0 0 5px rgba(245,166,91,.3),0 10px 30px rgba(245,166,91,.45)}
+.hcore{position:absolute;left:50%;top:50%;width:25%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:radial-gradient(circle at 35% 30%,#6FA2FF,#3B5FD8 60%,#6A49C9);box-shadow:0 0 0 1px rgba(255,255,255,.3) inset,0 20px 60px rgba(76,141,255,.45);z-index:2}
+.hcore .spm{width:30%;aspect-ratio:1;border-radius:22%}
+.hcore b{font:800 clamp(11px,1.25vw,15px) var(--display);color:#fff;letter-spacing:-.02em}
+.hcore small{font:500 9px var(--mono);letter-spacing:.18em;color:#D6E3FF}
+.halo{position:absolute;left:50%;top:50%;width:25%;aspect-ratio:1;margin:-12.5% 0 0 -12.5%;border-radius:50%;border:1.5px solid rgba(var(--b2r),.6);opacity:0;pointer-events:none}
+.hcap{display:flex;align-items:center;gap:10px;min-height:34px;padding:6px 14px 6px 8px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03);font-size:14px;max-width:100%}
+.hcap .lg{width:24px;height:24px;border-radius:7px}
+.hcap b{font-weight:600}
+.hcap span{color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hcap em{font-style:normal;font:600 12px var(--mono);color:var(--tx-blue)}
+.hcap em.o{color:var(--tx-amber)}
+.spm{display:inline-block;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath d='M6 15.5l4 4 8-9' fill='none' stroke='%23C9D8FF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M11 16.5l4 4 9-10' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat,linear-gradient(135deg,#4C8DFF,#7C5CF0)}
+@media (prefers-reduced-motion:no-preference){
+  .o2{animation:hspin 140s linear infinite}.o2 .hn{animation:hspin 140s linear infinite reverse}
+  .o1{animation:hspin 90s linear infinite reverse}.o1 .hn{animation:hspin 90s linear infinite}
+  .halo{animation:halo 3.2s ease-out infinite}.halo.d{animation-delay:1.6s}
+  .hub.paused .orb,.hub.paused .hn,.hub.paused .halo{animation-play-state:paused}
+  @keyframes hspin{to{transform:rotate(360deg)}}
+  @keyframes halo{0%{transform:scale(1);opacity:.6}100%{transform:scale(2);opacity:0}}
+}
+@media (max-width:560px){.o1 .hn{--hs:40px}.o2 .hn{--hs:32px}.hcore b{font-size:11px}.hcore small{display:none}}
+
+/* where it breaks + numbers */
+.brk{padding-block:64px 56px}
+.brk-l{font:700 clamp(24px,3vw,38px)/1.15 var(--display);letter-spacing:-.025em;max-width:980px;margin:14px 0 40px}
+.brk-l b{color:var(--tx-red)}
+.brk-l span{color:var(--ink3)}
+
+/* directory */
+.dir-ctl{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
+.search{position:relative;max-width:460px}
+.search input{width:100%;height:50px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03);color:var(--ink);font:500 16px var(--body);padding:0 18px 0 46px}
+.search input::placeholder{color:var(--ink3)}
+.search input:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.search svg{position:absolute;left:17px;top:15px;width:20px;height:20px;color:var(--ink3)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{height:34px;padding:0 13px;border-radius:999px;border:1px solid transparent;background:none;color:var(--ink2);font:600 13.5px var(--body);cursor:pointer;transition:all .2s;white-space:nowrap}
+.chips button:hover{color:var(--ink);border-color:var(--line)}
+.chips button[aria-pressed="true"]{background:rgba(var(--b2r),.14);border-color:rgba(var(--b2r),.45);color:var(--ink)}
+.chips button span{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-left:6px}
+.dir-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:500 12px var(--mono);color:var(--ink3);letter-spacing:.06em;padding-bottom:6px}
+.dir-meta .key{display:flex;gap:16px;flex-wrap:wrap}
+.dir-meta .key span{display:inline-flex;gap:6px;align-items:center}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:32px}
+.tile{display:grid;grid-template-columns:34px minmax(0,1fr) 24px;gap:12px;align-items:center;padding:11px 6px;border-top:1px solid var(--line);border-radius:2px;transition:background .2s,padding .25s;min-width:0}
+.tile:hover{background:rgba(var(--wsh),.035);padding-left:10px}
+.tile[hidden]{display:none}
+.tn{min-width:0;display:flex;flex-direction:column}
+.tn b{font-size:15px;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tn small{font-size:12.5px;color:var(--ink3);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dw{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:700 13px var(--body)}
+.dw.r{background:rgba(76,141,255,.15);color:var(--tx-blue)}.dw.w{background:rgba(245,166,91,.16);color:var(--tx-amber)}.dw.b{background:rgba(95,211,154,.15);color:var(--tx-green)}
+.empty{padding:28px 0;color:var(--ink2);border-top:1px solid var(--line)}
+.empty a{color:var(--blue2)}
+.more-btn{display:none;margin-top:14px;border:1px solid var(--line2);background:none;color:var(--ink);font:600 14.5px var(--body);height:44px;padding:0 18px;border-radius:999px;cursor:pointer}
+@media (max-width:1100px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:820px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}}
+@media (max-width:560px){
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding-inline:16px;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+  .chips::-webkit-scrollbar{display:none}
+  .tiles{column-gap:14px}.tile{grid-template-columns:30px minmax(0,1fr) 22px;gap:9px;padding:10px 2px}.tile .lg{width:30px;height:30px;border-radius:9px}.tn small{display:none}.tn b{font-size:13.5px;white-space:normal;line-height:1.2}.dw{width:22px;height:22px;font-size:12px}
+  .tiles.clip .tile:nth-child(n+17){display:none}
+  .tiles.clip~.more-btn{display:inline-flex;align-items:center}
+}
+
+/* how: flow switcher */
+.fx-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:34px}
+.fx-tabs button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);font:600 15px var(--body);color:var(--ink2);transition:all .25s}
+.fx-tabs button:hover{color:var(--ink);border-color:var(--line2)}
+.fx-tabs button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.fx-tabs button span{font:500 11.5px var(--mono);color:var(--ink3)}
+.fx-tabs button[aria-selected="true"]{color:#fff;border-color:transparent;background:linear-gradient(90deg,#2E6BEA,#7C5CF0);box-shadow:0 10px 30px rgba(46,107,234,.3)}
+.fx-tabs button[aria-selected="true"] span{color:#DCE6FF}
+.fx{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.fx-stage{position:relative;padding:70px 0 26px;border-radius:28px;background:radial-gradient(70% 80% at 50% 45%,rgba(var(--b2r),.08),transparent 70%)}
+.fx-route{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fx-line{position:absolute;left:12.5%;right:12.5%;top:35px;height:2px;background:repeating-linear-gradient(90deg,rgba(var(--b2r),.5) 0 6px,transparent 6px 12px)}
+.fx-fill{position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--blue),var(--violet));transition:width .8s cubic-bezier(.65,0,.25,1)}
+.fn{all:unset;box-sizing:border-box;cursor:pointer;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:0 4px;min-width:0}
+.fn:focus-visible .fn-i{outline:2px solid var(--blue2);outline-offset:4px}
+.fn-i{position:relative;width:70px;height:70px;border-radius:22px;display:grid;place-items:center;background:var(--surface);border:1.5px solid var(--line2);font:800 17px var(--display);color:var(--ink2);transition:transform .45s cubic-bezier(.2,1.4,.4,1),box-shadow .4s,border-color .4s;box-shadow:0 8px 20px var(--shadow)}
+.fn-i.lgt{background:#F4F6FB;border-color:transparent}
+.fn-i .spm{width:40px;height:40px;border-radius:12px}
+.fn-i svg.ic{width:30px;height:30px}
+.fn-i .stk{display:flex}
+.fn-i .stk svg{margin-left:-6px;width:20px;height:20px}
+.fn-i .stk svg:first-child{margin-left:0}
+.fn b{font-size:14px;font-weight:600;color:var(--ink2);line-height:1.25;transition:color .3s}
+.fn.on .fn-i{transform:scale(1.14);border-color:rgba(var(--b2r),.8);box-shadow:0 0 0 7px rgba(var(--b2r),.16),0 14px 34px rgba(76,141,255,.35)}
+.fn.on b{color:var(--ink)}
+.fn.dn .fn-i::after{content:"✓";position:absolute;right:-6px;top:-6px;width:20px;height:20px;border-radius:50%;background:#16824F;color:#fff;font:700 11px var(--body);display:grid;place-items:center}
+.fx-tok{position:absolute;top:-52px;left:12.5%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;background:var(--surface);border:1px solid var(--line2);box-shadow:0 12px 30px var(--shadow);font:600 13px var(--body);white-space:nowrap;transition:left .8s cubic-bezier(.65,0,.25,1);z-index:3}
+.fx-tok::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;background:var(--surface);border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);transform:rotate(45deg)}
+.fx-tok i{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue)}
+.fx-tok.g i{background:var(--green);box-shadow:0 0 10px var(--green)}
+.fx-back{position:relative;margin:22px 12.5% 0;height:26px;border:1.5px dashed rgba(95,211,154,.45);border-top:0;border-radius:0 0 16px 16px;transition:opacity .4s}
+.fx-back span{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);background:var(--bg);padding:0 10px;font:500 11px var(--mono);color:var(--tx-green);letter-spacing:.05em;white-space:nowrap}
+.fx-back i{position:absolute;bottom:-5px;right:-5px;width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);opacity:0}
+.fx-back.off{opacity:0}
+.fx-back.run i{animation:fxret 1.8s ease-in-out infinite}
+@keyframes fxret{0%{right:-5px;opacity:0}10%{opacity:1}90%{opacity:1}100%{right:calc(100% - 4px);opacity:0}}
+.fx-panel{position:relative;min-height:330px}
+.fx-p{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:12px;opacity:0;transform:translateX(24px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.fx-p.on{opacity:1;transform:none;pointer-events:auto}
+.fx-k{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue2)}
+.fx-p h3{font:800 clamp(26px,2.8vw,38px)/1.06 var(--display);letter-spacing:-.03em}
+.fx-p p{font-size:clamp(16px,1.4vw,18px);color:var(--ink2);max-width:440px}
+.fx-v{margin:6px 0 2px;min-height:96px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.fx-v small{font:500 12px var(--mono);color:var(--ink3)}
+.fx-bar{position:absolute;left:0;bottom:-6px;width:220px;height:3px;border-radius:2px;background:rgba(var(--wsh),.08);overflow:hidden}
+.fx-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+/* mini visuals */
+.mv-def{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-radius:14px;border-left:4px solid var(--red);background:rgba(255,122,127,.08);width:320px;max-width:100%}
+.mv-def b{font-size:14px;color:var(--tx-red)}.mv-def span{font-size:13.5px;color:var(--ink2)}
+.stamp{display:inline-grid;place-items:center;padding:6px 14px;border:2.5px solid var(--green);border-radius:9px;color:var(--tx-green);font:800 18px var(--display);letter-spacing:.06em;transform:rotate(-7deg) scale(1.6);opacity:0;transition:transform .45s cubic-bezier(.2,1.6,.4,1) .2s,opacity .3s .2s;width:max-content}
+.stamp.am{border-color:var(--amber);color:var(--tx-amber)}
+.fx-p.on .stamp{transform:rotate(-7deg) scale(1);opacity:1}
+.mv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mv-row .lg{width:30px;height:30px;border-radius:9px}
+.mv-tk{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--line2);background:rgba(var(--wsh),.03);width:max-content;max-width:100%;font-size:14px}
+.mv-tk .lg{width:26px;height:26px;border-radius:8px}
+.mv-tk b{font-weight:600}
+.mv-ch{display:flex;gap:6px;flex-wrap:wrap}
+.mv-ch span{font:500 12px var(--mono);padding:5px 9px;border-radius:8px;background:rgba(var(--b2r),.1);color:var(--tx-blue);opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.fx-p.on .mv-ch span{opacity:1;transform:none}
+.fx-p.on .mv-ch span:nth-child(2){transition-delay:.25s}.fx-p.on .mv-ch span:nth-child(3){transition-delay:.5s}.fx-p.on .mv-ch span:nth-child(4){transition-delay:.75s}
+.mv-ck{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.mv-ck li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);opacity:.35;transition:opacity .35s,color .35s}
+.mv-ck li i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:700;background:rgba(var(--wsh),.08);color:transparent;transition:background .35s,color .35s}
+.fx-p.on .mv-ck li{opacity:1;color:var(--ink)}
+.fx-p.on .mv-ck li i{background:#16824F;color:#fff}
+.fx-p.on .mv-ck li:nth-child(2),.fx-p.on .mv-ck li:nth-child(2) i{transition-delay:.4s}.fx-p.on .mv-ck li:nth-child(3),.fx-p.on .mv-ck li:nth-child(3) i{transition-delay:.8s}.fx-p.on .mv-ck li:nth-child(4),.fx-p.on .mv-ck li:nth-child(4) i{transition-delay:1.2s}
+.mv-ck li em{font-style:normal;margin-left:auto;font:500 12px var(--mono);color:var(--ink3);padding-left:12px}
+.mv-run span{display:block;width:280px;max-width:100%;height:10px;border-radius:6px;background:rgba(var(--wsh),.08);overflow:hidden}
+.mv-run i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width 2.2s linear}
+.fx-p.on .mv-run i{width:100%}
+.mv-map{display:grid;grid-template-columns:auto 26px auto;gap:6px 6px;align-items:center;font:500 12.5px var(--mono);width:max-content;max-width:100%}
+.mv-map span{padding:5px 9px;border-radius:8px;border:1px solid var(--line2);color:var(--ink2)}
+.mv-map i{height:2px;background:var(--blue2);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s}
+.fx-p.on .mv-map i{transform:none}
+.fx-p.on .mv-map i:nth-of-type(2){transition-delay:.3s}.fx-p.on .mv-map i:nth-of-type(3){transition-delay:.6s}
+.mv-cnt{display:flex;gap:26px;flex-wrap:wrap}
+.mv-cnt div{display:flex;flex-direction:column}
+.mv-cnt b{font:800 34px/1 var(--display);letter-spacing:-.03em}
+.mv-cnt small{font:500 11.5px var(--mono);color:var(--ink3);margin-top:4px}
+.mv-av{display:flex;gap:8px}
+.mv-av span{position:relative;width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font:700 13px var(--display);color:#fff}
+.mv-av span::after{content:"✓";position:absolute;right:-5px;bottom:-5px;width:17px;height:17px;border-radius:50%;background:#16824F;border:2px solid var(--bg);font:700 9px var(--body);display:grid;place-items:center;transform:scale(0);transition:transform .3s cubic-bezier(.2,1.6,.4,1)}
+.fx-p.on .mv-av span::after{transform:scale(1)}
+.fx-p.on .mv-av span:nth-child(2)::after{transition-delay:.35s}.fx-p.on .mv-av span:nth-child(3)::after{transition-delay:.7s}
+.mv-cal{display:grid;grid-template-columns:repeat(7,30px);gap:5px}
+.mv-cal i{height:30px;border-radius:7px;background:rgba(var(--wsh),.06);font:500 10.5px var(--mono);font-style:normal;color:var(--ink3);display:grid;place-items:center}
+.mv-cal i.w{background:rgba(var(--wsh),.06);transition:background .4s .3s,color .4s .3s}
+.fx-p.on .mv-cal i.w{background:#16824F;color:#fff}
+.mv-g{display:flex;flex-direction:column;gap:7px;width:300px;max-width:100%}
+.mv-g div{display:grid;grid-template-columns:118px 1fr 20px;gap:10px;align-items:center;font-size:13px;color:var(--ink2)}
+.mv-g u{text-decoration:none;display:block;height:8px;border-radius:4px;background:rgba(var(--wsh),.08);overflow:hidden}
+.mv-g u::before{content:"";display:block;height:100%;width:0;background:var(--green);border-radius:4px;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.fx-p.on .mv-g u::before{width:var(--w)}
+.mv-g em{font-style:normal;color:var(--tx-green);font-weight:700;opacity:0;transition:opacity .3s 1s}
+.fx-p.on .mv-g em{opacity:1}
+@media (max-width:960px){.fx{grid-template-columns:1fr;gap:26px}.fx-panel{min-height:300px}}
+@media (max-width:560px){.fx-tabs{display:grid;grid-template-columns:1fr 1fr}.fx-tabs button{height:auto;min-height:44px;padding:8px 12px;font-size:13.5px;line-height:1.2;white-space:normal;border-radius:14px}.fn-i{width:52px;height:52px;border-radius:16px;font-size:14px}.fn-i .spm{width:30px;height:30px}.fn-i svg.ic{width:24px;height:24px}.fn-i .stk svg{width:15px;height:15px;margin-left:-4px}.fx-line{top:26px}.fn b{font-size:12px}.fx-tok{display:none}.fx-stage{padding-top:20px}.fx-back span{font-size:10px}.fx-panel{min-height:320px}.mv-cal{grid-template-columns:repeat(7,26px)}}
+
+/* runner */
+.rn{display:grid;grid-template-columns:minmax(0,1.25fr) 170px minmax(0,.85fr);align-items:center}
+.rz{position:relative;border:1.5px dashed var(--line2);border-radius:26px;padding:22px 24px 24px}
+.rz.cloud{border-style:solid;border-color:rgba(var(--b2r),.35);background:radial-gradient(90% 90% at 100% 0%,rgba(76,141,255,.12),transparent 70%)}
+.zl{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+.own-in{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:22px;align-items:center}
+.rsys{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.rsys li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 4px;border-top:1px solid var(--line);font-size:14.5px;transition:color .3s,background .3s,padding .3s}
+.rsys li:first-child{border-top:0}
+.rsys li em{font-style:normal;font:500 10.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.rsys li.hl{background:rgba(var(--b2r),.1);padding-left:10px;border-radius:8px}
+.rsys li.hl em{color:var(--tx-blue)}
+.rrun{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.rrun .core{position:relative;width:76px;height:76px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(76,141,255,.25),rgba(124,92,240,.2));border:1.5px solid rgba(var(--b2r),.6)}
+.rrun .core .spm{width:40px;height:40px;border-radius:12px}
+.rrun .core::before{content:"";position:absolute;inset:-1px;border-radius:24px;border:2px solid rgba(var(--b2r),.6);opacity:0}
+.rrun b{font:700 15px var(--display);line-height:1.2}
+.rst{font:500 11px var(--mono);color:var(--tx-green);letter-spacing:.04em;min-height:2.6em}
+.rw{position:relative;align-self:stretch;min-height:240px;--ly:calc(50% - 30px)}
+.fw{position:absolute;top:-10px;bottom:-10px;left:50%;border-left:2px dashed rgba(245,166,91,.5)}
+.fw span{position:absolute;top:-8px;left:0;transform:translate(-50%,-100%);font:500 10px var(--mono);letter-spacing:.14em;color:var(--tx-amber);white-space:nowrap}
+.lane{position:absolute;left:-6px;right:-6px;top:var(--ly);height:2px;background:repeating-linear-gradient(90deg,rgba(95,211,154,.7) 0 7px,transparent 7px 12px);z-index:1}
+.lane .pk{position:absolute;top:-5px;width:12px;height:12px;border-radius:50%;opacity:0}
+.lane .pk.o{background:var(--green);box-shadow:0 0 14px var(--green)}
+.lane .pk.i{background:var(--blue2);box-shadow:0 0 14px var(--blue2)}
+.lane-l{position:absolute;left:50%;top:calc(var(--ly) - 46px);transform:translateX(-50%);white-space:nowrap;z-index:1;font:500 10.5px var(--mono);color:var(--ink2);text-align:center;letter-spacing:.04em;line-height:1.4;background:var(--bg);padding:3px 6px;border-radius:6px}
+.blk{position:absolute;left:6px;right:6px;top:calc(var(--ly) + 40px);z-index:1;height:16px}
+.blk s{position:absolute;right:0;top:7px;height:2px;width:46%;opacity:.35;background:linear-gradient(90deg,transparent,rgba(255,122,127,.85))}
+.blk s::before{content:"";position:absolute;left:-2px;top:-4px;border:5px solid transparent;border-right-color:rgba(255,122,127,.95);border-left:0}
+.blk b{position:absolute;left:50%;top:-4px;margin-left:-12px;width:24px;height:24px;border-radius:50%;background:#C2323B;color:#fff;font:700 13px var(--body);display:grid;place-items:center;box-shadow:0 0 0 5px rgba(194,50,59,.18)}
+.blk-l{position:absolute;left:50%;top:calc(var(--ly) + 72px);transform:translateX(-50%);white-space:nowrap;z-index:1;font:500 10.5px var(--mono);color:var(--tx-red);letter-spacing:.06em;background:var(--bg);padding:2px 6px;border-radius:6px}
+.rsteps{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.rsteps button{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;gap:6px;padding:18px 24px 6px 0;border-top:2px solid var(--line);width:100%;height:100%}
+.rsteps li+li button{padding-left:24px}
+.rsteps button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.rsteps .m-n{transition:color .3s}
+.rsteps b{font:700 20px var(--display);letter-spacing:-.02em;color:var(--ink2);transition:color .3s}
+.rsteps small{color:var(--ink3);font-size:14.5px;transition:color .3s}
+.rsteps button i{position:absolute;left:0;right:0;top:-2px;height:2px;background:linear-gradient(90deg,var(--blue),var(--green));transform:scaleX(0);transform-origin:0 50%}
+.rsteps li.on b{color:var(--ink)}.rsteps li.on small{color:var(--ink2)}
+.rsteps li.on button i{transform:scaleX(var(--p,1))}
+.guar{margin-top:44px}
+/* runner states */
+@media (prefers-reduced-motion:no-preference){
+  .rn[data-s="0"] .pk.o,.rn[data-s="3"] .pk.o{animation:pko 1.5s linear infinite}
+  .rn[data-s="3"] .pk.o{width:16px;height:16px;top:-7px}
+  .rn[data-s="1"] .pk.i{animation:pki 1.5s linear infinite}
+  .rn[data-s="0"] .rrun .core::before{animation:beat 1.5s ease-out infinite}
+  .rn[data-s="2"] .rrun .core{animation:busy 1s ease-in-out infinite}
+  .blk s{animation:knock 2.6s ease-in infinite}
+  .blk b{animation:nope 2.6s ease-in infinite}
+  @keyframes pko{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 12px);opacity:0}}
+  @keyframes pki{0%{left:calc(100% - 12px);opacity:0}10%{opacity:1}90%{opacity:1}100%{left:0;opacity:0}}
+  @keyframes beat{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+  @keyframes busy{50%{box-shadow:0 0 0 8px rgba(76,141,255,.12),0 0 34px rgba(76,141,255,.35)}}
+  @keyframes knock{0%{width:0;opacity:0}15%{opacity:1}45%{width:46%;opacity:1}60%,100%{width:46%;opacity:0}}
+  @keyframes nope{0%,40%{transform:scale(.85);opacity:.6}48%{transform:scale(1.25);opacity:1}60%{transform:scale(1);opacity:1}100%{transform:scale(.85);opacity:.6}}
+}
+.rn[data-s="2"] .own .rsys li{animation:sysl 3.4s ease-in-out infinite}
+.rn[data-s="2"] .own .rsys li:nth-child(2){animation-delay:.45s}.rn[data-s="2"] .own .rsys li:nth-child(3){animation-delay:.9s}.rn[data-s="2"] .own .rsys li:nth-child(4){animation-delay:1.35s}.rn[data-s="2"] .own .rsys li:nth-child(5){animation-delay:1.8s}.rn[data-s="2"] .own .rsys li:nth-child(6){animation-delay:2.25s}
+@keyframes sysl{0%,100%{background:transparent}12%,30%{background:rgba(var(--b2r),.12)}}
+@media (max-width:960px){
+  .rn{grid-template-columns:1fr}
+  .rw{min-height:0;height:130px}
+  .fw{top:50%;bottom:auto;left:0;right:0;border-left:0;border-top:2px dashed rgba(245,166,91,.5)}
+  .fw span{top:-6px;left:0;transform:translateY(-100%);background:var(--bg);padding:0 4px}
+  .lane{left:50%;right:auto;top:-10px;bottom:-10px;width:2px;height:auto;margin-left:-1px;background:repeating-linear-gradient(180deg,rgba(95,211,154,.7) 0 7px,transparent 7px 12px)}
+  .lane .pk{left:-5px;top:0}
+  .rn[data-s="3"] .pk.o{left:-7px;top:0}
+  .lane-l{left:calc(50% + 14px);top:12px;transform:none;white-space:normal;text-align:left;max-width:calc(50% - 16px)}
+  .blk{display:none}
+  .blk-l{left:0;top:auto;bottom:22px;transform:none}
+  .rsteps{grid-template-columns:1fr 1fr;row-gap:20px}
+  .rsteps li:nth-child(3) button{padding-left:0}
+}
+@media (prefers-reduced-motion:no-preference) and (max-width:960px){
+  .rn[data-s="0"] .pk.o,.rn[data-s="3"] .pk.o{animation-name:pkov}
+  .rn[data-s="1"] .pk.i{animation-name:pkiv}
+  .blk s{animation:none;opacity:.9}
+  @keyframes pkov{0%{top:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 12px);opacity:0}}
+  @keyframes pkiv{0%{top:calc(100% - 12px);opacity:0}10%{opacity:1}90%{opacity:1}100%{top:0;opacity:0}}
+}
+@media (max-width:560px){.own-in{grid-template-columns:1fr}.rz{padding:18px 16px}.rsteps li button{padding-left:0!important;padding-right:12px}.rsteps b{font-size:17px}.rsteps small{font-size:13.5px}.rsys li{font-size:13.5px}}
+
+/* open platform */
+.op{align-items:start}
+.orows{display:flex;flex-direction:column;margin-top:30px}
+.orow{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line);transition:padding .25s}
+.orow:hover{padding-left:6px}
+.orow svg{width:22px;height:22px;margin-top:3px}
+.orow b{display:block;font:700 19px var(--display);letter-spacing:-.02em}
+.orow small{display:block;color:var(--ink2);font-size:15px}
+.win{background:linear-gradient(180deg,rgba(var(--s2),.92),rgba(var(--s1),.95));border:1px solid var(--line2);border-radius:20px;box-shadow:0 30px 70px var(--shadow);overflow:hidden;min-width:0}
+.win-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.win-h b{font-size:15px;font-family:var(--display)}
+.win-h small{display:block;color:var(--ink3);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--ink2);overflow-x:auto;white-space:pre}
+pre.code .k{color:var(--tx-blue)}pre.code .s{color:var(--tx-amber)}pre.code .g{color:var(--tx-green)}pre.code .c{color:var(--ink3)}
+.events{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.events li{display:flex;justify-content:space-between;gap:12px;padding:11px 20px;border-bottom:1px solid var(--line);font-size:13.5px}
+.events li:last-child{border-bottom:0}
+.events li code{font-family:var(--mono);font-size:12px;color:var(--tx-violet)}
+.events li span{color:var(--ink3);font-size:12.5px;text-align:right}
+@media (max-width:560px){.events li{flex-direction:column;gap:2px}.events li span{text-align:left}}
+</style>
+</head>
+<body data-page="integrations">
+<header id="vf-header"></header>
+
+<main>
+<section class="phero ihero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="copy">
+      <span class="crumbs"><a href="./">Home</a> / Integrations</span>
+      <span class="eyebrow">Integrations</span>
+      <h1>One hub.<br><span class="grad">Every tool you test with.</span></h1>
+      <p class="lede">Reads requirements, tests and builds from your tools. Writes defects, verdicts and evidence back.</p>
+      <div class="acts"><a class="btn primary" href="#directory">Browse 55 integrations <span class="arr">→</span></a><a class="btn ghost" href="#runner">How the Runner works</a></div>
+      <div class="legend" aria-hidden="true"><span><i style="background:var(--blue2)"></i>Data in</span><span><i style="background:var(--amber)"></i>Results out</span></div>
+    </div>
+    <div class="hubw">
+      <div class="hub" id="hub" role="img" aria-label="SecondProof at the centre as a hub, connected to Jira, GitHub, Xray, ServiceNow, Azure DevOps, Slack, SAP, Jenkins, Okta, Salesforce, TestRail, HashiCorp Vault, Snowflake, Workday, Entra ID, Datadog, BrowserStack and Oracle. Data flows in and results flow out.">
+<div class="orb o2"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="rc" cx="50" cy="50" r="45"/><g class="sp"><line x1="50" y1="50" x2="50.00" y2="5.00"/><line x1="50" y1="50" x2="72.50" y2="11.03"/><line x1="50" y1="50" x2="88.97" y2="27.50"/><line x1="50" y1="50" x2="95.00" y2="50.00"/><line x1="50" y1="50" x2="88.97" y2="72.50"/><line x1="50" y1="50" x2="72.50" y2="88.97"/><line x1="50" y1="50" x2="50.00" y2="95.00"/><line x1="50" y1="50" x2="27.50" y2="88.97"/><line x1="50" y1="50" x2="11.03" y2="72.50"/><line x1="50" y1="50" x2="5.00" y2="50.00"/><line x1="50" y1="50" x2="11.03" y2="27.50"/><line x1="50" y1="50" x2="27.50" y2="11.03"/></g><g class="pl"></g></svg><span class="hn" style="left:50.00%;top:5.00%" data-d="o" data-n="SAP" data-m="Process tests · change impact"><span class="lg" data-logo="sap" data-size="20"></span></span><span class="hn" style="left:72.50%;top:11.03%" data-d="o" data-n="Jenkins" data-m="Build verification · go/no-go"><span class="lg" data-logo="jenkins" data-size="20"></span></span><span class="hn" style="left:88.97%;top:27.50%" data-d="i" data-n="Okta" data-m="Single sign-on"><span class="lg" data-logo="okta" data-size="20"></span></span><span class="hn" style="left:95.00%;top:50.00%" data-d="o" data-n="Salesforce" data-m="Release flows tested"><span class="lg" data-logo="salesforce" data-size="20"></span></span><span class="hn" style="left:88.97%;top:72.50%" data-d="i" data-n="TestRail" data-m="Test cases imported"><span class="lg" data-logo="testrail" data-size="20"></span></span><span class="hn" style="left:72.50%;top:88.97%" data-d="i" data-n="HashiCorp Vault" data-m="Test sign-ins at run time"><span class="lg" data-logo="vault" data-size="20"></span></span><span class="hn" style="left:50.00%;top:95.00%" data-d="i" data-n="Snowflake" data-m="Warehouse reconciliation"><span class="lg" data-logo="snowflake" data-size="20"></span></span><span class="hn" style="left:27.50%;top:88.97%" data-d="o" data-n="Workday" data-m="Feature release checks"><span class="lg" data-logo="workday" data-size="20"></span></span><span class="hn" style="left:11.03%;top:72.50%" data-d="i" data-n="Entra ID" data-m="SSO and groups"><span class="lg" data-logo="entra" data-size="20"></span></span><span class="hn" style="left:5.00%;top:50.00%" data-d="i" data-n="Datadog" data-m="Metrics during load runs"><span class="lg" data-logo="datadog" data-size="20"></span></span><span class="hn" style="left:11.03%;top:27.50%" data-d="o" data-n="BrowserStack" data-m="Real devices for app runs"><span class="lg" data-logo="browserstack" data-size="20"></span></span><span class="hn" style="left:27.50%;top:11.03%" data-d="o" data-n="Oracle" data-m="Quarterly update tests"><span class="lg" data-logo="oracle" data-size="20"></span></span></div>
+<div class="orb o1"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="rc" cx="50" cy="50" r="28"/><g class="sp"><line x1="50" y1="50" x2="64.00" y2="25.75"/><line x1="50" y1="50" x2="78.00" y2="50.00"/><line x1="50" y1="50" x2="64.00" y2="74.25"/><line x1="50" y1="50" x2="36.00" y2="74.25"/><line x1="50" y1="50" x2="22.00" y2="50.00"/><line x1="50" y1="50" x2="36.00" y2="25.75"/></g><g class="pl"></g></svg><span class="hn" style="left:64.00%;top:25.75%" data-d="i" data-n="Jira" data-m="Stories in · defects out"><span class="lg" data-logo="jira" data-size="24"></span></span><span class="hn" style="left:78.00%;top:50.00%" data-d="o" data-n="GitHub" data-m="PR checks · go/no-go"><span class="lg" data-logo="github" data-size="24"></span></span><span class="hn" style="left:64.00%;top:74.25%" data-d="i" data-n="Xray" data-m="Test cases in · results out"><span class="lg" data-logo="xray" data-size="24"></span></span><span class="hn" style="left:36.00%;top:74.25%" data-d="o" data-n="ServiceNow" data-m="Change record · CAB evidence"><span class="lg" data-logo="servicenow" data-size="24"></span></span><span class="hn" style="left:22.00%;top:50.00%" data-d="i" data-n="Azure DevOps" data-m="Work items · test plans"><span class="lg" data-logo="azuredevops" data-size="24"></span></span><span class="hn" style="left:36.00%;top:25.75%" data-d="o" data-n="Slack" data-m="Approval links out"><span class="lg" data-logo="slack" data-size="24"></span></span></div>
+        <span class="halo" aria-hidden="true"></span><span class="halo d" aria-hidden="true"></span>
+        <div class="hcore"><span class="spm"></span><b>SecondProof</b><small>HUB</small></div>
+      </div>
+      <div class="hcap" id="hcap" aria-live="off"><span class="lg" data-logo="jira" data-size="16"></span><b>Jira</b><em>←</em><span>Stories in · defects out</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec brk">
+  <div class="wrap">
+    <p class="eyebrow rv">Where it breaks</p>
+    <p class="brk-l rv">An AI-built app passed its own checks. Our testers found <b>200+ issues</b> by hand. <span>Core banking, SMS, AML, CRM, payments, and inside the app.</span></p>
+    <div class="m-nums stg">
+      <div><b class="grad"><span data-count="55">55</span></b><small>connectors, live and planned</small></div>
+      <div><b class="grad"><span data-count="14">14</span></b><small>categories, ALM to AI models</small></div>
+      <div><b class="grad">0</b><small>inbound firewall rules</small></div>
+      <div><b class="grad">0</b><small>AI credits to sync, import or run</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="directory">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Integration directory</p><h2>Find your stack.</h2><p>Search or filter. Each shows which way the data moves.</p></div>
+    <div class="dir-ctl">
+      <label class="search"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search integrations</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Try Jira, SAP or Okta" autocomplete="off">
+      </label>
+      <div class="chips" id="chips" role="group" aria-label="Filter by category">
+<button type="button" data-cat="all" aria-pressed="true">All<span>55</span></button>
+<button type="button" data-cat="alm" aria-pressed="false">Requirements and ALM<span>6</span></button>
+<button type="button" data-cat="tm" aria-pressed="false">Test management<span>4</span></button>
+<button type="button" data-cat="ci" aria-pressed="false">Code and CI/CD<span>6</span></button>
+<button type="button" data-cat="cq" aria-pressed="false">Code quality<span>1</span></button>
+<button type="button" data-cat="packs" aria-pressed="false">Enterprise platforms<span>6</span></button>
+<button type="button" data-cat="mob" aria-pressed="false">Mobile device farms<span>4</span></button>
+<button type="button" data-cat="id" aria-pressed="false">Identity and SSO<span>5</span></button>
+<button type="button" data-cat="nid" aria-pressed="false">National digital ID<span>2</span></button>
+<button type="button" data-cat="sec" aria-pressed="false">Secrets<span>3</span></button>
+<button type="button" data-cat="obs" aria-pressed="false">Observability<span>2</span></button>
+<button type="button" data-cat="col" aria-pressed="false">Collaboration<span>3</span></button>
+<button type="button" data-cat="api" aria-pressed="false">API sources<span>4</span></button>
+<button type="button" data-cat="data" aria-pressed="false">Data sources<span>6</span></button>
+<button type="button" data-cat="ai" aria-pressed="false">AI model providers<span>3</span></button>
+      </div>
+      <div class="dir-meta"><span id="dirCount" aria-live="polite">Showing all 55</span><span class="key"><span><i class="dw r" aria-hidden="true">←</i>Reads</span><span><i class="dw w" aria-hidden="true">→</i>Writes</span><span><i class="dw b" aria-hidden="true">⇄</i>Two-way</span></span></div>
+    </div>
+    <div class="tiles clip" id="tiles">
+<div class="tile" data-cat="alm" data-s="jira requirements and alm stories, bugs, links and status two-way"><span class="lg sm" data-logo="jira" data-size="20"></span><span class="tn"><b>Jira</b><small>Stories, bugs, links and status</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="alm" data-s="azure devops requirements and alm work items, test plans and boards two-way"><span class="lg sm" data-logo="azuredevops" data-size="20"></span><span class="tn"><b>Azure DevOps</b><small>Work items, test plans and boards</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="alm" data-s="confluence requirements and alm specs, brds and decision pages reads"><span class="lg sm" data-logo="confluence" data-size="20"></span><span class="tn"><b>Confluence</b><small>Specs, BRDs and decision pages</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="alm" data-s="sharepoint requirements and alm documents and requirement files reads"><span class="lg sm" data-logo="sharepoint" data-size="20"></span><span class="tn"><b>SharePoint</b><small>Documents and requirement files</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="alm" data-s="sap cloud alm requirements and alm requirements, tests and releases two-way"><span class="lg sm" data-logo="sap" data-size="20"></span><span class="tn"><b>SAP Cloud ALM</b><small>Requirements, tests and releases</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="alm" data-s="servicenow requirements and alm change, cab and incidents two-way"><span class="lg sm" data-logo="servicenow" data-size="20"></span><span class="tn"><b>ServiceNow</b><small>Change, CAB and incidents</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="tm" data-s="jira xray test management cases, executions and results two-way"><span class="lg sm" data-logo="xray" data-size="20"></span><span class="tn"><b>Jira Xray</b><small>Cases, executions and results</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="tm" data-s="testrail test management suites, cases and run results two-way"><span class="lg sm" data-logo="testrail" data-size="20"></span><span class="tn"><b>TestRail</b><small>Suites, cases and run results</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="tm" data-s="zephyr test management cases and cycles in jira two-way"><span class="lg sm" data-logo="zephyr" data-size="20"></span><span class="tn"><b>Zephyr</b><small>Cases and cycles in Jira</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="tm" data-s="excel and csv test management spreadsheet test packs reads"><span class="lg sm" data-logo="excel" data-size="20"></span><span class="tn"><b>Excel and CSV</b><small>Spreadsheet test packs</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="ci" data-s="github code and ci/cd code, pr checks and scripts two-way"><span class="lg sm" data-logo="github" data-size="20"></span><span class="tn"><b>GitHub</b><small>Code, PR checks and scripts</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ci" data-s="gitlab code and ci/cd code, merge request checks two-way"><span class="lg sm" data-logo="gitlab" data-size="20"></span><span class="tn"><b>GitLab</b><small>Code, merge request checks</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ci" data-s="bitbucket code and ci/cd code and pull request checks two-way"><span class="lg sm" data-logo="bitbucket" data-size="20"></span><span class="tn"><b>Bitbucket</b><small>Code and pull request checks</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ci" data-s="azure pipelines code and ci/cd build verification, go or no-go two-way"><span class="lg sm" data-logo="azurepipelines" data-size="20"></span><span class="tn"><b>Azure Pipelines</b><small>Build verification, go or no-go</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ci" data-s="jenkins code and ci/cd build verification, go or no-go two-way"><span class="lg sm" data-logo="jenkins" data-size="20"></span><span class="tn"><b>Jenkins</b><small>Build verification, go or no-go</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ci" data-s="github actions code and ci/cd build verification step in your workflow two-way"><span class="lg sm" data-logo="githubactions" data-size="20"></span><span class="tn"><b>GitHub Actions</b><small>Build verification step in your workflow</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="cq" data-s="sonarqube code quality issues and quality gates reads"><span class="lg sm" data-logo="sonarqube" data-size="20"></span><span class="tn"><b>SonarQube</b><small>Issues and quality gates</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="packs" data-s="sap s/4hana enterprise platforms process tests, change impact, test data two-way"><span class="lg sm" data-logo="sap" data-size="20"></span><span class="tn"><b>SAP S/4HANA</b><small>Process tests, change impact, test data</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="packs" data-s="oracle fusion cloud and ebs enterprise platforms quarterly updates and processes two-way"><span class="lg sm" data-logo="oracle" data-size="20"></span><span class="tn"><b>Oracle Fusion Cloud and EBS</b><small>Quarterly updates and processes</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="packs" data-s="salesforce enterprise platforms releases, flows and permissions two-way"><span class="lg sm" data-logo="salesforce" data-size="20"></span><span class="tn"><b>Salesforce</b><small>Releases, flows and permissions</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="packs" data-s="servicenow enterprise platforms family upgrades and your atf two-way"><span class="lg sm" data-logo="servicenow" data-size="20"></span><span class="tn"><b>ServiceNow</b><small>Family upgrades and your ATF</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="packs" data-s="dynamics 365 enterprise platforms wave updates and processes two-way"><span class="lg sm" data-logo="dynamics365" data-size="20"></span><span class="tn"><b>Dynamics 365</b><small>Wave updates and processes</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="packs" data-s="workday enterprise platforms feature releases and business processes two-way"><span class="lg sm" data-logo="workday" data-size="20"></span><span class="tn"><b>Workday</b><small>Feature releases and business processes</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="mob" data-s="browserstack mobile device farms real devices for app runs two-way"><span class="lg sm" data-logo="browserstack" data-size="20"></span><span class="tn"><b>BrowserStack</b><small>Real devices for app runs</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="mob" data-s="sauce labs mobile device farms real devices and emulators two-way"><span class="lg sm" data-logo="saucelabs" data-size="20"></span><span class="tn"><b>Sauce Labs</b><small>Real devices and emulators</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="mob" data-s="aws device farm mobile device farms device pools in your aws two-way"><span class="lg sm" data-logo="devicefarm" data-size="20"></span><span class="tn"><b>AWS Device Farm</b><small>Device pools in your AWS</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="mob" data-s="your private device lab mobile device farms your devices, through the runner two-way"><span class="lg sm" data-logo="devlab" data-size="20"></span><span class="tn"><b>Your private device lab</b><small>Your devices, through the Runner</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="id" data-s="microsoft entra id identity and sso single sign-on and groups reads"><span class="lg sm" data-logo="entra" data-size="20"></span><span class="tn"><b>Microsoft Entra ID</b><small>Single sign-on and groups</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="id" data-s="okta identity and sso single sign-on and groups reads"><span class="lg sm" data-logo="okta" data-size="20"></span><span class="tn"><b>Okta</b><small>Single sign-on and groups</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="id" data-s="google workspace identity and sso single sign-on reads"><span class="lg sm" data-logo="google" data-size="20"></span><span class="tn"><b>Google Workspace</b><small>Single sign-on</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="id" data-s="saml and oidc identity and sso any standard identity provider reads"><span class="lg sm" data-logo="saml" data-size="20"></span><span class="tn"><b>SAML and OIDC</b><small>Any standard identity provider</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="id" data-s="scim identity and sso user and role provisioning reads"><span class="lg sm" data-logo="scim" data-size="20"></span><span class="tn"><b>SCIM</b><small>User and role provisioning</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="nid" data-s="uae pass national digital id human-only sign-in step in test reads"><span class="lg sm" data-logo="uaepass" data-size="20"></span><span class="tn"><b>UAE Pass</b><small>Human-only sign-in step in test</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="nid" data-s="nafath national digital id human-only sign-in step in test reads"><span class="lg sm" data-logo="nafath" data-size="20"></span><span class="tn"><b>Nafath</b><small>Human-only sign-in step in test</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="sec" data-s="hashicorp vault secrets test sign-ins at run time reads"><span class="lg sm" data-logo="vault" data-size="20"></span><span class="tn"><b>HashiCorp Vault</b><small>Test sign-ins at run time</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="sec" data-s="azure key vault secrets test sign-ins at run time reads"><span class="lg sm" data-logo="azurekv" data-size="20"></span><span class="tn"><b>Azure Key Vault</b><small>Test sign-ins at run time</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="sec" data-s="aws secrets manager secrets test sign-ins at run time reads"><span class="lg sm" data-logo="awssm" data-size="20"></span><span class="tn"><b>AWS Secrets Manager</b><small>Test sign-ins at run time</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="obs" data-s="datadog observability metrics during load runs two-way"><span class="lg sm" data-logo="datadog" data-size="20"></span><span class="tn"><b>Datadog</b><small>Metrics during load runs</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="obs" data-s="dynatrace observability metrics and traces during runs two-way"><span class="lg sm" data-logo="dynatrace" data-size="20"></span><span class="tn"><b>Dynatrace</b><small>Metrics and traces during runs</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="col" data-s="slack collaboration alerts and links to approve writes"><span class="lg sm" data-logo="slack" data-size="20"></span><span class="tn"><b>Slack</b><small>Alerts and links to approve</small></span><span class="dw w" role="img" aria-label="Writes" title="Writes">→</span></div>
+<div class="tile" data-cat="col" data-s="microsoft teams collaboration alerts and links to approve writes"><span class="lg sm" data-logo="teams" data-size="20"></span><span class="tn"><b>Microsoft Teams</b><small>Alerts and links to approve</small></span><span class="dw w" role="img" aria-label="Writes" title="Writes">→</span></div>
+<div class="tile" data-cat="col" data-s="email collaboration digests, alerts and sign-off requests writes"><span class="lg sm" data-logo="email" data-size="20"></span><span class="tn"><b>Email</b><small>Digests, alerts and sign-off requests</small></span><span class="dw w" role="img" aria-label="Writes" title="Writes">→</span></div>
+<div class="tile" data-cat="api" data-s="openapi api sources specs become an endpoint catalogue reads"><span class="lg sm" data-logo="openapi" data-size="20"></span><span class="tn"><b>OpenAPI</b><small>Specs become an endpoint catalogue</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="api" data-s="postman collections api sources collections and environments reads"><span class="lg sm" data-logo="postman" data-size="20"></span><span class="tn"><b>Postman collections</b><small>Collections and environments</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="api" data-s="graphql api sources schemas and operations reads"><span class="lg sm" data-logo="graphql" data-size="20"></span><span class="tn"><b>GraphQL</b><small>Schemas and operations</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="api" data-s="kong api sources gateway routes and traffic samples reads"><span class="lg sm" data-logo="kong" data-size="20"></span><span class="tn"><b>Kong</b><small>Gateway routes and traffic samples</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="oracle database data sources read-only reconciliation reads"><span class="lg sm" data-logo="oracledb" data-size="20"></span><span class="tn"><b>Oracle Database</b><small>Read-only reconciliation</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="sql server data sources read-only reconciliation reads"><span class="lg sm" data-logo="sqlserver" data-size="20"></span><span class="tn"><b>SQL Server</b><small>Read-only reconciliation</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="postgresql data sources read-only reconciliation reads"><span class="lg sm" data-logo="postgresql" data-size="20"></span><span class="tn"><b>PostgreSQL</b><small>Read-only reconciliation</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="snowflake data sources warehouse checks and reconciliation reads"><span class="lg sm" data-logo="snowflake" data-size="20"></span><span class="tn"><b>Snowflake</b><small>Warehouse checks and reconciliation</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="databricks data sources lakehouse tables and pipelines reads"><span class="lg sm" data-logo="databricks" data-size="20"></span><span class="tn"><b>Databricks</b><small>Lakehouse tables and pipelines</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="data" data-s="informatica data sources mappings and job runs reads"><span class="lg sm" data-logo="informatica" data-size="20"></span><span class="tn"><b>Informatica</b><small>Mappings and job runs</small></span><span class="dw r" role="img" aria-label="Reads" title="Reads">←</span></div>
+<div class="tile" data-cat="ai" data-s="in-region models ai model providers models hosted in your region two-way"><span class="lg sm" data-logo="inregion" data-size="20"></span><span class="tn"><b>In-region models</b><small>Models hosted in your region</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ai" data-s="azure openai ai model providers your azure tenant and region two-way"><span class="lg sm" data-logo="azureopenai" data-size="20"></span><span class="tn"><b>Azure OpenAI</b><small>Your Azure tenant and region</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+<div class="tile" data-cat="ai" data-s="your own model endpoint ai model providers bring your own model two-way"><span class="lg sm" data-logo="ownmodel" data-size="20"></span><span class="tn"><b>Your own model endpoint</b><small>Bring your own model</small></span><span class="dw b" role="img" aria-label="Two-way" title="Two-way">⇄</span></div>
+    </div>
+    <button type="button" class="more-btn" id="moreBtn">Show all 55 <span aria-hidden="true">&nbsp;↓</span></button>
+    <p class="empty" id="empty" hidden>No match. Your own model endpoint, scripts and the REST API cover most other tools. <a href="#open">See the open platform</a>.</p>
+  </div>
+</section>
+
+<section class="m-sec" id="how">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">How the integrations work</p><h2>Four flows that run every release.</h2><p>AI drafts. A person approves. Engines move it, at 0 AI credits.</p></div>
+    <div class="rv" id="fx">
+      <div class="fx-tabs" role="tablist" aria-label="Integration flows"></div>
+      <div class="fx">
+        <div class="fx-stage"><div class="fx-route"><span class="fx-line" aria-hidden="true"><span class="fx-fill"></span></span><span class="fx-tok" aria-hidden="true"><i></i><span class="fx-tt"></span></span></div><div class="fx-back" aria-hidden="true"><i></i><span></span></div></div>
+        <div class="fx-panel" aria-live="polite"><div class="fx-bar" aria-hidden="true"><i></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="runner">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">SecondProof Runner</p><h2>Reach private systems. Open nothing.</h2><p>A small agent inside your network. It calls out. Nothing calls in.</p></div>
+    <div class="rn rv" id="rn" data-s="0" role="img" aria-label="Network diagram. Inside your network the SecondProof Runner reaches internal web apps, databases read-only, SAP on-premises, Windows and Citrix desktops, your device lab and your vault. It connects outbound only through the firewall to the SecondProof cloud in your region. Inbound connections are blocked.">
+      <div class="rz own">
+        <span class="zl">Your network</span>
+        <div class="own-in">
+          <ul class="rsys">
+            <li>Internal web apps<em>UAT</em></li>
+            <li>Oracle, SQL Server<em>Read-only</em></li>
+            <li>SAP on-premises<em>Pack</em></li>
+            <li>Windows and Citrix<em>Desktop</em></li>
+            <li>Your device lab<em>Mobile</em></li>
+            <li>Your vault<em>Secrets</em></li>
+          </ul>
+          <div class="rrun"><span class="core"><span class="spm"></span></span><b>SecondProof Runner</b><span class="rst" id="rst">Online · heartbeat</span></div>
+        </div>
+      </div>
+      <div class="rw">
+        <span class="fw"><span>FIREWALL</span></span>
+        <span class="lane"><i class="pk o"></i><i class="pk i"></i></span>
+        <span class="lane-l">One outbound connection<br>jobs in · results out</span>
+        <span class="blk" aria-hidden="true"><s></s><b>✕</b></span>
+        <span class="blk-l">No inbound</span>
+      </div>
+      <div class="rz cloud">
+        <span class="zl">SecondProof cloud · your region</span>
+        <ul class="rsys">
+          <li data-c="1">Approved run plans<em>Jobs</em></li>
+          <li data-c="3">Results and evidence<em>Stored</em></li>
+          <li>Build verification and gates<em>Engines</em></li>
+          <li>AI agents<em>Drafts only</em></li>
+        </ul>
+      </div>
+    </div>
+    <ol class="rsteps" id="rsteps">
+      <li class="on"><button type="button" data-i="0"><i></i><span class="m-n">01</span><b>Dial out</b><small>Opened from inside. Heartbeat.</small></button></li>
+      <li><button type="button" data-i="1"><i></i><span class="m-n">02</span><b>Collect</b><small>Approved jobs only.</small></button></li>
+      <li><button type="button" data-i="2"><i></i><span class="m-n">03</span><b>Run inside</b><small>Next to your systems. Sign-ins from your vault.</small></button></li>
+      <li><button type="button" data-i="3"><i></i><span class="m-n">04</span><b>Send back</b><small>Results and evidence, same connection.</small></button></li>
+    </ol>
+    <div class="m-cols guar stg">
+      <div><span class="m-n">NOTHING INBOUND</span><b>No open ports</b><small>No inbound firewall rules.</small></div>
+      <div><span class="m-n">READ-ONLY DATA</span><b>Read-only by default</b><small>Writes need an approved setting.</small></div>
+      <div><span class="m-n">SECRETS STAY PUT</span><b>From your vault</b><small>Agents never see passwords.</small></div>
+      <div><span class="m-n">FULLY ON-PREMISES</span><b>Your network only</b><small>Engines and in-region models inside.</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="open">
+  <div class="wrap m-split op">
+    <div class="rv">
+      <div class="m-head"><p class="eyebrow">Open platform</p><h2>Build on it.<br>Leave with everything.</h2><p>Every action is in the API. Your tests and evidence stay yours.</p></div>
+      <div class="orows">
+        <div class="orow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue2)" stroke-width="1.8" aria-hidden="true"><path d="M8 7 3 12l5 5M16 7l5 5-5 5"/></svg><div><b>REST API</b><small>Start build verification, read results, check go/no-go, pull evidence. Scoped tokens per project.</small></div></div>
+        <div class="orow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.8" aria-hidden="true"><path d="M4 12h5l2-5 3 10 2-5h4"/></svg><div><b>Webhooks</b><small>Build verified, gate changed, go/no-go signed. Signed payloads.</small></div></div>
+        <div class="orow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><div><b>Exports</b><small>CSV for any list. The Evidence Pack as a signed, verifiable bundle.</small></div></div>
+        <div class="orow"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" aria-hidden="true"><path d="M6 3v12a3 3 0 1 0 3 3V9a3 3 0 0 0 3 3h3M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg><div><b>Test scripts in your repo</b><small>GitHub, GitLab or Bitbucket. Readable and yours. Your app code is never needed.</small></div></div>
+      </div>
+    </div>
+    <div class="win rv tilt">
+      <div class="win-h"><div><b>Build verification call</b><small>ILLUSTRATIVE · REST API</small></div><span class="tag t-green">200 · go</span></div>
+<pre class="code"><span class="c"># a pipeline step asks for the verdict</span>
+<span class="k">POST</span> /v1/releases/2.4/gate-checks
+{ <span class="s">"build"</span>: <span class="s">"2.4.7"</span>, <span class="s">"env"</span>: <span class="s">"uat"</span> }
+
+<span class="c"># response</span>
+{ <span class="s">"decision"</span>: <span class="g">"go"</span>,
+  <span class="s">"p1PassRate"</span>: 97.6,
+  <span class="s">"openCritical"</span>: 0,
+  <span class="s">"evidence"</span>: <span class="s">"ep_7f3a…"</span> }</pre>
+      <ul class="events" data-feed aria-label="Example webhook events">
+        <li><code>build.verified</code><span>Build 2.4.7 · 338 passed, 2 failed</span></li>
+        <li><code>gate.changed</code><span>Release 2.4 · no-go → go</span></li>
+        <li><code>defect.approved</code><span>Created in Jira with evidence</span></li>
+        <li><code>gonogo.signed</code><span>Release 2.4 · go · 4 of 4 approvers</span></li>
+        <li><code>import.completed</code><span>TestRail · 412 cases mapped</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap"><p class="fine">Availability varies by plan. Some connectors are on the roadmap. Enterprise packs, SSO, vaults and private runners come with Enterprise. Ask us about your stack.</p></div>
+</section>
+</main>
+
+<section class="m-cta">
+  <div class="wrap rv"><h2>Bring your stack.<br><span class="grad">We connect it in the pilot.</span></h2><p>Ten days: tracker and pipeline connected, one live app verified, a go/no-go with evidence.</p><div class="acts"><a class="btn primary" href="value.html#contact">Book a pilot <span class="arr">→</span></a><a class="btn ghost" href="platform.html#trust">Security and trust</a></div></div>
+</section>
+
+<footer id="vf-footer"></footer>
+<script src="config.js"></script>
+<script src="logos.js"></script>
+<script src="site.js"></script>
+<script>
+(function(){
+  var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function LG(k,s){return window.VF_LOGO?window.VF_LOGO(k,s||22):'';}
+  function vis(el,cb){var on=true;if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;cb&&cb(on);}).observe(el);return function(){return on&&!document.hidden;};}
+
+  /* ---------- directory search and filter ---------- */
+  var q=document.getElementById('q'),wrapT=document.getElementById('tiles'),tiles=[].slice.call(wrapT.querySelectorAll('.tile')),chips=[].slice.call(document.querySelectorAll('#chips button')),cnt=document.getElementById('dirCount'),empty=document.getElementById('empty'),more=document.getElementById('moreBtn'),cat='all',open=false;
+  function apply(){var t=q.value.trim().toLowerCase(),n=0;tiles.forEach(function(el){var ok=(cat==='all'||el.getAttribute('data-cat')===cat)&&(!t||el.getAttribute('data-s').indexOf(t)>-1);el.hidden=!ok;if(ok)n++;});
+    cnt.textContent=(n===tiles.length?'Showing all ':'Showing ')+n+(n===tiles.length?'':' of '+tiles.length);empty.hidden=n>0;wrapT.classList.toggle('clip',!open&&cat==='all'&&!t);}
+  q.addEventListener('input',apply);
+  chips.forEach(function(b){b.addEventListener('click',function(){cat=b.getAttribute('data-cat');chips.forEach(function(c){c.setAttribute('aria-pressed',c===b?'true':'false');});apply();});});
+  more.addEventListener('click',function(){open=true;apply();});
+
+  /* ---------- hub: pulses along spokes + featured node caption ---------- */
+  (function(){
+    var hub=document.getElementById('hub'),cap=document.getElementById('hcap');if(!hub)return;
+    var NS='http://www.w3.org/2000/svg',nodes=[].slice.call(hub.querySelectorAll('.hn')),ps=[],last=0,lastF=0,fi=0;
+    var ok=vis(hub,function(on){hub.classList.toggle('paused',!on);});
+    nodes.forEach(function(n){var orb=n.closest('.orb'),idx=[].indexOf.call(orb.querySelectorAll('.hn'),n);n._ln=orb.querySelectorAll('.sp line')[idx];n._pl=orb.querySelector('.pl');n._x=parseFloat(n.style.left);n._y=parseFloat(n.style.top);});
+    function feature(n){nodes.forEach(function(x){x.classList.toggle('hot',x===n);});var o=n.getAttribute('data-d')==='o';
+      cap.innerHTML='<span class="lg">'+LG(n.querySelector('[data-logo]').getAttribute('data-logo'),16)+'</span><b>'+n.getAttribute('data-n')+'</b><em class="'+(o?'o':'')+'">'+(o?'→':'←')+'</em><span>'+n.getAttribute('data-m')+'</span>';}
+    function spawn(n,force){var inb=force?n.getAttribute('data-d')!=='o':Math.random()<.55,c=document.createElementNS(NS,'circle');c.setAttribute('r','1.1');c.setAttribute('fill',inb?'#8FB6FF':'#F5A65B');n._pl.appendChild(c);if(n._ln)n._ln.classList.add('hot');ps.push({c:c,n:n,inb:inb,t:0,v:.012+Math.random()*.008});}
+    if(red){feature(nodes[0]);return;}
+    function loop(now){if(ok()){
+      if(now-last>320){spawn(nodes[Math.floor(Math.random()*nodes.length)]);last=now;}
+      if(now-lastF>2200){fi=(fi+5)%nodes.length;var f=nodes[fi];feature(f);spawn(f,true);lastF=now;}
+      ps=ps.filter(function(p){p.t+=p.v;var k=p.inb?p.t:1-p.t,x=p.n._x+(50-p.n._x)*k,y=p.n._y+(50-p.n._y)*k;p.c.setAttribute('cx',x.toFixed(2));p.c.setAttribute('cy',y.toFixed(2));p.c.setAttribute('opacity',Math.min(1,Math.sin(Math.PI*p.t)*1.6).toFixed(2));
+        if(p.t>=1){p.c.remove();if(p.n._ln&&!ps.some(function(o){return o!==p&&o.n===p.n&&o.t<1;}))p.n._ln.classList.remove('hot');return false;}return true;});}
+      requestAnimationFrame(loop);}
+    feature(nodes[0]);requestAnimationFrame(loop);
+  })();
+
+  /* ---------- how: flow switcher ---------- */
+  (function(){
+    var root=document.getElementById('fx');if(!root)return;
+    var IC={
+      pp:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+      gate:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>',
+      cab:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="7" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><circle cx="12" cy="7" r="3"/><path d="M2 20c1-3 3-4.5 5-4.5M22 20c-1-3-3-4.5-5-4.5M7 20c1-3.2 2.8-5 5-5s4 1.8 5 5"/></svg>',
+      cal:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></svg>',
+      pack:'<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3 3 7.5v9L12 21l9-4.5v-9z"/><path d="M3 7.5 12 12l9-4.5M12 12v9"/></svg>',
+      go:'<span style="font:800 18px var(--display);color:var(--tx-green)">GO</span>'
+    };
+    function node(d){var t=d[0],v=d[1];
+      if(t==='logo')return '<span class="fn-i lgt">'+LG(v,34)+'</span>';
+      if(t==='logos')return '<span class="fn-i lgt"><span class="stk">'+v.map(function(k){return LG(k,20);}).join('')+'</span></span>';
+      if(t==='sp')return '<span class="fn-i"><span class="spm"></span></span>';
+      if(t==='ag')return '<span class="fn-i" style="background:#C2323B;color:#fff;border-color:transparent">'+v+'</span>';
+      return '<span class="fn-i" style="color:var(--blue2)">'+IC[t]+'</span>';}
+    var W={ai:['AI drafts · Defect Manager','t-violet'],pp:['◆ A person approves','t-amber'],en:['Engine · 0 AI credits','t-blue'],tw:['Two-way sync','t-green']};
+    var FL=[
+      {n:'Defect sync',back:'status · comments · fix version',tok:['DEF-031 · draft','DEF-031 · approved','SP-231 · in Jira','SP-231 · closed'],
+       nodes:[['ag','DM','Defect drafted'],['pp','','QA approves'],['logo','jira','Created in Jira'],['sp','','Re-run, closed']],
+       hops:[
+        ['Draft','A defect, drafted from a verified failure.','Steps, expected vs actual, evidence.','<div class="mv-def"><b>DEF-031 · High</b><span>Account opened while core banking failed</span></div><small>3 steps · 2 screenshots · 1 log</small>',W.ai],
+        ['Approve','A person approves it.','Edit severity, merge duplicates. Approve from Teams or Slack.','<div class="mv-row"><span class="stamp">APPROVED</span><span class="lg">'+LG('teams',18)+'</span><span class="lg">'+LG('slack',18)+'</span></div><small>severity edited · 1 duplicate merged</small>',W.pp],
+        ['Create','Created in Jira or Azure DevOps.','With screenshots, logs and trace attached.','<div class="mv-tk"><span class="lg">'+LG('jira',16)+'</span><b>SP-231</b><span class="tag t-red" style="height:22px;font-size:11px">High</span></div><div class="mv-ch"><span>screenshot.png</span><span>console.log</span><span>trace.zip</span></div>',W.en],
+        ['Sync back','Status flows back. Proof closes it.','Fixed triggers a re-run. Passed closes the ticket.','<ul class="mv-ck"><li><i>✓</i>Marked fixed in Jira<em>sync</em></li><li><i>✓</i>Re-run on the new build<em>0 credits</em></li><li><i>✓</i>Closed with proof<em>evidence</em></li></ul>',W.tw]]},
+      {n:'Build verification',back:'go or no-go · with reasons',tok:['Build 2.4.7 · uat','212 impacted tests','5 of 5 gates met','GO · build moves on'],
+       nodes:[['logos',['githubactions','azurepipelines','gitlab','jenkins'],'Your pipeline'],['sp','','Tests run'],['gate','','Quality gates'],['go','','Go / No-go']],
+       hops:[
+        ['Trigger','A new build calls SecondProof.','One step in GitHub Actions, Azure Pipelines, GitLab or Jenkins.','<div class="mv-row"><span class="lg">'+LG('githubactions',18)+'</span><span class="lg">'+LG('azurepipelines',18)+'</span><span class="lg">'+LG('gitlab',18)+'</span><span class="lg">'+LG('jenkins',18)+'</span></div><div class="mv-ch"><span>build 2.4.7</span><span>commit a3f9c1</span><span>env uat</span></div>',['New build','t-gray']],
+        ['Run','Only the impacted tests run.','Picked by change impact, on the live build.','<div class="mv-run"><span><i></i></span></div><small>212 impacted tests · 0 AI credits</small>',W.en],
+        ['Score','Scored against your gates.','Pass rate, defects, performance, security.','<div class="mv-g"><div>P1 pass rate<u style="--w:97%"></u><em>✓</em></div><div>Open critical<u style="--w:100%"></u><em>✓</em></div><div>Performance<u style="--w:88%"></u><em>✓</em></div><div>Security<u style="--w:100%"></u><em>✓</em></div></div>',['Rules your approvers set','t-amber']],
+        ['Decide','The pipeline gets go or no-go.','Go moves on with evidence. No-go blocks, with reasons.','<div class="mv-row"><span class="stamp">GO</span><small>evidence attached</small></div><small>no-go → blocked with defects and failing checks</small>',['Back to the pipeline','t-green']]]},
+      {n:'Test asset import',back:'',tok:['412 cases read','Fields mapped once','52 issues flagged','Pack approved'],
+       nodes:[['logos',['xray','testrail','excel'],'Xray, TestRail, Excel'],['pp','','Field mapping'],['sp','','Quality checks'],['pack','','Test pack']],
+       hops:[
+        ['Source','Bring the tests you already own.','Xray, TestRail, Zephyr or a spreadsheet. Read-only.','<div class="mv-row"><span class="lg">'+LG('xray',18)+'</span><span class="lg">'+LG('testrail',18)+'</span><span class="lg">'+LG('zephyr',18)+'</span><span class="lg">'+LG('excel',18)+'</span></div><small>412 cases found · read-only</small>',['Reads','t-blue']],
+        ['Map','Map fields once.','Saved per source. Reused next time.','<div class="mv-map"><span>Summary</span><i></i><span>Title</span><span>Steps</span><i></i><span>Steps</span><span>Priority</span><i></i><span>Risk</span></div>',W.pp],
+        ['Check','Engines find the gaps.','Duplicates, missing steps, cases with no requirement.','<div class="mv-cnt"><div><b>12</b><small>duplicates</small></div><div><b>9</b><small>missing steps</small></div><div><b>31</b><small>no requirement</small></div></div>',W.en],
+        ['Pack','A clean, traced test pack.','Traced to requirements. Ready to run.','<div class="mv-row"><span class="stamp">READY</span><small>360 cases · traced</small></div>',['◆ You approve','t-amber']]]},
+      {n:'CAB and change sync',back:'CAB decision · change window',tok:['CHG0041 linked','Evidence attached','CAB reviews','Window approved'],
+       nodes:[['logo','servicenow','ServiceNow change'],['sp','','Evidence attached'],['cab','','CAB meets'],['cal','','Release calendar']],
+       hops:[
+        ['Link','Each release links to its change.','With the release management add-on.','<div class="mv-tk"><span class="lg">'+LG('servicenow',16)+'</span><b>CHG0041</b><span style="color:var(--ink3)">↔ Release 2.4</span></div>',W.tw],
+        ['Attach','The proof rides on the change.','Gap analysis, build verification, signed go/no-go.','<ul class="mv-ck"><li><i>✓</i>Gap analysis</li><li><i>✓</i>Build verification</li><li><i>✓</i>Signed go/no-go<em>1 waiver</em></li></ul>',W.en],
+        ['Review','CAB meets with evidence on the record.','The Evidence Pack, gates, waivers and approvers.','<div class="mv-av"><span style="background:#2E6BEA">BU</span><span style="background:#7C5CF0">QA</span><span style="background:#C46A12">CAB</span></div><small>Evidence Pack on the record</small>',['People decide','t-amber']],
+        ['Decide','The decision flows back.','Into the release calendar: approved window or rework.','<div class="mv-cal"><i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i class="w">S</i><i>S</i></div><small>approved window · Sat 02:00</small>',['Two-way · calendar','t-green']]]}
+    ];
+    var tabs=root.querySelector('.fx-tabs'),route=root.querySelector('.fx-route'),panel=root.querySelector('.fx-panel'),fill=root.querySelector('.fx-fill'),tok=root.querySelector('.fx-tok'),tt=root.querySelector('.fx-tt'),back=root.querySelector('.fx-back'),bar=root.querySelector('.fx-bar i');
+    tabs.innerHTML=FL.map(function(f,i){return '<button type="button" role="tab" data-f="'+i+'" aria-selected="false"><span>0'+(i+1)+'</span>'+f.n+'</button>';}).join('');
+    var tb=[].slice.call(tabs.children),fi=0,hi=0,ns=[],pp=[],t0=Date.now(),hold=false,D=3500;
+    function build(f){var F=FL[f];
+      [].slice.call(route.querySelectorAll('.fn')).forEach(function(x){x.remove();});
+      route.insertAdjacentHTML('beforeend',F.nodes.map(function(d,i){return '<button type="button" class="fn" data-h="'+i+'" aria-label="Step '+(i+1)+': '+d[2]+'">'+node(d)+'<b>'+d[2]+'</b></button>';}).join(''));
+      ns=[].slice.call(route.querySelectorAll('.fn'));
+      ns.forEach(function(n,k){n.addEventListener('click',function(){show(fi,k);});n.addEventListener('mouseenter',function(){show(fi,k);});});
+      [].slice.call(panel.querySelectorAll('.fx-p')).forEach(function(x){x.remove();});
+      panel.insertAdjacentHTML('afterbegin',F.hops.map(function(h,i){return '<div class="fx-p" data-h="'+i+'"><span class="fx-k">Hop 0'+(i+1)+' · '+h[0]+'</span><h3>'+h[1]+'</h3><p>'+h[2]+'</p><div class="fx-v">'+h[3]+'</div><span><span class="tag '+h[4][1]+'">'+h[4][0]+'</span></span></div>';}).join(''));
+      pp=[].slice.call(panel.querySelectorAll('.fx-p'));
+      back.querySelector('span').textContent=F.back;back.classList.toggle('off',!F.back);
+      tb.forEach(function(b,k){b.setAttribute('aria-selected',k===f?'true':'false');b.tabIndex=k===f?0:-1;});
+    }
+    function show(f,h){if(f!==fi||!ns.length){fi=f;build(f);void route.offsetWidth;}hi=h;var F=FL[f];
+      ns.forEach(function(n,k){n.classList.toggle('on',k===h);n.classList.toggle('dn',k<h);});
+      pp.forEach(function(p,k){p.classList.toggle('on',k===h);});
+      fill.style.width=(h/(ns.length-1)*100)+'%';
+      tok.style.left=((h+.5)/ns.length*100)+'%';tok.classList.toggle('g',h===ns.length-1);tt.textContent=F.tok[h];
+      back.classList.toggle('run',!!F.back&&h===ns.length-1&&!red);
+      t0=Date.now();if(bar)bar.style.width='0';}
+    tb.forEach(function(b,k){b.addEventListener('click',function(){show(k,0);});
+      b.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var n=(k+(e.key==='ArrowRight'?1:-1)+tb.length)%tb.length;tb[n].focus();show(n,0);}});});
+    root.addEventListener('mouseenter',function(){hold=true;});root.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});
+    ns=[];build(0);show(0,0);
+    if(red)return;var ok=vis(root);
+    setInterval(function(){if(hold||!ok())return;var p=(Date.now()-t0)/D;bar.style.width=Math.min(100,p*100)+'%';
+      if(p>=1){if(hi<FL[fi].hops.length-1)show(fi,hi+1);else show((fi+1)%FL.length,0);}},60);
+  })();
+
+  /* ---------- runner steps ---------- */
+  (function(){
+    var rn=document.getElementById('rn'),ol=document.getElementById('rsteps');if(!rn)return;
+    var lis=[].slice.call(ol.children),rst=document.getElementById('rst'),cl=[].slice.call(rn.querySelectorAll('.cloud li')),i=0,t0=Date.now(),hold=false,D=3500;
+    var S=['Online · heartbeat','Approved job received','Running · 212 steps','Results sent · evidence stored'];
+    function go(n){i=n;rn.setAttribute('data-s',n);lis.forEach(function(l,k){l.classList.toggle('on',k===n);l.querySelector('button').setAttribute('aria-pressed',k===n?'true':'false');});
+      rst.textContent=S[n];cl.forEach(function(c){c.classList.toggle('hl',c.getAttribute('data-c')===String(n));});t0=Date.now();}
+    lis.forEach(function(l,k){var b=l.querySelector('button');b.addEventListener('click',function(){go(k);});b.addEventListener('mouseenter',function(){go(k);});});
+    [rn,ol].forEach(function(el){el.addEventListener('mouseenter',function(){hold=true;});el.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});});
+    go(0);if(red)return;var ok=vis(rn);
+    setInterval(function(){if(hold||!ok())return;var p=Math.min(1,(Date.now()-t0)/D);lis[i].style.setProperty('--p',p.toFixed(3));if(p>=1)go((i+1)%lis.length);},60);
+  })();
+})();
+</script>
+</body>
+</html>

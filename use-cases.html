@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SecondProof use cases</title>
+<meta name="description" content="Vendor acceptance, SAP and Oracle updates, AI launches, data migration, regulated releases and more.">
+<link rel="canonical" href="https://secondproof.ai/use-cases.html">
+<meta name="theme-color" content="#060A18">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SecondProof">
+<meta property="og:title" content="SecondProof use cases">
+<meta property="og:description" content="Vendor acceptance, SAP and Oracle updates, AI launches, data migration, regulated releases and more.">
+<meta property="og:url" content="https://secondproof.ai/use-cases.html">
+<meta property="og:image" content="https://secondproof.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecondProof use cases">
+<meta name="twitter:description" content="Vendor acceptance, SAP and Oracle updates, AI launches, data migration, regulated releases and more.">
+<meta name="twitter:image" content="https://secondproof.ai/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<script>(function(){var t;try{t=localStorage.getItem("sp-theme")}catch(e){}if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t)})();</script>
+<style>
+[hidden]{display:none!important}
+/* ---------- hero ---------- */
+.phero{padding-block:84px 68px;border-bottom:1px solid var(--line)}
+.hgrid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:56px;align-items:center}
+.hgrid .copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.phero h1{font-size:clamp(40px,5.2vw,70px)}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:960px){.hgrid{grid-template-columns:1fr;gap:40px}}
+.hc{position:relative;border-radius:28px;border:1px solid var(--line2);padding:30px 30px 26px;background:radial-gradient(70% 80% at 100% 0%,rgba(194,50,59,.20),transparent 60%),radial-gradient(70% 80% at 0% 100%,rgba(46,107,234,.20),transparent 60%),var(--surface);overflow:hidden;min-width:0}
+.hc-top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.hc-num{display:flex;align-items:flex-end;gap:16px;margin:14px 0 6px;flex-wrap:wrap}
+.hc-num b{font:800 clamp(84px,10vw,136px)/.86 var(--display);letter-spacing:-.05em;background:linear-gradient(100deg,var(--ink),#E0505A 55%,#F5A65B);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums;padding-bottom:.04em}
+.hc-num span{color:var(--ink2);font-size:15px;max-width:170px;padding-bottom:10px;line-height:1.35}
+.hc-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.hc-cols h4{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.hc-cols h4 i{width:8px;height:8px;border-radius:50%}
+.hc-cols ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.hc-cols li{font-size:13.5px;color:var(--ink2);line-height:1.35;display:flex;gap:8px;opacity:.18;transform:translateX(-6px);transition:opacity .4s,transform .45s cubic-bezier(.2,.7,.2,1),color .4s}
+.hc-cols li::before{content:"";flex:none;width:6px;height:6px;border-radius:2px;margin-top:.45em;background:var(--line2);transition:background .4s}
+.hc-cols li.on{opacity:1;transform:none;color:var(--ink)}
+.hc-cols .ci li.on::before{background:var(--red)}
+.hc-cols .ca li.on::before{background:var(--amber)}
+.hc-sys{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.hc-sys span{font:500 10.5px var(--mono);padding:3px 7px;border-radius:6px;border:1px solid var(--line2);color:var(--ink3)}
+.hc-foot{margin-top:18px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+@media (max-width:520px){.hc{padding:22px 18px}.hc-cols{grid-template-columns:1fr}}
+.hpts{display:flex;flex-wrap:wrap;gap:8px}
+.hpts span{font-size:13.5px;font-weight:600;padding:7px 12px;border-radius:999px;background:rgba(var(--b2r),.1);color:var(--tx-blue)}
+
+/* ---------- explorer ---------- */
+.fbar{margin-bottom:26px}
+.fbar .tabs{background:rgba(var(--s1),.6)}
+.ux{display:grid;grid-template-columns:minmax(0,.74fr) minmax(0,1.26fr);gap:48px;align-items:start}
+.ux-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;min-width:0}
+.ux-l button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;align-items:center;gap:14px;padding:11px 0;border-top:1px solid var(--line);font:700 clamp(17px,1.5vw,20px)/1.2 var(--display);letter-spacing:-.02em;color:var(--ink3);transition:color .3s,padding .3s}
+.ux-l li:last-of-type button{border-bottom:1px solid var(--line)}
+.ux-l button:hover{color:var(--ink2)}
+.ux-l button[aria-selected="true"]{color:var(--ink);padding-left:10px}
+.ux-l button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.ux-k{font:500 11.5px var(--mono);color:var(--ink3);letter-spacing:.08em;flex:none}
+.ux-l button[aria-selected="true"] .ux-k{color:var(--blue2)}
+.ux-n{flex:1;min-width:0}
+.ux-d{width:8px;height:8px;border-radius:50%;flex:none;opacity:.55;transition:opacity .3s,transform .3s}
+.ux-l button[aria-selected="true"] .ux-d{opacity:1;transform:scale(1.4)}
+[data-c="red"]>.ux-d,.ux-d[data-c="red"]{background:var(--red)}.ux-d[data-c="amber"]{background:var(--amber)}.ux-d[data-c="blue"]{background:var(--blue)}.ux-d[data-c="green"]{background:var(--green)}.ux-d[data-c="violet"]{background:var(--violet)}
+.ux-r{position:sticky;top:92px;display:grid;border-radius:28px;border:1px solid var(--line2);padding:32px 34px 34px;background:radial-gradient(80% 70% at 100% 0%,rgba(124,92,240,.20),transparent 60%),radial-gradient(70% 70% at 0% 100%,rgba(46,107,234,.18),transparent 60%),var(--surface);overflow:hidden;min-width:0}
+.up{grid-area:1/1;display:flex;flex-direction:column;gap:16px;min-width:0;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s .45s}
+.up.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.up-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.up h3{font:800 clamp(24px,2.5vw,32px)/1.08 var(--display);letter-spacing:-.03em}
+.up-pb{display:flex;gap:10px;align-items:flex-start;color:var(--ink2);font-size:15.5px}
+.up-pb i{flex:none;font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;background:rgba(255,122,127,.16);color:var(--tx-red);margin-top:1px}
+.up-g{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px;align-items:center}
+.up-k{display:flex;flex-direction:column;gap:6px;min-width:0}
+.up-big{font:800 clamp(44px,4.8vw,68px)/.92 var(--display);letter-spacing:-.045em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.04em}
+.up-k small{color:var(--ink2);font-size:14px;line-height:1.35}
+.up-k2{margin-top:8px;padding-top:10px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink2)}
+.up-k2 b{font-family:var(--display);font-size:18px;color:var(--ink);margin-right:4px}
+.kp-l{font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tx-amber)}
+.up-how{font-size:14.5px;color:var(--ink2);padding-left:14px;border-left:2px solid rgba(var(--b2r),.35)}
+.up-out{display:flex;flex-wrap:wrap;gap:6px}
+.up-out span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:rgba(95,211,154,.12);color:var(--tx-green)}
+.up-out span::before{content:"✓ "}
+.who{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.av{width:28px;height:28px;border-radius:8px;display:inline-grid;place-items:center;font-family:var(--display);font-weight:700;font-size:10.5px}
+.a-ba{background:rgba(76,141,255,.18);color:var(--tx-blue)}.a-td{background:rgba(169,139,255,.18);color:var(--tx-violet)}.a-te{background:rgba(95,211,154,.16);color:var(--tx-green)}.a-vr{background:rgba(245,166,91,.16);color:var(--tx-amber)}.a-dm{background:rgba(255,122,127,.14);color:var(--tx-red)}.a-ae{background:rgba(var(--b2r),.16);color:var(--tx-blue2)}.a-pe{background:rgba(245,166,91,.16);color:var(--tx-amber)}.a-rm{background:rgba(95,211,154,.16);color:var(--tx-green)}.a-sp{background:rgba(var(--wsh),.08);color:var(--ink);width:auto;min-width:28px;padding:0 6px}
+.who .tag{height:24px;font-size:11.5px}
+.ux-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(var(--wsh),.06)}
+.ux-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+.fine{font-size:13px;color:var(--ink3);margin-top:18px}
+@media (max-width:900px){
+ .ux{grid-template-columns:1fr;gap:18px}
+ .ux-l{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px;scrollbar-width:thin}
+ .ux-l button{width:auto;white-space:nowrap;border:1px solid var(--line)!important;border-radius:999px;padding:8px 14px;font-size:14.5px;gap:8px}
+ .ux-l button[aria-selected="true"]{padding-left:14px;border-color:var(--line2)!important;background:rgba(var(--b2r),.1)}
+ .ux-r{position:relative;top:0;padding:24px 20px 26px}
+ .up-g{grid-template-columns:1fr}
+ .up{display:none}.up.on{display:flex}
+}
+/* mini windows */
+.win{background:linear-gradient(180deg,rgba(var(--s2),.92),rgba(var(--s1),.95));border:1px solid var(--line2);border-radius:14px;box-shadow:0 22px 50px var(--shadow);overflow:hidden;min-width:0}
+.win-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.win-h b{font-size:13px;font-family:var(--display);font-weight:700}
+.win-h small{display:block;color:var(--ink3);font-family:var(--mono);font-size:9.5px;letter-spacing:.06em}
+.win .tag{height:22px;font-size:11px;padding:0 8px}
+.r{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 14px;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.3}
+.r:last-child{border-bottom:0}
+.r small{display:block;color:var(--ink3);font-size:11px}
+.r>div{min-width:0}
+.wb{padding:12px 14px;display:grid;gap:9px}
+.mono{font-family:var(--mono);font-size:10.5px;color:var(--ink3);letter-spacing:.04em}
+.bar{height:7px;border-radius:5px;background:rgba(var(--wsh),.07);overflow:hidden;position:relative}
+.bar i{display:block;height:100%;border-radius:5px;transform-origin:0 50%}
+.bl{display:grid;grid-template-columns:88px 1fr 36px;gap:9px;align-items:center;font-size:12px}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.big{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.04em;line-height:1}
+.chain{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.chain span{font-family:var(--mono);font-size:9.5px;padding:4px 6px;border-radius:6px;border:1px solid var(--line2);color:var(--ink2)}
+.chain i{width:8px;height:1px;background:var(--line2)}
+.traj{display:grid;gap:6px;font-size:12px}
+.traj div{padding:7px 9px;border-radius:9px;border:1px solid var(--line);background:rgba(var(--wsh),.02)}
+.traj code{font-family:var(--mono);font-size:10.5px;color:var(--tx-blue)}
+.traj .bad{border-color:rgba(255,122,127,.4);background:rgba(255,122,127,.07)}
+.phone{width:132px;margin:0 auto;border:2px solid var(--line2);border-radius:22px;padding:10px 9px;background:var(--bg);direction:rtl;text-align:right;display:grid;gap:6px;font-size:11.5px}
+.phone .nt{height:4px;width:40px;border-radius:3px;background:var(--line2);margin:0 auto 3px}
+.phone .bx{padding:6px;border-radius:7px;background:var(--surface2)}
+.phone .bt{padding:6px;border-radius:7px;background:#2E6BEA;color:#fff;text-align:center;font-weight:600}
+.pps{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.pps span{font-size:11px;padding:5px 8px;border-radius:7px;border:1px solid rgba(95,211,154,.5);color:var(--tx-green)}
+.gauge{position:relative;height:11px;border-radius:6px;background:rgba(var(--wsh),.07)}
+.gauge i{transform-origin:0 50%;position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--blue),var(--green))}
+.gauge em{position:absolute;top:-5px;bottom:-5px;width:2px;background:var(--amber)}
+.gst{display:flex;gap:3px;height:9px;border-radius:5px;overflow:hidden}
+.gst i{display:block;height:100%}
+.t-prod{background:linear-gradient(90deg,rgba(76,141,255,.16),rgba(95,211,154,.16));color:var(--tx-blue2)}
+.stamp{display:inline-grid;place-items:center;padding:4px 10px;border:2.5px solid var(--green);border-radius:8px;color:var(--green);font:800 16px var(--display);letter-spacing:.06em;transform:rotate(-8deg)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:2px;background:var(--green);box-shadow:0 0 10px var(--green)}
+/* panel motion: bars fill, rows tick in, stamps land */
+.up .bar i,.up .gauge i{transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .2s}
+.up.on .bar i,.up.on .gauge i{transform:none}
+.up .gst{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1) .2s}
+.up.on .gst{clip-path:inset(0 0 0 0)}
+.up .win .r,.up .traj>div{opacity:0;transform:translateX(10px);transition:opacity .4s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.up.on .win .r,.up.on .traj>div{opacity:1;transform:none}
+.up.on .win .r:nth-child(2),.up.on .traj>div:nth-child(1){transition-delay:.25s}.up.on .win .r:nth-child(3),.up.on .traj>div:nth-child(2){transition-delay:.45s}.up.on .win .r:nth-child(4),.up.on .traj>div:nth-child(3){transition-delay:.65s}.up.on .win .r:nth-child(5){transition-delay:.85s}.up.on .win .r:nth-child(6){transition-delay:1.05s}.up.on .win .r:nth-child(7){transition-delay:1.25s}
+.up .stamp{opacity:0;transform:rotate(-8deg) scale(1.7);transition:opacity .3s .9s,transform .45s cubic-bezier(.2,1.6,.4,1) .9s}
+.up.on .stamp{opacity:1;transform:rotate(-8deg) scale(1)}
+@media (prefers-reduced-motion:no-preference){.up.on .up-big{animation:pop .7s cubic-bezier(.2,.7,.2,1)}@keyframes pop{from{opacity:0;transform:translateY(10px)}}.dot{animation:blink 1.6s ease-in-out infinite}@keyframes blink{50%{opacity:.35}}}
+
+/* ---------- by role ---------- */
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:6px 16px 6px 6px;border-radius:999px;border:1px solid var(--line);font:600 14.5px var(--body);color:var(--ink2);transition:color .3s,border-color .3s,background .3s}
+.sw button:hover{color:var(--ink)}
+.sw button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px}
+.sw .ri{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:700 11px var(--display);background:rgba(var(--wsh),.07);color:var(--ink2);transition:background .3s,color .3s}
+.sw button[aria-selected="true"]{color:var(--ink);border-color:var(--line2);background:rgba(var(--b2r),.08)}
+.sw button[aria-selected="true"] .ri{background:#2E6BEA;color:#fff}
+.sw-bar{height:2px;width:220px;max-width:100%;border-radius:2px;background:rgba(var(--wsh),.08);overflow:hidden;margin:16px 0 34px}
+.sw-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+.ro{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:56px;align-items:center}
+.stk{display:grid;min-width:0}
+.stk>.sp{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s .45s;min-width:0}
+.stk>.sp.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.ro-t{display:flex;flex-direction:column;gap:14px}
+.ro-t h3{font:800 clamp(30px,3.4vw,46px)/1.04 var(--display);letter-spacing:-.03em}
+.ro-t p{font-size:17px;color:var(--ink2)}
+.ticks{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:baseline;font-size:16px}
+.ticks li::before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;background:rgba(95,211,154,.15);color:var(--tx-green);transform:translateY(3px)}
+.ro-t .scr{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+.app{border-radius:18px;border:1px solid var(--line2);background:linear-gradient(180deg,rgba(var(--s2),.95),rgba(var(--s1),.98));box-shadow:0 30px 70px var(--shadow);overflow:hidden;min-width:0}
+.app-h{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.app-h i{width:9px;height:9px;border-radius:50%;background:rgba(var(--wsh),.14)}
+.app-h span{margin-left:8px;font:500 11px var(--mono);color:var(--ink3);letter-spacing:.04em;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-h b{font:600 11.5px var(--body);padding:3px 9px;border-radius:999px;background:#2E6BEA;color:#fff;white-space:nowrap}
+.app-b{display:grid;grid-template-columns:150px minmax(0,1fr);min-height:320px}
+.app-nav{border-right:1px solid var(--line);padding:14px 10px;display:flex;flex-direction:column;gap:4px;background:rgba(var(--wsh),.015)}
+.app-nav .lgo{display:flex;align-items:center;gap:8px;font:700 12.5px var(--display);margin:0 6px 12px}
+.app-nav .lgo i{width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,#4C8DFF,#7C5CF0)}
+.app-nav .stk>.sp{display:flex;flex-direction:column;gap:4px}
+.app-nav a{font-size:12.5px;padding:7px 9px;border-radius:8px;color:var(--ink2);text-decoration:none}
+.app-nav a.on{background:rgba(var(--b2r),.14);color:var(--ink);font-weight:600}
+.app-nav .lk{margin-top:auto;font:500 10px var(--mono);color:var(--ink3);padding:7px 9px;border:1px dashed var(--line2);border-radius:8px;letter-spacing:.03em}
+.app-m{padding:16px 18px;min-width:0}
+.app-m .sp{display:flex;flex-direction:column;gap:12px}
+.app-m h5{margin:0;font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.3}
+.ln:last-child{border-bottom:0}
+.ln small{display:block;color:var(--ink3);font-size:11px}
+.ln .tag{height:22px;font-size:11px;padding:0 8px}
+.kpi{display:flex;align-items:baseline;gap:10px}
+.kpi b{font:800 34px/1 var(--display);letter-spacing:-.03em}
+.kpi span{font-size:13px;color:var(--ink2)}
+.sbtn{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:9px 16px;border-radius:10px;background:linear-gradient(180deg,#5B97FF,#2E6BEA);color:#fff;font:600 13.5px var(--body)}
+.app .bar i{transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .25s}
+.app .sp.on .bar i{transform:none}
+.app .gst{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1) .2s}
+.app .sp.on .gst{clip-path:inset(0 0 0 0)}
+.app-m .ln{opacity:0;transform:translateX(8px);transition:opacity .4s,transform .45s}
+.app-m .sp.on .ln{opacity:1;transform:none}
+.app-m .sp.on .ln:nth-of-type(2){transition-delay:.2s}.app-m .sp.on .ln:nth-of-type(3){transition-delay:.4s}.app-m .sp.on .ln:nth-of-type(4){transition-delay:.6s}
+.app .stamp{opacity:0;transform:rotate(-8deg) scale(1.7);transition:opacity .3s .8s,transform .45s cubic-bezier(.2,1.6,.4,1) .8s}
+.app .sp.on .stamp{opacity:1;transform:rotate(-8deg) scale(1)}
+.app-nav a{opacity:.001;transform:translateX(-6px);transition:opacity .35s,transform .4s}
+.app-nav .sp.on a{opacity:1;transform:none}
+.app-nav .sp.on a:nth-child(2){transition-delay:.1s}.app-nav .sp.on a:nth-child(3){transition-delay:.2s}
+@media (max-width:960px){.ro{grid-template-columns:1fr;gap:30px}}
+@media (max-width:560px){.app-b{grid-template-columns:1fr}.app-nav{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;flex-wrap:wrap;align-items:center}.app-nav .lgo{display:none}.app-nav .stk>.sp{flex-direction:row;flex-wrap:wrap}.app-nav .lk{margin-top:0}.app-m{padding:14px}}
+
+/* ---------- by industry ---------- */
+.in-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;margin-bottom:28px}
+.in-head .m-head{margin-bottom:0}
+@media (max-width:860px){.in-head{grid-template-columns:1fr;gap:20px}}
+.in-stage{position:relative;margin-top:30px;padding:44px 0 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.in-word{position:absolute;right:-6px;bottom:-.2em;font:800 clamp(80px,13vw,200px)/1 var(--display);letter-spacing:-.05em;color:rgba(var(--b2r),.06);white-space:nowrap;pointer-events:none;transition:opacity .4s}
+.in-p{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;align-items:center;position:relative}
+.in-n{display:flex;flex-direction:column;gap:8px}
+.in-n b{font:800 clamp(56px,6.6vw,96px)/.9 var(--display);letter-spacing:-.05em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.04em}
+.in-n small{color:var(--ink2);font-size:14.5px;max-width:260px}
+.in-t{display:flex;flex-direction:column;gap:12px;min-width:0}
+.in-t .tg{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tx-amber)}
+.in-t h3{font:800 clamp(28px,3vw,40px)/1.05 var(--display);letter-spacing:-.03em}
+.in-t .more{color:var(--blue2);font-weight:600;font-size:15px;text-decoration:none}
+.in-t .more:hover{text-decoration:underline}
+@media (max-width:760px){.in-p{grid-template-columns:1fr;gap:20px}.in-stage{padding:30px 0}}
+/* pilots */
+.m-row .m-k{white-space:nowrap}
+</style>
+</head>
+<body data-page="usecases">
+<header id="vf-header"></header>
+
+<section class="phero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hgrid">
+      <div class="copy">
+        <p class="crumbs"><a href="./">SecondProof</a> / Use cases</p>
+        <span class="eyebrow">Use cases</span>
+        <h1>Built with AI? <span class="grad">Prove it before release.</span></h1>
+        <p class="lede">The AI that wrote the code shouldn’t grade it. We test the running app and its integrations. Your people sign the go/no-go.</p>
+        <div class="hpts"><span>No access to your code</span><span>5-day AI Build Assurance</span><span>People sign, AI never does</span></div>
+        <div class="acts"><a class="btn primary" href="#uc-aibuilt">See how we prove it <span class="arr">→</span></a><a class="btn ghost" href="#cases">All 16 use cases</a></div>
+      </div>
+      <div class="hc rv" id="hc" role="img" aria-label="200 plus issues found by hand in an app built entirely with AI that had passed its own checks, in integrations and inside the app">
+        <div class="hc-top"><span class="tag t-red">App built with AI · passed its own tests</span><span class="mono">COGNIWIDE PROJECT</span></div>
+        <div class="hc-num"><b id="hcN">200+</b><span>issues our QA team then found by hand.</span></div>
+        <div class="hc-cols">
+          <div class="ci"><h4 style="color:var(--tx-red)"><i style="background:var(--red)"></i>In integrations</h4>
+            <div class="hc-sys"><span>Core banking</span><span>SMS gateway</span><span>AML screening</span><span>CRM</span><span>Payments</span></div>
+            <ul><li>Success shown when a downstream call failed</li><li>Timeouts and retries</li><li>Data mapping between systems</li><li>Partial failure, no rollback</li><li>Callbacks not handled</li></ul></div>
+          <div class="ca"><h4 style="color:var(--tx-amber)"><i style="background:var(--amber)"></i>Inside the app</h4>
+            <ul><li>Features not in requirements</li><li>Requirements not implemented</li><li>A rule on one screen, not another</li><li>Happy path only</li><li>Validation gaps</li><li>Access checks between roles</li><li>Arabic and right-to-left</li></ul></div>
+        </div>
+        <p class="hc-foot">Same AI wrote the code and its tests · same blind spots</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="cases">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Sixteen use cases</p><h2>Start with this quarter’s problem.</h2><p>Challenge, agents, outcome and the pilot targets we agree up front.</p></div>
+    <div data-tabs>
+      <div class="fbar"><div class="tabs" role="group" aria-label="Filter use cases by theme">
+        <button type="button" data-tab="all" aria-selected="true">All</button>
+        <button type="button" data-tab="ab" aria-selected="false">Built with AI</button>
+        <button type="button" id="rc" data-tab="rc" aria-selected="false">Release faster</button>
+        <button type="button" id="ep" data-tab="ep" aria-selected="false">Platform updates</button>
+        <button type="button" id="ad" data-tab="ad" aria-selected="false">AI and data quality</button>
+        <button type="button" id="ga" data-tab="ga" aria-selected="false">Governance and audit</button>
+      </div></div>
+      <div class="ux rv" id="ux">
+        <ol class="ux-l" role="tablist" aria-label="Use cases">
+          <li id="uc-aibuilt" data-panel="ab" role="presentation"><button type="button" role="tab" data-i="0" aria-selected="true"><span class="ux-k">01</span><span class="ux-n">Apps built with AI</span><i class="ux-d" data-c="red"></i></button></li>
+          <li id="uc-product" data-panel="rc" role="presentation"><button type="button" role="tab" data-i="1" aria-selected="false"><span class="ux-k">02</span><span class="ux-n">Product teams, every sprint</span><i class="ux-d" data-c="amber"></i></button></li>
+          <li id="uc-vendor" data-panel="ga" role="presentation"><button type="button" role="tab" data-i="2" aria-selected="false"><span class="ux-k">03</span><span class="ux-n">Vendor delivery acceptance</span><i class="ux-d" data-c="violet"></i></button></li>
+          <li id="uc-sap" data-panel="ep" role="presentation"><button type="button" role="tab" data-i="3" aria-selected="false"><span class="ux-k">04</span><span class="ux-n">SAP support packages</span><i class="ux-d" data-c="blue"></i></button></li>
+          <li id="uc-oracle" data-panel="ep" role="presentation"><button type="button" role="tab" data-i="4" aria-selected="false"><span class="ux-k">05</span><span class="ux-n">Oracle Fusion updates</span><i class="ux-d" data-c="blue"></i></button></li>
+          <li id="uc-salesforce" data-panel="ep" role="presentation"><button type="button" role="tab" data-i="5" aria-selected="false"><span class="ux-k">06</span><span class="ux-n">Salesforce releases</span><i class="ux-d" data-c="blue"></i></button></li>
+          <li id="uc-servicenow" data-panel="ep" role="presentation"><button type="button" role="tab" data-i="6" aria-selected="false"><span class="ux-k">07</span><span class="ux-n">ServiceNow upgrades</span><i class="ux-d" data-c="blue"></i></button></li>
+          <li id="uc-workday" data-panel="ep" role="presentation"><button type="button" role="tab" data-i="7" aria-selected="false"><span class="ux-k">08</span><span class="ux-n">Workday and Dynamics 365</span><i class="ux-d" data-c="blue"></i></button></li>
+          <li id="uc-migration" data-panel="ad" role="presentation"><button type="button" role="tab" data-i="8" aria-selected="false"><span class="ux-k">09</span><span class="ux-n">Data migration cut-over</span><i class="ux-d" data-c="green"></i></button></li>
+          <li id="uc-ai" data-panel="ad" role="presentation"><button type="button" role="tab" data-i="9" aria-selected="false"><span class="ux-k">10</span><span class="ux-n">AI chatbots and agents</span><i class="ux-d" data-c="green"></i></button></li>
+          <li id="uc-mobile" data-panel="rc" role="presentation"><button type="button" role="tab" data-i="10" aria-selected="false"><span class="ux-k">11</span><span class="ux-n">Mobile banking apps</span><i class="ux-d" data-c="amber"></i></button></li>
+          <li id="uc-legacy" data-panel="rc" role="presentation"><button type="button" role="tab" data-i="11" aria-selected="false"><span class="ux-k">12</span><span class="ux-n">Undocumented legacy apps</span><i class="ux-d" data-c="amber"></i></button></li>
+          <li id="uc-uat" data-panel="rc" role="presentation"><button type="button" role="tab" data-i="12" aria-selected="false"><span class="ux-k">13</span><span class="ux-n">UAT in plain words</span><i class="ux-d" data-c="amber"></i></button></li>
+          <li id="uc-regulated" data-panel="ga" role="presentation"><button type="button" role="tab" data-i="13" aria-selected="false"><span class="ux-k">14</span><span class="ux-n">Regulated releases and CAB</span><i class="ux-d" data-c="violet"></i></button></li>
+          <li id="uc-cicd" data-panel="rc" role="presentation"><button type="button" role="tab" data-i="14" aria-selected="false"><span class="ux-k">15</span><span class="ux-n">Build verification in CI/CD</span><i class="ux-d" data-c="amber"></i></button></li>
+          <li id="uc-adoption" data-panel="ga" role="presentation"><button type="button" role="tab" data-i="15" aria-selected="false"><span class="ux-k">16</span><span class="ux-n">Your existing QA team</span><i class="ux-d" data-c="violet"></i></button></li>
+        </ol>
+        <div class="ux-r" aria-live="polite">
+
+<div class="up on" data-i="0" role="tabpanel">
+  <div class="up-top"><span class="tag t-red">Built with AI</span><span class="mono">01 · APPS BUILT WITH AI</span></div>
+  <h3>Prove an app built with AI before it goes live</h3>
+  <p class="up-pb"><i>✕</i>Its own tests pass, but the same AI wrote them. They confirm what the code does, not what the business needed.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">5 days</b><small>to a signed go/no-go</small><div class="up-k2"><b>100%</b>requirements with a gap status</div></div>
+    <div class="win" role="img" aria-label="Example gap analysis of an app built with AI">
+      <div class="win-h"><div><b>Gap analysis · Onboarding app</b><small>BUILT WITH AI · EXAMPLE</small></div><span class="tag t-amber">Pending</span></div>
+      <div class="r" style="display:block"><div class="gst" aria-hidden="true"><i style="flex:31;background:var(--green)"></i><i style="flex:6;background:var(--red)"></i><i style="flex:5;background:var(--amber)"></i><i style="flex:4;background:var(--tx-amber)"></i><i style="flex:2;background:var(--violet)"></i></div><span class="mono" style="display:block;margin-top:7px">48 REQUIREMENTS · 31 MEET · 17 GAPS</span></div>
+      <div class="r"><div>REQ-022 Transfer confirmed by core<small>success shown on a timeout</small></div><span class="tag t-amber">Deviates</span></div>
+      <div class="r"><div>REQ-031 AML screening first<small>no screening call seen</small></div><span class="tag t-red">Not implemented</span></div>
+      <div class="r"><div>Export all customers<small>in the app, in no requirement</small></div><span class="tag t-amber">Not in reqs</span></div>
+      <div class="r"><div>REQ-040 Transfer limit<small>on web, missing on mobile</small></div><span class="tag t-violet">Inconsistent</span></div>
+    </div>
+  </div>
+  <p class="up-how">The Business Analyst captures requirements you approve. Gap analysis checks each against the running app; pattern checks hunt the defects AI-built apps tend to have. Every build verified. We never need your code.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-td">TD</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-dm">DM</span><span class="av a-rm">RM</span><span class="tag t-gray">SecondProof Apps</span><span class="tag t-gray">AI Build Assurance</span></div>
+  <div class="up-out"><span>Requirements approved</span><span>Gap status per requirement</span><span>Defects grouped by pattern</span><span>Signed go/no-go + Evidence Pack</span></div>
+</div>
+
+<div class="up" data-i="1" role="tabpanel">
+  <div class="up-top"><span class="tag t-amber">Release faster</span><span class="mono">02 · PRODUCT TEAMS</span></div>
+  <h3>Product teams shipping every sprint</h3>
+  <p class="up-pb"><i>✕</i>Bigger sprints, fading memory: old features drop out of regression, the help centre drifts, testing starts late.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">0</b><small>features untested for 3+ releases</small><div class="up-k2"><b>100%</b>delivered features with a last proven release</div></div>
+    <div class="win" role="img" aria-label="Example product memory for Mobile Banking releases 8.2 to 8.4">
+      <div class="win-h"><div><b>Product memory · Mobile Banking</b><small>8.2 · 8.3 · 8.4 · EXAMPLE</small></div><span class="tag t-prod">Product</span></div>
+      <div class="wb">
+        <div class="bl"><span>8.3 proven</span><span class="bar"><i style="width:100%;background:var(--green)"></i></span><span class="num">100%</span></div>
+        <div class="bl"><span>8.4 ready</span><span class="bar"><i style="width:86%;background:linear-gradient(90deg,var(--blue),var(--green))"></i></span><span class="num">86%</span></div>
+      </div>
+      <div class="r"><div>Bill payments<small>last proven 4 releases ago</small></div><span class="tag t-amber">Regression risk</span></div>
+      <div class="r"><div>Statement export<small>help says PDF or CSV · product: PDF</small></div><span class="tag t-red">Docs out of date</span></div>
+      <div class="r"><div>Release notes 8.4<small>18 verified · 2 held back</small></div><span class="tag t-blue">To approve</span></div>
+    </div>
+  </div>
+  <p class="up-how">SecondProof Product keeps a feature catalogue synced from Jira or Azure DevOps. Tests are drafted at planning, regression memory flags forgotten features, and the docs check marks help, API docs and notes as matches, out of date, undocumented or missing.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-td">TD</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-rm">RM</span><span class="tag t-gray">SecondProof Product</span><span class="tag t-gray">Jira</span><span class="tag t-gray">Azure DevOps</span><span class="tag t-gray">Product Assurance</span></div>
+  <div class="up-out"><span>Catalogue a new tester reads in a day</span><span>Test readiness before code lands</span><span>Docs checked, owner approves fixes</span><span>Notes from proven features only</span><span>Signed go/no-go each release</span></div>
+</div>
+
+<div class="up" data-i="2" role="tabpanel">
+  <div class="up-top"><span class="tag t-violet">Governance and audit</span><span class="mono">03 · VENDOR ACCEPTANCE</span></div>
+  <h3>Accept a vendor delivery on evidence, not trust</h3>
+  <p class="up-pb"><i>✕</i>The vendor says it is done. You have days, thin documentation and no independent view against the contract.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">100%</b><small>of contract items traced</small><div class="up-k2"><b>5 days</b>to a signed go/no-go</div></div>
+    <div class="win" role="img" aria-label="Example vendor scorecard with a conditional go/no-go">
+      <div class="win-h"><div><b>Vendor scorecard</b><small>RELEASE 3.2 · EXAMPLE</small></div><span class="tag t-amber">Conditional</span></div>
+      <div class="wb">
+        <div class="bl"><span>Reqs met</span><span class="bar"><i style="width:93%;background:var(--green)"></i></span><span class="num">93%</span></div>
+        <div class="bl"><span>Tests passed</span><span class="bar"><i style="width:88%;background:var(--blue)"></i></span><span class="num">88%</span></div>
+        <div class="bl"><span>Docs complete</span><span class="bar"><i style="width:61%;background:var(--amber)"></i></span><span class="num">61%</span></div>
+      </div>
+      <div class="r"><div>Critical defects<small>verified by a second agent</small></div><span class="tag t-red">3 open</span></div>
+      <div class="r"><div>Go / No-go<small>go after 3 fixes</small></div><span class="tag t-blue">Your call</span></div>
+    </div>
+  </div>
+  <p class="up-how">A requirement baseline from the contract, BRD and change requests. An independent test pack, run and re-checked, with defects raised against the vendor.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-td">TD</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-dm">DM</span><span class="tag t-gray">SecondProof Apps</span><span class="tag t-gray">Vendors view</span></div>
+  <div class="up-out"><span>Gap analysis: met, deviating, missing</span><span>Vendor scorecard across releases</span><span>Defects the vendor cannot dispute</span></div>
+</div>
+
+<div class="up" data-i="3" role="tabpanel">
+  <div class="up-top"><span class="tag t-blue">Platform updates</span><span class="mono">04 · SAP</span></div>
+  <h3>Take an SAP support package without re-testing everything</h3>
+  <p class="up-pb"><i>✕</i>A package changes thousands of objects. Re-running every process takes weeks; guessing puts order to cash at risk.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">70–80%</b><small>less re-testing per package</small><div class="up-k2"><b>100%</b>of failures decided by a person</div></div>
+    <div class="win" role="img" aria-label="SAP FPS03 demo scenario: 212 of 1,180 tests selected">
+      <div class="win-h"><div><b>SAP · FPS03</b><small>CHANGE IMPACT · DEMO</small></div><span class="tag t-blue">Analysed</span></div>
+      <div class="wb"><div style="display:flex;align-items:flex-end;gap:10px"><span class="big grad">212</span><span class="muted" style="font-size:12.5px;padding-bottom:4px">of 1,180 tests</span></div>
+        <div class="bl"><span>Order to cash</span><span class="bar"><i style="width:74%;background:var(--blue)"></i></span><span class="num">74</span></div>
+        <div class="bl"><span>Procure to pay</span><span class="bar"><i style="width:58%;background:var(--violet)"></i></span><span class="num">58</span></div>
+        <div class="bl"><span>Record to report</span><span class="bar"><i style="width:46%;background:var(--amber)"></i></span><span class="num">46</span></div>
+        <div class="bl"><span>Hire to retire</span><span class="bar"><i style="width:34%;background:var(--green)"></i></span><span class="num">34</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="up-how">Changed objects mapped to your processes; the smallest safe test set picked. Ready components drive SAP GUI and Fiori and check the back end. Each failure sorted: platform change, setup defect or test data.</p>
+  <div class="who"><span class="av a-sp">SAP</span><span class="av a-td">TD</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-rm">RM</span><span class="tag t-gray">SAP pack</span></div>
+  <div class="up-out"><span>Impact per transport and package</span><span>Pack run with step evidence</span><span>Quality gate in the go/no-go</span></div>
+</div>
+
+<div class="up" data-i="4" role="tabpanel">
+  <div class="up-top"><span class="tag t-blue">Platform updates</span><span class="mono">05 · ORACLE FUSION</span></div>
+  <h3>Finish the Oracle Fusion quarterly update inside the window</h3>
+  <p class="up-pb"><i>✕</i>Four updates a year you cannot skip, a two-week test window, and the stage refresh wipes your test data.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">In window</b><small>every quarterly update</small><div class="up-k2"><b>0</b>unreviewed SoD conflicts</div></div>
+    <div class="win" role="img" aria-label="Oracle 26A demo scenario: 186 of 1,240 tests in the test window">
+      <div class="win-h"><div><b>Oracle · Update 26A</b><small>TEST WINDOW · DEMO</small></div><span class="tag t-amber">Day 9 of 17</span></div>
+      <div class="wb"><div class="bar" style="height:9px"><i style="width:53%;background:linear-gradient(90deg,var(--blue),var(--violet))"></i></div>
+        <div class="mono" style="display:flex;justify-content:space-between"><span>16 JAN</span><span>2 FEB</span><span>PROD 6 FEB</span></div></div>
+      <div class="r"><div>Tests to run<small>412 features · 37 touch you</small></div><b>186 / 1,240</b></div>
+      <div class="r"><div>Roles and SoD<small>after the update</small></div><span class="tag t-amber">1 conflict</span></div>
+      <div class="r"><div>Test data<small>reloaded via FBDI and HDL</small></div><span class="tag t-green">Ready</span></div>
+    </div>
+  </div>
+  <p class="up-how">Reads the update’s feature list, maps it to your configuration and plans only the tests it touches. Data rebuilt through FBDI and HDL; roles and SoD re-checked every update.</p>
+  <div class="who"><span class="av a-sp">ORA</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-dm">DM</span><span class="tag t-gray">Oracle pack</span></div>
+  <div class="up-out"><span>A day-by-day plan that fits</span><span>SoD conflicts before production</span><span>Fresh data after every refresh</span></div>
+</div>
+
+<div class="up" data-i="5" role="tabpanel">
+  <div class="up-top"><span class="tag t-blue">Platform updates</span><span class="mono">06 · SALESFORCE</span></div>
+  <h3>Ship through every Salesforce release and deployment</h3>
+  <p class="up-pb"><i>✕</i>Three upgrades a year, a 75% Apex rule on every deploy, and Lightning pages and flows changing under you.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">≥ 75%</b><small>Apex coverage on every deploy</small><div class="up-k2"><b>Preview</b>tested before production</div></div>
+    <div class="win" role="img" aria-label="Salesforce Spring 27 demo scenario: Apex coverage 82 percent above the 75 percent line">
+      <div class="win-h"><div><b>Salesforce · Spring ’27</b><small>PREVIEW SANDBOX · DEMO</small></div><span class="tag t-green">On track</span></div>
+      <div class="wb"><span class="mono">APEX COVERAGE · ORG-WIDE</span>
+        <div class="gauge"><i style="width:82%"></i><em style="left:75%"></em></div>
+        <div class="mono" style="display:flex;justify-content:space-between"><span>0</span><span style="color:var(--tx-amber)">75% RULE</span><span style="color:var(--tx-green)">82%</span></div></div>
+      <div class="r"><div>Tests to run<small>386 changes · 23 touch the org</small></div><b>146 / 980</b></div>
+      <div class="r"><div>Permissions<small>412 checks</small></div><span class="tag t-green">0 new issues</span></div>
+    </div>
+  </div>
+  <p class="up-how">Tests on the preview sandbox the day it opens, with components built for Lightning. Runs your Apex and Flow tests and re-checks profiles, permission sets and sharing.</p>
+  <div class="who"><span class="av a-sp">SF</span><span class="av a-ae">AE</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="tag t-gray">Salesforce pack</span></div>
+  <div class="up-out"><span>Release impact before production</span><span>Coverage held every deploy</span><span>Permission drift caught early</span></div>
+</div>
+
+<div class="up" data-i="6" role="tabpanel">
+  <div class="up-top"><span class="tag t-blue">Platform updates</span><span class="mono">07 · SERVICENOW</span></div>
+  <h3>Upgrade ServiceNow with your own ATF, and fill its gaps</h3>
+  <p class="up-pb"><i>✕</i>The upgrade skips customised records someone must decide. ATF misses Arabic portals, emails and integrations.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">100%</b><small>of your ATF reused, nothing migrated</small><div class="up-k2"><b>100%</b>skipped records decided</div></div>
+    <div class="win" role="img" aria-label="ServiceNow Yokohama demo scenario with 321 ATF tests and 60 pack tests">
+      <div class="win-h"><div><b>ServiceNow · Yokohama</b><small>FAMILY UPGRADE · DEMO</small></div><span class="tag t-blue">One run · 381</span></div>
+      <div class="wb"><div class="bl"><span>Your ATF</span><span class="bar"><i style="width:84%;background:var(--blue)"></i></span><span class="num">321</span></div>
+        <div class="bl"><span>Pack tests</span><span class="bar"><i style="width:16%;background:var(--violet)"></i></span><span class="num">60</span></div></div>
+      <div class="r"><div>Skipped records<small>customised, need a decision</small></div><span class="tag t-green">146 of 146</span></div>
+      <div class="r"><div>Arabic portal<small>right-to-left checks</small></div><span class="tag t-amber">1 defect</span></div>
+    </div>
+  </div>
+  <p class="up-how">Imports and runs your ATF suites as they are. Pack tests add what ATF cannot cover; catalog items tested through every path; every skipped record goes on a decision list.</p>
+  <div class="who"><span class="av a-sp">SN</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-rm">RM</span><span class="tag t-gray">ServiceNow pack</span></div>
+  <div class="up-out"><span>One run: ATF + pack tests</span><span>Skipped records decided, with reasons</span><span>Portals in Arabic and English</span></div>
+</div>
+
+<div class="up" data-i="7" role="tabpanel">
+  <div class="up-top"><span class="tag t-blue">Platform updates</span><span class="mono">08 · WORKDAY AND DYNAMICS 365</span></div>
+  <h3>Stay ahead of Workday releases and Dynamics 365 updates</h3>
+  <p class="up-pb"><i>✕</i>Workday upgrades twice a year; Dynamics 365 updates can only be paused. Routes, integrations and roles break quietly.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">&lt; 1 week</b><small>preview regression</small><div class="up-k2"><b>100%</b>approval routes checked</div></div>
+    <div class="win" role="img" aria-label="Demo scenarios: Dynamics 365 10.0.44 with 138 of 960 tests and Workday 2027 R1 with 128 of 720 tests">
+      <div class="win-h"><div><b>Coming updates</b><small>DEMO SCENARIOS</small></div><span class="tag t-violet">2 planned</span></div>
+      <div class="r"><div>Dynamics 365 · 10.0.44<small>214 changes · 17 touch you</small></div><b>138 / 960</b></div>
+      <div class="r"><div>Workday · 2027 R1<small>290 changes · 19 touch you</small></div><b>128 / 720</b></div>
+      <div class="r"><div>Approval routes<small>Workday business processes</small></div><span class="tag t-green">62 checked</span></div>
+      <div class="r"><div>Power Platform<small>solutions, flows, plug-ins</small></div><span class="tag t-green">7 of 7</span></div>
+    </div>
+  </div>
+  <p class="up-how">Workday: approval routes, EIB and Core Connector integrations and security groups on the preview tenant. Dynamics 365: task recordings, Power Automate flows, plug-ins, security roles and segregation rules.</p>
+  <div class="who"><span class="av a-sp">WD</span><span class="av a-sp">D365</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="tag t-gray">Workday pack</span><span class="tag t-gray">Dynamics 365 pack</span></div>
+  <div class="up-out"><span>Every process route checked</span><span>Power Platform verified</span><span>Test data restored after refreshes</span></div>
+</div>
+
+<div class="up" data-i="8" role="tabpanel">
+  <div class="up-top"><span class="tag t-green">AI and data</span><span class="mono">09 · DATA MIGRATION</span></div>
+  <h3>Cut over a data migration with a signed reconciliation</h3>
+  <p class="up-pb"><i>✕</i>Millions of rows move. Count spreadsheets cannot prove every balance arrived, and UAT copies hold real personal data.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">100%</b><small>rows reconciled</small><div class="up-k2"><b>0</b>real personal values in UAT</div></div>
+    <div class="win" role="img" aria-label="Example reconciliation of rehearsal 3, ready to sign">
+      <div class="win-h"><div><b>Reconciliation · Rehearsal 3</b><small>CORE TO NEW PLATFORM · EXAMPLE</small></div><span class="tag t-green">Ready to sign</span></div>
+      <div class="r"><div>CUSTOMER<small>checksum match</small></div><span class="tag t-green">Matched</span></div>
+      <div class="r"><div>ACCOUNT<small>balances add up</small></div><span class="tag t-green">Matched</span></div>
+      <div class="r"><div>LOAN_SCHEDULE<small>14 rows · rounding rule</small></div><span class="tag t-amber">Accepted · reason</span></div>
+      <div class="r"><div>KYC_DOC<small>expected · tokenised</small></div><span class="tag t-gray">Expected</span></div>
+    </div>
+  </div>
+  <p class="up-how">Read-only via a runner inside your network. Engines compare counts, sums, checksums and fields per rehearsal; the analyst agent proposes mapping and data-quality rules; a scanner proves UAT is clean.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-sp">DATA</span><span class="av a-dm">DM</span><span class="av a-rm">RM</span><span class="tag t-gray">SecondProof Data</span></div>
+  <div class="up-out"><span>Reconciliation per rehearsal</span><span>Each difference fixed, explained or accepted</span><span>Cut-over go/no-go Finance and Ops sign</span></div>
+</div>
+
+<div class="up" data-i="9" role="tabpanel">
+  <div class="up-top"><span class="tag t-green">AI and data</span><span class="mono">10 · AI ASSISTANTS AND AGENTS</span></div>
+  <h3>Launch an AI chatbot or agent your risk team approves</h3>
+  <p class="up-pb"><i>✕</i>Great in the demo. Unknown on outdated sources, attacks in Arabic, or a refund it should have escalated.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">0</b><small>unsafe actions at the gate</small><div class="up-k2"><b>100%</b>of changes evaluated</div></div>
+    <div class="win" role="img" aria-label="Example agent trajectory where a rule check catches a refund above the limit">
+      <div class="win-h"><div><b>Refunds agent · P-07</b><small>TRAJECTORY · EXAMPLE</small></div><span class="tag t-red">1 of 20 unsafe</span></div>
+      <div class="wb traj">
+        <div><span class="mono">USER</span><br>Please refund my last order.</div>
+        <div><span class="mono">TOOL CALL</span><br><code>get_order(id="A-9921")</code></div>
+        <div class="bad"><span class="mono">RULE CHECK FAILED</span><br><code>issue_refund(amount=650)</code><br><small class="muted">Above AED 500 without a person</small></div>
+      </div>
+    </div>
+  </div>
+  <p class="up-how">Answers scored against your golden set; candidate prompts or models compared with production. English and Arabic red-teaming on staging. Every agent tool call, order and input checked on simulated tools. Guardrails become an AI quality gate.</p>
+  <div class="who"><span class="av a-sp">AI</span><span class="av a-vr">VR</span><span class="av a-dm">DM</span><span class="av a-rm">RM</span><span class="tag t-gray">SecondProof AI</span><span class="tag t-gray">SecondProof Data · masking</span></div>
+  <div class="up-out"><span>Evaluation and red-team report</span><span>Unsafe agent actions caught</span><span>Production sampling, drift alerts</span></div>
+</div>
+
+<div class="up" data-i="10" role="tabpanel">
+  <div class="up-top"><span class="tag t-amber">Release faster</span><span class="mono">11 · MOBILE BANKING</span></div>
+  <h3>Release a mobile banking app on real devices, in two languages</h3>
+  <p class="up-pb"><i>✕</i>Dozens of devices, Arabic and English. Right-to-left breaks, start-up slows, a new permission slips into the build.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">&lt; 1 hour</b><small>full device matrix</small><div class="up-k2"><b>100%</b>Arabic and English parity</div></div>
+    <div class="win" role="img" aria-label="Example Arabic right-to-left transfer screen with device results">
+      <div class="win-h"><div><b>Run M-12 · build 5.8.0</b><small>7 DEVICES · EXAMPLE</small></div><span class="tag t-green"><span class="dot"></span>Running</span></div>
+      <div class="wb"><div class="phone" lang="ar"><span class="nt"></span><b>تحويل</b><div class="bx">من: الحساب الجاري</div><div class="bx">المبلغ: 250 درهم</div><div class="bt">متابعة</div></div></div>
+      <div class="r"><div>Galaxy S24 · Arabic<small>right-to-left</small></div><span class="tag t-green">Passed</span></div>
+      <div class="r"><div>iPhone 13 · English<small>start-up 2.1 s</small></div><span class="tag t-amber">Slow</span></div>
+    </div>
+  </div>
+  <p class="up-how">Journeys across a device matrix on your farm or private lab, with video, screenshots and logs per language. Engines compare builds for permissions, size and store checks; a Mobile specialist triages per device. App, APIs and web share one licence.</p>
+  <div class="who"><span class="av a-sp">MOB</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="av a-dm">DM</span><span class="tag t-gray">SecondProof Apps · mobile and API</span></div>
+  <div class="up-out"><span>Evidence per device, per language</span><span>What changed, build to build</span><span>Mobile gate in the go/no-go</span></div>
+</div>
+
+<div class="up" data-i="11" role="tabpanel">
+  <div class="up-top"><span class="tag t-amber">Release faster</span><span class="mono">12 · LEGACY APP</span></div>
+  <h3>Test a legacy app nobody documented</h3>
+  <p class="up-pb"><i>✕</i>Ten years in production. The builders left, and so did the requirements. You cannot test what nobody can describe.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">Days</b><small>to a first BRD draft</small><div class="up-k2"><b>≥ 80%</b>statements seen in the live app</div></div>
+    <div class="win" role="img" aria-label="Example BRD draft with sourced statements">
+      <div class="win-h"><div><b>BRD draft · Branch Teller</b><small>AI DRAFT · EXAMPLE</small></div><span class="tag t-violet">AI</span></div>
+      <div class="r"><div>Screens mapped<small>live app, read-only</small></div><b>42</b></div>
+      <div class="r"><div>BR-3.1 Cash limit per teller<small>seen in the live app</small></div><span class="tag t-blue">Live app</span></div>
+      <div class="r"><div>BR-3.4 Supervisor override<small>to confirm</small></div><span class="tag t-amber">Inferred</span></div>
+      <div class="r"><div>BR-5.2 Daily close time<small>doc 17:00 · app 18:00</small></div><span class="tag t-red">Conflict</span></div>
+    </div>
+  </div>
+  <p class="up-how">The Business Analyst explores the live app screen by screen, reads what documents remain and writes a BRD in your template. Every line sourced: live app, document or inferred. People confirm; then gap analysis and a test pack.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-td">TD</span><span class="av a-ae">AE</span><span class="tag t-gray">SecondProof Apps</span><span class="tag t-gray">SecondProof Workstation</span></div>
+  <div class="up-out"><span>A versioned BRD you approve</span><span>A test pack traced to it</span><span>Scripts that replay at 0 AI credits</span></div>
+</div>
+
+<div class="up" data-i="12" role="tabpanel">
+  <div class="up-top"><span class="tag t-amber">Release faster</span><span class="mono">13 · UAT</span></div>
+  <h3>Run UAT with business users, in plain words</h3>
+  <p class="up-pb"><i>✕</i>Busy testers, cases that read like code, evidence in emailed screenshots, defects without steps.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">⅓ shorter</b><small>UAT cycle</small><div class="up-k2"><b>100%</b>defects with evidence</div></div>
+    <div class="win" role="img" aria-label="Example UAT case in plain words with pass and fail per step">
+      <div class="win-h"><div><b>UAT-118 · Open a savings account</b><small>ASSIGNED TO YOU · EXAMPLE</small></div><span class="tag t-blue">3 of 5</span></div>
+      <div class="r"><div>1. Sign in as a new customer</div><span class="tag t-green">Passed</span></div>
+      <div class="r"><div>2. Choose “Savings” and a branch</div><span class="tag t-green">Passed</span></div>
+      <div class="r"><div>3. Upload an Emirates ID<small>error message in English only</small></div><span class="tag t-red">Defect raised</span></div>
+      <div class="r"><div>4. Confirm the welcome email</div><span class="tag t-gray">To do</span></div>
+    </div>
+  </div>
+  <p class="up-how">Cases written in business language. Testers land on their cases, pass or fail each step, raise a defect in one click. The Defect Manager adds evidence, de-duplicates and syncs to Jira or Azure DevOps.</p>
+  <div class="who"><span class="av a-td">TD</span><span class="av a-dm">DM</span><span class="av a-rm">RM</span><span class="tag t-gray">Manual and UAT</span></div>
+  <div class="up-out"><span>Tester view, no training</span><span>Defects with evidence attached</span><span>UAT gate business owners sign</span></div>
+</div>
+
+<div class="up" data-i="13" role="tabpanel">
+  <div class="up-top"><span class="tag t-violet">Governance and audit</span><span class="mono">14 · REGULATED RELEASE</span></div>
+  <h3>Take a regulated release through CAB with evidence auditors accept</h3>
+  <p class="up-pb"><i>✕</i>The regulator wants proof, the CAB one page. Evidence sits in five tools and three inboxes, rebuilt by hand each release.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">0 hours</b><small>of manual evidence work</small><div class="up-k2"><b>CAB day</b>Evidence Pack ready</div></div>
+    <div class="win" role="img" aria-label="Example release gate with approvers and the trace chain">
+      <div class="win-h"><div><b>Release 2.4 · Bank release</b><small>GO / NO-GO · EXAMPLE</small></div><span class="tag t-amber">CAB Thursday</span></div>
+      <div class="wb"><div class="chain"><span>REQ</span><i></i><span>TEST</span><i></i><span>RUN</span><i></i><span>DEFECT</span><i></i><span>GATE</span><i></i><span>SIGN</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center"><span class="tag t-blue">Business ✓</span><span class="tag t-blue">QA ✓</span><span class="tag t-blue">Security ✓</span><span class="stamp" style="margin-left:auto">GO</span></div></div>
+      <div class="r"><div>Checks met<small>1 waiver with a reason</small></div><b>6 of 6</b></div>
+      <div class="r"><div>Evidence Pack<small>signed · tamper-evident</small></div><span class="tag t-green">Ready</span></div>
+    </div>
+  </div>
+  <p class="up-how">The Release Manager measures each gate, assembles the Evidence Pack and asks your named approvers to sign. With release management on, calendar, environments and change records sync with CAB. Waivers stay visible.</p>
+  <div class="who"><span class="av a-rm">RM</span><span class="av a-pe">PE</span><span class="av a-vr">VR</span><span class="tag t-gray">Release management add-on</span><span class="tag t-gray">ServiceNow change</span></div>
+  <div class="up-out"><span>Trace from requirement to signature</span><span>Tamper-evident Evidence Pack</span><span>Performance, security, accessibility in the gate</span></div>
+</div>
+
+<div class="up" data-i="14" role="tabpanel">
+  <div class="up-top"><span class="tag t-amber">Release faster</span><span class="mono">15 · CI/CD</span></div>
+  <h3>Run build verification in CI/CD at 0 AI credits</h3>
+  <p class="up-pb"><i>✕</i>Paying an LLM to click through every commit is slow and costly, and flaky scripts erode trust.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">0</b><small>AI credits per routine run</small><div class="up-k2"><b>&lt; 30 min</b>build to gate result</div></div>
+    <div class="win" role="img" aria-label="Example pipeline with impact tests and an intelligence ledger at 0 AI credits">
+      <div class="win-h"><div><b>Build 2.4.7 · pipeline</b><small>INTELLIGENCE LEDGER · EXAMPLE</small></div><span class="tag t-green">0 credits</span></div>
+      <div class="wb"><div class="pps"><span>Build</span><span>Impact · 318 tests</span><span>Run</span><span>Gate ✓</span></div>
+        <div class="bl"><span>Engines</span><span class="bar"><i style="width:98%;background:var(--green)"></i></span><span class="num">98%</span></div>
+        <div class="bl"><span>AI</span><span class="bar"><i style="width:2%;background:var(--violet)"></i></span><span class="num">2%</span></div></div>
+      <div class="r"><div>Locators repaired<small>by rules, no AI</small></div><b>4</b></div>
+    </div>
+  </div>
+  <p class="up-how">Passed tests become scripts once; repairs arrive as pull requests. Impact analysis picks tests per build and SecondProof engines run them. AI steps in only for a new kind of failure.</p>
+  <div class="who"><span class="av a-ae">AE</span><span class="av a-te">TE</span><span class="av a-vr">VR</span><span class="tag t-gray">GitHub</span><span class="tag t-gray">GitLab</span><span class="tag t-gray">Jenkins</span></div>
+  <div class="up-out"><span>Build verification every build</span><span>Your SonarQube gate in the same check</span><span>Ledger: engines versus AI</span></div>
+</div>
+
+<div class="up" data-i="15" role="tabpanel">
+  <div class="up-top"><span class="tag t-violet">Governance and audit</span><span class="mono">16 · EXISTING QA TEAM</span></div>
+  <h3>Bring your QA team and tools, then raise the bar</h3>
+  <p class="up-pb"><i>✕</i>Jira, Xray, TestRail, suites in your repository and a release in flight. Rip-and-replace is not an option.</p>
+  <div class="up-g">
+    <div class="up-k"><span class="kp-l">Pilot target</span><b class="up-big">5 days</b><small>to a QA health score</small><div class="up-k2"><b>100%</b>of working suites reused</div></div>
+    <div class="win" role="img" aria-label="Example QA health check with a score of 58 out of 100">
+      <div class="win-h"><div><b>QA health check</b><small>6 OF 8 TOOLS CONNECTED · EXAMPLE</small></div><span class="tag t-amber">58 / 100</span></div>
+      <div class="wb"><div class="bl"><span>Coverage gaps</span><span class="bar"><i style="width:64%;background:var(--red)"></i></span><span class="num">31</span></div>
+        <div class="bl"><span>Dead weight</span><span class="bar"><i style="width:44%;background:var(--amber)"></i></span><span class="num">212</span></div>
+        <div class="bl"><span>Flaky scripts</span><span class="bar"><i style="width:28%;background:var(--violet)"></i></span><span class="num">18</span></div>
+        <div class="bl"><span>Risk hotspots</span><span class="bar"><i style="width:18%;background:var(--blue)"></i></span><span class="num">6</span></div></div>
+    </div>
+  </div>
+  <p class="up-how">Connect your tools read-only. We import stories, cases and defects, run your automation once and explore the live app, then score gaps on a risk heat map. The project joins the release already in progress.</p>
+  <div class="who"><span class="av a-ba">BA</span><span class="av a-td">TD</span><span class="av a-ae">AE</span><span class="tag t-gray">Jira</span><span class="tag t-gray">Xray</span><span class="tag t-gray">Azure DevOps</span></div>
+  <div class="up-out"><span>QA health check in 5 days</span><span>An adoption plan your team owns</span><span>No rewrite of working suites</span></div>
+</div>
+
+          <div class="ux-bar" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </div>
+    <p class="fine">Figures are pilot targets or demo scenarios, never claimed customer results.</p>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="by-role">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">By role</p><h2>Each person sees<br>what they decide.</h2><p>Menus and data follow your role. Leaders read and sign; teams approve and run. Nobody sees money unless they are an admin.</p></div>
+    <div class="rv" id="ro">
+      <div class="sw" role="tablist" aria-label="Roles">
+        <button type="button" role="tab" data-i="0" aria-selected="true"><span class="ri">CIO</span>CIO</button>
+        <button type="button" role="tab" data-i="1" aria-selected="false"><span class="ri">QA</span>Head of QA</button>
+        <button type="button" role="tab" data-i="2" aria-selected="false"><span class="ri">CFO</span>CFO</button>
+        <button type="button" role="tab" data-i="3" aria-selected="false"><span class="ri">RA</span>Risk and audit</button>
+        <button type="button" role="tab" data-i="4" aria-selected="false"><span class="ri">BO</span>Business owner</button>
+        <button type="button" role="tab" data-i="5" aria-selected="false"><span class="ri">PO</span>Platform owner</button>
+      </div>
+      <div class="sw-bar" aria-hidden="true"><i></i></div>
+      <div class="ro">
+        <div class="stk ro-txt" aria-live="polite">
+          <div class="sp on ro-t"><h3>CIO</h3><p>The whole portfolio, one answer per release.</p><ul class="ticks"><li>Go/no-go status across the portfolio</li><li>Vendor scorecards over time</li><li>One platform, from one API to the whole estate</li></ul></div>
+          <div class="sp ro-t"><h3>Head of QA</h3><p>A team of agents that drafts, under your approval.</p><ul class="ticks"><li>8 AI agents, every draft approved by you</li><li>Gap analysis and defect patterns per application</li><li>Build verification and coverage by surface</li></ul></div>
+          <div class="sp ro-t"><h3>CFO</h3><p>Know the cost before any AI acts.</p><ul class="ticks"><li>Credits estimated before any AI action</li><li>The intelligence ledger: engines versus AI</li><li>One licence per application, per line</li></ul></div>
+          <div class="sp ro-t"><h3>Risk and audit</h3><p>Every decision has a name and a reason.</p><ul class="ticks"><li>Every go/no-go with a name and a reason</li><li>Tamper-evident Evidence Packs</li><li>Waivers that stay visible</li></ul></div>
+          <div class="sp ro-t"><h3>Business owner</h3><p>Sign from evidence, in your own words.</p><ul class="ticks"><li>Requirements in your own template</li><li>UAT in plain words</li><li>Sign the go/no-go from evidence</li></ul></div>
+          <div class="sp ro-t"><h3>Platform owner</h3><p>Each update, only what changed.</p><ul class="ticks"><li>Change impact for each update</li><li>Roles and access re-checked every time</li><li>Your ATF and task recordings kept</li></ul></div>
+        </div>
+        <div class="app" role="img" aria-label="Example SecondProof screen showing the menus and data for the selected role">
+          <div class="app-h"><i></i><i></i><i></i><span id="roUrl">secondproof / portfolio</span><b id="roBadge">CIO</b></div>
+          <div class="app-b">
+            <div class="app-nav">
+              <div class="lgo"><i></i>SecondProof</div>
+              <div class="stk">
+                <div class="sp on"><a class="on">Portfolio</a><a>Vendors</a><a>Go / No-go</a></div>
+                <div class="sp"><a class="on">Gap analysis</a><a>Defects</a><a>Gates</a></div>
+                <div class="sp"><a class="on">Credits</a><a>Ledger</a><a>Licences</a></div>
+                <div class="sp"><a class="on">Compliance</a><a>Audit log</a><a>Evidence</a></div>
+                <div class="sp"><a class="on">Requirements</a><a>UAT</a><a>Go / No-go</a></div>
+                <div class="sp"><a class="on">Packs</a><a>Change impact</a><a>Pack runs</a></div>
+              </div>
+              <span class="lk" id="roLock">🔒 Money · admins only</span>
+            </div>
+            <div class="app-m stk">
+              <div class="sp on"><h5>Portfolio · this week</h5>
+                <div class="ln"><div>Mobile Banking 8.4<small>3 of 3 signed</small></div><span class="tag t-green">Go</span></div>
+                <div class="ln"><div>Onboarding app<small>built with AI · 17 gaps</small></div><span class="tag t-red">No-go</span></div>
+                <div class="ln"><div>Vendor release 3.2<small>go after 3 fixes</small></div><span class="tag t-amber">Conditional</span></div>
+                <h5>Vendor score · 3 releases</h5>
+                <div class="bl"><span>Vendor A</span><span class="bar"><i style="width:93%;background:var(--green)"></i></span><span class="num">93</span></div>
+                <div class="bl"><span>Vendor B</span><span class="bar"><i style="width:71%;background:var(--amber)"></i></span><span class="num">71</span></div>
+              </div>
+              <div class="sp"><h5>Onboarding app · gap analysis</h5>
+                <div class="gst" aria-hidden="true"><i style="flex:31;background:var(--green)"></i><i style="flex:6;background:var(--red)"></i><i style="flex:5;background:var(--amber)"></i><i style="flex:6;background:var(--violet)"></i></div>
+                <span class="mono">48 REQUIREMENTS · 31 MEET · 17 GAPS</span>
+                <h5>Defect patterns</h5>
+                <div class="bl"><span>Integrations</span><span class="bar"><i style="width:72%;background:var(--red)"></i></span><span class="num">72</span></div>
+                <div class="bl"><span>Role access</span><span class="bar"><i style="width:38%;background:var(--amber)"></i></span><span class="num">38</span></div>
+                <div class="ln"><div>Build 2.4.9<small>verified on SecondProof engines</small></div><span class="tag t-green">Passed</span></div>
+                <div class="ln"><div>Test Designer · 128 cases<small>waiting for you</small></div><span class="tag t-amber">Approve</span></div>
+              </div>
+              <div class="sp"><h5>Before the run</h5>
+                <div class="kpi"><b>42</b><span>credits estimated · approve?</span></div>
+                <h5>Intelligence ledger · this month</h5>
+                <div class="bl"><span>Engines</span><span class="bar"><i style="width:98%;background:var(--green)"></i></span><span class="num">98%</span></div>
+                <div class="bl"><span>AI</span><span class="bar"><i style="width:2%;background:var(--violet)"></i></span><span class="num">2%</span></div>
+                <div class="ln"><div>Re-runs<small>scripts on engines</small></div><span class="tag t-green">0 credits</span></div>
+                <div class="ln"><div>Licences<small>per application, per line</small></div><b>Apps · Data</b></div>
+              </div>
+              <div class="sp"><h5>Audit log · Release 2.4</h5>
+                <div class="ln"><div>Go signed · Business owner<small>“All critical defects fixed”</small></div><span class="tag t-green">Signed</span></div>
+                <div class="ln"><div>Waiver W-3 · accessibility<small>reason recorded, visible to all</small></div><span class="tag t-amber">Waiver</span></div>
+                <div class="ln"><div>Evidence Pack<small>tamper-evident · verifiable</small></div><span class="tag t-blue">Verified</span></div>
+                <div class="chain"><span>REQ</span><i></i><span>TEST</span><i></i><span>RUN</span><i></i><span>GATE</span><i></i><span>SIGN</span></div>
+              </div>
+              <div class="sp"><h5>Your release · Savings account</h5>
+                <div class="ln"><div>REQ-041 · in your template<small>approved by you</small></div><span class="tag t-blue">Approved</span></div>
+                <div class="ln"><div>UAT-118 · step 3<small>Emirates ID upload</small></div><span class="tag t-green">Passed</span></div>
+                <div class="ln"><div>Evidence Pack<small>6 of 6 checks met</small></div><span class="tag t-green">Ready</span></div>
+                <div style="display:flex;align-items:center;gap:16px;margin-top:6px"><span class="sbtn">Sign go/no-go</span><span class="stamp">GO</span></div>
+              </div>
+              <div class="sp"><h5>SAP · FPS03 change impact</h5>
+                <div class="kpi"><b class="grad">212</b><span>of 1,180 tests to run</span></div>
+                <div class="bl"><span>Order to cash</span><span class="bar"><i style="width:74%;background:var(--blue)"></i></span><span class="num">74</span></div>
+                <div class="ln"><div>Roles and access<small>re-checked after the update</small></div><span class="tag t-green">0 new issues</span></div>
+                <div class="ln"><div>Your ATF and task recordings<small>kept, run as they are</small></div><span class="tag t-blue">Kept</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec" id="by-industry">
+  <div class="wrap">
+    <div class="in-head">
+      <div class="m-head rv"><p class="eyebrow">By industry</p><h2>Regulated. Bilingual.<br>Platform-heavy.</h2><p>We start with design partners in the GCC.</p></div>
+      <div class="m-chips rv"><span>Arabic and English</span><span>Data residency</span><span>Regulators</span></div>
+    </div>
+    <div class="rv" id="in">
+      <div class="sw" role="tablist" aria-label="Industries">
+        <button type="button" role="tab" data-i="0" aria-selected="true"><span class="ri">BK</span>Banking</button>
+        <button type="button" role="tab" data-i="1" aria-selected="false"><span class="ri">GV</span>Government</button>
+        <button type="button" role="tab" data-i="2" aria-selected="false"><span class="ri">TC</span>Telecom</button>
+        <button type="button" role="tab" data-i="3" aria-selected="false"><span class="ri">RT</span>Retail</button>
+        <button type="button" role="tab" data-i="4" aria-selected="false"><span class="ri">HC</span>Healthcare</button>
+        <button type="button" role="tab" data-i="5" aria-selected="false"><span class="ri">EN</span>Energy</button>
+      </div>
+      <div class="sw-bar" aria-hidden="true" style="margin:16px 0 0"><i></i></div>
+      <div class="in-stage">
+        <span class="in-word" id="inWord" aria-hidden="true">Banking</span>
+        <div class="stk" aria-live="polite">
+          <div class="sp on in-p" data-w="Banking"><div class="in-n"><b>200+</b><small>issues found by hand in an app built with AI</small></div><div class="in-t"><span class="tg">Banking</span><h3>Core and channels</h3><div class="m-chips"><span>Apps built with AI</span><span>Teller and branch clients</span><span>Core migrations</span><span>AI assistants</span></div><a class="more" href="#uc-aibuilt">Apps built with AI →</a></div></div>
+          <div class="sp in-p" data-w="Government"><div class="in-n"><b>100%</b><small>of contract items traced · pilot target</small></div><div class="in-t"><span class="tg">Government</span><h3>Digital services</h3><div class="m-chips"><span>Vendor acceptance</span><span>National-ID sign-ins handed to people</span><span>Bilingual portals</span></div><a class="more" href="#uc-vendor">Vendor acceptance →</a></div></div>
+          <div class="sp in-p" data-w="Telecom"><div class="in-n"><b>&lt; 30 min</b><small>build to gate result · pilot target</small></div><div class="in-t"><span class="tg">Telecom</span><h3>BSS and apps</h3><div class="m-chips"><span>API estates</span><span>Self-care apps</span><span>High-volume performance gates</span></div><a class="more" href="#uc-cicd">Build verification in CI/CD →</a></div></div>
+          <div class="sp in-p" data-w="Retail"><div class="in-n"><b>1</b><small>evidence trail across web, mobile and ERP</small></div><div class="in-t"><span class="tg">Retail</span><h3>Commerce</h3><div class="m-chips"><span>Checkout journeys</span><span>Web, mobile and ERP</span><span>One evidence trail</span></div><a class="more" href="#uc-mobile">Mobile releases →</a></div></div>
+          <div class="sp in-p" data-w="Healthcare"><div class="in-n"><b>0</b><small>real personal values in UAT · pilot target</small></div><div class="in-t"><span class="tg">Healthcare</span><h3>Patient systems</h3><div class="m-chips"><span>Masked test data</span><span>Audit trails</span><span>UAT with clinical staff</span></div><a class="more" href="#uc-uat">UAT in plain words →</a></div></div>
+          <div class="sp in-p" data-w="Energy"><div class="in-n"><b>70–80%</b><small>less re-testing per SAP package · pilot target</small></div><div class="in-t"><span class="tg">Energy and utilities</span><h3>Utilities and ERP</h3><div class="m-chips"><span>SAP and Oracle updates</span><span>Thick-client tools</span><span>Citrix back office</span></div><a class="more" href="#uc-sap">SAP support packages →</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="pilots">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">Start small</p><h2>Pick a pilot.</h2><p>Fixed scope, targets agreed up front.</p></div>
+    <div class="m-list stg">
+      <a class="m-row" href="value.html#contact"><span class="m-k">01</span><b>AI Build Assurance</b><span class="m-d">5 days on any app built with AI</span><span class="m-go">→</span></a>
+      <a class="m-row" href="value.html#product-assurance"><span class="m-k">02</span><b>Product Assurance</b><span class="m-d">10-day product memory baseline</span><span class="m-go">→</span></a>
+      <a class="m-row" href="value.html#contact"><span class="m-k">03</span><b>Release Assure</b><span class="m-d">Regression and a signed go/no-go</span><span class="m-go">→</span></a>
+      <a class="m-row" href="value.html#contact"><span class="m-k">04</span><b>API Assure</b><span class="m-d">Contracts for one API estate</span><span class="m-go">→</span></a>
+      <a class="m-row" href="value.html#contact"><span class="m-k">05</span><b>Migration Assure</b><span class="m-d">Reconciliation for one migration</span><span class="m-go">→</span></a>
+      <a class="m-row" href="value.html#contact"><span class="m-k">06</span><b>AI Assure</b><span class="m-d">Evaluation and red-team report</span><span class="m-go">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="m-cta">
+  <div class="wrap rv"><h2>Bring one app.<br><span class="grad">Leave with a signed go/no-go.</span></h2><p>Targets agreed up front. Your people approve. You keep the Evidence Pack.</p><div class="acts"><a class="btn primary" href="value.html#contact">Book a pilot <span class="arr">→</span></a><a class="btn ghost" href="products.html">See the product lines</a></div></div>
+</section>
+
+<footer id="vf-footer"></footer>
+<script>
+(function(){
+var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $$=function(r,s){return [].slice.call(r.querySelectorAll(s));};
+function seen(el,cb){if(!('IntersectionObserver' in window)){cb(true);return;}new IntersectionObserver(function(e){cb(e[0].isIntersecting);},{threshold:.15}).observe(el);}
+
+/* hero: count to 200+, issues tick in as it climbs */
+var hc=document.getElementById('hc');if(hc){var N=document.getElementById('hcN'),items=$$(hc,'.hc-cols li'),done=false;
+ if(red){items.forEach(function(l){l.classList.add('on');});}
+ else{N.textContent='0';var run=function(){if(done)return;done=true;var s=performance.now(),D=2400;
+  (function st(n){var p=Math.min(1,(n-s)/D),e=1-Math.pow(1-p,2.2);N.textContent=Math.round(200*e)+(p>=1?'+':'');var k=Math.floor(e*items.length+.05);items.forEach(function(l,j){l.classList.toggle('on',j<k);});if(p<1)requestAnimationFrame(st);})(s);};
+  seen(hc,function(v){if(v)setTimeout(run,350);});}}
+
+/* generic cycler: switcher buttons + stacked panels, progress bar, pause on hover / off-screen */
+function cyc(o){var i=0,t0=Date.now(),hold=false,vis=true,stop=false;
+ function avail(){return o.btns.filter(function(b){return !o.ok||o.ok(b);});}
+ function show(n,user){i=n;o.btns.forEach(function(b,k){b.setAttribute('aria-selected',k===n?'true':'false');});o.panels.forEach(function(p,k){p.classList.toggle('on',k===n);});if(o.extra)o.extra.forEach(function(g){g.forEach(function(p,k){p.classList.toggle('on',k===n);});});if(o.on)o.on(n,user);t0=Date.now();if(o.bar)o.bar.style.width='0';}
+ o.btns.forEach(function(b,k){b.addEventListener('click',function(){show(k,true);});});
+ o.root.addEventListener('mouseenter',function(){hold=true;});o.root.addEventListener('mouseleave',function(){hold=false;t0=Date.now();});
+ o.root.addEventListener('focusin',function(){hold=true;});o.root.addEventListener('focusout',function(){hold=false;t0=Date.now();});
+ seen(o.root,function(v){vis=v;if(v)t0=Date.now();});
+ if(!red)setInterval(function(){if(stop||hold||!vis||document.hidden||(o.auto&&!o.auto()))return;var p=(Date.now()-t0)/o.D;if(o.bar)o.bar.style.width=Math.min(100,p*100)+'%';if(p>=1){var a=avail();if(!a.length)return;var pos=a.indexOf(o.btns[i]);show(o.btns.indexOf(a[(pos+1)%a.length]));}},60);
+ return {show:show,cur:function(){return i;},stop:function(){stop=true;if(o.bar)o.bar.style.width='0';}};}
+
+/* use-case explorer */
+var ux=document.getElementById('ux');
+if(ux){var lis=$$(ux,'.ux-l li'),btns=lis.map(function(l){return l.querySelector('button');}),strip=ux.querySelector('.ux-l');
+ var narrow=function(){return window.innerWidth<=900;};
+ var C=cyc({root:ux,btns:btns,panels:$$(ux,'.up'),D:4200,bar:ux.querySelector('.ux-bar i'),ok:function(b){return !b.parentNode.hidden;},auto:function(){return !narrow();},
+  on:function(n){if(narrow()){var b=btns[n];strip.scrollTo({left:b.offsetLeft-strip.offsetLeft-8,behavior:red?'auto':'smooth'});}}});
+ /* filter: keep the current case if still visible, else take the first visible */
+ $$(document.querySelector('#cases [data-tabs]'),'[data-tab]').forEach(function(t){t.addEventListener('click',function(){setTimeout(function(){if(lis[C.cur()].hidden){for(var k=0;k<lis.length;k++)if(!lis[k].hidden){C.show(k);break;}}},0);});});
+ /* deep links: #uc-* selects that case and brings the explorer into view */
+ var deep=function(){var h=(location.hash||'').slice(1);var k=lis.map(function(l){return l.id;}).indexOf(h);if(k<0)return;C.show(k);C.stop();
+  setTimeout(function(){var y=ux.getBoundingClientRect().top+window.scrollY-110;window.scrollTo({top:y,behavior:'instant'});},160);};
+ window.addEventListener('hashchange',deep);window.addEventListener('load',deep);}
+
+/* by role */
+var ro=document.getElementById('ro');
+if(ro){var url=document.getElementById('roUrl'),bdg=document.getElementById('roBadge'),lk=document.getElementById('roLock');
+ var U=['portfolio','gap-analysis','credits','compliance','requirements','packs'],B=['CIO','Head of QA','CFO','Risk and audit','Business owner','Platform owner'];
+ cyc({root:ro,btns:$$(ro,'.sw button'),panels:$$(ro,'.ro-txt>.sp'),extra:[$$(ro,'.app-nav .stk>.sp'),$$(ro,'.app-m>.sp')],D:3800,bar:ro.querySelector('.sw-bar i'),
+  on:function(n){url.textContent='secondproof / '+U[n];bdg.textContent=B[n];lk.style.visibility=n===2?'hidden':'visible';}});}
+
+/* by industry */
+var ind=document.getElementById('in');
+if(ind){var w=document.getElementById('inWord'),ps=$$(ind,'.in-p');
+ cyc({root:ind,btns:$$(ind,'.sw button'),panels:ps,D:3600,bar:ind.querySelector('.sw-bar i'),
+  on:function(n){w.style.opacity=0;setTimeout(function(){w.textContent=ps[n].getAttribute('data-w');w.style.opacity=1;},red?0:200);}});}
+})();
+</script>
+<script src="config.js"></script>
+<script src="logos.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
