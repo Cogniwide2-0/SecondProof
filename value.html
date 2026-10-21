@@ -267,12 +267,17 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
 @media (max-width:860px){.of-path.m-steps{grid-template-columns:1fr}}
 .of-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:72px;padding-top:40px;border-top:1px solid var(--line)}
 .of-top h3{font:800 clamp(26px,2.8vw,36px)/1.05 var(--display);letter-spacing:-.03em}
-.of-sw{position:relative;display:inline-grid;grid-template-columns:1fr 1fr;padding:5px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
+.of-sw{position:relative;display:inline-grid;grid-template-columns:1fr 1fr 1fr;padding:5px;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--wsh),.03)}
 .of-sw button{position:relative;z-index:1;border:0;background:none;font:600 14.5px var(--body);color:var(--ink2);padding:10px 18px;border-radius:999px;cursor:pointer;transition:color .3s;white-space:nowrap}
 .of-sw button small{font:500 11px var(--mono);opacity:.8;margin-left:6px}
 .of-sw button[aria-pressed="true"]{color:#fff}
-.of-sw i{position:absolute;top:5px;bottom:5px;left:5px;width:calc(50% - 5px);border-radius:999px;background:linear-gradient(90deg,#C46A12,#E0702C);transition:transform .5s cubic-bezier(.65,0,.25,1),background .5s}
+.of-sw i{position:absolute;top:5px;bottom:5px;left:5px;width:calc((100% - 10px) / 3);border-radius:999px;background:linear-gradient(90deg,#C46A12,#E0702C);transition:transform .5s cubic-bezier(.65,0,.25,1),background .5s}
 .of.b .of-sw i{transform:translateX(100%);background:linear-gradient(90deg,#2E6BEA,#16824F)}
+.of.c .of-sw i{transform:translateX(200%);background:linear-gradient(90deg,#7C5CF0,#C46A12)}
+.of-p.ia .proof{border-left-color:var(--violet)}
+.of-p.ia .of-d::before{background:linear-gradient(180deg,var(--violet),var(--amber))}
+.t-int{background:linear-gradient(90deg,rgba(169,139,255,.18),rgba(245,166,91,.16));color:var(--tx-violet)}
+.of-sw .x{display:inline}
 .of-in{display:grid;margin-top:36px}
 .of-p{grid-area:1/1;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start;transition:opacity .45s ease,transform .55s cubic-bezier(.2,.7,.2,1),filter .45s,visibility 0s .5s;scroll-margin-top:90px}
 .of-p.off{opacity:0;transform:translateY(14px);filter:blur(4px);visibility:hidden;pointer-events:none}
@@ -305,7 +310,7 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
 .of-more .m-row b{font-size:20px}
 .of-more .m-go{font-size:12px!important}
 @media (max-width:960px){.of-p{grid-template-columns:1fr;gap:32px}}
-@media (max-width:560px){.of-sw{grid-template-columns:1fr 1fr;width:100%}.of-sw button{padding:10px 8px;font-size:13.5px}.of-sw button small{display:none}.of-d li{grid-template-columns:1fr;gap:2px}}
+@media (max-width:560px){.of-sw{grid-template-columns:1fr 1fr 1fr;width:100%}.of-sw button{padding:10px 6px;font-size:13.5px}.of-sw button small{display:none}.of-sw .x{display:none}.of-d li{grid-template-columns:1fr;gap:2px}}
 
 /* pilot */
 .pi-br{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:center;margin-bottom:48px}
@@ -370,6 +375,7 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
 .pf-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:24px}
 #pfStatus{font-size:14.5px;color:var(--ink2)}#pfStatus.pf-ok{color:var(--green)}#pfStatus.pf-err{color:var(--amber)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.pf-grid label{min-width:0}.pf-grid input:not([type=checkbox]),.pf-grid select,.pf-grid textarea{width:100%}
 @media (max-width:680px){.pf-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -525,7 +531,7 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
       <li class="end"><i></i><span class="k">Step 3 · Licence</span><b>Platform licence</b><small>Your team runs it day to day, with the agents, packs and add-ons you need.</small><span class="dur">Team, Growth or Enterprise</span></li>
     </ol>
     <div class="of rv" id="of">
-      <div class="of-top"><h3>Two outcome offers.</h3><div class="of-sw" role="group" aria-label="Choose an offer"><button type="button" data-v="a" aria-pressed="true">AI Build Assurance<small>5 days</small></button><button type="button" data-v="b" aria-pressed="false">Product Assurance<small>10 days</small></button><i aria-hidden="true"></i></div></div>
+      <div class="of-top"><h3>Three outcome offers.</h3><div class="of-sw" role="group" aria-label="Choose an offer"><button type="button" data-v="a" aria-pressed="true">AI Build<span class="x"> Assurance</span><small>5 days</small></button><button type="button" data-v="b" aria-pressed="false">Product<span class="x"> Assurance</span><small>10 days</small></button><button type="button" data-v="c" aria-pressed="false">Integration<span class="x"> Assurance</span><small>10 days</small></button><i aria-hidden="true"></i></div></div>
       <div class="of-in">
         <div class="of-p" id="aiba">
           <div class="of-l"><span class="tag t-amber">New · featured entry offer</span><h3>AI Build Assurance</h3><p>Five days on any app built with AI. We test the running app and its integrations, never your code.</p><p class="proof">Why it exists: an AI-built app passed its own checks. Our testers found <b>200+ issues</b> by hand.</p><div class="acts"><a class="btn primary" href="#pilot">Book AI Build Assurance <span class="arr">→</span></a></div></div>
@@ -545,6 +551,16 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
             <li><span>Days 6–7</span><div><b>Documentation check</b><small>Each doc against the running product.</small><div class="ch"><i>Matches</i><i>Out of date</i><i>Undocumented</i><i>Missing from product</i></div></div></li>
             <li><span>Days 8–9</span><div><b>Regression memory</b><small>Delivered features proven on the current build. Untested for 3+ releases: flagged.</small></div></li>
             <li><span>Day 10</span><div><b>Readiness for the next release</b><small>Test readiness per planned feature and a go/no-go your people sign.</small></div></li>
+          </ol>
+        </div>
+        <div class="of-p ia off" id="integration-assurance">
+          <div class="of-l"><span class="tag t-int">New · for flows that cross systems</span><h3>Integration Assurance</h3><p>10 days. Your key business flows across your systems: integration map, flows for the critical links, every hop proven, late syncs measured, a signed go/no-go.</p><p class="proof">For flows that cross a core system, a CRM, a partner or a nightly job. Payouts, claims, lab results, account opening.</p><div class="acts"><a class="btn primary" href="#pilot">Book Integration Assurance <span class="arr">→</span></a><a class="btn ghost" href="platform.html#flows">About end-to-end flows</a></div></div>
+          <ol class="of-d" aria-label="What you get in 10 days">
+            <li><span>Days 1–2</span><div><b>Integration map</b><small>Systems, links and expected timings, stated or assumed. Approved by your owners.</small></div></li>
+            <li><span>Days 3–4</span><div><b>Flows for the critical links</b><small>Main path plus failure paths: timeout, retry, duplicate, partial update.</small></div></li>
+            <li><span>Days 5–7</span><div><b>Every hop proven</b><small>Runs in your test environments. Waits park and resume on their own.</small><div class="ch"><i>On time</i><i>Late</i><i>Not arrived</i><i>Arrived wrong</i><i>Arrived twice</i></div></div></li>
+            <li><span>Days 8–9</span><div><b>Late syncs measured</b><small>Average and slowest time per link, against the target. Defects with the hop timeline.</small></div></li>
+            <li><span>Day 10</span><div><b>Signed go/no-go</b><small>A timing gate per critical link. Your approvers decide, Evidence Pack in hand.</small></div></li>
           </ol>
         </div>
       </div>
@@ -680,10 +696,10 @@ input[type=range]:focus-visible{outline:2px solid var(--blue2);outline-offset:4p
       setInterval(function(){if(!cvis||document.hidden)return;if(k>=N){if(++wait>4){wait=0;k=0;paint(0);}return;}k++;paint(k);},750);}}
 
   /* offers switch + day cycle */
-  var of=$('of');if(of){var ob=[].slice.call(of.querySelectorAll('.of-sw button')),pA=$('aiba'),pB=$('product-assurance');
-    function setO(v){of.classList.toggle('b',v==='b');pA.classList.toggle('off',v==='b');pB.classList.toggle('off',v!=='b');ob.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});}
+  var of=$('of');if(of){var ob=[].slice.call(of.querySelectorAll('.of-sw button')),pA=$('aiba'),pB=$('product-assurance'),pC=$('integration-assurance');
+    function setO(v){of.classList.toggle('b',v==='b');of.classList.toggle('c',v==='c');pA.classList.toggle('off',v!=='a');pB.classList.toggle('off',v!=='b');pC.classList.toggle('off',v!=='c');ob.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-v')===v?'true':'false');});}
     ob.forEach(function(b){b.addEventListener('click',function(){setO(b.getAttribute('data-v'));});});
-    function fromHash(){if(location.hash==='#product-assurance')setO('b');else if(location.hash==='#aiba')setO('a');}
+    function fromHash(){if(location.hash==='#product-assurance')setO('b');else if(location.hash==='#integration-assurance')setO('c');else if(location.hash==='#aiba')setO('a');}
     fromHash();window.addEventListener('hashchange',fromHash);
     var lists=[].slice.call(of.querySelectorAll('.of-d'));
     var oc=cycler(of,5,function(n){lists.forEach(function(l){[].slice.call(l.children).forEach(function(li,j){li.classList.toggle('on',j===n);});});},null,2600);

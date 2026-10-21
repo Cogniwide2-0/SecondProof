@@ -342,6 +342,87 @@ pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;lin
 .mono{font-family:var(--mono);font-size:11.5px;color:var(--ink3)}
 @media (max-width:960px){.op{grid-template-columns:1fr;gap:36px}}
 
+/* v84 · end-to-end flows: integration map + flow designer */
+.fd-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.imap{border:1px solid var(--line2);border-radius:22px;background:radial-gradient(70% 80% at 100% 0%,rgba(124,92,240,.14),transparent 60%),linear-gradient(180deg,rgba(var(--s2),.6),rgba(var(--s1),.5));padding:18px 18px 14px;min-width:0}
+.imap-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.imap-h .mono{letter-spacing:.08em;text-transform:uppercase}
+.cov{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--ink2)}
+.cov span{display:inline-flex;align-items:center;gap:6px}
+.cov i{width:16px;height:0;border-top:2.5px solid var(--green);display:inline-block}
+.cov i.r{border-top-color:var(--red)}.cov i.d{border-top:2.5px dashed var(--ink3)}
+.imap svg{display:block;width:100%;height:auto;overflow:visible}
+.imap .nd rect{fill:var(--surface);stroke:var(--line2);stroke-width:1.2}
+.imap .nd text{fill:var(--ink);font:700 12.5px var(--display)}
+.imap .nd text.s{fill:var(--ink3);font:500 9.5px var(--mono);letter-spacing:.06em}
+.imap .lk{cursor:pointer;outline:none}
+.imap .lk .hit{stroke:transparent;stroke-width:14;fill:none}
+.imap .lk .ln{fill:none;stroke-width:2.2;transition:stroke-width .3s,opacity .3s;opacity:.75}
+.imap .lk[data-c="g"] .ln{stroke:var(--green)}.imap .lk[data-c="r"] .ln{stroke:var(--red)}.imap .lk[data-c="d"] .ln{stroke:var(--ink3);stroke-dasharray:5 5}
+.imap .lk.on .ln,.imap .lk:hover .ln,.imap .lk:focus-visible .ln{stroke-width:3.6;opacity:1}
+.imap .lk .pkt{opacity:0}
+.imap .lk.on .pkt{opacity:1}
+.imap-cap{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--ink2);min-height:52px}
+.imap-cap b{color:var(--ink);font-family:var(--display)}
+.imap-cap .tag{height:24px}
+.fd-pts{display:grid}
+.fd-pts>div{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:12px;padding:20px 0;border-top:1px solid var(--line)}
+.fd-pts>div:last-child{border-bottom:1px solid var(--line)}
+.fd-pts .m-n{grid-row:1/3;padding-top:5px}
+.fd-pts b{font:700 21px var(--display);letter-spacing:-.02em}
+.fd-pts small{grid-column:2;color:var(--ink2);font-size:15.5px}
+.fd{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:48px;align-items:stretch;margin-top:84px}
+.fd-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;min-width:0}
+.fd-l .mlab{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding-bottom:12px}
+.fd-l button{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:14px;align-items:center;padding:11px 0;border-top:1px solid var(--line);transition:padding .3s}
+.fd-l li:last-child button{border-bottom:1px solid var(--line)}
+.fd-l button:focus-visible{outline:2px solid var(--blue2);outline-offset:2px;border-radius:8px}
+.fd-l button b{font:700 clamp(18px,1.6vw,21px)/1.15 var(--display);letter-spacing:-.02em;color:var(--ink3);transition:color .3s}
+.fd-l button small{grid-column:2;font-size:13.5px;color:var(--ink3);line-height:1.35}
+.fd-l button[aria-selected="true"]{padding-left:10px}
+.fd-l button[aria-selected="true"] b{color:var(--ink)}
+.fd-l button[aria-selected="true"] small{color:var(--ink2)}
+.fd-l button:hover b{color:var(--ink2)}
+.bk{grid-row:1/3;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--line2);color:var(--k);background:rgba(var(--kr),.08);transition:background .3s,color .3s,box-shadow .3s}
+.bk svg{width:19px;height:19px}
+[data-k="do"]{--k:var(--tx-blue);--kr:76,141,255}[data-k="wait"]{--k:var(--tx-amber);--kr:245,166,91}[data-k="check"]{--k:var(--tx-green);--kr:95,211,154}[data-k="cmp"]{--k:var(--tx-violet);--kr:169,139,255}[data-k="person"]{--k:var(--tx-blue2);--kr:143,182,255}[data-k="if"]{--k:var(--tx-red);--kr:255,122,127}
+.fd-l button[aria-selected="true"] .bk{background:rgba(var(--kr),.22);border-color:rgba(var(--kr),.6);box-shadow:0 0 22px rgba(var(--kr),.3)}
+.fd-r{position:relative;display:grid;border-radius:28px;border:1px solid var(--line2);padding:32px 34px 36px;background:radial-gradient(80% 70% at 100% 0%,rgba(124,92,240,.18),transparent 60%),radial-gradient(70% 80% at 0% 100%,rgba(46,107,234,.18),transparent 60%),var(--surface);overflow:hidden;min-width:0}
+.fd-p{grid-area:1/1;display:flex;flex-direction:column;gap:14px;min-width:0;opacity:0;visibility:hidden;transform:translateX(20px);transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+.fd-p.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s}
+.fd-p .fd-k{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--k)}
+.fd-p h3{font:800 clamp(30px,3.2vw,44px)/1 var(--display);letter-spacing:-.035em}
+.fd-p>p{font-size:clamp(16px,1.4vw,18px);color:var(--ink2);max-width:520px}
+.fd-ex{border:1px solid var(--line2);border-radius:16px;background:rgba(var(--s1),.7);overflow:hidden;margin-top:4px}
+.fd-ex-h{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font:500 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.fd-ex-h b{color:var(--k);font-weight:500}
+.fd-ex dl{margin:0;display:grid;grid-template-columns:minmax(96px,.42fr) minmax(0,1fr)}
+.fd-ex dt,.fd-ex dd{margin:0;padding:9px 14px;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.35}
+.fd-ex dt{color:var(--ink3)}
+.fd-ex dd{color:var(--ink);font-family:var(--mono);font-size:12.5px;min-width:0;overflow-wrap:anywhere}
+.fd-ex dl>*:nth-last-child(-n+2){border-bottom:0}
+.wm{display:flex;flex-wrap:wrap;gap:6px}
+.wm button{border:1px solid var(--line2);background:rgba(var(--wsh),.03);color:var(--ink2);font:600 13px var(--body);padding:7px 12px;border-radius:999px;cursor:pointer;transition:all .25s}
+.wm button:hover{color:var(--ink);border-color:rgba(245,166,91,.6)}
+.wm button[aria-pressed="true"]{background:rgba(245,166,91,.18);border-color:rgba(245,166,91,.7);color:var(--tx-amber)}
+.wm-p{display:none}.wm-p.on{display:grid}
+.fd-note{font-size:13.5px;color:var(--ink2);padding-left:12px;border-left:2px solid rgba(var(--kr),.55)}
+.fd-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(var(--wsh),.06)}
+.fd-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--violet),var(--amber))}
+.fd-any{margin-top:84px}
+.fd-any>.mlab{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.fd-any .m-cols{margin-top:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.fd-any .m-chips{margin-top:8px}
+.fd-any .m-chips span{font-size:12.5px;padding:5px 10px}
+.fd-any .m-chips.a span{background:rgba(245,166,91,.13);color:var(--tx-amber)}
+.fd-any .m-chips.g span{background:rgba(95,211,154,.12);color:var(--tx-green)}
+@media (max-width:1020px){.fd-top{grid-template-columns:1fr;gap:36px}.fd{grid-template-columns:1fr;gap:28px;margin-top:64px}.fd-any .m-cols{grid-template-columns:1fr;row-gap:28px}.fd-any .m-cols>div{border-left:0;padding-left:0}}
+@media (max-width:560px){.fd-r{padding:24px 18px 28px;border-radius:22px}.fd-ex dl{grid-template-columns:1fr}.fd-ex dt{border-bottom:0;padding-bottom:0;font-size:12px}.imap{padding:14px 10px 12px}.imap .nd text{font-size:14px}.imap .nd text.s{font-size:11px}.fd-l button small{display:none}}
+.imap .lk .fl{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-dasharray:.1 18;opacity:0}
+.imap .lk[data-c="g"] .fl{stroke:var(--tx-green)}.imap .lk[data-c="r"] .fl{stroke:var(--tx-red)}
+@media (prefers-reduced-motion:no-preference){.imap .lk[data-c="g"] .fl,.imap .lk[data-c="r"] .fl{opacity:.95;animation:imf 1.2s linear infinite}@keyframes imf{to{stroke-dashoffset:-18.1}}}
+@media (max-width:560px){.fd-l{flex-direction:row;flex-wrap:wrap;gap:6px}.fd-l .mlab{width:100%;padding-bottom:4px}.fd-l button,.fd-l li:last-child button{width:auto;display:flex;gap:8px;padding:5px 12px 5px 5px;border:1px solid var(--line2);border-radius:999px}.fd-l button[aria-selected="true"]{padding-left:5px;border-color:rgba(var(--kr),.6);background:rgba(var(--kr),.1)}.fd-l .bk{width:28px;height:28px;border-radius:999px}.fd-l .bk svg{width:15px;height:15px}.fd-l button b{font-size:15px}}
+
 @media (prefers-reduced-motion:reduce){.pf *,.pf *::before,.pf *::after{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -461,7 +542,52 @@ pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;lin
   </div>
 </section>
 
-<section class="m-sec" id="trace">
+<section class="m-sec" id="flows">
+  <div class="wrap">
+    <div class="m-head rv"><p class="eyebrow">End-to-end flows</p><h2>Map the systems.<br>Prove every hop.</h2><p>One business flow across any number of systems, including the ones that update later. No code.</p></div>
+    <div class="fd-top">
+      <div class="imap rv" id="imap">
+        <div class="imap-h"><span class="mono">Integration map · example</span><div class="cov"><span><i></i>Proven</span><span><i class="r"></i>Failing</span><span><i class="d"></i>No flow yet</span></div></div>
+        <svg viewBox="0 0 480 290" role="group" aria-label="Example integration map">
+  <g class="lks">
+    <g class="lk" data-c="g" tabindex="0" role="button" data-t="Your app → Screening" data-d="API · within seconds · last 1 min 10 s" data-r="Proven" aria-label="Your app to Screening, proven"><path class="hit" d="M126 136 C155 136 152 37 181 37"/><path class="ln" d="M126 136 C155 136 152 37 181 37"/><path class="fl" d="M126 136 C155 136 152 37 181 37"/></g>
+    <g class="lk" data-c="g" tabindex="0" role="button" data-t="Your app → Core system" data-d="API · immediate · last 4 s" data-r="Proven" aria-label="Your app to Core system, proven"><path class="hit" d="M126 150 H181"/><path class="ln" d="M126 150 H181"/><path class="fl" d="M126 150 H181"/></g>
+    <g class="lk" data-c="r" tabindex="0" role="button" data-t="Core system → CRM" data-d="Sync job · within 30 min · slowest 41 min" data-r="Failing" aria-label="Core system to CRM, failing"><path class="hit" d="M299 138 C327 138 326 83 354 83"/><path class="ln" d="M299 138 C327 138 326 83 354 83"/><path class="fl" d="M299 138 C327 138 326 83 354 83"/></g>
+    <g class="lk" data-c="g" tabindex="0" role="button" data-t="Core system → Notifications" data-d="Message queue · within 5 min · last 40 s" data-r="Proven" aria-label="Core system to Notifications, proven"><path class="hit" d="M299 160 C327 160 326 207 354 207"/><path class="ln" d="M299 160 C327 160 326 207 354 207"/><path class="fl" d="M299 160 C327 160 326 207 354 207"/></g>
+    <g class="lk" data-c="d" tabindex="0" role="button" data-t="Core system → Payments" data-d="After the end-of-day job · a person checks" data-r="No flow yet" aria-label="Core system to Payments, no flow yet"><path class="hit" d="M240 173 V230"/><path class="ln" d="M240 173 V230"/><path class="fl" d="M240 173 V230"/></g>
+    <g class="lk" data-c="d" tabindex="0" role="button" data-t="CRM → Notifications" data-d="Nightly batch · after 02:00" data-r="No flow yet" aria-label="CRM to Notifications, no flow yet"><path class="hit" d="M413 106 V184"/><path class="ln" d="M413 106 V184"/><path class="fl" d="M413 106 V184"/></g>
+  </g>
+  <g class="nd"><rect x="8" y="122" width="118" height="50" rx="12"/><text x="22" y="143">Your app</text><text class="s" x="22" y="160">SCREEN</text></g>
+  <g class="nd"><rect x="181" y="12" width="118" height="50" rx="12"/><text x="195" y="33">Screening</text><text class="s" x="195" y="50">API</text></g>
+  <g class="nd"><rect x="181" y="122" width="118" height="50" rx="12"/><text x="195" y="143">Core system</text><text class="s" x="195" y="160">API</text></g>
+  <g class="nd"><rect x="181" y="230" width="118" height="50" rx="12"/><text x="195" y="251">Payments</text><text class="s" x="195" y="268">PERSON</text></g>
+  <g class="nd"><rect x="354" y="58" width="118" height="50" rx="12"/><text x="368" y="79">CRM</text><text class="s" x="368" y="96">DATABASE</text></g>
+  <g class="nd"><rect x="354" y="182" width="118" height="50" rx="12"/><text x="368" y="203">Notifications</text><text class="s" x="368" y="220">QUEUE</text></g>
+</svg>
+        <div class="imap-cap" aria-live="polite"><span><b id="imT">Core system → CRM</b><br><span id="imD">Sync job · within 30 min · slowest 41 min</span></span><span class="tag t-red" id="imR">Failing</span></div>
+      </div>
+      <div class="fd-pts stg rv">
+        <div><span class="m-n">01</span><b>Integration map</b><small>Which systems talk, how, and how fast they should. Agents draft it; your QA lead approves.</small></div>
+        <div><span class="m-n">02</span><b>Flow designer</b><small>One column per system. Six blocks. Values pass from block to block.</small></div>
+        <div><span class="m-n">03</span><b>Every hop timed</b><small>On time, late, not arrived, arrived wrong or twice. With evidence, at 0 AI credits per run.</small></div>
+      </div>
+    </div>
+    <div class="fd rv" id="fd">
+      <ol class="fd-l" role="tablist" aria-label="Flow building blocks"><li class="mlab" role="presentation">Six building blocks</li><li role="presentation"><button type="button" role="tab" data-k="do" aria-selected="true"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5v15l12-7.5L7 4.5Z"/></svg></span><b>Do</b><small>An action in a system</small></button></li><li role="presentation"><button type="button" role="tab" data-k="wait" aria-selected="false"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 1.6M9.5 2.5h5"/></svg></span><b>Wait</b><small>Until something has happened</small></button></li><li role="presentation"><button type="button" role="tab" data-k="check" aria-selected="false"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.3 12.2 2.5 2.5 5-5"/></svg></span><b>Check</b><small>Read a value and test it</small></button></li><li role="presentation"><button type="button" role="tab" data-k="cmp" aria-selected="false"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="7" height="15" rx="1.5"/><rect x="13.5" y="4.5" width="7" height="15" rx="1.5"/><path d="M6 9h2M6 12h2M16 9h2M16 12h2"/></svg></span><b>Compare</b><small>Match fields across two systems</small></button></li><li role="presentation"><button type="button" role="tab" data-k="person" aria-selected="false"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg></span><b>Person task</b><small>When no automated access exists</small></button></li><li role="presentation"><button type="button" role="tab" data-k="if" aria-selected="false"><span class="bk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5v17M6 9.5c0 3 2.5 4.5 6 4.5h6.5"/><path d="m16 11.5 2.5 2.5-2.5 2.5"/></svg></span><b>If / else</b><small>Branch on a result</small></button></li></ol>
+      <div class="fd-r" aria-live="polite"><div class="fd-p on" data-k="do" role="tabpanel"><span class="fd-k">Block 01</span><h3>Do</h3><p>Fill a screen, call an API, drop a file or publish a message. Capture what you need for later.</p><div class="fd-ex"><div class="fd-ex-h"><b>Do · Your app</b><span>Example setting</span></div><dl><dt>System</dt><dd>Your app · screen</dd><dt>Action</dt><dd>Submit an application</dd><dt>Inputs</dt><dd>Synthetic test data</dd><dt>Captures</dt><dd>applicationId</dd><dt>Time limit</dt><dd>60 s</dd></dl></div></div><div class="fd-p" data-k="wait" role="tabpanel"><span class="fd-k">Block 02</span><h3>Wait</h3><p>Pause until the update lands. A waiting flow is parked: it holds no runner and resumes on its own.</p><div class="wm" role="group" aria-label="Wait modes"><button type="button" aria-pressed="true">Keep checking</button><button type="button" aria-pressed="false">Wait for a signal</button><button type="button" aria-pressed="false">Resume at a time</button><button type="button" aria-pressed="false">Fixed delay</button></div><div class="fd-ex"><div class="fd-ex-h"><b>Wait · CRM</b><span>Four modes</span></div><div class="wm-p on"><dl><dt>Use when</dt><dd>Near real-time updates</dd><dt>Check every</dt><dd>2 min</dd><dt>Expect within</dt><dd>10 min</dd><dt>Stop at</dt><dd>30 min → Not arrived</dd></dl></div><div class="wm-p"><dl><dt>Use when</dt><dd>Something announces completion</dd><dt>Signal</dt><dd>Job finished · file arrived · message · webhook</dd><dt>Example</dt><dd>Lab result message received</dd><dt>Time limit</dt><dd>6 h → Late</dd></dl></div><div class="wm-p"><dl><dt>Use when</dt><dd>Updates on a schedule</dd><dt>Resume</dt><dd>After the 15:00 cut-off · Dubai time</dd><dt>Calendar</dt><dd>Business days · skip public holidays</dd><dt>Then</dt><dd>Check once</dd></dl></div><div class="wm-p"><dl><dt>Use when</dt><dd>Nothing better is available</dd><dt>Wait</dt><dd>15 min</dd><dt>Then</dt><dd>Check once</dd><dt>Tip</dt><dd>Prefer a signal when one exists</dd></dl></div></div><p class="fd-note">Parked waits run in parallel, for minutes or for days.</p></div><div class="fd-p" data-k="check" role="tabpanel"><span class="fd-k">Block 03</span><h3>Check</h3><p>Read a status, a row, a message or a file, and test it against a rule.</p><div class="fd-ex"><div class="fd-ex-h"><b>Check · Core system</b><span>Example setting</span></div><dl><dt>System</dt><dd>Core system · API</dd><dt>Reads</dt><dd>account.status</dd><dt>Rule</dt><dd>equals "Active"</dd><dt>Uses</dt><dd>applicationId</dd><dt>Captures</dt><dd>accountNumber · masked</dd></dl></div></div><div class="fd-p" data-k="cmp" role="tabpanel"><span class="fd-k">Block 04</span><h3>Compare</h3><p>Field by field, with tolerances. Every difference is listed, never summarised away.</p><div class="fd-ex"><div class="fd-ex-h"><b>Compare · Your app ↔ CRM</b><span>Example setting</span></div><dl><dt>Fields</dt><dd>name · ID number · account</dd><dt>Tolerance</dt><dd>amount ±0.01 · ignore case</dd><dt>Ignore</dt><dd>updatedAt</dd><dt>Result</dt><dd>Arrived wrong shows each difference</dd></dl></div></div><div class="fd-p" data-k="person" role="tabpanel"><span class="fd-k">Block 05</span><h3>Person task</h3><p>A named person does the step and attaches evidence. The flow waits for them.</p><div class="fd-ex"><div class="fd-ex-h"><b>Person task · Payments</b><span>Example setting</span></div><dl><dt>Assignee</dt><dd>Payments officer</dd><dt>Instructions</dt><dd>Confirm the deposit after the end-of-day job</dd><dt>Due</dt><dd>Next business day 10:00</dd><dt>Evidence</dt><dd>Screenshot or file</dd></dl></div></div><div class="fd-p" data-k="if" role="tabpanel"><span class="fd-k">Block 06</span><h3>If / else</h3><p>Failure paths, retries and alternatives. Prove what happens when a system says no.</p><div class="fd-ex"><div class="fd-ex-h"><b>If / else · Core system</b><span>Example setting</span></div><dl><dt>If</dt><dd>Core system failed</dd><dt>Then</dt><dd>Check the app does not show "Account opened"</dd><dt>Else</dt><dd>Continue to the CRM</dd><dt>Proves</dt><dd>No false success</dd></dl></div></div><div class="fd-bar" aria-hidden="true"><i></i></div></div>
+    </div>
+    <div class="fd-any rv">
+      <span class="mlab">Built for any domain</span>
+      <div class="m-cols">
+        <div><span class="m-n">MESSAGE FORMATS</span><b>Reads the standards</b><small>Pick a field and a rule. The format is handled underneath.</small><div class="m-chips"><span>JSON</span><span>XML</span><span>CSV</span><span>Fixed-width</span><span>ISO 20022</span><span>SWIFT MT</span><span>HL7</span><span>FHIR</span><span>ACORD</span></div></div>
+        <div><span class="m-n">CALENDARS AND TIME ZONES</span><b>Waits that know the clock</b><small>Cut-offs, business days and holidays your admin defines.</small><div class="m-chips a"><span>After the 15:00 cut-off · Dubai</span><span>Next business day 08:00</span><span>Skip public holidays</span></div></div>
+        <div><span class="m-n">MASKED BY DEFAULT</span><b>Sensitive data stays hidden</b><small>Names, ID, account and card numbers, patient details: masked in screenshots, logs and evidence.</small><div class="m-chips g"><span>Account ····4821</span><span>Synthetic test data</span><span>Approver sees what was masked</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt" id="trace">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">Trace chain</p><h2>Requirement to go/no-go.<br>Every link kept.</h2><p>An auditor can start at a signature and walk back to the sentence in the BRD.</p></div>
     <div class="rv" id="tr">
@@ -496,7 +622,7 @@ pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;lin
   </div>
 </section>
 
-<section class="m-sec m-alt" id="trust">
+<section class="m-sec" id="trust">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">Trust and security</p><h2>Built for banks, governments and regulated releases.</h2><p>Designed in from day one. Certifications are targets, and we say so.</p></div>
     <div class="ts-lead rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/><path d="M4 20L20 4"/></svg><div><b>Live app only. No code access.</b><small>We test the running app and its integrations. Your code stays with your team.</small></div></div>
@@ -514,7 +640,7 @@ pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;lin
   </div>
 </section>
 
-<section class="m-sec" id="deploy">
+<section class="m-sec m-alt" id="deploy">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">Deployment</p><h2>Run it where your data<br>is allowed to live.</h2><p>Same product everywhere. Live app only, no code access.</p></div>
     <div class="dp rv" id="dp">
@@ -569,7 +695,7 @@ pre.code{margin:0;padding:18px 20px;font-family:var(--mono);font-size:12.5px;lin
   </div>
 </section>
 
-<section class="m-sec m-alt" id="open">
+<section class="m-sec" id="open">
   <div class="wrap op">
     <div>
       <div class="m-head rv"><p class="eyebrow">Open by design</p><h2>Your tests and evidence stay yours.</h2><p>Read it, push it, export it. Your application code is never needed.</p></div>
@@ -684,6 +810,29 @@ var dp=document.getElementById('dp');if(dp){
   db.forEach(function(b,k){b.addEventListener('click',function(){sh(k);c4.reset();});});
   sh(0);
 }
+})();
+</script>
+<script>
+(function(){var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* integration map: links cycle, click or focus to inspect */
+var im=document.getElementById('imap');if(im){var lks=[].slice.call(im.querySelectorAll('.lk')),T=document.getElementById('imT'),Dd=document.getElementById('imD'),R=document.getElementById('imR'),i=2,hold=false,vis=true;
+ var C={g:'t-green',r:'t-red',d:'t-gray'};
+ function sel(n){i=n;lks.forEach(function(l,k){l.classList.toggle('on',k===n);});var l=lks[n];T.textContent=l.getAttribute('data-t');Dd.textContent=l.getAttribute('data-d');R.textContent=l.getAttribute('data-r');R.className='tag '+C[l.getAttribute('data-c')];}
+ lks.forEach(function(l,k){l.addEventListener('click',function(){sel(k);});l.addEventListener('mouseenter',function(){hold=true;sel(k);});l.addEventListener('mouseleave',function(){hold=false;});l.addEventListener('focus',function(){sel(k);});l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sel(k);}});});
+ sel(2);if(!red){if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;}).observe(im);setInterval(function(){if(!hold&&vis&&!document.hidden)sel((i+1)%lks.length);},3000);}}
+/* flow designer: block palette drives the right panel */
+var fd=document.getElementById('fd');if(fd){var bs=[].slice.call(fd.querySelectorAll('.fd-l button')),ps=[].slice.call(fd.querySelectorAll('.fd-p')),bar=fd.querySelector('.fd-bar i'),j=0,t0=Date.now(),h=false,on=true,D=4600,stop=false;
+ function show(n){j=n;bs.forEach(function(b,k){b.setAttribute('aria-selected',k===n?'true':'false');});ps.forEach(function(p,k){p.classList.toggle('on',k===n);});t0=Date.now();bar.style.width='0';}
+ bs.forEach(function(b,k){b.addEventListener('click',function(){show(k);stop=true;});});
+ fd.addEventListener('mouseenter',function(){h=true;});fd.addEventListener('mouseleave',function(){h=false;t0=Date.now();});fd.addEventListener('focusin',function(){h=true;});fd.addEventListener('focusout',function(){h=false;t0=Date.now();});
+ /* wait modes */
+ var wb=[].slice.call(fd.querySelectorAll('.wm button')),wp=[].slice.call(fd.querySelectorAll('.wm-p')),w=0;
+ function mode(n){w=n;wb.forEach(function(b,k){b.setAttribute('aria-pressed',k===n?'true':'false');});wp.forEach(function(p,k){p.classList.toggle('on',k===n);});}
+ wb.forEach(function(b,k){b.addEventListener('click',function(){mode(k);stop=true;});});
+ if(!red){if('IntersectionObserver' in window)new IntersectionObserver(function(e){on=e[0].isIntersecting;}).observe(fd);
+  setInterval(function(){if(stop||h||!on||document.hidden)return;var p=(Date.now()-t0)/D;bar.style.width=Math.min(100,p*100)+'%';
+   if(j===1&&p>=.24*(w+1)&&w<3)mode(w+1);
+   if(p>=1){var nx=(j+1)%bs.length;if(nx===1)mode(0);show(nx);}},60);}}
 })();
 </script>
 <script src="config.js"></script>

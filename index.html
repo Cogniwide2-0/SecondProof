@@ -337,6 +337,44 @@
 .qa p a{color:var(--tx-blue);font-weight:600;white-space:nowrap;text-decoration:none}.qa p a:hover{text-decoration:underline}
 @media (prefers-reduced-motion:no-preference){.qa[open] p{animation:qaIn .3s ease-out}@keyframes qaIn{from{opacity:0;transform:translateY(-4px)}}}
 @media (max-width:900px){.qa-wrap{grid-template-columns:1fr;gap:24px}.qa-wrap .m-head{position:static}.qa p{padding:0 0 20px 52px}}
+
+/* v84 · end-to-end flows swimlane */
+.e2e{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:64px;align-items:center}
+.e2e .m-head{margin-bottom:0}
+.e2e .m-head h2{font-size:clamp(32px,3.7vw,50px)}
+.sl-hops{list-style:none;margin:28px 0 0;padding:0;display:grid}
+.sl-hops li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink2);transition:opacity .4s}
+.sl-hops li:last-child{border-bottom:1px solid var(--line)}
+.sl-hops li i{width:9px;height:9px;border-radius:50%;background:var(--line2);transition:background .4s,box-shadow .4s}
+.sl-hops li b{font:600 13.5px var(--body);color:var(--ink3);white-space:nowrap;transition:color .4s}
+.sl-hops li:not(.on){opacity:.55}
+.sl-hops li.on[data-c="g"] i{background:var(--green);box-shadow:0 0 10px var(--green)}.sl-hops li.on[data-c="g"] b{color:var(--tx-green)}
+.sl-hops li.on[data-c="a"] i{background:var(--amber);box-shadow:0 0 10px var(--amber)}.sl-hops li.on[data-c="a"] b{color:var(--tx-amber)}
+.sl-hops li.on[data-c="r"] i{background:var(--red);box-shadow:0 0 10px var(--red)}.sl-hops li.on[data-c="r"] b{color:var(--tx-red)}
+.sl{position:relative;border:1px solid var(--line2);border-radius:22px;background:linear-gradient(180deg,rgba(var(--s2),.6),rgba(var(--s1),.5));padding:0 0 12px;overflow:hidden;min-width:0}
+.sl-h{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.sl-h span{padding:13px 12px;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-left:1px dashed var(--line2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sl-h span:first-child{border-left:0}
+.sl-g{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-top:6px;background-image:linear-gradient(90deg,transparent calc(25% - 1px),var(--line) calc(25% - 1px),var(--line) 25%,transparent 25%,transparent calc(50% - 1px),var(--line) calc(50% - 1px),var(--line) 50%,transparent 50%,transparent calc(75% - 1px),var(--line) calc(75% - 1px),var(--line) 75%,transparent 75%)}
+.sl-b{grid-column:var(--c);grid-row:var(--r);margin:5px 8px;padding:9px 11px;border-radius:12px;border:1px solid var(--line2);background:var(--surface);display:flex;flex-direction:column;gap:1px;min-width:0;opacity:.5;transition:opacity .4s,border-color .4s,box-shadow .4s,transform .4s}
+.sl-b em{font:500 10px var(--mono);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--k)}
+.sl-b b{font:700 13.5px/1.25 var(--display);letter-spacing:-.01em}
+.sl-b small{font-size:12px;color:var(--ink3);line-height:1.3}
+.sl-b .sl-s{display:none}
+.sl-b[data-k="do"]{--k:var(--tx-blue);--kr:76,141,255}.sl-b[data-k="wait"]{--k:var(--tx-amber);--kr:245,166,91}.sl-b[data-k="check"]{--k:var(--tx-green);--kr:95,211,154}.sl-b[data-k="cmp"]{--k:var(--tx-violet);--kr:169,139,255}
+.sl-b.on{opacity:1;border-color:rgba(var(--kr),.8);box-shadow:0 0 0 4px rgba(var(--kr),.14),0 12px 28px var(--shadow);transform:translateY(-1px)}
+.sl-b.done{opacity:1}
+.sl-r{align-self:flex-start;margin-top:5px;font:600 11px var(--body);padding:2px 8px;border-radius:999px;opacity:0;transform:translateY(3px);transition:opacity .35s,transform .35s;white-space:nowrap}
+.sl-b.done .sl-r{opacity:1;transform:none}
+.sl-r.g{background:rgba(95,211,154,.14);color:var(--tx-green)}.sl-r.a{background:rgba(245,166,91,.16);color:var(--tx-amber)}.sl-r.r{background:rgba(255,122,127,.16);color:var(--tx-red)}.sl-r.v{background:rgba(169,139,255,.16);color:var(--tx-violet)}
+.sl-n{font:500 11px var(--mono);color:var(--tx-amber)}
+.sl-tk{position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;border:3px solid #4C8DFF;box-shadow:0 0 0 5px rgba(76,141,255,.3),0 0 22px #4C8DFF;z-index:2;transition:left .7s cubic-bezier(.65,0,.25,1),top .7s cubic-bezier(.65,0,.25,1),border-color .3s,box-shadow .3s;pointer-events:none}
+.sl-tk.p{border-color:var(--amber);box-shadow:0 0 0 5px rgba(245,166,91,.3),0 0 22px var(--amber)}
+.sl-f{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px 0;margin-top:6px;border-top:1px solid var(--line);font:500 11px var(--mono);letter-spacing:.06em;color:var(--ink3)}
+.sl-f b{color:var(--tx-amber);font-weight:500}
+@media (prefers-reduced-motion:no-preference){.sl-b.pk.on{animation:slpk 1.6s ease-in-out infinite}@keyframes slpk{50%{box-shadow:0 0 0 9px rgba(245,166,91,.06),0 12px 28px var(--shadow)}}}
+@media (max-width:1020px){.e2e{grid-template-columns:1fr;gap:40px}}
+@media (max-width:640px){.sl-h{display:none}.sl-g{grid-template-columns:1fr;background:none;padding-top:8px}.sl-b{grid-column:1;grid-row:auto;margin:4px 10px}.sl-b .sl-s{display:inline;color:var(--ink3)}.sl-tk{display:none}.sl-hops li{grid-template-columns:12px minmax(0,1fr);row-gap:2px}.sl-hops li b{grid-column:2;white-space:normal}}
 </style>
 
 </head>
@@ -381,7 +419,34 @@
   </div>
 </section>
 
-<section class="m-sec">
+<section class="m-sec" id="flows">
+  <div class="wrap e2e">
+    <div class="rv">
+      <div class="m-head"><p class="eyebrow">End-to-end flows</p><h2>Every hop, proven.<br>Even the ones that sync later.</h2><p>One business flow across your systems. Batches, queues and nightly jobs included.</p></div>
+      <ul class="sl-hops" id="slHops" aria-label="Example hop results">
+        <li data-at="1" data-c="g"><i></i><span>Your app → Core system</span><b>On time · 4 s</b></li>
+        <li data-at="2" data-c="a"><i></i><span>Core system → CRM</span><b>Late · 41 min vs 30</b></li>
+        <li data-at="5" data-c="r"><i></i><span>Core system → Notifications</span><b>Arrived twice · caught</b></li>
+      </ul>
+      <a class="more" href="platform.html#flows">See the flow designer <span>→</span></a>
+    </div>
+    <div class="sl rv" id="sl" role="img" aria-label="Example flow across four systems: Do in your app, Check in the core system, Wait in the CRM by checking every 5 minutes within 30 minutes, Compare the CRM with the app, a parked Wait that resumes at 02:30, then a Check in notifications. Results: on time, late 41 minutes against 30, and a duplicate message caught.">
+      <div class="sl-h" aria-hidden="true"><span>Your app</span><span>Core system</span><span>CRM</span><span>Notifications</span></div>
+      <div class="sl-g" aria-hidden="true">
+        <i class="sl-tk"></i>
+        <div class="sl-b" data-k="do" style="--c:1;--r:1"><em>Do <span class="sl-s">· Your app</span></em><b>Submit application</b><small>captures applicationId</small><span class="sl-r g">Passed</span></div>
+        <div class="sl-b" data-k="check" style="--c:2;--r:2"><em>Check <span class="sl-s">· Core system</span></em><b>Account exists</b><small>for applicationId</small><span class="sl-r g">On time · 4 s</span></div>
+        <div class="sl-b" data-k="wait" style="--c:3;--r:3"><em>Wait <span class="sl-s">· CRM</span></em><b>⏱ Keep checking</b><small>within 30 min · <span class="sl-n" id="slN">every 5 min</span></small><span class="sl-r a">Late · 41 vs 30</span></div>
+        <div class="sl-b" data-k="cmp" style="--c:3;--r:4"><em>Compare <span class="sl-s">· CRM</span></em><b>Name, ID, account</b><small>app ↔ CRM</small><span class="sl-r g">All match</span></div>
+        <div class="sl-b pk" data-k="wait" style="--c:4;--r:5"><em>Wait <span class="sl-s">· Notifications</span></em><b>☾ Parked</b><small>resumes 02:30 · holds no runner</small><span class="sl-r v">Resumed 02:30</span></div>
+        <div class="sl-b" data-k="check" style="--c:4;--r:6"><em>Check <span class="sl-s">· Notifications</span></em><b>Welcome message</b><small>once per customer</small><span class="sl-r r">Arrived twice</span></div>
+      </div>
+      <div class="sl-f" aria-hidden="true"><span>FLOW · NEW CUSTOMER · EXAMPLE</span><span>0 AI CREDITS PER RUN</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="m-sec m-alt">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">The AI QA team</p><h2>Eight specialists.<br>People sign.</h2><p>They never wrote the code they test.</p><a class="more" href="agents.html">Meet the team <span>→</span></a></div>
     <div class="rg rv" id="rg">
@@ -396,7 +461,7 @@
   </div>
 </section>
 
-<section class="m-sec m-alt" id="product">
+<section class="m-sec" id="product">
   <div class="wrap m-split">
     <div class="m-head rv"><p class="eyebrow">SecondProof Product</p><h2>For the product<br>you keep building.</h2><p>Every feature remembered: planned, shipped, last proven.</p>
       <div class="m-chips"><span>Feature catalogue</span><span>Roadmap readiness</span><span>Docs check</span><span>Regression memory</span></div>
@@ -411,7 +476,7 @@
   </div>
 </section>
 
-<section class="m-sec">
+<section class="m-sec m-alt">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">Use cases</p><h2>Where it earns its keep.</h2></div>
     <div class="ux rv" id="ux"><ol class="ux-l" role="tablist"><li><button type="button" data-i="0" aria-selected="true"><span class="ux-k">01</span>Apps built with AI</button></li><li><button type="button" data-i="1" aria-selected="false"><span class="ux-k">02</span>Product teams</button></li><li><button type="button" data-i="2" aria-selected="false"><span class="ux-k">03</span>Platform updates</button></li><li><button type="button" data-i="3" aria-selected="false"><span class="ux-k">04</span>AI launches</button></li><li><button type="button" data-i="4" aria-selected="false"><span class="ux-k">05</span>Data migration</button></li><li><button type="button" data-i="5" aria-selected="false"><span class="ux-k">06</span>Regulated releases</button></li></ol><div class="ux-r"><a class="ux-p on" data-i="0" href="use-cases.html#uc-aibuilt" data-c="red"><span class="ux-big">200+</span><span class="ux-t">issues found by hand in an app that passed its own tests</span><span class="ux-go">See the use case →</span></a><a class="ux-p" data-i="1" href="use-cases.html#uc-product" data-c="amber"><span class="ux-big">4</span><span class="ux-t">releases since “Bill payments” was last proven. Now flagged.</span><span class="ux-go">See the use case →</span></a><a class="ux-p" data-i="2" href="use-cases.html#ep" data-c="blue"><span class="ux-big">212</span><span class="ux-t">of 1,180 SAP tests to run for one support package</span><span class="ux-go">See the use case →</span></a><a class="ux-p" data-i="3" href="use-cases.html#uc-ai" data-c="violet"><span class="ux-big">0</span><span class="ux-t">prompt injections let through by the AI quality gate</span><span class="ux-go">See the use case →</span></a><a class="ux-p" data-i="4" href="use-cases.html#uc-migration" data-c="green"><span class="ux-big">1.2 bn</span><span class="ux-t">rows reconciled, source to target, before cut-over</span><span class="ux-go">See the use case →</span></a><a class="ux-p" data-i="5" href="use-cases.html#uc-regulated" data-c="blue"><span class="ux-big">1</span><span class="ux-t">signed go/no-go with every waiver and its reason</span><span class="ux-go">See the use case →</span></a><div class="ux-bar" aria-hidden="true"><i></i></div></div></div>
@@ -419,7 +484,7 @@
   </div>
 </section>
 
-<section class="m-sec m-alt" id="packs">
+<section class="m-sec" id="packs">
   <div class="wrap">
     <div class="m-head rv"><p class="eyebrow">SecondProof Enterprise</p><h2>Platform update?<br>Test only what it touches.</h2></div>
     <div class="m-pks stg"><a class="m-pk" href="products.html#pack-sap"><span class="lg lgx" data-logo="sap" data-size="38"></span><b>SAP</b><small>212 of 1,180 tests</small></a><a class="m-pk" href="products.html#pack-oracle"><span class="lg lgx" data-logo="oracle" data-size="38"></span><b>Oracle</b><small>186 of 1,240</small></a><a class="m-pk" href="products.html#pack-salesforce"><span class="lg lgx" data-logo="salesforce" data-size="38"></span><b>Salesforce</b><small>146 of 980</small></a><a class="m-pk" href="products.html#pack-servicenow"><span class="lg lgx" data-logo="servicenow" data-size="38"></span><b>ServiceNow</b><small>60 + your ATF</small></a><a class="m-pk" href="products.html#pack-dynamics"><span class="lg lgx" data-logo="dynamics365" data-size="38"></span><b>Dynamics 365</b><small>138 of 960</small></a><a class="m-pk" href="products.html#pack-workday"><span class="lg lgx" data-logo="workday" data-size="38"></span><b>Workday</b><small>128 of 720</small></a></div>
@@ -427,7 +492,7 @@
   </div>
 </section>
 
-<section class="m-sec" style="overflow:hidden">
+<section class="m-sec m-alt" style="overflow:hidden">
   <div class="wrap"><div class="m-head rv"><p class="eyebrow">Integrations</p><h2>Fits the stack you run.</h2><p>Results land where your teams already work.</p></div></div>
   <div class="mq" aria-label="Integrations"><div class="track"><span><em class="lg" data-logo="jira" data-size="18"></em>Jira<i>ALM</i></span><span><em class="lg" data-logo="azuredevops" data-size="18"></em>Azure DevOps<i>ALM</i></span><span><em class="lg" data-logo="confluence" data-size="18"></em>Confluence<i>Docs</i></span><span><em class="lg" data-logo="sharepoint" data-size="18"></em>SharePoint<i>Docs</i></span><span><em class="lg" data-logo="xray" data-size="18"></em>Xray<i>Tests</i></span><span><em class="lg" data-logo="testrail" data-size="18"></em>TestRail<i>Tests</i></span><span><em class="lg" data-logo="zephyr" data-size="18"></em>Zephyr<i>Tests</i></span><span><em class="lg" data-logo="excel" data-size="18"></em>Excel<i>Tests</i></span><span><em class="lg" data-logo="github" data-size="18"></em>GitHub<i>Code</i></span><span><em class="lg" data-logo="gitlab" data-size="18"></em>GitLab<i>Code</i></span><span><em class="lg" data-logo="bitbucket" data-size="18"></em>Bitbucket<i>Code</i></span><span><em class="lg" data-logo="jenkins" data-size="18"></em>Jenkins<i>CI/CD</i></span><span><em class="lg" data-logo="azurepipelines" data-size="18"></em>Azure Pipelines<i>CI/CD</i></span><span><em class="lg" data-logo="sonarqube" data-size="18"></em>SonarQube<i>Quality</i></span><span><em class="lg" data-logo="slack" data-size="18"></em>Slack<i>Chat</i></span><span><em class="lg" data-logo="teams" data-size="18"></em>Microsoft Teams<i>Chat</i></span><span><em class="lg" data-logo="jira" data-size="18"></em>Jira<i>ALM</i></span><span><em class="lg" data-logo="azuredevops" data-size="18"></em>Azure DevOps<i>ALM</i></span><span><em class="lg" data-logo="confluence" data-size="18"></em>Confluence<i>Docs</i></span><span><em class="lg" data-logo="sharepoint" data-size="18"></em>SharePoint<i>Docs</i></span><span><em class="lg" data-logo="xray" data-size="18"></em>Xray<i>Tests</i></span><span><em class="lg" data-logo="testrail" data-size="18"></em>TestRail<i>Tests</i></span><span><em class="lg" data-logo="zephyr" data-size="18"></em>Zephyr<i>Tests</i></span><span><em class="lg" data-logo="excel" data-size="18"></em>Excel<i>Tests</i></span><span><em class="lg" data-logo="github" data-size="18"></em>GitHub<i>Code</i></span><span><em class="lg" data-logo="gitlab" data-size="18"></em>GitLab<i>Code</i></span><span><em class="lg" data-logo="bitbucket" data-size="18"></em>Bitbucket<i>Code</i></span><span><em class="lg" data-logo="jenkins" data-size="18"></em>Jenkins<i>CI/CD</i></span><span><em class="lg" data-logo="azurepipelines" data-size="18"></em>Azure Pipelines<i>CI/CD</i></span><span><em class="lg" data-logo="sonarqube" data-size="18"></em>SonarQube<i>Quality</i></span><span><em class="lg" data-logo="slack" data-size="18"></em>Slack<i>Chat</i></span><span><em class="lg" data-logo="teams" data-size="18"></em>Microsoft Teams<i>Chat</i></span></div></div>
   <div class="mq rev" aria-hidden="true"><div class="track"><span><em class="lg" data-logo="sap" data-size="18"></em>SAP S/4HANA<i>Pack</i></span><span><em class="lg" data-logo="oracle" data-size="18"></em>Oracle Fusion<i>Pack</i></span><span><em class="lg" data-logo="salesforce" data-size="18"></em>Salesforce<i>Pack</i></span><span><em class="lg" data-logo="servicenow" data-size="18"></em>ServiceNow<i>Pack</i></span><span><em class="lg" data-logo="dynamics365" data-size="18"></em>Dynamics 365<i>Pack</i></span><span><em class="lg" data-logo="workday" data-size="18"></em>Workday<i>Pack</i></span><span><em class="lg" data-logo="sap" data-size="18"></em>SAP Cloud ALM<i>ALM</i></span><span><em class="lg" data-logo="browserstack" data-size="18"></em>BrowserStack<i>Devices</i></span><span><em class="lg" data-logo="saucelabs" data-size="18"></em>Sauce Labs<i>Devices</i></span><span><em class="lg" data-logo="devicefarm" data-size="18"></em>AWS Device Farm<i>Devices</i></span><span><em class="lg" data-logo="entra" data-size="18"></em>Entra ID<i>SSO</i></span><span><em class="lg" data-logo="okta" data-size="18"></em>Okta<i>SSO</i></span><span><em class="lg" data-logo="vault" data-size="18"></em>HashiCorp Vault<i>Secrets</i></span><span><em class="lg" data-logo="datadog" data-size="18"></em>Datadog<i>APM</i></span><span><em class="lg" data-logo="dynatrace" data-size="18"></em>Dynatrace<i>APM</i></span><span><em class="lg" data-logo="snowflake" data-size="18"></em>Snowflake<i>Data</i></span><span><em class="lg" data-logo="postman" data-size="18"></em>Postman<i>API</i></span><span><em class="lg" data-logo="openapi" data-size="18"></em>OpenAPI<i>API</i></span><span><em class="lg" data-logo="sap" data-size="18"></em>SAP S/4HANA<i>Pack</i></span><span><em class="lg" data-logo="oracle" data-size="18"></em>Oracle Fusion<i>Pack</i></span><span><em class="lg" data-logo="salesforce" data-size="18"></em>Salesforce<i>Pack</i></span><span><em class="lg" data-logo="servicenow" data-size="18"></em>ServiceNow<i>Pack</i></span><span><em class="lg" data-logo="dynamics365" data-size="18"></em>Dynamics 365<i>Pack</i></span><span><em class="lg" data-logo="workday" data-size="18"></em>Workday<i>Pack</i></span><span><em class="lg" data-logo="sap" data-size="18"></em>SAP Cloud ALM<i>ALM</i></span><span><em class="lg" data-logo="browserstack" data-size="18"></em>BrowserStack<i>Devices</i></span><span><em class="lg" data-logo="saucelabs" data-size="18"></em>Sauce Labs<i>Devices</i></span><span><em class="lg" data-logo="devicefarm" data-size="18"></em>AWS Device Farm<i>Devices</i></span><span><em class="lg" data-logo="entra" data-size="18"></em>Entra ID<i>SSO</i></span><span><em class="lg" data-logo="okta" data-size="18"></em>Okta<i>SSO</i></span><span><em class="lg" data-logo="vault" data-size="18"></em>HashiCorp Vault<i>Secrets</i></span><span><em class="lg" data-logo="datadog" data-size="18"></em>Datadog<i>APM</i></span><span><em class="lg" data-logo="dynatrace" data-size="18"></em>Dynatrace<i>APM</i></span><span><em class="lg" data-logo="snowflake" data-size="18"></em>Snowflake<i>Data</i></span><span><em class="lg" data-logo="postman" data-size="18"></em>Postman<i>API</i></span><span><em class="lg" data-logo="openapi" data-size="18"></em>OpenAPI<i>API</i></span></div></div>
@@ -551,7 +616,7 @@
 <section class="m-sec m-alt" id="questions">
   <div class="wrap qa-wrap">
     <div class="m-head rv"><p class="eyebrow">Straight answers</p><h2>Questions we<br>hear first.</h2><p>One line each.</p></div>
-    <div class="qa-list rv"><details class="qa" open><summary><span class="qa-n">01</span><b>How is this different from AI testing tools?</b><i aria-hidden="true"></i></summary><p>Those help your team test faster. We are independent: we never see your code, we test the live app, and your people sign the go/no-go. <a href="platform.html">How it works →</a></p></details><details class="qa"><summary><span class="qa-n">02</span><b>You use AI to check AI. Who checks yours?</b><i aria-hidden="true"></i></summary><p>A second agent re-checks every failure, our engines re-run every test, and nothing moves forward without a person’s approval. <a href="agents.html#verify">Second-agent verification →</a></p></details><details class="qa"><summary><span class="qa-n">03</span><b>Is this a product or a service?</b><i aria-hidden="true"></i></summary><p>Start with a 5-day assurance. We run it with you, and the platform stays when you are ready. <a href="value.html#aiba">AI Build Assurance →</a></p></details><details class="qa"><summary><span class="qa-n">04</span><b>What proof do you have?</b><i aria-hidden="true"></i></summary><p>On one AI-built app, our testers found 200+ issues in integrations and inside the app, before it reached production. <a href="use-cases.html#uc-aibuilt">Apps built with AI →</a></p></details><details class="qa"><summary><span class="qa-n">05</span><b>Do you need our code or production data?</b><i aria-hidden="true"></i></summary><p>No. We test the running app and its integrations, inside your network if needed, and data stays where you are allowed to keep it. <a href="platform.html#trust">Security and trust →</a></p></details><details class="qa"><summary><span class="qa-n">06</span><b>What does it take to start?</b><i aria-hidden="true"></i></summary><p>One application, a BRD or a brief, and 5 days. You get a signed go/no-go with evidence. <a href="value.html#contact">Start a pilot →</a></p></details></div>
+    <div class="qa-list rv"><details class="qa" open><summary><span class="qa-n">01</span><b>How is this different from AI testing tools?</b><i aria-hidden="true"></i></summary><p>Those help your team test faster. We are independent: we never see your code, we test the live app, and your people sign the go/no-go. <a href="platform.html">How it works →</a></p></details><details class="qa"><summary><span class="qa-n">02</span><b>You use AI to check AI. Who checks yours?</b><i aria-hidden="true"></i></summary><p>A second agent re-checks every failure, our engines re-run every test, and nothing moves forward without a person’s approval. <a href="agents.html#verify">Second-agent verification →</a></p></details><details class="qa"><summary><span class="qa-n">03</span><b>Is this a product or a service?</b><i aria-hidden="true"></i></summary><p>Start with a 5-day assurance. We run it with you, and the platform stays when you are ready. <a href="value.html#aiba">AI Build Assurance →</a></p></details><details class="qa"><summary><span class="qa-n">04</span><b>What proof do you have?</b><i aria-hidden="true"></i></summary><p>On one AI-built app, our testers found 200+ issues in integrations and inside the app, before it reached production. <a href="use-cases.html#uc-aibuilt">Apps built with AI →</a></p></details><details class="qa"><summary><span class="qa-n">05</span><b>Do you need our code or production data?</b><i aria-hidden="true"></i></summary><p>No. We test the running app and its integrations, inside your network if needed, and data stays where you are allowed to keep it. <a href="platform.html#trust">Security and trust →</a></p></details><details class="qa"><summary><span class="qa-n">06</span><b>What does it take to start?</b><i aria-hidden="true"></i></summary><p>One application, a BRD or a brief, and 5 days. You get a signed go/no-go with evidence. <a href="value.html#contact">Start a pilot →</a></p></details><details class="qa"><summary><span class="qa-n">07</span><b>What about systems that update later, like batches, queues and nightly jobs?</b><i aria-hidden="true"></i></summary><p>Flows wait for them. A wait parks until the signal, the time or the cut-off, then every hop is checked and timed. <a href="platform.html#flows">End-to-end flows →</a></p></details></div>
   </div>
 </section>
 
@@ -609,6 +674,23 @@ function go(n){as.forEach(function(a){a.classList.remove('on');});void hs.offset
 function tick(){clearTimeout(t);t=setTimeout(function(){if(!hold&&!document.hidden)go((i+1)%as.length);tick();},4500);}
 as.forEach(function(a,k){a.addEventListener('mouseenter',function(){hold=true;go(k);});});hs.addEventListener('mouseleave',function(){hold=false;tick();});
 go(0);tick();})();
+</script>
+<script>
+(function(){var sl=document.getElementById('sl');if(!sl)return;var bs=[].slice.call(sl.querySelectorAll('.sl-b')),tk=sl.querySelector('.sl-tk'),g=sl.querySelector('.sl-g'),n=document.getElementById('slN'),hops=[].slice.call(document.querySelectorAll('#slHops li'));
+var red=matchMedia('(prefers-reduced-motion: reduce)').matches,D=[1300,1300,3000,1300,2400,1500],i=-1,t,vis=false,run=false;
+function hop(k){hops.forEach(function(h){h.classList.toggle('on',k>=+h.getAttribute('data-at'));});}
+function place(b){var gr=g.getBoundingClientRect(),r=b.getBoundingClientRect();tk.style.left=(r.left-gr.left)+'px';tk.style.top=(r.top-gr.top+r.height/2)+'px';}
+function reset(){bs.forEach(function(b){b.classList.remove('on','done');});hop(-1);n.textContent='every 5 min';}
+function step(){clearTimeout(t);if(!vis){run=false;return;}run=true;
+  if(i>=0){bs[i].classList.remove('on');bs[i].classList.add('done');hop(i);}
+  i++;if(i>=bs.length){i=-1;t=setTimeout(function(){reset();step();},3200);return;}
+  var b=bs[i];b.classList.add('on');place(b);tk.classList.toggle('p',i===4);
+  if(i===2){var c=0;(function ck(){if(i!==2)return;c++;n.textContent='checked '+c+'×';if(c<8)setTimeout(ck,D[2]/9);else n.textContent='arrived · 41 min';})();}
+  t=setTimeout(step,D[i]);}
+if(red||!('IntersectionObserver' in window)){bs.forEach(function(b){b.classList.add('done');});hop(9);tk.style.display='none';n.textContent='arrived · 41 min';return;}
+place(bs[0]);
+new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!run)step();},{threshold:.35}).observe(sl);
+window.addEventListener('resize',function(){if(i>=0&&i<bs.length)place(bs[i]);});})();
 </script>
 <script src="config.js"></script>
 <script src="logos.js"></script>
